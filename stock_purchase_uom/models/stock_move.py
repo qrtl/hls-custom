@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Copyright 2017 Quartile Limited
+# Copyright 2019 Quartile Limited
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api
 
 
-class StockQuant(models.Model):
-    _inherit = 'stock.quant'
+class StockMove(models.Model):
+    _inherit = 'stock.move'
 
     product_uom_po_id = fields.Many2one(
         'uom.uom', 'Purchase Unit of Measure',
@@ -20,8 +20,8 @@ class StockQuant(models.Model):
     )
 
     @api.multi
-    @api.depends('quantity', 'product_id.uom_po_id')
+    @api.depends('product_uom_qty', 'product_id.uom_po_id')
     def _compute_product_uom_po_qty(self):
-        for quant in self:
-            quant.product_uom_po_qty = quant.product_uom_id._compute_quantity(
-                quant.quantity, quant.product_uom_po_id, round=False)
+        for move in self:
+            move.product_uom_po_qty = move.product_uom._compute_quantity(
+                move.product_uom_qty, move.product_uom_po_id, round=False)
