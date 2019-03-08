@@ -12,10 +12,12 @@
 Adds purchase UoM and the converted qty in stock quant.
     """,
     'depends': [
+        'sale_stock',
         'stock',
     ],
     'data': [
         'views/stock_quant_views.xml',
+        'views/stock_move_views.xml',
     ],
     'installable': True,
 }

@@ -1,0 +1,59 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* stock_purchase_uom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-08 06:44+0000\n"
+"PO-Revision-Date: 2019-03-08 06:44+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_purchase_uom
+#: model_terms:ir.ui.view,arch_db:stock_purchase_uom.view_move_tree
+msgid "Initial Demand"
+msgstr "初期要求"
+
+#. module: stock_purchase_uom
+#: model_terms:ir.ui.view,arch_db:stock_purchase_uom.view_stock_quant_tree
+msgid "Inventory Valuation"
+msgstr "在庫評価"
+
+#. module: stock_purchase_uom
+#: model_terms:ir.ui.view,arch_db:stock_purchase_uom.view_stock_quant_tree
+msgid "On Hand"
+msgstr "手持在庫"
+
+#. module: stock_purchase_uom
+#: model:ir.model.fields,field_description:stock_purchase_uom.field_stock_move__product_uom_po_id
+#: model:ir.model.fields,field_description:stock_purchase_uom.field_stock_quant__product_uom_po_id
+msgid "Purchase Unit of Measure"
+msgstr "購買単位"
+
+#. module: stock_purchase_uom
+#: model:ir.model,name:stock_purchase_uom.model_stock_quant
+msgid "Quants"
+msgstr "保管ロット"
+
+#. module: stock_purchase_uom
+#: model_terms:ir.ui.view,arch_db:stock_purchase_uom.view_stock_quant_tree
+msgid "Reserved"
+msgstr "引当済"
+
+#. module: stock_purchase_uom
+#: model:ir.model,name:stock_purchase_uom.model_stock_move
+msgid "Stock Move"
+msgstr "在庫移動"
+
+#. module: stock_purchase_uom
+#: model:ir.actions.act_window,name:stock_purchase_uom.action_stock_quant
+#: model:ir.ui.menu,name:stock_purchase_uom.menu_stock_quant
+msgid "Stock Quant"
+msgstr "保管ロット"
+
