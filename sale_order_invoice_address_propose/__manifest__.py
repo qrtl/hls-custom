@@ -16,7 +16,6 @@ the sale order if the "Delivery Address" is selected
     ],
     'data': [
         'views/res_partner_views.xml',
-        'views/sale_order_views.xml',
     ],
     'installable': True,
 }
