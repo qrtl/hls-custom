@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_company_form" model="ir.ui.view">
+        <field name="name">view.company.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="report_common_hls.view_company_form"/>
+        <field name="arch" type="xml">
+            <page name="reporting" position="inside">
+                <group string="Accounting" name="accounting">
+                    <field name="bank_info"/>
+                </group>
+            </page>
+        </field>
+    </record>
+
+</odoo>
