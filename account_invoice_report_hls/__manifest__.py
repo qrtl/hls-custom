@@ -11,6 +11,7 @@ Adds an invoice report in desired layout.
     'author': 'Quartile Limited',
     'depends': [
         'account',
+        'l10n_jp_partner_title_qweb',
         'report_common_hls',
         'report_py3o',
     ],
