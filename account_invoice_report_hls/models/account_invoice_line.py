@@ -11,38 +11,23 @@ class AccountInvoiceLine(models.Model):
         'Sales Order Number',
         compute='_compute_sale_order_vals',
     )
-    tax_desc = fields.Char(
-        'Tax Description',
-        compute='_compute_tax_desc',
-    )
     shipping_address_name = fields.Char(
         'Shipping Address Name',
         compute='_compute_sale_order_vals',
     )
+    tax_desc = fields.Char(
+        'Tax Description',
+        compute='_compute_tax_desc',
+    )
 
     def _compute_sale_order_vals(self):
         for line in self:
-            # order_name = ''
-            # sa_name = ''  # shipping address name
             if line.sale_line_ids:
-                # for sl in line.sale_line_ids:
-                #     if not order_name or order_name == sl.order_id.name:
-                #         order_name = sl.order_id.name
-                #     else:
-                #         order_name += ', ' + sl.order_id.name
-                #     if not sa_name or sa_name == \
-                #             sl.order_id.partner_shipping_id.name:
-                #         sa_name = sl.order_id.partner_shipping_id.name
-                #     else:
-                #         sa_name += ', ' + sl.order_id.partner_shipping_id.name
-
-            #     order_name = ', '.join([sl.order_id.name for sl in line.sale_line_ids])
-            #     sa_name = ', '.join([sl.order_id.partner_shipping_id.name for sl in line.sale_line_ids])
-            # line.sale_order_name = order_name
-            # line.shipping_address_name = sa_name
-
-                line.sale_order_name = ', '.join([sl.order_id.name for sl in line.sale_line_ids])
-                line.shipping_address_name = ', '.join([sl.order_id.partner_shipping_id.name for sl in line.sale_line_ids])
+                line.sale_order_name = ', '.join([
+                    sl.order_id.name for sl in line.sale_line_ids])
+                line.shipping_address_name = ', '.join([
+                    sl.order_id.partner_shipping_id.name 
+                    for sl in line.sale_line_ids])
 
     def _compute_tax_desc(self):
         for line in self:
