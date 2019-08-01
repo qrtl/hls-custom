@@ -10,7 +10,6 @@ class ResPartner(models.Model):
     delivery_lead = fields.Float(
         'Delivery Lead Time',
         default=0.0,
-        required=True,
         help="Delivery lead time in number of days. "
              "Used in proposal of Delivery Due Date in deliveries.",
         )
