@@ -1,1 +1,1 @@
-from . import stock_move_report_wizard
+from . import stock_picking_report_wizard

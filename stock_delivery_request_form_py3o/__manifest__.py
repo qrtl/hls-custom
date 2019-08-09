@@ -8,7 +8,7 @@
     'category': 'Stock',
     'license': "AGPL-3",
     'description': """
-This module adds one py3o stock move report.
+This module adds one py3o stock picking report.
     """,
     'depends': [
         'stock',
@@ -16,8 +16,8 @@ This module adds one py3o stock move report.
     ],
     'data': [
         'report.xml',
-        'data/stock_move_data.xml',
-        'wizards/stock_move_report_wizard_views.xml',
+        'data/stock_picking_data.xml',
+        'wizards/stock_picking_report_wizard_views.xml',
     ],
     'installable': True,
 }

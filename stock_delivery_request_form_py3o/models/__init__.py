@@ -1,2 +1,2 @@
-from . import stock_move_report
-from . import stock_move
+from . import stock_picking_report
+from . import stock_picking
