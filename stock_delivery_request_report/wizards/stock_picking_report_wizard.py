@@ -9,16 +9,18 @@ class StockPickingReportWizard(models.TransientModel):
 
     report_date = fields.Date(
         string='Report Date',
-        required=True
+        required=True,
+        default=fields.Date.context_today,
     )
     user_id = fields.Many2one(
         'res.users',
-        string='Responsible person',
+        string='Person in Charge',
         required=True,
+        default=lambda self: self.env.user,
     )
     partner_id = fields.Many2one(
         'res.partner',
-        string='Customer',
+        string='Carrier',
         required=True,
     )
 

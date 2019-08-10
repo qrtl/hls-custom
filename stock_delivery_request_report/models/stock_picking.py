@@ -14,10 +14,13 @@ class StockPicking(models.Model):
     @api.multi
     def _get_report_address(self):
         for picking in self:
-            # picking.report_address = picking.partner_id._display_address()
             partner = picking.partner_id
-            picking.report_address = partner.state_id and \
-                partner.state_id.name + partner.city + partner.street
+            address = ''
+            address += partner.state_id.name if partner.state_id else ''
+            address += partner.city if partner.city else ''
+            address += partner.street if partner.street else ''
+            address += '\n' + partner.street2 if partner.street2 else ''
+            picking.report_address = address
 
     @api.multi
     def delivery_request_form(self):
