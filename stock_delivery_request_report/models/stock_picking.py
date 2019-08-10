@@ -19,7 +19,6 @@ class StockPicking(models.Model):
 
     @api.multi
     def delivery_request_form(self):
-        # picking_ids = self.browse(self.env.context.get('active_ids'))
         return {
             'name': _('Delivery Request Form'),
             'view_type': 'form',
