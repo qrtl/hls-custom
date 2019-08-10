@@ -43,14 +43,24 @@ class StockPickingReportLine(models.TransientModel):
     report_id = fields.Many2one(
         'stock.picking.report',
     )
+    move_line_id = fields.Many2one(
+        'stock.move.line',
+    )
     move_id = fields.Many2one(
-        'stock.move',
+        # 'stock.move',
+        related='move_line_id.move_id',
+    )
+    picking_id = fields.Many2one(
+        related='move_id.picking_id',
+    )
+    partner_id = fields.Many2one(
+        related='picking_id.partner_id',
     )
 
     def _create_delivery_request_form_lines(self, report, picking_ids):
         for picking in picking_ids:
-            for move in picking.move_line_ids:
+            for ml in picking.move_line_ids:
                 self.create({
                     'report_id': report.id,
-                    'move_id': move.id,
+                    'move_line_id': ml.id,
                 })

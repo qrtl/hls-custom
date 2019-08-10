@@ -19,13 +19,13 @@ class StockPicking(models.Model):
 
     @api.multi
     def delivery_request_form(self):
-        picking_ids = self.browse(self.env.context.get('active_ids'))
+        # picking_ids = self.browse(self.env.context.get('active_ids'))
         return {
             'name': _('Delivery Request Form'),
             'view_type': 'form',
             'view_mode': 'form',
             'res_model': 'stock.picking.report.wizard',
-            'view_id': self.env.ref('stock_delivery_request_form_py3o.stock_picking_report_wizard').id,
+            'view_id': self.env.ref('stock_delivery_request_report.stock_picking_report_wizard').id,
             'type': 'ir.actions.act_window',
             'context': {
                 'picking_ids': self.env.context.get('active_ids'),

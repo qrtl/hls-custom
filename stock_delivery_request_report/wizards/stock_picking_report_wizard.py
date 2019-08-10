@@ -28,4 +28,4 @@ class StockPickingReportWizard(models.TransientModel):
             context.get('picking_ids'))
         report_id = self.env['stock.picking.report']._create_delivery_request_form(
             picking_ids, self.report_date, self.user_id, self.partner_id)
-        return self.env.ref('stock_delivery_request_form_py3o.delivery_request_form').report_action([report_id])
+        return self.env.ref('stock_delivery_request_report.delivery_request_form').report_action([report_id])
