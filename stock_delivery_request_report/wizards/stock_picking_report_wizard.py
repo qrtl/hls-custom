@@ -9,16 +9,18 @@ class StockPickingReportWizard(models.TransientModel):
 
     report_date = fields.Date(
         string='Report Date',
-        required=True
+        required=True,
+        default=fields.Date.context_today,
     )
     user_id = fields.Many2one(
         'res.users',
-        string='Responsible person',
+        string='Person in Charge',
         required=True,
+        default=lambda self: self.env.user,
     )
     partner_id = fields.Many2one(
         'res.partner',
-        string='Customer',
+        string='Carrier',
         required=True,
     )
 
@@ -26,6 +28,9 @@ class StockPickingReportWizard(models.TransientModel):
         context = dict(self.env.context)
         picking_ids = self.env['stock.picking'].browse(
             context.get('picking_ids'))
-        report_id = self.env['stock.picking.report']._create_delivery_request_form(
-            picking_ids, self.report_date, self.user_id, self.partner_id)
-        return self.env.ref('stock_delivery_request_form_py3o.delivery_request_form').report_action([report_id])
+        report_id = self.env['stock.picking.report'].\
+            _create_delivery_request_form(
+                picking_ids, self.report_date, self.user_id, self.partner_id)
+        return self.env.ref(
+            'stock_delivery_request_report.delivery_request_form'
+            ).report_action([report_id])

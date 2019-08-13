@@ -46,11 +46,23 @@ class StockPickingReportLine(models.TransientModel):
     move_id = fields.Many2one(
         'stock.move',
     )
+    quantity = fields.Float()
+    picking_id = fields.Many2one(
+        related='move_id.picking_id',
+    )
+    partner_id = fields.Many2one(
+        related='picking_id.partner_id',
+    )
 
     def _create_delivery_request_form_lines(self, report, picking_ids):
         for picking in picking_ids:
-            for move in picking.move_line_ids:
-                self.create({
-                    'report_id': report.id,
-                    'move_id': move.id,
-                })
+            for move in picking.move_lines:
+                # move record should not show in the report if there is no
+                # available quantity
+                quantity = move.quantity_done or move.reserved_availability
+                if quantity > 0:
+                    self.create({
+                        'report_id': report.id,
+                        'move_id': move.id,
+                        'quantity': quantity,
+                    })
