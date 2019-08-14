@@ -11,4 +11,4 @@ class SaleOrder(models.Model):
 
     def _get_due_date(self):
         self.ensure_one()
-        return self.commitment_date or self.confirmation_date
+        return self.commitment_date or self.expected_date
