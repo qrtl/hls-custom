@@ -14,7 +14,7 @@
     "application": False,
     "installable": True,
     "depends": [
-        "purchase"
+        "purchase_stock"
     ],
     "data": [
         'views/purchase_order_views.xml',
