@@ -5,9 +5,6 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='warehouse_id']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
             <xpath expr="//field[@name='expected_date']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath> 
@@ -26,6 +23,15 @@
             <xpath expr="//field[@name='payment_term_id']" position="after">
                 <field name="warehouse_id"/>
             </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_form_inherit_sale_stock" model="ir.ui.view">
+        <field name="name">view.order.form.inherit.sale.stock</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='warehouse_id']" position="replace"/>
         </field>
     </record>
 </odoo>
