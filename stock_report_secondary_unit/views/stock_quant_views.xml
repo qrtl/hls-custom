@@ -13,10 +13,10 @@
                 <field name="package_id" groups="stock.group_tracking_lot"/>
                 <field name="owner_id" groups="stock.group_tracking_owner"/>
                 <field name="reserved_quantity" string="Reserved"/>
-                <field name="quantity" string="On Hand"/>
+                <field name="quantity" sum="Quantity"/>
                 <field name="product_uom_id" groups="uom.group_uom"/>
-                <field name="product_uom_po_qty" string="On Hand"/>
-                <field name="product_uom_po_id" groups="uom.group_uom"/>
+                <field name="secondary_uom_qty" sum="Secondary Quantity" groups="uom.group_uom"/>
+                <field name="secondary_uom_id" groups="uom.group_uom"/>
                 <field name='company_id' groups="base.group_multi_company"/>
             </tree>
         </field>

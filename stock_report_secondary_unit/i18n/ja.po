@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* stock_report_secondary_unit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-16 09:53+0000\n"
+"PO-Revision-Date: 2019-08-16 09:53+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_report_secondary_unit
+#: model_terms:ir.ui.view,arch_db:stock_report_secondary_unit.view_stock_quant_tree
+msgid "Inventory Valuation"
+msgstr "在庫評価"
+
+#. module: stock_report_secondary_unit
+#: model:ir.model,name:stock_report_secondary_unit.model_stock_quant
+msgid "Quants"
+msgstr "保管ロット"
+
+#. module: stock_report_secondary_unit
+#: model_terms:ir.ui.view,arch_db:stock_report_secondary_unit.view_stock_quant_tree
+msgid "Reserved"
+msgstr "引当済"
+
+#. module: stock_report_secondary_unit
+#: model:ir.model.fields,field_description:stock_report_secondary_unit.field_stock_quant__secondary_uom_qty
+msgid "Secondary Qty"
+msgstr "数量(副単位)"
+
+#. module: stock_report_secondary_unit
+#: model:ir.model.fields,field_description:stock_report_secondary_unit.field_stock_quant__secondary_uom_id
+msgid "Secondary UoM"
+msgstr "副単位"
+
+#. module: stock_report_secondary_unit
+#: model:ir.actions.act_window,name:stock_report_secondary_unit.action_stock_quant
+#: model:ir.ui.menu,name:stock_report_secondary_unit.menu_stock_quant
+msgid "Stock Quant"
+msgstr "保管ロット"
