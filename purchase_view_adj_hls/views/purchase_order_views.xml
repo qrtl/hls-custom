@@ -12,7 +12,11 @@
                 <label for="date_planned"/>
                 <div>
                     <field name="date_planned" attrs="{'readonly': [('state', 'not in', ('draft', 'sent'))]}"/>
-                    <button name="action_set_date_planned" type="object" states="draft,sent" string="Set date to all order lines" help="This changes the scheduled date of all order lines to the given date" class="fa fa-calendar o_icon_button oe_edit_only"/>
+                    <button name="action_set_date_planned" type="object"
+                        states="draft,sent"
+                        string="Set date to all order lines"
+                        help="This changes the scheduled date of all order lines to the given date"
+                        class="fa fa-calendar o_icon_button oe_edit_only"/>
                 </div>
             </xpath>
             <xpath expr="//page[@name='purchase_delivery_invoice']/group/group/label" position="replace"/>
@@ -21,7 +25,7 @@
     </record>
 
     <record id="purchase_order_view_form_inherit" model="ir.ui.view">
-        <field name="name">view.order.form.inherit.sale.stock</field>
+        <field name="name">purchase.order.form.inherit</field>
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/>
         <field name="arch" type="xml">
