@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_form" model="ir.ui.view">
+        <field name="name">purchase.order.form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='currency_id']" position="after">
+                <field name="picking_type_id"/>
+            </xpath>
+            <xpath expr="//field[@name='date_order']" position="after">
+                <label for="date_planned"/>
+                <div>
+                    <field name="date_planned" attrs="{'readonly': [('state', 'not in', ('draft', 'sent'))]}"/>
+                    <button name="action_set_date_planned" type="object"
+                        states="draft,sent"
+                        string="Set date to all order lines"
+                        help="This changes the scheduled date of all order lines to the given date"
+                        class="fa fa-calendar o_icon_button oe_edit_only"/>
+                </div>
+            </xpath>
+            <xpath expr="//page[@name='purchase_delivery_invoice']/group/group/label" position="replace"/>
+            <xpath expr="//page[@name='purchase_delivery_invoice']/group/group/div" position="replace"/>
+        </field>        
+    </record>
+
+    <record id="purchase_order_view_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='picking_type_id']" position="replace"/>
+        </field>
+    </record>
+</odoo>
