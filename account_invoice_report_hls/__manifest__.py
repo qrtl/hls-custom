@@ -18,6 +18,7 @@ Adds an invoice report in desired layout.
     'data': [
         'report.xml',
         'views/res_company_views.xml',
+        'views/account_invoice_views.xml',
     ],
     'installable': True,
 }
