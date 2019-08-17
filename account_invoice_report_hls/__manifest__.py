@@ -15,6 +15,7 @@ Adds an invoice report in desired layout.
         'report_common_hls',
         'report_py3o',
         'account_partner_company_bank',
+        'account_invoice_secondary_unit',
     ],
     'data': [
         'report.xml',
