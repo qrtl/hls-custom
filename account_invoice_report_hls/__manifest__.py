@@ -14,6 +14,7 @@ Adds an invoice report in desired layout.
         'l10n_jp_partner_title_qweb',
         'report_common_hls',
         'report_py3o',
+        'account_partner_company_bank',
     ],
     'data': [
         'report.xml',
