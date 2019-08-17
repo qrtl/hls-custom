@@ -11,7 +11,6 @@ class AccountInvoice(models.Model):
 
     doc_title = fields.Char(
         'Doc Title',
-        required=True,
         help="The value gets newly proposed when Invoice Date is changed."
     )
 
@@ -21,6 +20,4 @@ class AccountInvoice(models.Model):
         for inv in self:
             date = inv.date_invoice or fields.Date.from_string(
                 fields.Date.context_today(self))
-            locale.setlocale(locale.LC_TIME, 'ja_JP.UTF-8')
-            month = date.strftime('%B')
-            inv.doc_title = month + '分'
+            inv.doc_title = str(date.month) + '月分'
