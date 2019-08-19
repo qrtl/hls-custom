@@ -14,10 +14,13 @@ Adds an invoice report in desired layout.
         'l10n_jp_partner_title_qweb',
         'report_common_hls',
         'report_py3o',
+        'account_partner_company_bank',
+        'account_invoice_secondary_unit',
     ],
     'data': [
         'report.xml',
         'views/res_company_views.xml',
+        'views/account_invoice_views.xml',
     ],
     'installable': True,
 }
