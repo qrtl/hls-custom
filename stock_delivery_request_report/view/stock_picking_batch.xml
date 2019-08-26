@@ -13,6 +13,14 @@
         </field>
     </record>
 
+    <!-- Add domain carrier_id on picking_ids tree  -->
+    <record id="filter_carrier_id" model="ir.actions.act_window">
+        <field name="name">filter_carrier_id</field>
+        <field name="res_model">stock.picking.batch</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[('carrier_id', '=', carrier_id)]</field>
+    </record>
+
     <!-- Delivert Request Form -->
     <record id="print_delivery_request_form" model="ir.actions.report">
         <field name="name">Delivery Request Form</field>
