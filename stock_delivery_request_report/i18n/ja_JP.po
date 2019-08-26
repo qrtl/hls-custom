@@ -1,0 +1,155 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* stock_delivery_request_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-26 02:33+0000\n"
+"PO-Revision-Date: 2019-08-26 02:33+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_delivery_request_report
+#: model:ir.model,name:stock_delivery_request_report.model_stock_picking_batch
+msgid "Batch Picking"
+msgstr "バッチピッキング"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_batch__carrier_id
+msgid "Carrier"
+msgstr "運送会社"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__company_id
+msgid "Company"
+msgstr "会社"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__create_uid
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__create_uid
+msgid "Created by"
+msgstr "作成者"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__create_date
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__create_date
+msgid "Created on"
+msgstr "作成日"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__partner_id
+msgid "Customer"
+msgstr "顧客"
+
+#. module: stock_delivery_request_report
+#: model:ir.actions.report,name:stock_delivery_request_report.delivery_request_form
+msgid "Delivery Request Form"
+msgstr ""
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__display_name
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__display_name
+msgid "Display Name"
+msgstr "表示名"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__id
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__id
+msgid "ID"
+msgstr ""
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report____last_update
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line____last_update
+msgid "Last Modified on"
+msgstr "最終更新日"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__write_uid
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__write_uid
+msgid "Last Updated by"
+msgstr "最終更新者"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__write_date
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__write_date
+msgid "Last Updated on"
+msgstr "最終更新日"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__line_ids
+msgid "Line"
+msgstr "行"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__move_id
+msgid "Move"
+msgstr "移動"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__partner_id
+msgid "Partner"
+msgstr "取引先"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__quantity
+msgid "Quantity"
+msgstr "数量"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__report_id
+msgid "Report"
+msgstr "レポート"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking__report_address
+msgid "Report Address"
+msgstr ""
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__report_date
+msgid "Report Date"
+msgstr ""
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__user_id
+msgid "Responsible person"
+msgstr ""
+
+#. module: stock_delivery_request_report
+#: code:addons/stock_delivery_request_report/models/stock_picking_report.py:26
+#, python-format
+msgid "Stock Report (%s - %s)"
+msgstr ""
+
+#. module: stock_delivery_request_report
+#: model:ir.model,name:stock_delivery_request_report.model_stock_picking
+msgid "Transfer"
+msgstr "運送"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__picking_id
+msgid "Transfer Reference"
+msgstr "運送参照"
+
+#. module: stock_delivery_request_report
+#: model:ir.model,name:stock_delivery_request_report.model_stock_picking_report
+msgid "stock.picking.report"
+msgstr ""
+
+#. module: stock_delivery_request_report
+#: model:ir.model,name:stock_delivery_request_report.model_stock_picking_report_line
+msgid "stock.picking.report.line"
+msgstr ""
+
+#. module: stock_delivery_request_report
+#: model:ir.model,name:stock_delivery_request_report.model_stock_picking_report_wizard
+msgid "stock.picking.report.wizard"
+msgstr ""
+
