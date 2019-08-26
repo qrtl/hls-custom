@@ -55,32 +55,6 @@
         </field>
     </record>
 
-    <record id="view_picking_internal_search" model="ir.ui.view">
-        <field name="name">stock.picking.internal.search</field>
-        <field name="model">stock.picking</field>
-        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
-        <field name="arch" type="xml">
-            <xpath expr="//filter[@name='draft']" position="before">
-                <filter name="scheduled_today" string="Scheduled for Today"
-                    domain="[
-                        ('scheduled_date','&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))),
-                        ('scheduled_date','&lt;=', datetime.datetime.combine(context_today(), datetime.time(23,59,59)))
-                    ]"
-                />
-                <filter name="scheduled_tomorrow" string="Scheduled for Tomorrow"
-                    domain="[
-                        ('scheduled_date','&gt;=', datetime.datetime.combine((context_today()+relativedelta(days=1)), datetime.time(0,0,0))),
-                        ('scheduled_date','&lt;=', datetime.datetime.combine((context_today()+relativedelta(days=1)), datetime.time(23,59,59)))
-                    ]"
-                />
-                <separator/>
-            </xpath>
-            <xpath expr="//field[@name='product_id']" position="after">
-                <field name="carrier_id"/>
-            </xpath>
-        </field>
-    </record>
-
     <!-- Delivert Request Form -->
     <record id="print_delivery_request_form" model="ir.actions.report">
         <field name="name">Delivery Request Form</field>

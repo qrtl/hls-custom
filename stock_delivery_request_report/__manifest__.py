@@ -8,16 +8,18 @@
     'category': 'Stock',
     'license': "AGPL-3",
     'description': """
-This module adds a py3o stock picking report.
+This module adds a py3o delivery request report based on stock picking batch.
     """,
     'depends': [
-        'stock_picking_delivery_due_date',
-        'report_py3o',
         'stock_picking_batch',
+        'delivery',
+        'report_py3o',
+        'stock_picking_delivery_due_date',
     ],
     'data': [
         #'report.xml',
         'view/delivery_views.xml',
+        'view/stock_picking_views.xml',
         'view/stock_picking_batch_views.xml',
         'wizards/stock_picking_report_wizard_views.xml',
     ],
