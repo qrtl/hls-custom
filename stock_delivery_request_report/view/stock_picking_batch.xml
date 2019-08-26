@@ -3,7 +3,7 @@
 
     <!-- Add carrier_id field-->
     <record id="carrier_id" model="ir.ui.view">
-        <field name="name">stock.picking.batch.form</field>
+        <field name="name">carrier_id</field>
         <field name="model">stock.picking.batch</field>
         <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form"/>
         <field name="arch" type="xml">
