@@ -13,10 +13,11 @@ This module adds a py3o stock picking report.
     'depends': [
         'stock_picking_delivery_due_date',
         'report_py3o',
+        'stock_picking_batch'
     ],
     'data': [
-        'report.xml',
-        'data/stock_picking_data.xml',
+        #'report.xml',
+        'view/stock_picking_batch.xml',
         'wizards/stock_picking_report_wizard_views.xml',
     ],
     'installable': True,
