@@ -17,7 +17,8 @@ This module adds a py3o stock picking report.
     ],
     'data': [
         #'report.xml',
-        'view/stock_picking_batch.xml',
+        'view/delivery_views.xml',
+        'view/stock_picking_batch_views.xml',
         'wizards/stock_picking_report_wizard_views.xml',
     ],
     'installable': True,
