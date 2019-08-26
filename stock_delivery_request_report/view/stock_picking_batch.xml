@@ -12,13 +12,16 @@
             </xpath>
         </field>
     </record>
-
+    
     <!-- Add domain carrier_id on picking_ids tree  -->
     <record id="filter_carrier_id" model="ir.actions.act_window">
-        <field name="name">filter_carrier_id</field>
-        <field name="res_model">stock.picking.batch</field>
-        <field name="view_mode">tree</field>
-        <field name="domain">[('carrier_id', '=', carrier_id)]</field>
+        <field name="name">filter.carrier_id</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.picking</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('carrier_id', '=','carrier_id')]</field>
+        <field name="context">{}</field>
     </record>
 
     <!-- Delivert Request Form -->
