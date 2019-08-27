@@ -9,11 +9,9 @@ class IrActionsReport(models.Model):
 
     @api.multi
     def render_qweb_pdf(self, res_ids=None, data=None):
-        # if self.model == 'account.invoice' and res_ids:
-        #     invoice = self.env['account.invoice'].sudo().browse(res_ids[0])
-        #     if invoice.partner_id.japan_invoice_layout:
-        #         py3o_report = self.env.ref('account_invoice_report_py3o.account_invoice_jp')
-        #         return py3o_report.render_py3o(res_ids, data=data)
-        # return super(IrActionsReport, self).render_qweb_pdf(res_ids, data=data)
-        py3o_report = self.env.ref('account_invoice_report_hls.account_invoice_jp')
-        return py3o_report.render_py3o(res_ids, data=data)
+        if self.model == 'account.invoice' and res_ids:
+            py3o_report = self.env.ref(
+                'account_invoice_report_hls.account_invoice_jp')
+            return py3o_report.render_py3o(res_ids, data=data)
+        return super(IrActionsReport, self).render_qweb_pdf(
+            res_ids, data=data)
