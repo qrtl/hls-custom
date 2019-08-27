@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<!-- 
+
     <record id="delivery_request_form" model="ir.actions.report">
         <field name="name">Delivery Request Form</field>
         <field name="type">ir.actions.report</field>
@@ -12,5 +12,5 @@
         <field name="py3o_template_fallback">delivery_request_form.odt</field>
         <field name="print_report_name">(object._get_report_base_filename())</field>
     </record>
- -->
+
 </odoo>

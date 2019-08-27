@@ -7,33 +7,28 @@ from odoo import models, fields, api, _
 class StockPickingReport(models.TransientModel):
     _name = 'stock.picking.report'
 
+    batch_id = fields.Many2one('stock.picking.batch')
     line_ids = fields.One2many(
         'stock.picking.report.line',
         inverse_name='report_id',
     )
     company_id = fields.Many2one('res.company')
-    report_date = fields.Date(string='Report Date')
-    user_id = fields.Many2one('res.users', string='Responsible person')
-    partner_id = fields.Many2one(
-        'res.partner',
-        string='Customer',
-    )
 
     @api.multi
     def _get_report_base_filename(self):
         self.ensure_one()
-        return _('Stock Report (%s - %s)' % (
-            self.partner_id.name, fields.Date.to_string(self.report_date)))
+        return _('Delivery Request (%s - %s)' % (
+            self.batch_id.carrier_id.name,
+            fields.Date.to_string(self.batch_id.ship_date)
+        ))
 
-    def _create_delivery_request_form(self, picking_ids, report_date, user_id, partner_id):
+    def _create_delivery_request_form(self, bp):
         report = self.create({
             'company_id': self.env.user.company_id.id,
-            'report_date': report_date,
-            'user_id': user_id.id,
-            'partner_id': partner_id.id,
+            'batch_id': bp.id,
         })
-        self.env['stock.picking.report.line']._create_delivery_request_form_lines(
-            report, picking_ids)
+        self.env['stock.picking.report.line']._create_delivery_request_lines(
+            report, bp.picking_ids)
         return report.id
 
 
@@ -54,7 +49,7 @@ class StockPickingReportLine(models.TransientModel):
         related='picking_id.partner_id',
     )
 
-    def _create_delivery_request_form_lines(self, report, picking_ids):
+    def _create_delivery_request_lines(self, report, picking_ids):
         for picking in picking_ids:
             for move in picking.move_lines:
                 # move record should not show in the report if there is no

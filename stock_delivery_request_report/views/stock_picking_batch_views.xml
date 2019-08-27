@@ -20,6 +20,12 @@
             <xpath expr="//field[@name='picking_ids']" position="after">
                 <field name="instruction" class="oe_inline" placeholder="Instructions to be printed on delivery request..."/>
             </xpath>
+            <xpath expr="//field[@name='scheduled_date']" position="after">
+                <field name="delivery_due_date"/>
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
         </field>
     </record>
 
@@ -53,21 +59,6 @@
                 <filter string="Carrier" name="carrier" domain="[]" context="{'group_by': 'carrier_id'}"/>
             </xpath>
         </field>
-    </record>
-
-    <!-- Delivert Request Form -->
-    <record id="print_delivery_request_form" model="ir.actions.report">
-        <field name="name">Delivery Request Form</field>
-        <field name="model">stock.picking.batch</field>
-        <field name="report_name">stock.picking.batch</field>
-        <field name="report_type">py3o</field>
-        <field name="py3o_filetype">pdf</field>
-        <field name="module">stock_delivery_request_report</field>
-        <field name="py3o_template_fallback">delivery_request_form.odt</field>
-      
-        <!-- Add entry in "Print" drop-down list -->
-        <field name="binding_type">report</field>
-        <field name="binding_model_id" ref="stock_picking_batch.model_stock_picking_batch"/>
     </record>
 
 </odoo>
