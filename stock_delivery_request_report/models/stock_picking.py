@@ -10,6 +10,10 @@ class StockPicking(models.Model):
     report_address = fields.Char(
         compute='_get_report_address',
     )
+    # adding field show the date in user's timezone
+    delivery_due_report_date = fields.Date(
+        compute='_compute_report_delivery_due_date',
+    )
 
     @api.multi
     def _get_report_address(self):
@@ -21,6 +25,15 @@ class StockPicking(models.Model):
             address += partner.street if partner.street else ''
             address += '\n' + partner.street2 if partner.street2 else ''
             picking.report_address = address
+
+    @api.multi
+    def _compute_report_delivery_due_date(self):
+        for picking in self:
+            if picking.delivery_due_date:
+                picking.delivery_due_report_date = fields.Date.to_date(
+                    fields.Datetime.context_timestamp(
+                        self, picking.delivery_due_date
+                    ))
 
     @api.multi
     def delivery_request_form(self):

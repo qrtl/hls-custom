@@ -2,6 +2,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api, _
+from odoo.addons import decimal_precision as dp
+from odoo.tools.float_utils import float_round
 
 
 class StockPickingReport(models.TransientModel):
@@ -41,7 +43,10 @@ class StockPickingReportLine(models.TransientModel):
     move_id = fields.Many2one(
         'stock.move',
     )
-    quantity = fields.Float()
+    report_qty = fields.Float(
+        digits=dp.get_precision('Product Unit of Measure'),
+    )
+    report_uom = fields.Char()
     picking_id = fields.Many2one(
         related='move_id.picking_id',
     )
@@ -56,8 +61,21 @@ class StockPickingReportLine(models.TransientModel):
                 # available quantity
                 quantity = move.quantity_done or move.reserved_availability
                 if quantity > 0:
+                    if move.product_id.stock_secondary_uom_id:
+                        report_uom = move.product_id.stock_secondary_uom_id.name
+                        factor = move.product_id.stock_secondary_uom_id.factor \
+                            * move.product_uom.factor
+                        report_qty = float_round(
+                            quantity / (factor or 1.0),
+                            precision_rounding=move.product_id.\
+                                stock_secondary_uom_id.uom_id.factor
+                        )
+                    else:
+                        report_uom = move.product_uom.name
+                        report_qty = quantity
                     self.create({
                         'report_id': report.id,
                         'move_id': move.id,
-                        'quantity': quantity,
+                        'report_qty': report_qty,
+                        'report_uom': report_uom,
                     })
