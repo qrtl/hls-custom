@@ -13,6 +13,11 @@ class AccountInvoice(models.Model):
         'Doc Title',
         help="The value gets newly proposed when Invoice Date is changed."
     )
+    picking_ids = fields.One2many(
+        'stock.picking',
+        string='Related Stock Pickings',
+        inverse_name='invoice_id',
+    )
 
     @api.onchange('date_invoice')
     def _onchange_date_invoice(self):

@@ -11,6 +11,7 @@ Adds an invoice report in desired layout.
     'author': 'Quartile Limited',
     'depends': [
         'sale',
+        'stock',
         'l10n_jp_partner_title_qweb',
         'report_common_hls',
         'report_py3o',
@@ -21,6 +22,7 @@ Adds an invoice report in desired layout.
         'report.xml',
         'views/res_company_views.xml',
         'views/account_invoice_views.xml',
+        'views/stock_picking_views.xml',
     ],
     'installable': True,
 }

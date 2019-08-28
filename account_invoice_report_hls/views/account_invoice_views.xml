@@ -9,6 +9,11 @@
             <xpath expr="//field[@name='payment_term_id']" position="after">
                 <field name="doc_title"/>
             </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Related Stock Pickings">
+	                <field name="picking_ids" nolabel="1" widget="many2many" domain="[('state', '!=', 'cancel'), ('invoice_id', '=', False)]" options="{'no_create': True}"/>
+                </page>
+            </xpath>
         </field>
     </record>
 
