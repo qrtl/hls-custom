@@ -17,7 +17,7 @@ This module adds a py3o delivery request report based on stock picking batch.
         'stock_picking_delivery_due_date',
     ],
     'data': [
-        'report.xml',
+        'report/stock_picking_report.xml',
         'views/delivery_views.xml',
         'views/stock_picking_views.xml',
         'views/stock_picking_batch_views.xml',
