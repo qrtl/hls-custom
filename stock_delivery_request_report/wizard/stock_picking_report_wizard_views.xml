@@ -6,11 +6,6 @@
         <field name="model">stock.picking.report.wizard</field>
         <field name="arch" type="xml">
             <form>
-                <group>
-                    <field name="partner_id" options="{'no_create_edit': True, 'no_open': True, 'no_create': True}"/>
-                    <field name="user_id" options="{'no_create_edit': True, 'no_open': True, 'no_create': True}"/>
-                    <field name="report_date"/>
-                </group>
                 <footer>
                     <button name="print_delivery_request_form" type="object" string="Print Requst Form" class="oe_highlight"/>
                         or
@@ -18,6 +13,16 @@
                 </footer>
             </form>
         </field>
+    </record>
+
+    <record id="action_stock_picking_report_wizard" model="ir.actions.act_window">
+        <field name="name">Print Delivery Request</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.picking.report.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="stock_delivery_request_report.model_stock_picking_batch" />
     </record>
 
 </odoo>

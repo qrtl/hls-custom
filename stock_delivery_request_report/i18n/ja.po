@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-26 02:33+0000\n"
-"PO-Revision-Date: 2019-08-26 02:33+0000\n"
+"POT-Creation-Date: 2019-08-27 09:45+0000\n"
+"PO-Revision-Date: 2019-08-27 09:45+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,23 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__batch_id
+msgid "Batch"
+msgstr "バッチ"
+
+#. module: stock_delivery_request_report
 #: model:ir.model,name:stock_delivery_request_report.model_stock_picking_batch
 msgid "Batch Picking"
 msgstr "バッチピッキング"
 
 #. module: stock_delivery_request_report
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.stock_picking_report_wizard
+msgid "Cancel"
+msgstr "取消"
+
+#. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_batch__carrier_id
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.stock_picking_batch_filter
 msgid "Carrier"
 msgstr "運送会社"
 
@@ -33,52 +44,92 @@ msgstr "会社"
 #. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__create_uid
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__create_uid
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_wizard__create_uid
 msgid "Created by"
 msgstr "作成者"
 
 #. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__create_date
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__create_date
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_wizard__create_date
 msgid "Created on"
 msgstr "作成日"
 
 #. module: stock_delivery_request_report
-#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__partner_id
-msgid "Customer"
-msgstr "顧客"
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_delivery_carrier__default_instruction
+msgid "Default Instructions"
+msgstr "デフォルト指示"
 
 #. module: stock_delivery_request_report
-#: model:ir.actions.report,name:stock_delivery_request_report.delivery_request_form
-msgid "Delivery Request Form"
+#: model:ir.model.fields,help:stock_delivery_request_report.field_delivery_carrier__default_instruction
+msgid "Default instructions to show in batch picking."
+msgstr "バッチピッキングに提案するデフォルト指示。"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking__delivery_due_report_date
+msgid "Delivery Due Report Date"
 msgstr ""
+
+#. module: stock_delivery_request_report
+#: model:ir.model,name:stock_delivery_request_report.model_delivery_carrier
+msgid "Delivery Methods"
+msgstr "配送方法"
+
+#. module: stock_delivery_request_report
+#: code:addons/stock_delivery_request_report/models/stock_picking_report.py:24
+#, python-format
+msgid "Delivery Request (%s - %s)"
+msgstr "配送依頼書 (%s - %s)"
+
+#. module: stock_delivery_request_report
+#: code:addons/stock_delivery_request_report/models/stock_picking.py:41
+#: model:ir.actions.report,name:stock_delivery_request_report.delivery_request_form
+#, python-format
+msgid "Delivery Request Form"
+msgstr "配送依頼書"
 
 #. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__display_name
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__display_name
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_wizard__display_name
 msgid "Display Name"
 msgstr "表示名"
 
 #. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__id
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__id
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_wizard__id
 msgid "ID"
 msgstr ""
 
 #. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_batch__instruction
+msgid "Instruction"
+msgstr "指示"
+
+#. module: stock_delivery_request_report
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.stock_picking_batch_form
+msgid "Instructions to be printed on delivery request..."
+msgstr "配送依頼書に印刷される指示..."
+
+#. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report____last_update
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line____last_update
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_wizard____last_update
 msgid "Last Modified on"
 msgstr "最終更新日"
 
 #. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__write_uid
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__write_uid
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_wizard__write_uid
 msgid "Last Updated by"
 msgstr "最終更新者"
 
 #. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__write_date
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__write_date
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_wizard__write_date
 msgid "Last Updated on"
 msgstr "最終更新日"
 
@@ -98,9 +149,19 @@ msgid "Partner"
 msgstr "取引先"
 
 #. module: stock_delivery_request_report
-#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__quantity
-msgid "Quantity"
-msgstr "数量"
+#: model:ir.model.fields,help:stock_delivery_request_report.field_stock_picking_batch__user_id
+msgid "Person responsible for this batch picking"
+msgstr "バッチピッキング担当者"
+
+#. module: stock_delivery_request_report
+#: model:ir.actions.act_window,name:stock_delivery_request_report.action_stock_picking_report_wizard
+msgid "Print Delivery Request"
+msgstr "配送依頼書印刷"
+
+#. module: stock_delivery_request_report
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.stock_picking_report_wizard
+msgid "Print Requst Form"
+msgstr "依頼書を印刷"
 
 #. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__report_id
@@ -110,23 +171,47 @@ msgstr "レポート"
 #. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking__report_address
 msgid "Report Address"
+msgstr "レポートアドレス"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__report_qty
+msgid "Report Qty"
 msgstr ""
 
 #. module: stock_delivery_request_report
-#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__report_date
-msgid "Report Date"
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__report_uom
+msgid "Report Uom"
 msgstr ""
 
 #. module: stock_delivery_request_report
-#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report__user_id
-msgid "Responsible person"
-msgstr ""
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_batch__user_id
+msgid "Responsible"
+msgstr "担当者"
 
 #. module: stock_delivery_request_report
-#: code:addons/stock_delivery_request_report/models/stock_picking_report.py:26
-#, python-format
-msgid "Stock Report (%s - %s)"
-msgstr ""
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.view_picking_internal_search
+msgid "Scheduled for Today"
+msgstr "本日出荷予定"
+
+#. module: stock_delivery_request_report
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.view_picking_internal_search
+msgid "Scheduled for Tomorrow"
+msgstr "明日出荷予定"
+
+#. module: stock_delivery_request_report
+#: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_batch__ship_date
+msgid "Shipping Date"
+msgstr "出荷日"
+
+#. module: stock_delivery_request_report
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.stock_picking_batch_filter
+msgid "Shipping Today"
+msgstr "本日出荷"
+
+#. module: stock_delivery_request_report
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.stock_picking_batch_filter
+msgid "Shipping Tomorrow"
+msgstr "明日出荷"
 
 #. module: stock_delivery_request_report
 #: model:ir.model,name:stock_delivery_request_report.model_stock_picking
@@ -137,6 +222,11 @@ msgstr "運送"
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_report_line__picking_id
 msgid "Transfer Reference"
 msgstr "運送参照"
+
+#. module: stock_delivery_request_report
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.stock_picking_report_wizard
+msgid "or"
+msgstr "または"
 
 #. module: stock_delivery_request_report
 #: model:ir.model,name:stock_delivery_request_report.model_stock_picking_report

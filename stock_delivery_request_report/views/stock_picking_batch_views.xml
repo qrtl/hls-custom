@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock_picking_batch_form" model="ir.ui.view">
+        <field name="name">stock.picking.batch.form</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group/group" position="before">
+                <group>
+                    <field name="carrier_id" required="1" context="{'carrier_id': carrier_id}"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="ship_date"/>
+            </xpath>
+            <xpath expr="//field[@name='picking_ids']" position="attributes">
+                <attribute name="context">{'search_default_carrier_id': context.get('carrier_id', False)}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='picking_ids']" position="after">
+                <field name="instruction" class="oe_inline" placeholder="Instructions to be printed on delivery request..."/>
+            </xpath>
+            <xpath expr="//field[@name='scheduled_date']" position="after">
+                <field name="delivery_due_date"/>
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_picking_batch_tree" model="ir.ui.view">
+        <field name="name">stock.picking.batch.tree</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="carrier_id"/>
+                <field name="ship_date"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_picking_batch_filter" model="ir.ui.view">
+        <field name="name">stock.picking.batch.filter</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="carrier_id"/>
+                <field name="state"/>
+            </xpath>
+            <xpath expr="//filter[@name='in_progress']" position="before">
+                <filter name="ship_today" string="Shipping Today" domain="[('ship_date','=',context_today().strftime('%%Y-%%m-%%d'))]"/>
+                <filter name="ship_tomorrow" string="Shipping Tomorrow" domain="[('ship_date','=',(context_today()+relativedelta(days=1)).strftime('%%Y-%%m-%%d'))]"/>
+                <separator/>
+            </xpath>
+            <xpath expr="//filter[@name='user']" position="before">
+                <filter string="Carrier" name="carrier" domain="[]" context="{'group_by': 'carrier_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
