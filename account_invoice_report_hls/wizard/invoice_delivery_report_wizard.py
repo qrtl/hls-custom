@@ -15,5 +15,5 @@ class InvoiceDeliveryReportWizard(models.TransientModel):
         report_id = self.env['invoice.delivery.report'].\
             _create_invoice_delivery_report(invoice)
         return self.env.ref(
-            'account_invoice_delivery_report_hls.invoice_delivery_report'
+            'account_invoice_report_hls.invoice_delivery_report'
             ).report_action([report_id])

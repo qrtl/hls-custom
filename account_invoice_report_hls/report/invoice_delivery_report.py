@@ -58,7 +58,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                     ('state', '=', 'done'),
                     ])
                 if moves:
-                    report_uom == ''
+                    report_uom = ''
                     factor = 0.0
                     rounding_factor = 0.0
                     if sl.secondary_uom_id:
@@ -70,8 +70,11 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                         factor = sl.product_uom.factor
                         rounding_factor = sl.product_uom.factor
                     for move in moves:
+                        quantity = move.quantity_done * -1 \
+                            if move.picking_code == 'incoming' \
+                                else move.quantity_done
                         report_qty = float_round(
-                            move.quantity_done / (factor or 1.0),
+                            quantity / (factor or 1.0),
                             precision_rounding=rounding_factor
                         )
                         self.create({

@@ -22,7 +22,7 @@ Adds an invoice report in desired layout.
         'views/res_company_views.xml',
         'views/account_invoice_views.xml',
         'views/stock_picking_views.xml',
-        'wizard/invoice_delivery_report_wizard_views.xml'
+        'wizard/invoice_delivery_report_wizard_views.xml',
         'report/invoice_delivery_report.xml',
     ],
     'installable': True,

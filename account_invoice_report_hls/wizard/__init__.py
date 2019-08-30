@@ -1,1 +1,1 @@
-from . import invoice_delvery_report_wizard
+from . import invoice_delivery_report_wizard
