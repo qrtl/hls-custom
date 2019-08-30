@@ -58,19 +58,22 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                     ('state', '=', 'done'),
                     ])
                 if moves:
+                    report_uom == ''
+                    factor = 0.0
+                    rounding_factor = 0.0
+                    if sl.secondary_uom_id:
+                        report_uom = sl.secondary_uom_id.name
+                        factor = sl.secondary_uom_id.factor * sl.product_uom.factor
+                        rounding_factor = sl.secondary_uom_id.uom_id.factor
+                    else:
+                        report_uom = sl.product_uom.name
+                        factor = sl.product_uom.factor
+                        rounding_factor = sl.product_uom.factor
                     for move in moves:
-                        if move.product_id.stock_secondary_uom_id:
-                            report_uom = move.product_id.stock_secondary_uom_id.name
-                            factor = move.product_id.stock_secondary_uom_id.factor \
-                                * move.product_uom.factor
-                            report_qty = float_round(
-                                move.quantity_done / (factor or 1.0),
-                                precision_rounding=move.product_id.\
-                                    stock_secondary_uom_id.uom_id.factor
-                            )
-                        else:
-                            report_uom = move.product_uom.name
-                            report_qty = move.quantity_done
+                        report_qty = float_round(
+                            move.quantity_done / (factor or 1.0),
+                            precision_rounding=rounding_factor
+                        )
                         self.create({
                             'report_id': report.id,
                             'move_id': move.id,
