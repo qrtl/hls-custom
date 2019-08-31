@@ -11,18 +11,12 @@
                 <field name="doc_title"/>
             </xpath>
             <xpath expr="//field[@name='date_invoice']" position="after">
-                <field name="date_range_id" attrs="{'invisible': [('monthly_invoice', '=', False)]}"/>
-                <label for="date_from" string="Range" attrs="{'required': [('monthly_invoice', '=', True)], 'invisible': [('monthly_invoice', '=', False)]}"/>
-                <div attrs="{'required': [('monthly_invoice', '=', True)], 'invisible': [('monthly_invoice', '=', False)]}">
+                <label for="date_from" string="Range" attrs="{'invisible': [('monthly_invoice', '=', False)]}"/>
+                <div attrs="{'invisible': [('monthly_invoice', '=', False)]}">
                     <field name="date_from" class="oe_inline"/>
                     <span> - </span>
                     <field name="date_to" class="oe_inline"/>
                 </div>
-            </xpath>
-            <xpath expr="//notebook" position="inside">
-                <page string="Related Stock Pickings">
-	                <field name="picking_ids" nolabel="1" widget="many2many" domain="[('state', '!=', 'cancel'), ('invoice_id', '=', False)]" options="{'no_create': True}"/>
-                </page>
             </xpath>
         </field>
     </record>

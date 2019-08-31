@@ -22,7 +22,6 @@
         <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
-        <!-- <field name="binding_model_id" ref="account_invoice_report_hls.model_account_invoice"/> -->
         <field name="binding_model_id" ref="account.model_account_invoice"/>
     </record>
 

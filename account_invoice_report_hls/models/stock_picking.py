@@ -14,11 +14,6 @@ class StockPicking(models.Model):
              "necessary. This date is used to find target deliveries in "
              "invoice print.",
     )
-    invoice_id = fields.Many2one(
-        'account.invoice',
-        string='Invoice',
-        readonly=True,
-    )
 
     @api.multi
     def action_done(self):
