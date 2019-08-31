@@ -24,8 +24,11 @@ class InvoiceDeliveryReport(models.TransientModel):
         report = self.create({
             'invoice_id': invoice.id,
         })
-        self.env['invoice.delivery.report.line']._create_invoice_delivery_report_lines(
-            report, invoice.invoice_line_ids)
+        self.env['invoice.delivery.report.line'].\
+            _create_invoice_delivery_report_lines(report,
+                                                  invoice.invoice_line_ids,
+                                                  invoice.date_from,
+                                                  invoice.date_to)
         return report.id
 
 
@@ -38,48 +41,63 @@ class InvoiceDeliveryReportLine(models.TransientModel):
     move_id = fields.Many2one(
         'stock.move',
     )
-    report_qty = fields.Float(
+    sale_line_id = fields.Many2one(
+        'sale.order.line',
+    )
+    secondary_uom_id = fields.Many2one(
+        'product.secondary.unit',
+    )
+    product_uom = fields.Many2one(
+        'uom.uom',
+    )
+    move_qty = fields.Float(
         digits=dp.get_precision('Product Unit of Measure'),
     )
-    report_uom = fields.Char()
-    # picking_id = fields.Many2one(
-    #     related='move_id.picking_id',
-    # )
-    # partner_id = fields.Many2one(
-    #     related='picking_id.partner_id',
-    # )
+    secondary_qty = fields.Float(
+        compute='_compute_secondary_qty',
+        digits=dp.get_precision('Product Unit of Measure'),
+    )
+    price_subtotal = fields.Float(
+        compute='_compute_price_subtotal',
+        digits=dp.get_precision('Product Price'),
+    )
 
-    def _create_invoice_delivery_report_lines(self, report, invoice_line_ids):
+    def _create_invoice_delivery_report_lines(self, report, invoice_line_ids,
+                                              date_from, date_to):
         for il in invoice_line_ids.filtered(lambda x: x.product_id.type != 'service'):
             for sl in il.sale_line_ids:
-                #FIXME add date range to the domain
                 moves = self.env['stock.move'].search([
                     ('sale_line_id', '=', sl.id),
                     ('state', '=', 'done'),
-                    ])
-                if moves:
-                    report_uom = ''
-                    factor = 0.0
-                    rounding_factor = 0.0
-                    if sl.secondary_uom_id:
-                        report_uom = sl.secondary_uom_id.name
-                        factor = sl.secondary_uom_id.factor * sl.product_uom.factor
-                        rounding_factor = sl.secondary_uom_id.uom_id.factor
-                    else:
-                        report_uom = sl.product_uom.name
-                        factor = sl.product_uom.factor
-                        rounding_factor = sl.product_uom.factor
-                    for move in moves:
-                        quantity = move.quantity_done * -1 \
-                            if move.picking_code == 'incoming' \
-                                else move.quantity_done
-                        report_qty = float_round(
-                            quantity / (factor or 1.0),
-                            precision_rounding=rounding_factor
-                        )
-                        self.create({
-                            'report_id': report.id,
-                            'move_id': move.id,
-                            'report_qty': report_qty,
-                            'report_uom': report_uom,
-                        })
+                    ('date_actual', '>=', date_from),
+                    ('date_actual', '<=', date_to),
+                ]).sorted(key=lambda m: m.date_actual)
+                for move in moves:
+                    move_qty = move.quantity_done * -1 \
+                        if move.picking_code == 'incoming' \
+                            else move.quantity_done
+                    self.create({
+                        'report_id': report.id,
+                        'move_id': move.id,
+                        'sale_line_id': sl.id,
+                        'secondary_uom_id': sl.secondary_uom_id.id if \
+                            sl.secondary_uom_id else False,
+                        'move_qty': move_qty,
+                        'product_uom': move.product_uom.id,
+                    })
+
+    @api.multi
+    def _compute_secondary_qty(self):
+        for line in self.filtered(lambda x: x.secondary_uom_id):
+            factor = line.secondary_uom_id.factor * \
+                line.product_uom.factor
+            rounding_factor = line.secondary_uom_id.uom_id.factor
+            line.secondary_qty = float_round(
+                line.move_qty / (factor or 1.0),
+                precision_rounding=rounding_factor
+            )
+
+    @api.multi
+    def _compute_price_subtotal(self):
+        for line in self:
+            line.price_subtotal = line.sale_line_id.price_unit * line.move_qty
