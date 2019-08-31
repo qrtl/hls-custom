@@ -12,7 +12,7 @@ Adds an invoice report in desired layout.
     'depends': [
         'sale',
         'stock',
-        'l10n_jp_partner_title_qweb',
+        'date_range',
         'report_common_hls',
         'report_py3o',
         'account_partner_company_bank',
