@@ -14,6 +14,9 @@ class StockPicking(models.Model):
     delivery_due_report_date = fields.Date(
         compute='_compute_report_delivery_due_date',
     )
+    scheduled_date = fields.Date(
+        string='Scheduled DateTime'
+    )
     scheduled_date_custom = fields.Date(
         string='Scheduled Date',
         compute='_compute_scheduled_date',
