@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-19 09:19+0000\n"
-"PO-Revision-Date: 2019-08-19 09:19+0000\n"
+"POT-Creation-Date: 2019-09-02 07:58+0000\n"
+"PO-Revision-Date: 2019-09-02 07:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,14 +16,15 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: account_invoice_report_hls
-#: model:ir.actions.report,name:account_invoice_report_hls.account_invoice_jp
-msgid "Account Invoice"
-msgstr "請求書"
-
-#. module: account_invoice_report_hls
 #: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.view_company_form
 msgid "Accounting"
 msgstr "会計"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_stock_move__date_actual
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_stock_picking__date_actual
+msgid "Actual Date"
+msgstr "実際日"
 
 #. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_res_company__bank_info
@@ -31,9 +32,51 @@ msgid "Bank Information"
 msgstr "銀行情報"
 
 #. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.invoice_delivery_report_wizard
+msgid "Cancel"
+msgstr "取消"
+
+#. module: account_invoice_report_hls
 #: model:ir.model,name:account_invoice_report_hls.model_res_company
 msgid "Companies"
 msgstr "会社"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report__create_uid
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__create_uid
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_wizard__create_uid
+msgid "Created by"
+msgstr "作成者"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report__create_date
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__create_date
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_wizard__create_date
+msgid "Created on"
+msgstr "作成日"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_account_invoice__date_from
+msgid "Date From"
+msgstr "開始日"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_account_invoice__date_to
+msgid "Date To"
+msgstr "終了日"
+
+#. module: account_invoice_report_hls
+#: code:addons/account_invoice_report_hls/models/account_invoice.py:58
+#, python-format
+msgid "Date To must not be earlier than Date From."
+msgstr "終了日は開始日以降にしてください。"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report__display_name
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__display_name
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_wizard__display_name
+msgid "Display Name"
+msgstr "表示名"
 
 #. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_account_invoice__doc_title
@@ -41,9 +84,28 @@ msgid "Doc Title"
 msgstr "件名"
 
 #. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report__id
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__id
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,help:account_invoice_report_hls.field_account_invoice__monthly_invoice
+msgid "If selected, shows the delivery details in the printed invoice."
+msgstr "選択された場合、配送詳細を請求書印刷に含みます。"
+
+#. module: account_invoice_report_hls
 #: model:ir.model,name:account_invoice_report_hls.model_account_invoice
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report__invoice_id
 msgid "Invoice"
 msgstr "請求書"
+
+#. module: account_invoice_report_hls
+#: code:addons/account_invoice_report_hls/report/invoice_delivery_report.py:21
+#, python-format
+msgid "Invoice (%s)"
+msgstr "請求書 (%s)"
 
 #. module: account_invoice_report_hls
 #: model:ir.model,name:account_invoice_report_hls.model_account_invoice_line
@@ -51,9 +113,90 @@ msgid "Invoice Line"
 msgstr "請求書行"
 
 #. module: account_invoice_report_hls
+#: model:ir.actions.report,name:account_invoice_report_hls.invoice_delivery_report
+msgid "Invoice Report with Delivery Details"
+msgstr "配送詳細付請求書印刷"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report____last_update
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line____last_update
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_wizard____last_update
+msgid "Last Modified on"
+msgstr "最終更新日"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report__write_uid
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__write_uid
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_wizard__write_uid
+msgid "Last Updated by"
+msgstr "最終更新者"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report__write_date
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__write_date
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_wizard__write_date
+msgid "Last Updated on"
+msgstr "最終更新日"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report__line_ids
+msgid "Line"
+msgstr "行"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_account_invoice__monthly_invoice
+msgid "Monthly Invoice"
+msgstr "月次請求"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__move_id
+msgid "Move"
+msgstr "移動"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__move_qty
+msgid "Move Qty"
+msgstr "移動数量"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__price_subtotal
+msgid "Price Subtotal"
+msgstr "価格小計"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.invoice_delivery_report_wizard
+msgid "Print"
+msgstr "印刷"
+
+#. module: account_invoice_report_hls
+#: model:ir.actions.act_window,name:account_invoice_report_hls.action_invoice_delivery_report_wizard
+msgid "Print Invoice Report with Delivery Details"
+msgstr "配送詳細付請求書を印刷"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__product_uom
+msgid "Product Uom"
+msgstr "プロダクト単位"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.invoice_form
+msgid "Date Range"
+msgstr "日付範囲"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__report_id
+msgid "Report"
+msgstr "レポート"
+
+#. module: account_invoice_report_hls
 #: model:ir.model,name:account_invoice_report_hls.model_ir_actions_report
 msgid "Report Action"
 msgstr "レポートアクション"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__sale_line_id
+msgid "Sale Line"
+msgstr "販売オーダ明細"
 
 #. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_account_invoice_line__sale_order_name
@@ -61,16 +204,62 @@ msgid "Sales Order Number"
 msgstr "販売オーダ番号"
 
 #. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__secondary_qty
+msgid "Secondary Qty"
+msgstr "数量(副単位)"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__secondary_uom_id
+msgid "Secondary Uom"
+msgstr "副単位"
+
+#. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_account_invoice_line__shipping_address_name
 msgid "Shipping Address Name"
 msgstr "配送先名"
 
 #. module: account_invoice_report_hls
+#: model:ir.model,name:account_invoice_report_hls.model_stock_move
+msgid "Stock Move"
+msgstr "在庫移動"
+
+#. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_account_invoice_line__tax_desc
 msgid "Tax Description"
-msgstr "税説明"
+msgstr "税詳細"
 
 #. module: account_invoice_report_hls
 #: model:ir.model.fields,help:account_invoice_report_hls.field_account_invoice__doc_title
 msgid "The value gets newly proposed when Invoice Date is changed."
 msgstr "請求日を変更すると、新たに値が提案されます。"
+
+#. module: account_invoice_report_hls
+#: model:ir.model,name:account_invoice_report_hls.model_stock_picking
+msgid "Transfer"
+msgstr "運送"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,help:account_invoice_report_hls.field_stock_move__date_actual
+#: model:ir.model.fields,help:account_invoice_report_hls.field_stock_picking__date_actual
+msgid "Used to indicate the date on which the shipment was actually done. Manually adjust the date for completed deliveries as necessary. This date is used to find target deliveries in invoice print."
+msgstr "出荷が実際にされた日付を示します。必要に応じて、完了済の配送にて調整してください。この日付は請求書印刷で出力対象の配送を特定するのに使われます。"
+
+#. module: account_invoice_report_hls
+#: model:ir.model,name:account_invoice_report_hls.model_invoice_delivery_report
+msgid "invoice.delivery.report"
+msgstr ""
+
+#. module: account_invoice_report_hls
+#: model:ir.model,name:account_invoice_report_hls.model_invoice_delivery_report_line
+msgid "invoice.delivery.report.line"
+msgstr ""
+
+#. module: account_invoice_report_hls
+#: model:ir.model,name:account_invoice_report_hls.model_invoice_delivery_report_wizard
+msgid "invoice.delivery.report.wizard"
+msgstr ""
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.invoice_delivery_report_wizard
+msgid "or"
+msgstr "または"
