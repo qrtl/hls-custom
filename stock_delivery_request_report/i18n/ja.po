@@ -191,7 +191,7 @@ msgstr "担当者"
 #. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking__scheduled_date_custom
 msgid "Scheduled Date"
-msgstr "予定日（仮）"
+msgstr "予定日"
 
 #. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking__scheduled_date
