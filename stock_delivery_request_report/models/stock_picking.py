@@ -14,6 +14,24 @@ class StockPicking(models.Model):
     delivery_due_report_date = fields.Date(
         compute='_compute_report_delivery_due_date',
     )
+    scheduled_date = fields.Datetime(
+        string='Scheduled DateTime'
+    )
+    scheduled_date_custom = fields.Date(
+        string='Scheduled Date',
+        compute='_compute_scheduled_date_custom',
+        store=True,
+    )
+
+    @api.multi
+    @api.depends('scheduled_date')
+    def _compute_scheduled_date_custom(self):
+        for picking in self:
+            if picking.scheduled_date:
+                picking.scheduled_date_custom = fields.Date.to_date(
+                    fields.Datetime.context_timestamp(
+                        self, picking.scheduled_date
+                    ))
 
     @api.multi
     def _get_report_address(self):
