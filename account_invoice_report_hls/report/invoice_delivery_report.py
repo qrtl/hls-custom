@@ -44,6 +44,9 @@ class InvoiceDeliveryReportLine(models.TransientModel):
     sale_line_id = fields.Many2one(
         'sale.order.line',
     )
+    product_id = fields.Many2one(
+        'product.product',
+    )
     secondary_uom_id = fields.Many2one(
         'product.secondary.unit',
     )
@@ -80,6 +83,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                         'report_id': report.id,
                         'move_id': move.id,
                         'sale_line_id': sl.id,
+                        'product_id': sl.product_id,
                         'secondary_uom_id': sl.secondary_uom_id.id if \
                             sl.secondary_uom_id else False,
                         'move_qty': move_qty,
