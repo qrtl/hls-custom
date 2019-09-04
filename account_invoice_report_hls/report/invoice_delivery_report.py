@@ -83,7 +83,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                         'report_id': report.id,
                         'move_id': move.id,
                         'sale_line_id': sl.id,
-                        'product_id': sl.product_id,
+                        'product_id': sl.product_id.id,
                         'secondary_uom_id': sl.secondary_uom_id.id if \
                             sl.secondary_uom_id else False,
                         'move_qty': move_qty,
