@@ -4,7 +4,7 @@
     "name": "Sale Order Line HLS",
     "summary": "",
     "description": """
- - Display Product discription without reference code in Sale Order line.   
+ - Display Product description without reference code in Sale Order line.   
     """,
     'version': '12.0.1.0.0',
     "category": "Sales",
