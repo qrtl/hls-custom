@@ -1,7 +1,7 @@
 # Copyright 2019 Quartile Limited
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    "name": "Sale Order Line HLS",
+    "name": "Sale Line Name Adjust",
     "summary": "",
     "description": """
  - Display Product description without reference code in Sale Order line.   
