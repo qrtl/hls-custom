@@ -23,13 +23,13 @@ class StockQuant(models.Model):
     @api.multi
     @api.depends('quantity', 'product_id.stock_secondary_uom_id')
     def _compute_product_secondary_uom_qty(self):
-        for quant in self:
-            if quant.product_id.stock_secondary_uom_id:
-                uom = quant.product_uom_id
-                factor = quant.product_id.stock_secondary_uom_id.factor \
-                    * uom.factor
-                quant.secondary_uom_qty = float_round(
-                    quant.quantity / (factor or 1.0),
-                    precision_rounding=quant.product_id.\
-                        stock_secondary_uom_id.uom_id.factor
-                )
+        for quant in self.filtered(
+                lambda x: x.product_id.stock_secondary_uom_id):
+            uom = quant.product_uom_id
+            factor = quant.product_id.stock_secondary_uom_id.factor \
+                * uom.factor
+            quant.secondary_uom_qty = float_round(
+                quant.quantity / (factor or 1.0),
+                precision_rounding=quant.product_id.\
+                    stock_secondary_uom_id.uom_id.rounding
+            )
