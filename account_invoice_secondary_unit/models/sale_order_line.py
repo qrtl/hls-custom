@@ -22,8 +22,7 @@ class SaleOrderLine(models.Model):
         self.ensure_one()
         factor = self.secondary_uom_id.factor * \
             self.product_uom.factor
-        rounding_factor = self.secondary_uom_id.uom_id.factor
         return float_round(
             qty / (factor or 1.0),
-            precision_rounding=rounding_factor
+            precision_rounding=self.secondary_uom_id.uom_id.rounding
         )

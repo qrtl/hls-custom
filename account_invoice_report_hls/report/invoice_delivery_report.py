@@ -91,10 +91,9 @@ class InvoiceDeliveryReportLine(models.TransientModel):
         for line in self.filtered(lambda x: x.secondary_uom_id):
             factor = line.secondary_uom_id.factor * \
                 line.product_uom.factor
-            rounding_factor = line.secondary_uom_id.uom_id.factor
             line.secondary_qty = float_round(
                 line.move_qty / (factor or 1.0),
-                precision_rounding=rounding_factor
+                precision_rounding=line.secondary_uom_id.uom_id.rounding
             )
 
     @api.multi
