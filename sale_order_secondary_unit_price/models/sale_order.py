@@ -10,7 +10,6 @@ class SaleOrderLine(models.Model):
 
     secondary_unit_price = fields.Float(
         'Secondary Unit Price', 
-        required=True, 
         digits=dp.get_precision('Product Price')
     )
 
