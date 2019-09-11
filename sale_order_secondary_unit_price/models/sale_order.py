@@ -21,3 +21,16 @@ class SaleOrderLine(models.Model):
         factor = self.secondary_uom_id.factor * \
             self.product_uom.factor
         self.price_unit = self.secondary_unit_price / factor
+
+    @api.onchange('product_id')
+    def product_id_change(self):
+        super(SaleOrderLine, self).product_id_change()
+        self.secondary_unit_price = 0
+        return
+
+    @api.onchange('secondary_uom_id')
+    def onchange_secondary_uom(self):
+        super(SaleOrderLine, self).onchange_secondary_uom()
+        if not self.secondary_uom_id:
+            self.secondary_unit_price = 0
+            return
