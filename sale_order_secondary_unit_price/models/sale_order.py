@@ -3,7 +3,6 @@
 
 from odoo import api, fields, models
 from odoo.addons import decimal_precision as dp
-from odoo.tools.float_utils import float_compare, float_round
 
 
 class SaleOrderLine(models.Model):
@@ -14,3 +13,11 @@ class SaleOrderLine(models.Model):
         required=True, 
         digits=dp.get_precision('Product Price')
     )
+
+    @api.onchange('secondary_unit_price')
+    def onchange_secondary_unit_price(self):
+        if not self.secondary_uom_id:
+            return
+        factor = self.secondary_uom_id.factor * \
+            self.product_uom.factor
+        self.price_unit = self.secondary_unit_price / factor
