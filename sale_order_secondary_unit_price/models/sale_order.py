@@ -14,8 +14,8 @@ class SaleOrderLine(models.Model):
         digits=dp.get_precision('Product Price')
     )
 
-    @api.onchange('secondary_unit_price')
-    def onchange_secondary_unit_price(self):
+    @api.onchange('secondary_unit_price', 'price_unit')
+    def onchange_unit_price(self):
         if not self.secondary_uom_id:
             return
         factor = self.secondary_uom_id.factor * \
