@@ -12,6 +12,9 @@
             <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="before">
                 <field name="secondary_unit_price" attrs="{'readonly': [('parent.state', 'in', ('done', 'cancel'))]}"/>
             </xpath>
+            <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="attributes">
+                <attribute name="attrs">{'readonly': [('secondary_unit_price', '!=', 0.0)]}</attribute>
+            </xpath>
         </field>
     </record>
 </odoo>
