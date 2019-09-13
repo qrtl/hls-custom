@@ -2,17 +2,17 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     'name': 'Sale Order Invoice Address Propose',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.0.1',
     'author': 'Quartile Limited',
     'website': 'https://www.quartile.co',
     'category': 'Sales',
     'license': "AGPL-3",
     'description': """
-Add "Invoice Address" to contact model, propose the set "Invoice Address" of 
-the sale order if the "Delivery Address" is selected 
+Add Invoice Address to contact model, and propose Invoice Address of 
+the sales order based on the selected Delivery Address.
     """,
     'depends': [
-        'sale',
+        'sale_stock',
     ],
     'data': [
         'views/res_partner_views.xml',

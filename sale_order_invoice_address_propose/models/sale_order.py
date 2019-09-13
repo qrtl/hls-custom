@@ -15,7 +15,9 @@ class SaleOrder(models.Model):
 
     @api.onchange('partner_shipping_id')
     def _onchange_partner_shipping_id(self):
+        res = super(SaleOrder, self)._onchange_partner_shipping_id()
         if self.partner_shipping_id and \
                 self.partner_shipping_id.invoice_partner_id:
             self.partner_invoice_id = \
                 self.partner_shipping_id.invoice_partner_id
+        return res
