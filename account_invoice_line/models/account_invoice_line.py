@@ -6,4 +6,4 @@ from odoo import models, fields
 
 class AccountInvoiceLine(models.Model):
     _inherit = 'account.invoice.line'
-    _order = "invoice_id,sequence desc,id desc"
+    _order = "invoice_id, sequence desc, id desc"
