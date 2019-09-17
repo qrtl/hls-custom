@@ -14,6 +14,7 @@ Adjust Account Invoice Line View
     """,
     'depends': [
         'account',
+        'sale',
     ],
     'data': [
         'views/account_invoice_views.xml',
