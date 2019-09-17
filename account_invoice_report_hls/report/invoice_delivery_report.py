@@ -66,7 +66,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                                               date_from, date_to):
         for il in invoice_line_ids  \
                     .filtered(lambda x: x.product_id.type != 'service')  \
-                    .sorted(key=lambda r: r.sale_line_ids[0].id):
+                    .sorted(key=lambda r: r.sale_order_name):
             for sl in il.sale_line_ids:
                 moves = self.env['stock.move'].search([
                     ('sale_line_id', '=', sl.id),
