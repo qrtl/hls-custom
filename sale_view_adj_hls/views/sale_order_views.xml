@@ -5,13 +5,18 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_invoice_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                <field name="partner_invoice_id" groups="sale.group_delivery_invoice_address" context="{'default_type':'invoice'}" options='{"always_reload": True}'/>
+            </xpath>
             <xpath expr="//field[@name='expected_date']" position="replace"/>
             <xpath expr="//field[@name='commitment_date']" position="replace"/>
             <xpath expr="//field[@name='user_id']" position="replace"/>
-
-            <xpath expr="//field[@name='sale_order_template_id']" position="after">
-                <field name="expected_date"/>
-                <field name="commitment_date"/>
+            <xpath expr="//field[@name='confirmation_date']" position="after">
+                <field name="expected_date" groups="sale.group_sale_order_dates"/>
+                <field name="commitment_date" groups="sale.group_sale_order_dates"/>
                 <field name="user_id"/>
             </xpath>
             <xpath expr="//field[@name='payment_term_id']" position="after">
