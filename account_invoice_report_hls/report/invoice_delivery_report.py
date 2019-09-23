@@ -31,6 +31,10 @@ class InvoiceDeliveryReport(models.TransientModel):
                                                   invoice.date_to)
         return report.id
 
+    @api.multi
+    def _get_report_base_filename(self):
+        self.ensure_one()
+        return self.invoice_id._get_report_base_filename()
 
 class InvoiceDeliveryReportLine(models.TransientModel):
     _name = 'invoice.delivery.report.line'
@@ -64,9 +68,9 @@ class InvoiceDeliveryReportLine(models.TransientModel):
 
     def _create_invoice_delivery_report_lines(self, report, invoice_line_ids,
                                               date_from, date_to):
-        for il in invoice_line_ids  \
-                    .filtered(lambda x: x.product_id.type != 'service')  \
-                    .sorted(key=lambda r: r.sale_order_name):
+        for il in invoice_line_ids.filtered(
+            lambda x: x.product_id.type != 'service').sorted(
+                key=lambda r: r.sale_order_name or ''):
             for sl in il.sale_line_ids:
                 moves = self.env['stock.move'].search([
                     ('sale_line_id', '=', sl.id),

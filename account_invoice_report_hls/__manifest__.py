@@ -10,12 +10,11 @@ Adds an invoice report in desired layout.
     """,
     'author': 'Quartile Limited',
     'depends': [
-        'sale',
-        'stock',
+        'sale_stock',
         'report_common_hls',
         'report_py3o',
         'account_partner_company_bank',
-        'account_invoice_secondary_unit',
+        'account_invoice_secondary_unit_price',
     ],
     'data': [
         'views/res_company_views.xml',
