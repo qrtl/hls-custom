@@ -54,8 +54,10 @@
                 <field name="state"/>
             </xpath>
             <xpath expr="//filter[@name='in_progress']" position="before">
-                <filter name="ship_today" string="Shipping Today" domain="[('ship_date','=',context_today().strftime('%%Y-%%m-%%d'))]"/>
-                <filter name="ship_tomorrow" string="Shipping Tomorrow" domain="[('ship_date','=',(context_today()+relativedelta(days=1)).strftime('%%Y-%%m-%%d'))]"/>
+                <filter name="ship_today" string="Shipping Today" domain="[('ship_date','=',context_today().strftime('%Y-%m-%d'))]"/>
+                <filter name="ship_tomorrow" string="Shipping Tomorrow" domain="[('ship_date','=',(context_today()+relativedelta(days=1)).strftime('%Y-%m-%d'))]"/>
+                <filter name="ship_3_days" string="Shipping within 3 Days" domain="[('ship_date','&lt;=',(context_today()+relativedelta(days=3)).strftime('%Y-%m-%d'))]"/>
+                <filter name="ship_7_days" string="Shipping within 7 Days" domain="[('ship_date','&lt;=',(context_today()+relativedelta(days=7)).strftime('%Y-%m-%d'))]"/>
                 <separator/>
             </xpath>
             <xpath expr="//filter[@name='user']" position="before">
