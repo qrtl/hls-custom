@@ -30,6 +30,16 @@
                         ('scheduled_date','&lt;=', datetime.datetime.combine((context_today()+relativedelta(days=1)), datetime.time(23,59,59)))
                     ]"
                 />
+                <filter name="scheduled_in_3" string="Scheduled within 3 days"
+                    domain="[
+                        ('scheduled_date','&lt;=', datetime.datetime.combine((context_today()+relativedelta(days=3)), datetime.time(23,59,59)))
+                    ]"
+                />
+                <filter name="scheduled_in_3" string="Scheduled within 7 days"
+                    domain="[
+                        ('scheduled_date','&lt;=', datetime.datetime.combine((context_today()+relativedelta(days=7)), datetime.time(23,59,59)))
+                    ]"
+                />
                 <separator/>
             </xpath>
             <xpath expr="//field[@name='product_id']" position="after">
