@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-03 04:03+0000\n"
-"PO-Revision-Date: 2019-09-03 04:03+0000\n"
+"POT-Creation-Date: 2019-09-23 09:21+0000\n"
+"PO-Revision-Date: 2019-09-23 09:21+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -214,6 +214,16 @@ msgid "Scheduled time for the first part of the shipment to be processed. Settin
 msgstr "出荷の最初の部分が処理される予定時刻。 ここで手動で値を設定すると、すべての在庫移動の予定日として設定されます。"
 
 #. module: stock_delivery_request_report
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.view_picking_internal_search
+msgid "Scheduled within 3 days"
+msgstr "3日以内に出荷"
+
+#. module: stock_delivery_request_report
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.view_picking_internal_search
+msgid "Scheduled within 7 days"
+msgstr "1週間以内に出荷"
+
+#. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_batch__ship_date
 msgid "Shipping Date"
 msgstr "出荷日"
@@ -257,4 +267,3 @@ msgstr ""
 #: model:ir.model,name:stock_delivery_request_report.model_stock_picking_report_wizard
 msgid "stock.picking.report.wizard"
 msgstr ""
-
