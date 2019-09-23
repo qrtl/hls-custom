@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-23 09:21+0000\n"
-"PO-Revision-Date: 2019-09-23 09:21+0000\n"
+"POT-Creation-Date: 2019-09-23 09:51+0000\n"
+"PO-Revision-Date: 2019-09-23 09:51+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -201,12 +201,12 @@ msgstr "予定日時"
 #. module: stock_delivery_request_report
 #: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.view_picking_internal_search
 msgid "Scheduled for Today"
-msgstr "本日出荷予定"
+msgstr "本日予定"
 
 #. module: stock_delivery_request_report
 #: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.view_picking_internal_search
 msgid "Scheduled for Tomorrow"
-msgstr "明日出荷予定"
+msgstr "明日予定"
 
 #. module: stock_delivery_request_report
 #: model:ir.model.fields,help:stock_delivery_request_report.field_stock_picking__scheduled_date
@@ -216,12 +216,12 @@ msgstr "出荷の最初の部分が処理される予定時刻。 ここで手�
 #. module: stock_delivery_request_report
 #: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.view_picking_internal_search
 msgid "Scheduled within 3 days"
-msgstr "3日以内に出荷"
+msgstr "3日以内に予定"
 
 #. module: stock_delivery_request_report
 #: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.view_picking_internal_search
 msgid "Scheduled within 7 days"
-msgstr "1週間以内に出荷"
+msgstr "1週間以内に予定"
 
 #. module: stock_delivery_request_report
 #: model:ir.model.fields,field_description:stock_delivery_request_report.field_stock_picking_batch__ship_date
@@ -237,6 +237,16 @@ msgstr "本日出荷"
 #: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.stock_picking_batch_filter
 msgid "Shipping Tomorrow"
 msgstr "明日出荷"
+
+#. module: stock_delivery_request_report
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.stock_picking_batch_filter
+msgid "Shipping within 3 Days"
+msgstr "3日以内に出荷"
+
+#. module: stock_delivery_request_report
+#: model_terms:ir.ui.view,arch_db:stock_delivery_request_report.stock_picking_batch_filter
+msgid "Shipping within 7 Days"
+msgstr "1週間以内に出荷"
 
 #. module: stock_delivery_request_report
 #: model:ir.model,name:stock_delivery_request_report.model_stock_picking
