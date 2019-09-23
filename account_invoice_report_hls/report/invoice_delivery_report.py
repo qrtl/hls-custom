@@ -31,6 +31,10 @@ class InvoiceDeliveryReport(models.TransientModel):
                                                   invoice.date_to)
         return report.id
 
+    @api.multi
+    def _get_report_base_filename(self):
+        self.ensure_one()
+        return self.invoice_id._get_report_base_filename()
 
 class InvoiceDeliveryReportLine(models.TransientModel):
     _name = 'invoice.delivery.report.line'
