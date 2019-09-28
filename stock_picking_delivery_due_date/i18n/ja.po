@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-01 14:33+0000\n"
-"PO-Revision-Date: 2019-08-01 14:33+0000\n"
+"POT-Creation-Date: 2019-09-28 08:58+0000\n"
+"PO-Revision-Date: 2019-09-28 08:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,11 @@ msgid "Contact"
 msgstr "連絡先"
 
 #. module: stock_picking_delivery_due_date
+#: model:ir.model.fields,field_description:stock_picking_delivery_due_date.field_stock_picking__date_delivered
+msgid "Delivered Date"
+msgstr "納入日"
+
+#. module: stock_picking_delivery_due_date
 #: model:ir.model.fields,field_description:stock_picking_delivery_due_date.field_stock_picking__delivery_due_date
 msgid "Delivery Due Date"
 msgstr "納期"
@@ -41,6 +46,11 @@ msgstr "配送リードタイム"
 #: model:ir.model.fields,help:stock_picking_delivery_due_date.field_res_users__delivery_lead
 msgid "Delivery lead time in number of days. Used in proposal of Delivery Due Date in deliveries."
 msgstr "配送リードタイム日数。配送の納期提案に使用。"
+
+#. module: stock_picking_delivery_due_date
+#: model:ir.model,name:stock_picking_delivery_due_date.model_sale_order
+msgid "Sale Order"
+msgstr "販売オーダ"
 
 #. module: stock_picking_delivery_due_date
 #: model:ir.model,name:stock_picking_delivery_due_date.model_sale_order_line
@@ -61,3 +71,9 @@ msgstr "取引先が商品を受け取るべき日。"
 #: model:ir.model,name:stock_picking_delivery_due_date.model_stock_picking
 msgid "Transfer"
 msgstr "運送"
+
+#. module: stock_picking_delivery_due_date
+#: model:ir.model.fields,help:stock_picking_delivery_due_date.field_stock_picking__date_delivered
+msgid "Used to indicate the date on which the delivery was actually received by customer. Manually adjust the date for completed deliveries as necessary. This date is used to find target deliveries in invoice print."
+msgstr "実際に納入された日を示します。必要に応じて、完了済の配送してください。この日付は請求書印刷で出力対象の配送を特定するのに使われます。"
+
