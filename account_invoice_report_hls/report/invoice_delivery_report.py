@@ -75,9 +75,9 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                 moves = self.env['stock.move'].search([
                     ('sale_line_id', '=', sl.id),
                     ('state', '=', 'done'),
-                    ('date_actual', '>=', date_from),
-                    ('date_actual', '<=', date_to),
-                ]).sorted(key=lambda m: m.date_actual)
+                    ('date_delivered', '>=', date_from),
+                    ('date_delivered', '<=', date_to),
+                ]).sorted(key=lambda m: m.date_delivered)
                 for move in moves:
                     move_qty = move.quantity_done * -1 \
                         if move.picking_code == 'incoming' \

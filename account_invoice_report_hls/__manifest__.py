@@ -15,11 +15,11 @@ Adds an invoice report in desired layout.
         'report_py3o',
         'account_partner_company_bank',
         'account_invoice_secondary_unit_price',
+        'stock_picking_delivery_due_date',
     ],
     'data': [
         'views/res_company_views.xml',
         'views/account_invoice_views.xml',
-        'views/stock_picking_views.xml',
         'wizard/invoice_delivery_report_wizard_views.xml',
         'report/invoice_delivery_report.xml',
     ],
