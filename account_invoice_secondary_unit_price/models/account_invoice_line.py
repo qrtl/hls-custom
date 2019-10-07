@@ -22,7 +22,7 @@ class AccountInvoiceLine(models.Model):
             factor = self.secondary_uom_id.factor * self.uom_id.factor
             self.price_unit = self.secondary_uom_price / factor
 
-    @api.onchange('price_unit')
+    @api.onchange('price_unit', 'secondary_uom_id')
     def onchange_price_unit(self):
         if not self.secondary_uom_id:
             return
