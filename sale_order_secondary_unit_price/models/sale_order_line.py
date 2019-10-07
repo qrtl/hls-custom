@@ -13,11 +13,6 @@ class SaleOrderLine(models.Model):
         digits=dp.get_precision('Product Price')
     )
 
-    @api.onchange('product_id')
-    def product_id_change(self):
-        self.secondary_uom_price = 0
-        super(SaleOrderLine, self).product_id_change()
-
     @api.onchange('secondary_uom_id', 'secondary_uom_price')
     def onchange_secondary_price(self):
         if not self.secondary_uom_id:
@@ -27,13 +22,9 @@ class SaleOrderLine(models.Model):
             factor = self.secondary_uom_id.factor * self.product_uom.factor
             self.price_unit = self.secondary_uom_price / factor
 
-    @api.onchange('price_unit')
+    @api.onchange('price_unit', 'secondary_uom_id')
     def onchange_price_unit(self):
-        """ secondary unit price should not be updated unless the field
-            already keeps a value. i.e. secondary unit price will show on
-            printed invoice in case it is not 0.0.
-        """
-        if not (self.secondary_uom_id and self.secondary_uom_price):
+        if not self.secondary_uom_id:
             return
         factor = self.secondary_uom_id.factor * self.product_uom.factor
         self.secondary_uom_price = self.price_unit * factor
