@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='quantity']" position="before">
                 <field name="secondary_uom_qty" groups="uom.group_uom"/>
-                <field name="secondary_uom_id" groups="uom.group_uom"/>
+                <field name="secondary_uom_id" groups="uom.group_uom" domain="[('product_tmpl_id.product_variant_ids', 'in', [product_id])]" options="{'no_create': True}"/>
             </xpath>
         </field>
     </record>
