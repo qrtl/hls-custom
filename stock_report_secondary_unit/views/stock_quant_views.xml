@@ -12,6 +12,7 @@
                 <field name="lot_id" groups="stock.group_production_lot"/>
                 <field name="package_id" groups="stock.group_tracking_lot"/>
                 <field name="owner_id" groups="stock.group_tracking_owner"/>
+                <field name="removal_date" widget="date"/>
                 <field name="reserved_quantity" string="Reserved"/>
                 <field name="quantity" sum="Quantity"/>
                 <field name="product_uom_id" groups="uom.group_uom"/>
