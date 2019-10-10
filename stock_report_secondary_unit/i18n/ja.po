@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 09:53+0000\n"
-"PO-Revision-Date: 2019-08-16 09:53+0000\n"
+"POT-Creation-Date: 2019-10-10 01:43+0000\n"
+"PO-Revision-Date: 2019-10-10 01:43+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,8 +17,8 @@ msgstr ""
 
 #. module: stock_report_secondary_unit
 #: model_terms:ir.ui.view,arch_db:stock_report_secondary_unit.view_stock_quant_tree
-msgid "Inventory Valuation"
-msgstr "在庫評価"
+msgid "Quantity"
+msgstr "数量"
 
 #. module: stock_report_secondary_unit
 #: model:ir.model,name:stock_report_secondary_unit.model_stock_quant
@@ -36,6 +36,11 @@ msgid "Secondary Qty"
 msgstr "数量(副単位)"
 
 #. module: stock_report_secondary_unit
+#: model_terms:ir.ui.view,arch_db:stock_report_secondary_unit.view_stock_quant_tree
+msgid "Secondary Quantity"
+msgstr ""
+
+#. module: stock_report_secondary_unit
 #: model:ir.model.fields,field_description:stock_report_secondary_unit.field_stock_quant__secondary_uom_id
 msgid "Secondary UoM"
 msgstr "副単位"
@@ -43,5 +48,7 @@ msgstr "副単位"
 #. module: stock_report_secondary_unit
 #: model:ir.actions.act_window,name:stock_report_secondary_unit.action_stock_quant
 #: model:ir.ui.menu,name:stock_report_secondary_unit.menu_stock_quant
-msgid "Stock Quant"
+#: model_terms:ir.ui.view,arch_db:stock_report_secondary_unit.view_stock_quant_tree
+msgid "Stock Quants"
 msgstr "保管ロット"
+
