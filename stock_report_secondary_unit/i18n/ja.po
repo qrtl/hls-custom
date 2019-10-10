@@ -38,7 +38,7 @@ msgstr "数量(副単位)"
 #. module: stock_report_secondary_unit
 #: model_terms:ir.ui.view,arch_db:stock_report_secondary_unit.view_stock_quant_tree
 msgid "Secondary Quantity"
-msgstr ""
+msgstr "数量(副単位)"
 
 #. module: stock_report_secondary_unit
 #: model:ir.model.fields,field_description:stock_report_secondary_unit.field_stock_quant__secondary_uom_id
