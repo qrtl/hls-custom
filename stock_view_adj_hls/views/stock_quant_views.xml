@@ -10,4 +10,17 @@
             </field>
         </field>
     </record>
+
+    <record id="quant_search_view" model="ir.ui.view">
+        <field name="name">stock.quant.search</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.quant_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='reserved']" position="after">
+                <separator/>
+                <filter name="60_days_elapsed" string="60 Days Elapsed" domain="[('in_date', '&lt;', (context_today()+relativedelta(days=-60)).strftime('%Y-%m-%d'))]"/>
+                <filter name="90_days_elapsed" string="90 Days Elapsed" domain="[('in_date', '&lt;', (context_today()+relativedelta(days=-90)).strftime('%Y-%m-%d'))]"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>
