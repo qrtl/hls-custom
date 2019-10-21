@@ -16,7 +16,7 @@
             <xpath expr="//field[@name='user_id']" position="replace"/>
             <xpath expr="//field[@name='confirmation_date']" position="after">
                 <field name="expected_date" groups="sale.group_sale_order_dates"/>
-                <field name="commitment_date" groups="sale.group_sale_order_dates"/>
+                <field name="commitment_date" groups="sale.group_sale_order_dates" required="1"/>
                 <field name="user_id"/>
             </xpath>
             <xpath expr="//field[@name='payment_term_id']" position="after">
@@ -33,4 +33,38 @@
             <xpath expr="//field[@name='warehouse_id']" position="replace"/>
         </field>
     </record>
+
+    <record id="view_quotation_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="partner_shipping_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="partner_shipping_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sales_order_filter" model="ir.ui.view">
+        <field name="name">sale.order.list.select</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="partner_shipping_id" operator="child_of"/>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
