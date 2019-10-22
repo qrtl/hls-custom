@@ -51,6 +51,11 @@ class InvoiceDeliveryReportLine(models.TransientModel):
     invoice_line_id = fields.Many2one(
         'account.invoice.line',
     )
+    currency_id = fields.Many2one(
+        'res.currency',
+        related='invoice_line_id.currency_id',
+        readonly=True,
+    )
     secondary_uom_id = fields.Many2one(
         'product.secondary.unit',
     )
@@ -68,11 +73,19 @@ class InvoiceDeliveryReportLine(models.TransientModel):
         compute='_compute_qty_desc',
     )
     price_unit_desc = fields.Char(
-        compute='_compute_unit_price_desc',
+        compute='_compute_price_unit_desc',
     )
-    price_subtotal = fields.Float(
-        compute='_compute_price_subtotal',
-        digits=dp.get_precision('Product Price'),
+    price_subtotal = fields.Monetary(
+        compute='_compute_amounts',
+    )
+    price_total = fields.Monetary(
+        compute='_compute_amounts',
+    )
+    price_tax = fields.Monetary(
+        compute='_get_price_tax',
+    )
+    tax_desc = fields.Char(
+        compute='_compute_tax_desc',
     )
 
     def _create_invoice_delivery_report_lines(self, report, invoice_line_ids,
@@ -143,7 +156,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                     + ln.secondary_uom_id.name + ')'
 
     @api.multi
-    def _compute_unit_price_desc(self):
+    def _compute_price_unit_desc(self):
         for ln in self:
             ail = ln.invoice_line_id
             if ail.secondary_uom_price:
@@ -155,6 +168,33 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                     ln.price_unit_desc += ' / ' + ail.uom_id.name
 
     @api.multi
-    def _compute_price_subtotal(self):
-        for line in self:
-            line.price_subtotal = line.sale_line_id.price_unit * line.quantity
+    def _compute_amounts(self):
+        """ the logic here should be consistent with _compute_price() method
+            of account.invoice.line
+        """
+        for rl in self:
+            ail = rl.invoice_line_id
+            currency = ail.invoice_id and ail.invoice_id.currency_id or None
+            price = ail.price_unit * (1 - (ail.discount or 0.0) / 100.0)
+            taxes = False
+            if ail.invoice_line_tax_ids:
+                taxes = ail.invoice_line_tax_ids.compute_all(
+                    price, currency, rl.quantity,
+                    product=ail.product_id, partner=ail.invoice_id.partner_id)
+            rl.price_subtotal = taxes['total_excluded'] if taxes \
+                else rl.quantity * price
+            rl.price_total = taxes['total_included'] if taxes \
+                else rl.price_subtotal
+
+    def _get_price_tax(self):
+        for rl in self:
+            rl.price_tax = rl.price_total - rl.price_subtotal
+
+    @api.multi
+    def _compute_tax_desc(self):
+        for rl in self:
+            ail = rl.invoice_line_id
+            tax_desc = ''
+            for tax in ail.invoice_line_tax_ids:
+                tax_desc += tax.description if not tax_desc else ', ' + tax.description
+            rl.tax_desc = tax_desc
