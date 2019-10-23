@@ -4,6 +4,7 @@
 from odoo import models, fields, api, _
 from odoo.addons import decimal_precision as dp
 from odoo.tools.float_utils import float_round
+from odoo.exceptions import UserError
 
 
 class InvoiceDeliveryReport(models.TransientModel):
@@ -90,9 +91,11 @@ class InvoiceDeliveryReportLine(models.TransientModel):
 
     def _create_invoice_delivery_report_lines(self, report, invoice_line_ids,
                                               date_from, date_to):
+        conflict_list = ''
         for il in invoice_line_ids.filtered(
             lambda x: x.product_id.type in ['product', 'consu']).sorted(
                 key=lambda r: r.sale_order_name or ''):
+            sum_move_qty = 0.0
             for sl in il.sale_line_ids:
                 moves = self.env['stock.move'].search([
                     ('sale_line_id', '=', sl.id),
@@ -114,6 +117,19 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                         'quantity': move_qty,
                         'product_uom': il.uom_id.id,
                     })
+                    sum_move_qty += move_qty
+            if sum_move_qty != il.quantity:
+                conflict_list += _('\n%s (%s)\n- Delivered Quantity: %s\n- '
+                                          'Quantity in Invoice: %s\n') % (
+                    il.product_id.display_name,
+                    il.sale_line_ids[0].order_id.name,
+                    sum_move_qty,
+                    il.quantity
+                )
+        if conflict_list:
+            raise UserError (_('The quantity in the invoice and delivered \
+                quantity are inconsistent for the following product(s):\n%s') \
+                    % (conflict_list))
         for il in invoice_line_ids.filtered(
             lambda x: x.product_id.type not in ['product', 'consu']).sorted(
                 key=lambda r: r.sale_order_name or ''):
