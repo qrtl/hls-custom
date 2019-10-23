@@ -15,10 +15,6 @@ class AccountInvoiceLine(models.Model):
         'Shipping Address Name',
         compute='_compute_sale_order_vals',
     )
-    tax_desc = fields.Char(
-        'Tax Description',
-        compute='_compute_tax_desc',
-    )
 
     def _compute_sale_order_vals(self):
         for line in self:
@@ -28,14 +24,3 @@ class AccountInvoiceLine(models.Model):
                 line.shipping_address_name = ', '.join([
                     sl.order_id.partner_shipping_id.name or ''
                     for sl in line.sale_line_ids])
-
-    def _compute_tax_desc(self):
-        for line in self:
-            tax_desc = ''
-            if line.invoice_line_tax_ids:
-                for tax in line.invoice_line_tax_ids:
-                    if not tax_desc:
-                        tax_desc = tax.description
-                    else:
-                        tax_desc += ', ' + tax.description
-            line.tax_desc = tax_desc

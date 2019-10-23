@@ -37,6 +37,7 @@ class InvoiceDeliveryReport(models.TransientModel):
         self.ensure_one()
         return self.invoice_id._get_report_base_filename()
 
+
 class InvoiceDeliveryReportLine(models.TransientModel):
     _name = 'invoice.delivery.report.line'
 
@@ -88,6 +89,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
     tax_desc = fields.Char(
         compute='_compute_tax_desc',
     )
+    date_delivered = fields.Date()
 
     def _create_invoice_delivery_report_lines(self, report, invoice_line_ids,
                                               date_from, date_to):
@@ -116,6 +118,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                             il.secondary_uom_id else False,
                         'quantity': move_qty,
                         'product_uom': il.uom_id.id,
+                        'date_delivered': move.date_delivered,
                     })
                     sum_move_qty += move_qty
             if sum_move_qty != il.quantity:
@@ -127,8 +130,8 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                     il.quantity
                 )
         if conflict_list:
-            raise UserError (_('The quantity in the invoice and delivered \
-                quantity are inconsistent for the following product(s):\n%s') \
+            raise UserError (_("The quantity in the invoice and delivered "
+                "quantity are inconsistent for the following product(s):\n%s") \
                     % (conflict_list))
         for il in invoice_line_ids.filtered(
             lambda x: x.product_id.type not in ['product', 'consu']).sorted(
@@ -145,12 +148,12 @@ class InvoiceDeliveryReportLine(models.TransientModel):
 
     @api.multi
     def _compute_secondary_qty(self):
-        for line in self.filtered(lambda x: x.secondary_uom_id):
-            factor = line.secondary_uom_id.factor * \
-                line.product_uom.factor
-            line.secondary_qty = float_round(
-                line.quantity / (factor or 1.0),
-                precision_rounding=line.secondary_uom_id.uom_id.rounding
+        for rl in self.filtered(lambda x: x.secondary_uom_id):
+            factor = rl.secondary_uom_id.factor * \
+                rl.product_uom.factor
+            rl.secondary_qty = float_round(
+                rl.quantity / (factor or 1.0),
+                precision_rounding=rl.secondary_uom_id.uom_id.rounding
             )
 
     def _get_secondary_qty(self, quantity, product_uom, secondary_uom_id):
@@ -162,26 +165,26 @@ class InvoiceDeliveryReportLine(models.TransientModel):
 
     @api.multi
     def _compute_qty_desc(self):
-        for ln in self:
-            ln.qty_desc = str(ln.quantity) + ' ' + ln.product_uom.name \
-                if ln.product_uom else str(ln.quantity)
-            if ln.secondary_uom_id:
-                secondary_qty = ln._get_secondary_qty(
-                    ln.quantity, ln.product_uom, ln.secondary_uom_id)
-                ln.qty_desc += ' (' + str(secondary_qty) + ' ' \
-                    + ln.secondary_uom_id.name + ')'
+        for rl in self:
+            rl.qty_desc = str(rl.quantity) + ' ' + rl.product_uom.name \
+                if rl.product_uom else str(rl.quantity)
+            if rl.secondary_uom_id:
+                secondary_qty = rl._get_secondary_qty(
+                    rl.quantity, rl.product_uom, rl.secondary_uom_id)
+                rl.qty_desc += ' (' + str(secondary_qty) + ' ' \
+                    + rl.secondary_uom_id.name + ')'
 
     @api.multi
     def _compute_price_unit_desc(self):
-        for ln in self:
-            ail = ln.invoice_line_id
+        for rl in self:
+            ail = rl.invoice_line_id
             if ail.secondary_uom_price:
-                ln.price_unit_desc = str(ail.secondary_uom_price) + ' / ' \
-                    + ln.secondary_uom_id.name
+                rl.price_unit_desc = str(ail.secondary_uom_price) + ' / ' \
+                    + rl.secondary_uom_id.name
             else:
-                ln.price_unit_desc = str(ail.price_unit)
+                rl.price_unit_desc = str(ail.price_unit)
                 if ail.uom_id:
-                    ln.price_unit_desc += ' / ' + ail.uom_id.name
+                    rl.price_unit_desc += ' / ' + ail.uom_id.name
 
     @api.multi
     def _compute_amounts(self):
@@ -212,5 +215,6 @@ class InvoiceDeliveryReportLine(models.TransientModel):
             ail = rl.invoice_line_id
             tax_desc = ''
             for tax in ail.invoice_line_tax_ids:
-                tax_desc += tax.description if not tax_desc else ', ' + tax.description
+                tax_desc += tax.description if not tax_desc \
+                    else ', ' + tax.description
             rl.tax_desc = tax_desc
