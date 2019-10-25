@@ -9,9 +9,6 @@
             <xpath expr="//field[@name='partner_invoice_id']" position="before">
                 <field name="commercial_partner_id" invisible="1"/>
             </xpath>
-            <xpath expr="//field[@name='partner_invoice_id']" position="attributes">
-                <attribute name="domain">[('commercial_partner_id', '=', commercial_partner_id)]</attribute>
-            </xpath>
             <xpath expr="//field[@name='partner_shipping_id']" position="attributes">
                 <attribute name="domain">[('commercial_partner_id', '=', commercial_partner_id)]</attribute>
             </xpath>
