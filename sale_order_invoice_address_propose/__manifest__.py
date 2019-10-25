@@ -13,6 +13,7 @@ the sales order based on the selected Delivery Address.
     """,
     'depends': [
         'sale_stock',
+        'sale_view_adj_hls',
     ],
     'data': [
         'views/res_partner_views.xml',
