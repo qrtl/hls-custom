@@ -22,5 +22,5 @@ class AccountInvoiceLine(models.Model):
                 line.sale_order_name = ', '.join([
                     sl.order_id.name for sl in line.sale_line_ids])
                 line.shipping_address_name = ', '.join([
-                    sl.order_id.partner_shipping_id.name or ''
+                    sl.order_id.partner_shipping_id.display_name or ''
                     for sl in line.sale_line_ids])
