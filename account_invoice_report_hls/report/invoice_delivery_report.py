@@ -71,7 +71,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
         compute='_compute_secondary_qty',
         digits=dp.get_precision('Product Unit of Measure'),
     )
-    qty_desc = fields.Char(
+    qty_desc = fields.Text(
         compute='_compute_qty_desc',
     )
     price_unit_desc = fields.Char(
@@ -95,8 +95,9 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                                               date_from, date_to):
         conflict_list = ''
         for il in invoice_line_ids.filtered(
-            lambda x: x.product_id.type in ['product', 'consu']).sorted(
-                key=lambda r: r.sale_order_name or ''):
+            lambda x: x.product_id.type in ['product', 'consu'] and \
+                x.sale_line_ids).sorted(
+                    key=lambda x: x.sale_order_name or ''):
             sum_move_qty = 0.0
             for sl in il.sale_line_ids:
                 moves = self.env['stock.move'].search([
@@ -134,14 +135,16 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                 "quantity are inconsistent for the following product(s):\n%s") \
                     % (conflict_list))
         for il in invoice_line_ids.filtered(
-            lambda x: x.product_id.type not in ['product', 'consu']).sorted(
-                key=lambda r: r.sale_order_name or ''):
+            lambda x: x.product_id.type not in ['product', 'consu'] or \
+                not x.sale_line_ids).sorted(
+                    key=lambda x: x.sale_order_name or ''):
             self.create({
                 'report_id': report.id,
                 'invoice_line_id': il.id,
                 'move_id': False,
                 'sale_line_id': False,
-                'secondary_uom_id': False,
+                'secondary_uom_id': il.secondary_uom_id.id if \
+                    il.secondary_uom_id else False,
                 'quantity': il.quantity,
                 'product_uom': il.uom_id.id,
             })
@@ -168,11 +171,13 @@ class InvoiceDeliveryReportLine(models.TransientModel):
         for rl in self:
             rl.qty_desc = str(rl.quantity) + ' ' + rl.product_uom.name \
                 if rl.product_uom else str(rl.quantity)
-            if rl.secondary_uom_id:
+            ail = rl.invoice_line_id
+            if ail.product_id and ail.product_id.stock_secondary_uom_id:
+                secondary_uom = ail.product_id.stock_secondary_uom_id
                 secondary_qty = rl._get_secondary_qty(
-                    rl.quantity, rl.product_uom, rl.secondary_uom_id)
-                rl.qty_desc += ' (' + str(secondary_qty) + ' ' \
-                    + rl.secondary_uom_id.name + ')'
+                    rl.quantity, rl.product_uom, secondary_uom)
+                rl.qty_desc += '\n(' + str(secondary_qty) + ' ' \
+                    + secondary_uom.name + ')'
 
     @api.multi
     def _compute_price_unit_desc(self):
