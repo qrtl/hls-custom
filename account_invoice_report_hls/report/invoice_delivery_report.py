@@ -152,32 +152,37 @@ class InvoiceDeliveryReportLine(models.TransientModel):
     @api.multi
     def _compute_secondary_qty(self):
         for rl in self.filtered(lambda x: x.secondary_uom_id):
-            factor = rl.secondary_uom_id.factor * \
-                rl.product_uom.factor
-            rl.secondary_qty = float_round(
-                rl.quantity / (factor or 1.0),
-                precision_rounding=rl.secondary_uom_id.uom_id.rounding
-            )
+            rl.secondary_qty = self._get_secondary_qty(
+                rl.quantity, rl.product_uom, rl.secondary_uom_id)
 
-    def _get_secondary_qty(self, quantity, product_uom, secondary_uom_id):
-        factor = secondary_uom_id.factor * product_uom.factor
+    def _get_secondary_qty(self, quantity, product_uom, secondary_uom):
+        factor = secondary_uom.factor * product_uom.factor
         return float_round(
             quantity / (factor or 1.0),
-            precision_rounding=secondary_uom_id.uom_id.rounding
+            precision_rounding=secondary_uom.uom_id.rounding
         )
 
     @api.multi
     def _compute_qty_desc(self):
         for rl in self:
-            rl.qty_desc = str(rl.quantity) + ' ' + rl.product_uom.name \
-                if rl.product_uom else str(rl.quantity)
             ail = rl.invoice_line_id
+            qty_desc = ''
+            if ail.secondary_uom_price:
+                sale_secondary_qty = rl._get_secondary_qty(
+                    rl.quantity, rl.product_uom, rl.secondary_uom_id)
+                qty_desc = str(sale_secondary_qty) + ' ' \
+                    + rl.secondary_uom_id.name if rl.secondary_uom_id \
+                        else str(sale_secondary_qty)
+            else:
+                qty_desc = str(rl.quantity) + ' ' + rl.product_uom.name \
+                    if rl.product_uom else str(rl.quantity)
             if ail.product_id and ail.product_id.stock_secondary_uom_id:
-                secondary_uom = ail.product_id.stock_secondary_uom_id
-                secondary_qty = rl._get_secondary_qty(
-                    rl.quantity, rl.product_uom, secondary_uom)
-                rl.qty_desc += '\n(' + str(secondary_qty) + ' ' \
-                    + secondary_uom.name + ')'
+                stock_secondary_uom = ail.product_id.stock_secondary_uom_id
+                stock_secondary_qty = rl._get_secondary_qty(
+                    rl.quantity, rl.product_uom, stock_secondary_uom)
+                qty_desc += '\n(' + str(stock_secondary_qty) + ' ' \
+                    + stock_secondary_uom.name + ')'
+            rl.qty_desc = qty_desc
 
     @api.multi
     def _compute_price_unit_desc(self):
