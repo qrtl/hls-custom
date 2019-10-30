@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="view_order_line_tree" model="ir.ui.view">
+    <record id="view_order_line_tree_hls" model="ir.ui.view">
         <field name="name">sale.order.line.tree</field>
         <field name="model">sale.order.line</field>
-        <field name="inherit_id" ref="sale.view_order_line_tree"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='order_id']" position="after">
-                <field name="date_order"/>
-                <field name="commitment_date" widget="date"/>
-            </xpath>
-            <xpath expr="//field[@name='order_partner_id']" position="after">
-                <field name="partner_shipping_id"/>
-            </xpath>
-            <xpath expr="//field[@name='name']" position="before">
-                <field name="product_id"/>
-            </xpath>
-            <xpath expr="//field[@name='product_uom']" position="after">
-                <field name="price_unit"/>
-                <field name="secondary_uom_id"/>
-                <field name="secondary_uom_price"/>
-            </xpath>
-            <xpath expr="//field[@name='price_subtotal']" position="after">
-                <field name="state"/>
-            </xpath>
+            <tree string="Sales Order Lines" create="false" editable="top">
+                <field name="order_id" readonly="1"/>
+                <field name="date_order" readonly="1"/>
+                <field name="commitment_date" widget="date" readonly="1"/>
+                <field name="order_partner_id" readonly="1"/>
+                <field name="partner_shipping_id" readonly="1"/>
+                <field name="product_id" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="salesman_id" readonly="1"/>
+                <field name="product_uom_qty" string="Qty" readonly="1"/>
+                <field name="qty_delivered" readonly="1"/>
+                <field name="qty_invoiced" readonly="1"/>
+                <field name="qty_to_invoice" readonly="1"/>
+                <field name="product_uom" string="Unit of Measure" readonly="1"/>
+                <field name="price_unit" readonly="1"/>
+                <field name="secondary_uom_id" readonly="1"/>
+                <field name="secondary_uom_price" readonly="1"/>
+                <field name="price_subtotal" sum="Total" widget="monetary" readonly="1"/>
+                <field name="state" readonly="1"/>
+            </tree>
         </field>
     </record>
 
@@ -32,7 +33,7 @@
         <field name="model">sale.order.line</field>
         <field name="inherit_id" ref="sale.view_sales_order_line_filter"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='product_id']" position="after">
+            <xpath expr="//field[@name='order_partner_id']" position="after">
                 <field name="partner_shipping_id"/>
             </xpath>
             <xpath expr="//filter[@name='salesperson']" position="after">
@@ -47,6 +48,7 @@
         <field name="res_model">sale.order.line</field>
         <field name="type">ir.actions.act_window</field>
         <field name="view_type">form</field>
+        <field name="view_id" ref="sale_order_line_view.view_order_line_tree_hls"/>
         <field name="view_mode">tree</field>
     </record>
 
