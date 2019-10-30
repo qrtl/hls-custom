@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     'name': 'Stock Delivery Request Report',
-    'version': '12.0.1.1.0',
+    'version': '12.0.1.1.1',
     'author': 'Quartile Limited',
     'website': 'https://www.quartile.co',
     'category': 'Stock',
@@ -10,7 +10,7 @@
     'description': """
 - This module adds a py3o delivery request report based on stock picking batch.
 - Adjust stock picking batch view.
-- Pring Request Delivery form in Batch Picking.
+- Print Request Delivery form in Batch Picking.
     """,
     'depends': [
         'stock_picking_batch',
