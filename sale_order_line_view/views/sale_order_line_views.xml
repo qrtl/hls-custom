@@ -23,6 +23,7 @@
                 <field name="secondary_uom_id" readonly="1"/>
                 <field name="secondary_uom_price" readonly="1"/>
                 <field name="price_subtotal" sum="Total" widget="monetary" readonly="1"/>
+                <field name="currency_id" readonly="1" invisible="1"/>
                 <field name="state" readonly="1"/>
             </tree>
         </field>
