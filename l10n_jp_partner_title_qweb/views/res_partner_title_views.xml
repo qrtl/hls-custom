@@ -17,10 +17,12 @@
         <field name="model">res.partner.title</field>
         <field name="inherit_id" ref="base.view_partner_title_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='shortcut']" position="after">
-                <field name="display_position"/>
-                <field name="lang_id"/>
-                <field name="for_company"/>
+            <xpath expr="//group[1]" position="after">
+                <group>
+                    <group name="reporting" string="Reporting">
+                        <field name="display_position"/>
+                    </group>
+                </group>
             </xpath>
         </field>
     </record>
