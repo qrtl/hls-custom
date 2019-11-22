@@ -42,6 +42,7 @@ class SaleOrderLine(models.Model):
         compute='_compute_line_checked',
         readonly=False,
         store=True,
+        help="Select to indicate that the line is ready for invoicing.",
     )
 
     @api.multi
