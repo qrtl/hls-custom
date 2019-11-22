@@ -6,13 +6,13 @@
         <field name="model">sale.order.line</field>
         <field name="arch" type="xml">
             <tree string="Sales Order Lines" create="false" editable="top">
+                <field name="line_checked"/>
                 <field name="order_id" readonly="1"/>
-                <field name="date_order" readonly="1"/>
                 <field name="commitment_date" widget="date" readonly="1"/>
                 <field name="order_partner_id" readonly="1"/>
                 <field name="partner_shipping_id" readonly="1"/>
+                <field name="partner_invoice_id" readonly="1"/>
                 <field name="product_id" readonly="1"/>
-                <field name="name" readonly="1"/>
                 <field name="salesman_id" readonly="1"/>
                 <field name="product_uom_qty" string="Qty" readonly="1"/>
                 <field name="qty_delivered" readonly="1"/>
@@ -34,8 +34,17 @@
         <field name="model">sale.order.line</field>
         <field name="inherit_id" ref="sale.view_sales_order_line_filter"/>
         <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_sales_order_lines']" position="before">
+                <filter string="Checked" name="checked" domain="[('line_checked','=',True)]"/>
+                <filter string="Unchecked" name="unchecked" domain="[('line_checked','=',False)]"/>
+                <separator/>
+                <filter name="month" string="This Month" domain="['&amp;',('commitment_date','&gt;=',(context_today()+relativedelta(day=1)).strftime('%Y-%m-%d')),('commitment_date','&lt;=',(context_today()+relativedelta(months=1,day=1,days=-1)).strftime('%Y-%m-%d'))]"/>
+                <filter name="prev_month" string="Last Month" domain="[('commitment_date','&gt;=',(context_today()-relativedelta(months=1)).strftime('%Y-%m-01')),('commitment_date','&lt;',context_today().strftime('%Y-%m-01'))]"/>
+                <separator/>
+            </xpath>
             <xpath expr="//field[@name='order_partner_id']" position="after">
                 <field name="partner_shipping_id"/>
+                <field name="partner_invoice_id"/>
             </xpath>
             <xpath expr="//filter[@name='salesperson']" position="after">
                 <filter string="Delivery Address" name="partner_shipping_id" domain="[]" context="{'group_by':'partner_shipping_id'}"/>
