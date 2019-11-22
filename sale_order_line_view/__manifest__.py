@@ -11,6 +11,7 @@
     "installable": True,
     "depends": [
         "sale",
+        "sale_order_secondary_unit",
         "sale_order_secondary_unit_price",
     ],
     "data": [

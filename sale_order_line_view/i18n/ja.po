@@ -6,14 +6,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-30 04:02+0000\n"
-"PO-Revision-Date: 2019-10-30 04:02+0000\n"
+"POT-Creation-Date: 2019-11-20 09:37+0000\n"
+"PO-Revision-Date: 2019-11-20 09:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: sale_order_line_view
+#: model:ir.model.fields,field_description:sale_order_line_view.field_sale_order_line__line_checked
+#: model_terms:ir.ui.view,arch_db:sale_order_line_view.view_sales_order_line_filter
+msgid "Checked"
+msgstr "チェック済"
 
 #. module: sale_order_line_view
 #: model:ir.model.fields,field_description:sale_order_line_view.field_sale_order_line__commitment_date
@@ -30,6 +36,21 @@ msgstr "配送先"
 #: model:ir.model.fields,help:sale_order_line_view.field_sale_order_line__partner_shipping_id
 msgid "Delivery address for current sales order."
 msgstr "この販売オーダの配送先"
+
+#. module: sale_order_line_view
+#: model:ir.model.fields,field_description:sale_order_line_view.field_sale_order_line__partner_invoice_id
+msgid "Invoice Address"
+msgstr "請求書先"
+
+#. module: sale_order_line_view
+#: model:ir.model.fields,help:sale_order_line_view.field_sale_order_line__partner_invoice_id
+msgid "Invoice address for current sales order."
+msgstr "この販売オーダの請求先"
+
+#. module: sale_order_line_view
+#: model_terms:ir.ui.view,arch_db:sale_order_line_view.view_sales_order_line_filter
+msgid "Last Month"
+msgstr "先月"
 
 #. module: sale_order_line_view
 #: model:ir.model.fields,field_description:sale_order_line_view.field_sale_order_line__date_order
@@ -60,9 +81,9 @@ msgid "Status"
 msgstr "ステータス"
 
 #. module: sale_order_line_view
-#: model:ir.model.fields,help:sale_order_line_view.field_sale_order_line__commitment_date
-msgid "This is the delivery date promised to the customer. If set, the delivery order will be scheduled based on this date rather than product lead times."
-msgstr ""
+#: model_terms:ir.ui.view,arch_db:sale_order_line_view.view_sales_order_line_filter
+msgid "This Month"
+msgstr "今月"
 
 #. module: sale_order_line_view
 #: model_terms:ir.ui.view,arch_db:sale_order_line_view.view_order_line_tree_hls
@@ -70,7 +91,16 @@ msgid "Total"
 msgstr "合計"
 
 #. module: sale_order_line_view
+#: model_terms:ir.ui.view,arch_db:sale_order_line_view.view_sales_order_line_filter
+msgid "Unchecked"
+msgstr "未チェック"
+
+#. module: sale_order_line_view
 #: model_terms:ir.ui.view,arch_db:sale_order_line_view.view_order_line_tree_hls
 msgid "Unit of Measure"
 msgstr "単位"
 
+#. module: sale_order_secondary_unit
+#: model:ir.model.fields,field_description:sale_order_secondary_unit.field_sale_order_line__secondary_uom_id
+msgid "Secondary uom"
+msgstr "副単位"
