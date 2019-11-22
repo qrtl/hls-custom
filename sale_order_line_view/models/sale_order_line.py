@@ -31,3 +31,21 @@ class SaleOrderLine(models.Model):
         readonly=True,
         store=True,
     )
+    partner_invoice_id = fields.Many2one(
+        related='order_id.partner_invoice_id',
+        string='Invoice Address',
+        readonly=True,
+        store=True,
+    )
+    line_checked = fields.Boolean(
+        string='Checked',
+        compute='_compute_line_checked',
+        readonly=False,
+        store=True,
+    )
+
+    @api.multi
+    @api.depends('qty_delivered', 'qty_invoiced', 'product_uom_qty', 'price_unit', 'secondary_uom_price')
+    def _compute_line_checked(self):
+        for line in self:
+            line.line_checked = False
