@@ -6,7 +6,6 @@
         <field name="model">sale.order.line</field>
         <field name="arch" type="xml">
             <tree string="Sales Order Lines" create="false" editable="top">
-                <field name="line_checked"/>
                 <field name="order_id" readonly="1"/>
                 <field name="commitment_date" widget="date" readonly="1"/>
                 <field name="order_partner_id" readonly="1"/>
@@ -17,14 +16,15 @@
                 <field name="product_uom_qty" string="Qty" readonly="1"/>
                 <field name="qty_delivered" readonly="1"/>
                 <field name="qty_invoiced" readonly="1"/>
-                <field name="qty_to_invoice" readonly="1"/>
+                <field name="qty_to_invoice" sum="Total Quantity" readonly="1"/>
                 <field name="product_uom" string="Unit of Measure" readonly="1"/>
                 <field name="price_unit" readonly="1"/>
-                <field name="secondary_uom_id" readonly="1"/>
+                <field name="secondary_uom_id" string="Secondary Unit" readonly="1"/>
                 <field name="secondary_uom_price" readonly="1"/>
                 <field name="price_subtotal" sum="Total" widget="monetary" readonly="1"/>
                 <field name="currency_id" readonly="1" invisible="1"/>
-                <field name="state" readonly="1"/>
+                <field name="line_checked"/>
+                <field name="state" string="Status" readonly="1"/>
             </tree>
         </field>
     </record>
