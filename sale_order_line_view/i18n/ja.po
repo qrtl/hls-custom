@@ -40,7 +40,7 @@ msgstr "この販売オーダの配送先"
 #. module: sale_order_line_view
 #: model:ir.model.fields,field_description:sale_order_line_view.field_sale_order_line__partner_invoice_id
 msgid "Invoice Address"
-msgstr "請求書先"
+msgstr "請求先"
 
 #. module: sale_order_line_view
 #: model:ir.model.fields,help:sale_order_line_view.field_sale_order_line__partner_invoice_id
