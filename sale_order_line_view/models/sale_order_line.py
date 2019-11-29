@@ -46,7 +46,9 @@ class SaleOrderLine(models.Model):
     )
 
     @api.multi
-    @api.depends('qty_delivered', 'qty_invoiced', 'product_uom_qty', 'price_unit', 'secondary_uom_price')
+    # 'qty_invoiced' does not need to be a trigger
+    @api.depends('qty_delivered', 'product_uom_qty', 'price_unit',
+                 'secondary_uom_price')
     def _compute_line_checked(self):
         for line in self:
             line.line_checked = False
