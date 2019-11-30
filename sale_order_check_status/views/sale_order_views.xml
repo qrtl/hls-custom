@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_status']" position="before">
+                <field name="has_checked_line"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='price_total']" position="after">
+                <!-- we make this field readonly as _compute_line_checked gets called upon save, and the selection does not persist -->
+                <field name="line_checked" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_order_view_search_inherit_sale" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit.sale</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_sale"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='to_invoice']" position="before">
+                <filter string="Has Checked Line" name="has_checked_line" domain="[('has_checked_line','=',True)]"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sales_order_filter" model="ir.ui.view">
+        <field name="name">sale.order.list.select</field>
+        <field name="model">sale.order</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_sale_orders_filter']" position="after">
+                <separator/>
+                <filter string="Has Checked Line" name="has_checked_line" domain="[('has_checked_line','=',True)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- extending sale.view_sales_order_filter in a normal way somehow doesn't work so we make a new filter view as primary, and specify it in the action -->
+    <record id="sale.action_orders_to_invoice" model="ir.actions.act_window">
+        <field name="search_view_id" ref="sale_order_check_status.view_sales_order_filter"/>
+    </record>
+
+</odoo>
