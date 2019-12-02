@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="sale.view_order_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='invoice_status']" position="before">
-                <field name="has_checked_line"/>
+                <field name="all_line_checked"/>
             </xpath>
         </field>
     </record>
@@ -30,7 +30,7 @@
         <field name="inherit_id" ref="sale.sale_order_view_search_inherit_sale"/>
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='to_invoice']" position="before">
-                <filter string="Has Checked Line" name="has_checked_line" domain="[('has_checked_line','=',True)]"/>
+                <filter string="All Line Checked" name="all_line_checked" domain="[('all_line_checked','=',True)]"/>
                 <separator/>
             </xpath>
         </field>
@@ -44,7 +44,7 @@
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='my_sale_orders_filter']" position="after">
                 <separator/>
-                <filter string="Has Checked Line" name="has_checked_line" domain="[('has_checked_line','=',True)]"/>
+                <filter string="All Line Checked" name="all_line_checked" domain="[('all_line_checked','=',True)]"/>
             </xpath>
         </field>
     </record>

@@ -7,18 +7,18 @@ from odoo import api, fields, models
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    has_checked_line = fields.Boolean(
-        string="Has Checked Line",
-        compute="_compute_has_checked_line",
+    all_line_checked = fields.Boolean(
+        string="All Line Checked",
+        compute="_compute_all_line_checked",
         store=True,
-        help="Indicates that the order contains a line that has been checked "
-        "for invoicing.",
+        help="Indicates that all order lines that have been checked for "
+        "invoicing.",
     )
 
     @api.depends("order_line.line_checked")
-    def _compute_has_checked_line(self):
+    def _compute_all_line_checked(self):
         for order in self:
-            if order.order_line.filtered(lambda x: x.line_checked):
-                order.has_checked_line = True
+            if all([line.line_checked for line in order.order_line]):
+                order.all_line_checked = True
             else:
-                order.has_checked_line = False
+                order.all_line_checked = False
