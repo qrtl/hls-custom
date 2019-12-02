@@ -5,6 +5,6 @@ from odoo import fields, models
 
 
 class ResCompany(models.Model):
-    _inherit = 'res.company'
+    _inherit = "res.company"
 
-    bank_info = fields.Text('Bank Information')
+    bank_info = fields.Text("Bank Information")
