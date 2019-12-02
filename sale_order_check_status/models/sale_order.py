@@ -11,7 +11,7 @@ class SaleOrder(models.Model):
         string="All Lines Checked",
         compute="_compute_all_line_checked",
         store=True,
-        help="Indicates that all order lines that have been checked for "
+        help="Indicates that all order lines have been checked for "
         "invoicing.",
     )
 
