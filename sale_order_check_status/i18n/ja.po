@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-02 05:55+0000\n"
-"PO-Revision-Date: 2019-12-02 05:55+0000\n"
+"POT-Creation-Date: 2019-12-02 08:10+0000\n"
+"PO-Revision-Date: 2019-12-02 08:10+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,13 +18,14 @@ msgstr ""
 #. module: sale_order_check_status
 #: model:ir.model.fields,field_description:sale_order_check_status.field_sale_order__all_line_checked
 #: model_terms:ir.ui.view,arch_db:sale_order_check_status.sale_order_view_search_inherit_sale
-msgid "All Line Checked"
-msgstr "全ての明細チェック済"
+#: model_terms:ir.ui.view,arch_db:sale_order_check_status.view_sales_order_filter
+msgid "All Lines Checked"
+msgstr "明細チェック済"
 
 #. module: sale_order_check_status
 #: model:ir.model.fields,help:sale_order_check_status.field_sale_order__all_line_checked
 msgid "Indicates that all order lines that have been checked for invoicing."
-msgstr "オーダに請求に向けた全ての明細がチェック済ことを示す。"
+msgstr "オーダの全明細が請求に向けてチェック済であることを示す。"
 
 #. module: sale_order_check_status
 #: model:ir.model,name:sale_order_check_status.model_sale_order
