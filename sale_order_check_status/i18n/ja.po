@@ -24,7 +24,7 @@ msgstr "明細チェック済"
 
 #. module: sale_order_check_status
 #: model:ir.model.fields,help:sale_order_check_status.field_sale_order__all_line_checked
-msgid "Indicates that all order lines that have been checked for invoicing."
+msgid "Indicates that all order lines have been checked for invoicing."
 msgstr "オーダの全明細が請求に向けてチェック済であることを示す。"
 
 #. module: sale_order_check_status
