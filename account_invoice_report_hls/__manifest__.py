@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     'name': 'Account Invoice Report',
-    'version': '12.0.1.1.1',
+    'version': '12.0.1.1.2',
     'category': 'Reporting',
     'license': 'AGPL-3',
     'description': """

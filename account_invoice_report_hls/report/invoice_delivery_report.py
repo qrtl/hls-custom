@@ -3,7 +3,7 @@
 
 from odoo import models, fields, api, _
 from odoo.addons import decimal_precision as dp
-from odoo.tools.float_utils import float_round
+from odoo.tools.float_utils import float_round, float_compare
 from odoo.exceptions import UserError
 
 
@@ -93,6 +93,8 @@ class InvoiceDeliveryReportLine(models.TransientModel):
 
     def _create_invoice_delivery_report_lines(self, report, invoice_line_ids,
                                               date_from, date_to):
+        precision = self.env['decimal.precision'].precision_get(
+            'Product Unit of Measure')
         conflict_list = ''
         for il in invoice_line_ids.filtered(
             lambda x: x.product_id.type in ['product', 'consu'] and \
@@ -122,7 +124,8 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                         'date_delivered': move.date_delivered,
                     })
                     sum_move_qty += move_qty
-            if sum_move_qty != il.quantity:
+            if float_compare(sum_move_qty, il.quantity,
+            precision_digits=precision) != 0:
                 conflict_list += _('\n%s (%s)\n- Delivered Quantity: %s\n- '
                                           'Quantity in Invoice: %s\n') % (
                     il.product_id.display_name,
