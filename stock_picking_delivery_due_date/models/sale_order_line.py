@@ -3,22 +3,21 @@
 
 from datetime import timedelta
 
-from odoo import models, api
+from odoo import api, models
 
 
 class SaleOrderLine(models.Model):
-    _inherit = 'sale.order.line'
+    _inherit = "sale.order.line"
 
     @api.multi
     def _prepare_procurement_values(self, group_id=False):
-        values = super(SaleOrderLine, self)._prepare_procurement_values(
-            group_id)
+        values = super(SaleOrderLine, self)._prepare_procurement_values(group_id)
         self.ensure_one()
         due_date = self.order_id._get_due_date()
-        date_planned = due_date - timedelta(
-            days=self.order_id.partner_shipping_id.delivery_lead or 0.0
-            ) - timedelta(days=self.order_id.company_id.security_lead)
-        values.update({
-            'date_planned': date_planned,
-        })
+        date_planned = (
+            due_date
+            - timedelta(days=self.order_id.partner_shipping_id.delivery_lead or 0.0)
+            - timedelta(days=self.order_id.company_id.security_lead)
+        )
+        values.update({"date_planned": date_planned})
         return values
