@@ -12,6 +12,7 @@ class StockPicking(models.Model):
         states={'done': [('readonly', True)], 'cancel': [('readonly', True)]},
         help="The date the customer is expected to receive the delivery."
     )
+    # in case of return, the value is carried over from the original document
     date_delivered = fields.Date(
         'Delivered Date',
         compute='_compute_date_delivered',
