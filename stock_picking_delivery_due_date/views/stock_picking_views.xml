@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='scheduled_date']" position="after">
                 <field name="delivery_due_date" attrs="{'invisible':[('picking_type_code','!=','outgoing')]}"/>
-                <field name="date_delivered" attrs="{'invisible':[('picking_type_code','!=','outgoing')],'required':[('picking_type_code','=','outgoing'),('state','=','done')]}" readonly="0"/>
+                <field name="date_delivered" attrs="{'required':[('picking_type_code','=','outgoing'),('state','=','done')]}" readonly="0"/>
             </xpath>
         </field>
     </record>

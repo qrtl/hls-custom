@@ -3,11 +3,11 @@
 
 from datetime import timedelta
 
-from odoo import models, api
+from odoo import api, models
 
 
 class SaleOrder(models.Model):
-    _inherit = 'sale.order'
+    _inherit = "sale.order"
 
     def _get_due_date(self):
         self.ensure_one()
