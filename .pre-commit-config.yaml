@@ -14,7 +14,7 @@ exclude: |
   ^\.travis\.yml$|
   # For v12.0 and before, exclude all oca modules
   account_financial_report/|
-  account_lock_date_udate/|
+  account_lock_date_update/|
   account_tax_balance/|
   base_country_state_translatable/|
   base_technical_features/|
