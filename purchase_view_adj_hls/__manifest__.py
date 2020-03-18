@@ -3,8 +3,6 @@
 {
     "name": "Purchase View Adj HLS",
     "summary": "",
-    "description": """
-    """,
     "version": "12.0.1.0.1",
     "category": "Purchase",
     "website": "https://www.quartile.co/",
