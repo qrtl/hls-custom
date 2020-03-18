@@ -12,7 +12,7 @@
             <xpath expr="//field[@name='origin']" position="after">
                 <field name="partner_ref"/>
             </xpath>
-        </field>        
+        </field>
     </record>
 
     <record id="purchase_order_form" model="ir.ui.view">
@@ -36,7 +36,7 @@
             </xpath>
             <xpath expr="//page[@name='purchase_delivery_invoice']/group/group/label" position="replace"/>
             <xpath expr="//page[@name='purchase_delivery_invoice']/group/group/div" position="replace"/>
-        </field>        
+        </field>
     </record>
 
     <record id="purchase_order_view_form_inherit" model="ir.ui.view">
