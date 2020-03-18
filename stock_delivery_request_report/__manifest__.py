@@ -7,11 +7,6 @@
     "website": "https://www.quartile.co",
     "category": "Stock",
     "license": "AGPL-3",
-    "description": """
-- This module adds a py3o delivery request report based on stock picking batch.
-- Adjust stock picking batch view.
-- Print Request Delivery form in Batch Picking.
-    """,
     "depends": [
         "stock_picking_batch",
         "delivery",
