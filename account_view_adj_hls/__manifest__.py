@@ -5,16 +5,12 @@
     "summary": "",
     "description": """
     """,
-    'version': '12.0.1.0.0',
+    "version": "12.0.1.0.0",
     "category": "Accounting",
     "website": "https://www.quartile.co/",
     "author": "Quartile Limited",
     "license": "AGPL-3",
     "installable": True,
-    "depends": [
-        "account_invoice_report_hls",
-    ],
-    "data": [
-        'views/account_invoice_views.xml',
-    ],
+    "depends": ["account_invoice_report_hls",],
+    "data": ["views/account_invoice_views.xml",],
 }
