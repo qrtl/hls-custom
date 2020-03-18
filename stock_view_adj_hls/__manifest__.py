@@ -3,8 +3,6 @@
 {
     "name": "Stock View Adj HLS",
     "summary": "",
-    "description": """
-    """,
     "version": "12.0.1.0.0",
     "category": "Stock",
     "website": "https://www.quartile.co/",
