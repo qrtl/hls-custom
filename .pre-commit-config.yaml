@@ -35,6 +35,7 @@ exclude: |
   report_xlsx/|
   sale_order_secondary_unit/|
   sql_request_abstract/|
+  stock_account_quantity_history_location/|
   stock_demand_estimate/|
   stock_no_negative/|
   stock_picking_report_valued/|
