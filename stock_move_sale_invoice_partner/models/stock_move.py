@@ -12,7 +12,7 @@ class StockMove(models.Model):
     )
     invoice_partner_id = fields.Many2one(
         "res.partner",
-        compute="_get_invoice_partner_id",
+        compute="_compute_invoice_partner_id",
         store=True,
         string="Invoice Customer",
     )
@@ -23,7 +23,7 @@ class StockMove(models.Model):
         "sale_line_id.order_id.partner_invoice_id",
         "sale_line_id.order_id.invoice_ids.partner_id",
     )
-    def _get_invoice_partner_id(self):
+    def _compute_invoice_partner_id(self):
         for move in self:
             if move.sale_line_id:
                 move.invoice_partner_id = move.sale_line_id.order_id.partner_invoice_id

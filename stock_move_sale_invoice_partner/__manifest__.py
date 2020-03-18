@@ -7,9 +7,6 @@
     "website": "https://www.quartile.co",
     "category": "Stock",
     "license": "AGPL-3",
-    "description": """
-Display the customer of sales order and invoice in stock move list view.
-    """,
     "depends": ["stock", "sale_stock",],
     "data": ["views/stock_move_views.xml",],
     "installable": True,
