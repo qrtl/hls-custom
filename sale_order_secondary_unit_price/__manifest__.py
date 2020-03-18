@@ -3,8 +3,6 @@
 {
     "name": "Sale Order Secondary Unit Price",
     "summary": "",
-    "description": """
-    """,
     "version": "12.0.1.0.0",
     "category": "Sale",
     "website": "https://www.quartile.co/",
