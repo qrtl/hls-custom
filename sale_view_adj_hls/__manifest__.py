@@ -5,16 +5,12 @@
     "summary": "",
     "description": """
     """,
-    'version': '12.0.1.1.0',
+    "version": "12.0.1.1.0",
     "category": "Sales",
     "website": "https://www.quartile.co/",
     "author": "Quartile Limited",
     "license": "AGPL-3",
     "installable": True,
-    "depends": [
-        "sale_stock"
-    ],
-    "data": [
-        'views/sale_order_views.xml',
-    ],
+    "depends": ["sale_stock"],
+    "data": ["views/sale_order_views.xml",],
 }
