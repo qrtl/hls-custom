@@ -8,7 +8,7 @@
     "website": "https://www.quartile.co",
     "category": "Accounting",
     "license": "AGPL-3",
-    "depends": ["account", "sale_order_secondary_unit",],
-    "data": ["views/account_invoice_views.xml",],
+    "depends": ["account", "sale_order_secondary_unit"],
+    "data": ["views/account_invoice_views.xml"],
     "installable": True,
 }

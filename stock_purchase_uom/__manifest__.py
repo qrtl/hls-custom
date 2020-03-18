@@ -7,7 +7,7 @@
     "website": "https://www.quartile.co",
     "category": "Stock",
     "license": "AGPL-3",
-    "depends": ["sale_stock", "stock",],
-    "data": ["views/stock_quant_views.xml", "views/stock_move_views.xml",],
+    "depends": ["sale_stock", "stock"],
+    "data": ["views/stock_quant_views.xml", "views/stock_move_views.xml"],
     "installable": True,
 }

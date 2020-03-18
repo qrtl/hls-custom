@@ -54,6 +54,6 @@ class StockPicking(models.Model):
                 "stock_delivery_request_report.stock_picking_report_wizard"
             ).id,
             "type": "ir.actions.act_window",
-            "context": {"picking_ids": self.env.context.get("active_ids"),},
+            "context": {"picking_ids": self.env.context.get("active_ids")},
             "target": "new",
         }

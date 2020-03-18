@@ -6,7 +6,7 @@
     "category": "Accounting",
     "license": "AGPL-3",
     "author": "Quartile Limited",
-    "depends": ["account",],
-    "data": ["views/res_partner_views.xml",],
+    "depends": ["account"],
+    "data": ["views/res_partner_views.xml"],
     "installable": True,
 }

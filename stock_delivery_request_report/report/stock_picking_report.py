@@ -26,7 +26,7 @@ class StockPickingReport(models.TransientModel):
 
     def _create_delivery_request_form(self, bp):
         report = self.create(
-            {"company_id": self.env.user.company_id.id, "batch_id": bp.id,}
+            {"company_id": self.env.user.company_id.id, "batch_id": bp.id}
         )
         self.env["stock.picking.report.line"]._create_delivery_request_lines(
             report, bp.picking_ids

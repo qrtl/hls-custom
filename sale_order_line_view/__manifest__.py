@@ -14,5 +14,5 @@
         "sale_order_secondary_unit",
         "sale_order_secondary_unit_price",
     ],
-    "data": ["views/sale_order_line_views.xml",],
+    "data": ["views/sale_order_line_views.xml"],
 }
