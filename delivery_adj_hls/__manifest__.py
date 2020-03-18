@@ -3,9 +3,6 @@
 {
     "name": "Delivery Adjust",
     "summary": "",
-    "description": """
- - Avoid create the delivery charge line in sales order for free shipping.
-    """,
     "version": "12.0.1.0.0",
     "category": "Stock",
     "website": "https://www.quartile.co/",
