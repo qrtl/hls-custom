@@ -7,7 +7,7 @@ from odoo import _, api, fields, models
 class StockPicking(models.Model):
     _inherit = "stock.picking"
 
-    report_address = fields.Char(compute="_get_report_address",)
+    report_address = fields.Char(compute="_compute_report_address",)
     # adding field show the date in user's timezone
     delivery_due_report_date = fields.Date(compute="_compute_report_delivery_due_date",)
     scheduled_date = fields.Datetime(string="Scheduled DateTime")
@@ -25,7 +25,7 @@ class StockPicking(models.Model):
                 )
 
     @api.multi
-    def _get_report_address(self):
+    def _compute_report_address(self):
         for picking in self:
             partner = picking.partner_id
             address = ""
