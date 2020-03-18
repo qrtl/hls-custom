@@ -11,8 +11,7 @@ class SaleOrder(models.Model):
         string="All Lines Checked",
         compute="_compute_all_line_checked",
         store=True,
-        help="Indicates that all order lines have been checked for "
-        "invoicing.",
+        help="Indicates that all order lines have been checked for invoicing.",
     )
 
     @api.depends("order_line.line_checked")
