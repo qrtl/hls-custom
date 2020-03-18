@@ -3,8 +3,6 @@
 {
     "name": "Sale View Adj HLS",
     "summary": "",
-    "description": """
-    """,
     "version": "12.0.1.1.0",
     "category": "Sales",
     "website": "https://www.quartile.co/",
