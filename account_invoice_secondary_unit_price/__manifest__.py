@@ -7,9 +7,6 @@
     "website": "https://www.quartile.co",
     "category": "Accounting",
     "license": "AGPL-3",
-    "description": """
-Adds Secondary Unit Price and the converted price in account invoice line.
-    """,
     "depends": ["account_invoice_secondary_unit",],
     "data": ["views/account_invoice_views.xml",],
     "installable": True,
