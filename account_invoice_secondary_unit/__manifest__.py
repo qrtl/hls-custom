@@ -8,10 +8,6 @@
     "website": "https://www.quartile.co",
     "category": "Accounting",
     "license": "AGPL-3",
-    "description": """
-Adds secondary UoM and the converted qty in account invoice.
-This module borrows much of the logic from OCA sale_order_secondary_unit.
-    """,
     "depends": ["account", "sale_order_secondary_unit",],
     "data": ["views/account_invoice_views.xml",],
     "installable": True,
