@@ -7,7 +7,6 @@ from odoo import fields, models
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    # bank_info = fields.Text('Bank Information')
     company_bank_id = fields.Many2one(
         "res.partner.bank",
         string="Remit-to Bank Account",
