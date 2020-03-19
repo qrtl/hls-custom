@@ -13,11 +13,6 @@ class InvoiceDeliveryReport(models.TransientModel):
     invoice_id = fields.Many2one("account.invoice")
     line_ids = fields.One2many("invoice.delivery.report.line", inverse_name="report_id")
 
-    @api.multi
-    def _get_report_base_filename(self):
-        self.ensure_one()
-        return _("Invoice (%s)" % (self.invoice_id.number))
-
     def _create_invoice_delivery_report(self, invoice):
         report = self.create({"invoice_id": invoice.id})
         self.env["invoice.delivery.report.line"]._create_invoice_delivery_report_lines(
