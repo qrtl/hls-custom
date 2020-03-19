@@ -21,14 +21,15 @@ class StockMove(models.Model):
     @api.depends(
         "sale_line_id",
         "sale_line_id.order_id.partner_invoice_id",
-        "sale_line_id.order_id.invoice_ids.partner_id",
+        "sale_line_id.invoice_lines.invoice_id.partner_id",
     )
     def _compute_invoice_partner_id(self):
-        for move in self:
-            if move.sale_line_id:
-                move.invoice_partner_id = move.sale_line_id.order_id.partner_invoice_id
-                invoices = move.sale_line_id.order_id.invoice_ids.filtered(
-                    lambda s: s.state != "cancel"
-                )
-                if invoices:
-                    move.invoice_partner_id = invoices[0].partner_id
+        for move in self.filtered(lambda x: x.sale_line_id):
+            sale_line = move.sale_line_id
+            invoices = sale_line.order_id.invoice_ids.filtered(
+                lambda s: s.state != "cancel"
+            )
+            if invoices:
+                move.invoice_partner_id = invoices[0].partner_id
+            else:
+                move.invoice_partner_id = sale_line.order_id.partner_invoice_id
