@@ -51,15 +51,16 @@ class StockPickingReportLine(models.TransientModel):
                 # available quantity
                 quantity = move.quantity_done or move.reserved_availability
                 if quantity > 0:
-                    if move.product_id.stock_secondary_uom_id:
-                        report_uom = move.product_id.stock_secondary_uom_id.name
+                    secondary_uom = move.product_id.stock_secondary_uom_id
+                    if secondary_uom:
+                        report_uom = secondary_uom.name
                         factor = (
-                            move.product_id.stock_secondary_uom_id.factor
+                            secondary_uom.factor
                             * move.product_uom.factor
                         )
                         report_qty = float_round(
                             quantity / (factor or 1.0),
-                            precision_rounding=move.product_id.stock_secondary_uom_id.uom_id.factor,
+                            precision_rounding=secondary_uom.uom_id.factor,
                         )
                     else:
                         report_uom = move.product_uom.name
