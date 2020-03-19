@@ -34,8 +34,13 @@
                         class="fa fa-calendar o_icon_button oe_edit_only"/>
                 </div>
             </xpath>
-            <xpath expr="//page[@name='purchase_delivery_invoice']/group/group/label" position="replace"/>
-            <xpath expr="//page[@name='purchase_delivery_invoice']/group/group/div" position="replace"/>
+            <!-- cannot apply invisible at //page[@name='purchase_delivery_invoice']/group/group as incoterms is inserted in here from another module -->
+            <xpath expr="//page[@name='purchase_delivery_invoice']/group/group/label" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='purchase_delivery_invoice']/group/group/div" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
         </field>
     </record>
 
@@ -44,7 +49,9 @@
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='picking_type_id']" position="replace"/>
+            <xpath expr="//field[@name='picking_type_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
         </field>
     </record>
 
