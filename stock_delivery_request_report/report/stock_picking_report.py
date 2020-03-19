@@ -54,10 +54,7 @@ class StockPickingReportLine(models.TransientModel):
                     secondary_uom = move.product_id.stock_secondary_uom_id
                     if secondary_uom:
                         report_uom = secondary_uom.name
-                        factor = (
-                            secondary_uom.factor
-                            * move.product_uom.factor
-                        )
+                        factor = secondary_uom.factor * move.product_uom.factor
                         report_qty = float_round(
                             quantity / (factor or 1.0),
                             precision_rounding=secondary_uom.uom_id.factor,
