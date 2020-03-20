@@ -24,8 +24,9 @@ class StockQuant(models.Model):
     def _compute_product_secondary_uom_qty(self):
         for quant in self.filtered(lambda x: x.product_id.stock_secondary_uom_id):
             uom = quant.product_uom_id
-            factor = quant.product_id.stock_secondary_uom_id.factor * uom.factor
+            secondary_uom = quant.product_id.stock_secondary_uom_id
+            factor = secondary_uom.factor * uom.factor
             quant.secondary_uom_qty = float_round(
                 quant.quantity / (factor or 1.0),
-                precision_rounding=quant.product_id.stock_secondary_uom_id.uom_id.rounding,
+                precision_rounding=secondary_uom.uom_id.rounding,
             )

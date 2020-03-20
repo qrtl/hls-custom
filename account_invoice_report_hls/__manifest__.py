@@ -5,9 +5,6 @@
     "version": "12.0.1.1.2",
     "category": "Reporting",
     "license": "AGPL-3",
-    "description": """
-Adds an invoice report in desired layout.
-    """,
     "author": "Quartile Limited",
     "depends": [
         "sale_stock",

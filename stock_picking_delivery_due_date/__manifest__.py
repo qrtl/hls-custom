@@ -7,11 +7,6 @@
     "website": "https://www.quartile.co",
     "category": "Stock",
     "license": "AGPL-3",
-    "description": """
-- Adds Delivery Due Date field to stock picking.
-- Adjusts Scheduled Date proposal logic, considering lead time setting per
-delivery address.
-    """,
     "depends": ["sale_stock"],
     "data": ["views/res_partner_views.xml", "views/stock_picking_views.xml"],
     "installable": True,

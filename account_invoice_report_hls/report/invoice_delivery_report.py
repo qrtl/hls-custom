@@ -13,11 +13,6 @@ class InvoiceDeliveryReport(models.TransientModel):
     invoice_id = fields.Many2one("account.invoice")
     line_ids = fields.One2many("invoice.delivery.report.line", inverse_name="report_id")
 
-    @api.multi
-    def _get_report_base_filename(self):
-        self.ensure_one()
-        return _("Invoice (%s)" % (self.invoice_id.number))
-
     def _create_invoice_delivery_report(self, invoice):
         report = self.create({"invoice_id": invoice.id})
         self.env["invoice.delivery.report.line"]._create_invoice_delivery_report_lines(
@@ -52,7 +47,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
     price_unit_desc = fields.Char(compute="_compute_price_unit_desc")
     price_subtotal = fields.Monetary(compute="_compute_amounts")
     price_total = fields.Monetary(compute="_compute_amounts")
-    price_tax = fields.Monetary(compute="_get_price_tax")
+    price_tax = fields.Monetary(compute="_compute_price_tax")
     tax_desc = fields.Char(compute="_compute_tax_desc")
     date_delivered = fields.Date()
 
@@ -223,7 +218,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
             )
             rl.price_total = taxes["total_included"] if taxes else rl.price_subtotal
 
-    def _get_price_tax(self):
+    def _compute_price_tax(self):
         for rl in self:
             rl.price_tax = rl.price_total - rl.price_subtotal
 
