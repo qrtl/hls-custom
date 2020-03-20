@@ -3,19 +3,12 @@
 {
     "name": "Sale Line Name Adjust",
     "summary": "",
-    "description": """
- - Display Product description without reference code in Sale Order line.   
-    """,
-    'version': '12.0.1.0.0',
+    "version": "12.0.1.0.0",
     "category": "Sales",
     "website": "https://www.quartile.co/",
     "author": "Quartile Limited",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "sale"
-    ],
-    "data": [
-    ],
+    "depends": ["sale"],
 }

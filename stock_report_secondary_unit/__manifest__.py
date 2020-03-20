@@ -7,10 +7,7 @@
     "website": "https://www.quartile.co",
     "category": "Stock",
     "license": "AGPL-3",
-    "description": """
-Adds secondary UoM and the converted qty in stock quant.
-    """,
-    "depends": ["sale_stock", "stock_secondary_unit", "product_expiry",],
-    "data": ["views/stock_quant_views.xml",],
+    "depends": ["sale_stock", "stock_secondary_unit", "product_expiry"],
+    "data": ["views/stock_quant_views.xml"],
     "installable": True,
 }

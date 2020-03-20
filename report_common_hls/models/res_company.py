@@ -5,10 +5,7 @@ from odoo import fields, models
 
 
 class ResCompany(models.Model):
-    _inherit = 'res.company'
+    _inherit = "res.company"
 
-    company_chop = fields.Binary(
-        "Company Chop Image",
-        attachment=True,
-    )
-    fax = fields.Char('Fax')
+    company_chop = fields.Binary("Company Chop Image", attachment=True,)
+    fax = fields.Char("Fax")

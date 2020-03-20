@@ -6,14 +6,13 @@ from odoo.addons import decimal_precision as dp
 
 
 class SaleOrderLine(models.Model):
-    _inherit = 'sale.order.line'
+    _inherit = "sale.order.line"
 
     secondary_uom_price = fields.Float(
-        'Secondary Unit Price', 
-        digits=dp.get_precision('Product Price')
+        "Secondary Unit Price", digits=dp.get_precision("Product Price")
     )
 
-    @api.onchange('secondary_uom_id', 'secondary_uom_price')
+    @api.onchange("secondary_uom_id", "secondary_uom_price")
     def onchange_secondary_price(self):
         if not self.secondary_uom_id:
             self.secondary_uom_price = 0
@@ -22,14 +21,14 @@ class SaleOrderLine(models.Model):
             factor = self.secondary_uom_id.factor * self.product_uom.factor
             self.price_unit = self.secondary_uom_price / factor
 
-    @api.onchange('price_unit', 'secondary_uom_id')
+    @api.onchange("price_unit", "secondary_uom_id")
     def onchange_price_unit(self):
         if not self.secondary_uom_id:
             return
         factor = self.secondary_uom_id.factor * self.product_uom.factor
         self.secondary_uom_price = self.price_unit * factor
 
-    @api.onchange('product_uom', 'product_uom_qty')
+    @api.onchange("product_uom", "product_uom_qty")
     def product_uom_change(self):
         """ extending the standard method to always respect the pricing
             based on the secondary unit price if it is set.
