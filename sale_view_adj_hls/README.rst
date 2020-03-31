@@ -19,6 +19,9 @@ Sale View Adj HLS
 
 |badge1| |badge2| |badge3| 
 
+This module does the following:
+
+* Adjusts the presentation of sales order views.
 
 **Table of contents**
 
