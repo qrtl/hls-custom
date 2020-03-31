@@ -20,6 +20,7 @@
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="arch" type="xml">
+            <!-- not making the original field invisible as it causes problem with default value proposal -->
             <xpath expr="//field[@name='currency_id']" position="after">
                 <field name="picking_type_id"/>
             </xpath>
@@ -39,17 +40,6 @@
                 <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//page[@name='purchase_delivery_invoice']/group/group/div" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-        </field>
-    </record>
-
-    <record id="purchase_order_view_form_inherit" model="ir.ui.view">
-        <field name="name">purchase.order.form.inherit</field>
-        <field name="model">purchase.order</field>
-        <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='picking_type_id']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
         </field>
