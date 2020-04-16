@@ -31,6 +31,7 @@ exclude: |
   mrp_warehouse_calendar/|
   partner_statement/|
   product_secondary_unit/|
+  purchase_order_secondary_unit/|
   report_py3o/|
   report_xlsx/|
   sale_order_secondary_unit/|
