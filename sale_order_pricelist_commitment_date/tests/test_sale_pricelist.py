@@ -1,6 +1,5 @@
 # Copyright 2020 Quartile Limited
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
-from odoo import fields
 from datetime import date
 from dateutil.relativedelta import relativedelta
 from odoo.tests import common, tagged
