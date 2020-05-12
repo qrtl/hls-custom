@@ -43,7 +43,13 @@
             <xpath expr="//field[@name='order_line']/form//field[@name='secondary_uom_id']" position="attributes">
                 <attribute name="context">{'commitment_date': parent.commitment_date}</attribute>
             </xpath>
+            <xpath expr="//field[@name='order_line']/form//field[@name='secondary_uom_qty']" position="attributes">
+                <attribute name="context">{'commitment_date': parent.commitment_date}</attribute>
+            </xpath>
             <xpath expr="//field[@name='order_line']/tree//field[@name='secondary_uom_id']" position="attributes">
+                <attribute name="context">{'commitment_date': parent.commitment_date}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree//field[@name='secondary_uom_qty']" position="attributes">
                 <attribute name="context">{'commitment_date': parent.commitment_date}</attribute>
             </xpath>
         </field>
