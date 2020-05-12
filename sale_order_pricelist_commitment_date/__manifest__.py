@@ -8,7 +8,6 @@
     "website": "https://www.quartile.co/",
     "author": "Quartile Limited",
     "license": "LGPL-3",
-    "application": False,
     "installable": True,
     "depends": ["sale_order_secondary_unit"],
     "data": ["views/sale_view.xml"],
