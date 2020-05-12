@@ -10,5 +10,5 @@
     "license": "LGPL-3",
     "installable": True,
     "depends": ["sale_order_secondary_unit"],
-    "data": ["views/sale_view.xml"],
+    "data": ["views/sale_order_view.xml"],
 }
