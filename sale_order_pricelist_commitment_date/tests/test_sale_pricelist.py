@@ -69,5 +69,5 @@ class TestWebsiteSaleComment(common.TransactionCase):
         self.assertEquals(
             fields.Date.to_date(self.sale_order.commitment_date),
             self.commitment_date,
-            "In Compute Price rule the commitment date pass date through context",
+            "In onchange method the commitment date pass date through context",
         )
