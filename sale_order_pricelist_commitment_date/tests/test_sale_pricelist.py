@@ -3,6 +3,7 @@
 from datetime import date
 
 from dateutil.relativedelta import relativedelta
+from odoo import fields
 from odoo.tests import common, tagged
 
 
@@ -47,6 +48,26 @@ class TestWebsiteSaleComment(common.TransactionCase):
         )
         self.assertEquals(
             self.so_line._context["commitment_date"],
+            self.commitment_date,
+            "In Compute Price rule the commitment date pass date through context",
+        )
+
+    def test_onchange_commitment_date(self):
+        self.so_line = self.SaleOrderLine.create(
+            {
+                "product_id": self.product_id.id,
+                "product_uom_qty": 1,
+                "product_uom": self.product_id.uom_id.id,
+                "price_unit": self.product_id.list_price,
+                "order_id": self.sale_order.id,
+                "tax_id": False,
+            }
+        )
+        self.commitment_date = date.today() + relativedelta(days=+10)
+        self.sale_order.write({"commitment_date": self.commitment_date})
+        self.sale_order.onchange_commitment_date()
+        self.assertEquals(
+            fields.Date.to_date(self.sale_order.commitment_date),
             self.commitment_date,
             "In Compute Price rule the commitment date pass date through context",
         )

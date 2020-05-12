@@ -10,7 +10,25 @@
                position="attributes">
             <attribute name="context">{'commitment_date': parent.commitment_date}</attribute>
         </xpath>
+        <xpath
+            expr="//field[@name='order_line']/form/group/group/div/field[@name='product_uom_qty']"
+               position="attributes">
+            <attribute name="context">{'commitment_date': parent.commitment_date}</attribute>
+        </xpath>
+        <xpath
+            expr="//field[@name='order_line']/form/group/group/div/field[@name='product_uom']"
+               position="attributes">
+            <attribute name="context">{'commitment_date': parent.commitment_date}</attribute>
+        </xpath>
         <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']"
+               position="attributes">
+            <attribute name="context">{'commitment_date': parent.commitment_date}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']"
+               position="attributes">
+            <attribute name="context">{'commitment_date': parent.commitment_date}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom']"
                position="attributes">
             <attribute name="context">{'commitment_date': parent.commitment_date}</attribute>
         </xpath>
