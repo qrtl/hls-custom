@@ -129,7 +129,7 @@ class TestWebsiteSaleComment(common.TransactionCase):
         self.sale_order.onchange_commitment_date()
 
         # Compare the Sale Order line price unit with product list price
-        # it not convers the commitment date
+        # it not covers the commitment date
         # it should be original product price unit on so line
         self.assertEquals(
             self.so_line.price_unit,
