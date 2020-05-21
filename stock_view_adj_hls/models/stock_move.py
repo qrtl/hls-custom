@@ -10,9 +10,6 @@ class StockMoveLine(models.Model):
     _inherit = "stock.move.line"
 
     removal_date = fields.Date("Removal Date")
-    picking_type = fields.Selection(
-        related="picking_id.picking_type_code", string="Picking type"
-    )
 
     def _action_done(self):
         res = super(StockMoveLine, self)._action_done()
