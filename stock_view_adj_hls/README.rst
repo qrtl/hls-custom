@@ -19,6 +19,9 @@ Stock View Adj HLS
 
 |badge1| |badge2| |badge3| 
 
+This modules does the following:
+  * Allows to user set the Removal date in Receipt.
+  * Set the Display name for Stock Production lot: format "[Year/Month/Date] Lot Name"
 
 **Table of contents**
 
