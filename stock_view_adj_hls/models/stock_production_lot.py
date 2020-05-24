@@ -4,9 +4,7 @@
 from datetime import datetime
 
 from odoo import api, models
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, \
-    DEFAULT_SERVER_DATETIME_FORMAT
-
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 class StockProductionLot(models.Model):
@@ -21,9 +19,6 @@ class StockProductionLot(models.Model):
                 removal_date = datetime.strptime(
                     str(lot.removal_date), DEFAULT_SERVER_DATETIME_FORMAT
                 )
-                name = (
-                    "[" + removal_date.date().strftime('%Y/%m/%d') + "] "
-                    + lot.name
-                )
+                name = "[" + removal_date.date().strftime("%Y/%m/%d") + "] " + lot.name
             result.append((lot.id, name))
         return result
