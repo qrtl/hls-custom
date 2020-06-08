@@ -14,7 +14,7 @@ class StockMoveLine(models.Model):
         res = super(StockMoveLine, self)._action_done()
         for ml in self:
             if ml.picking_id.picking_type_code == "incoming" and ml.removal_date:
-                removal_date = ml.removal_date + relativedelta(hours=3)
-                removal_date = fields.Datetime.context_timestamp(self, removal_date)
+                removal_date = fields.Datetime.to_string(
+                    ml.removal_date + relativedelta(hours=3))
                 ml.lot_id.write({"removal_date": removal_date})
         return res
