@@ -15,6 +15,7 @@ class StockMoveLine(models.Model):
         for ml in self:
             if ml.picking_id.picking_type_code == "incoming" and ml.removal_date:
                 removal_date = fields.Datetime.to_string(
-                    ml.removal_date + relativedelta(hours=3))
+                    ml.removal_date + relativedelta(hours=3)
+                )
                 ml.lot_id.write({"removal_date": removal_date})
         return res
