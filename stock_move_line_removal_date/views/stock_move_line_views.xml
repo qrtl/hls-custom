@@ -7,10 +7,7 @@
                ref="stock.view_stock_move_line_operation_tree"/>
         <field name="arch" type="xml">
             <field name="lot_name" position="after">
-                <field name="removal_date"  attrs="{'column_invisible':[('parent.picking_code', '!=', 'incoming')]}"/>
-            </field>
-            <field name="lot_name" position="attributes">
-                <attribute name="context">{'removal_date': removal_date}</attribute>
+                <field name="removal_date" attrs="{'readonly': ['&amp;', ('package_level_id', '!=', False), ('parent.picking_type_entire_packs', '=', True)]}" invisible="not context.get('show_lots_text')" groups="stock.group_production_lot" />
             </field>
         </field>
     </record>

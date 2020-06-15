@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* stock_picking_delivery_due_date
+#	* stock_move_line_removal_date
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-28 08:58+0000\n"
-"PO-Revision-Date: 2019-09-28 08:58+0000\n"
+"POT-Creation-Date: 2020-06-15 15:12+0000\n"
+"PO-Revision-Date: 2020-06-15 15:12+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,65 +15,13 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: stock_picking_delivery_due_date
-#: model_terms:ir.ui.view,arch_db:stock_picking_delivery_due_date.view_partner_form
-msgid "<span> days</span>"
-msgstr "<span> 日</span>"
+#. module: stock_move_line_removal_date
+#: model:ir.model,name:stock_move_line_removal_date.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "プロダクト移動(在庫移動明細)"
 
-#. module: stock_picking_delivery_due_date
-#: model:ir.model,name:stock_picking_delivery_due_date.model_res_partner
-msgid "Contact"
-msgstr "連絡先"
-
-#. module: stock_picking_delivery_due_date
-#: model:ir.model.fields,field_description:stock_picking_delivery_due_date.field_stock_picking__date_delivered
-msgid "Delivered Date"
-msgstr "納入日"
-
-#. module: stock_picking_delivery_due_date
-#: model:ir.model.fields,field_description:stock_picking_delivery_due_date.field_stock_picking__delivery_due_date
-msgid "Delivery Due Date"
-msgstr "納期"
-
-#. module: stock_picking_delivery_due_date
-#: model:ir.model.fields,field_description:stock_picking_delivery_due_date.field_res_partner__delivery_lead
-#: model:ir.model.fields,field_description:stock_picking_delivery_due_date.field_res_users__delivery_lead
-msgid "Delivery Lead Time"
-msgstr "配送リードタイム"
-
-#. module: stock_picking_delivery_due_date
-#: model:ir.model.fields,help:stock_picking_delivery_due_date.field_res_partner__delivery_lead
-#: model:ir.model.fields,help:stock_picking_delivery_due_date.field_res_users__delivery_lead
-msgid "Delivery lead time in number of days. Used in proposal of Delivery Due Date in deliveries."
-msgstr "配送リードタイム日数。配送の納期提案に使用。"
-
-#. module: stock_picking_delivery_due_date
-#: model:ir.model,name:stock_picking_delivery_due_date.model_sale_order
-msgid "Sale Order"
-msgstr "販売オーダ"
-
-#. module: stock_picking_delivery_due_date
-#: model:ir.model,name:stock_picking_delivery_due_date.model_sale_order_line
-msgid "Sales Order Line"
-msgstr "販売オーダ明細"
-
-#. module: stock_picking_delivery_due_date
-#: model:ir.model,name:stock_picking_delivery_due_date.model_stock_move
-msgid "Stock Move"
-msgstr "在庫移動"
-
-#. module: stock_picking_delivery_due_date
-#: model:ir.model.fields,help:stock_picking_delivery_due_date.field_stock_picking__delivery_due_date
-msgid "The date the customer is expected to receive the delivery."
-msgstr "取引先が商品を受け取るべき日。"
-
-#. module: stock_picking_delivery_due_date
-#: model:ir.model,name:stock_picking_delivery_due_date.model_stock_picking
-msgid "Transfer"
-msgstr "運送"
-
-#. module: stock_picking_delivery_due_date
-#: model:ir.model.fields,help:stock_picking_delivery_due_date.field_stock_picking__date_delivered
-msgid "Used to indicate the date on which the delivery was actually received by customer. Manually adjust the date for completed deliveries as necessary. This date is used to find target deliveries in invoice print."
-msgstr "実際に納入された日を示します。必要に応じて、完了済の配送してください。この日付は請求書印刷で出力対象の配送を特定するのに使われます。"
+#. module: stock_move_line_removal_date
+#: model:ir.model.fields,field_description:stock_move_line_removal_date.field_stock_move_line__removal_date
+msgid "Removal Date"
+msgstr "廃棄日"
 
