@@ -2,11 +2,10 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from datetime import datetime
-from dateutil.relativedelta import relativedelta
 
 import pytz
-
-from odoo import fields, models, SUPERUSER_ID
+from dateutil.relativedelta import relativedelta
+from odoo import SUPERUSER_ID, fields, models
 
 
 class StockMoveLine(models.Model):
@@ -30,20 +29,15 @@ class StockMoveLine(models.Model):
         # It is also not optimal in terms of the performance to run this for
         # every move line (should the diff be kept in the user record of the
         # superuser? - in which case adjustments for DST is not possible).
-        dt = datetime(
-            year=date.year,
-            month=date.month,
-            day=date.day,
-            hour=hour,
-        )
+        dt = datetime(year=date.year, month=date.month, day=date.day, hour=hour,)
         utc_timestamp = pytz.utc.localize(dt, is_dst=False)
         su_tz = self.env["res.users"].browse(SUPERUSER_ID).tz or "UTC"
         su_timestamp = pytz.timezone(su_tz).localize(dt).astimezone(pytz.utc)
         # Following conditional branching is needed due to peculiar behavior
         # of how the diff is calculated depending on the timezone.
         if utc_timestamp >= su_timestamp:
-            diff = (utc_timestamp - su_timestamp).seconds/3600
+            diff = (utc_timestamp - su_timestamp).seconds / 3600
             return utc_timestamp - relativedelta(hours=diff)
         else:
-            diff = (su_timestamp - utc_timestamp).seconds/3600
+            diff = (su_timestamp - utc_timestamp).seconds / 3600
             return utc_timestamp + relativedelta(hours=diff)
