@@ -17,8 +17,10 @@ class StockMoveLine(models.Model):
         res = super(StockMoveLine, self)._action_done()
         for ml in self:
             if ml.picking_id.picking_type_code == "incoming" and ml.removal_date:
+                # The time part of removal_date in lot/serial should show as
+                # 12:00 for users in the same timezone as the superuser.
                 removal_date = fields.Datetime.to_string(
-                    ml.convert_date_to_datetime(ml.sudo().removal_date, 12)
+                    ml.convert_date_to_datetime(ml.removal_date, 12)
                 )
                 ml.lot_id.write({"removal_date": removal_date})
         return res
