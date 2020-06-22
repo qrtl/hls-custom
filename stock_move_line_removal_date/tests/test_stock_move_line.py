@@ -33,7 +33,8 @@ class TestStockMove(common.TransactionCase):
 
     def test_action_done(self):
         """ This test perform to evaluate the action_done method
-        which allows to convert date to datetime with Specific hours"""
+        which converts removal date to a datetime according to
+        superuser's timezone."""
 
         # Adding UTC timezone for SUPERUSER.
         self.env["res.users"].browse(SUPERUSER_ID).write({"tz": "UTC"})
@@ -50,12 +51,8 @@ class TestStockMove(common.TransactionCase):
                 "picking_type_id": self.env.ref("stock.picking_type_in").id,
             }
         )
-
-        # Move Confirmation
+        # Confirm and assign move
         move1._action_confirm()
-        self.assertEqual(move1.state, "confirmed")
-
-        # Move assignment
         move1._action_assign()
 
         # First Move time is based on UTC
@@ -66,6 +63,7 @@ class TestStockMove(common.TransactionCase):
 
         # First Move line Done
         move_line_1._action_done()
+        self.assertEqual(str(move_line_1.lot_id.removal_date), "2020-01-01 12:00:00")
 
         # Adding Japan timezone for SUPERUSER.
         self.env["res.users"].browse(SUPERUSER_ID).write({"tz": "Japan"})
@@ -78,9 +76,4 @@ class TestStockMove(common.TransactionCase):
 
         # Second Move line Done
         move_line_2._action_done()
-
-        # Comparing the Difference Hours Based on UTC timezone.
-        self.assertEqual(str(move_line_1.lot_id.removal_date), "2020-01-01 12:00:00")
-
-        # Comparing the Difference Hours Based on Japan timezone.
         self.assertEqual(str(move_line_2.lot_id.removal_date), "2020-01-01 03:00:00")
