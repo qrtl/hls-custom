@@ -37,9 +37,7 @@ class StockMoveLine(models.Model):
         su_timestamp = pytz.timezone(su_tz).localize(dt).astimezone(pytz.utc)
         # Following conditional branching is needed due to peculiar behavior
         # of how the diff is calculated depending on the timezone.
-        if utc_timestamp >= su_timestamp:
-            diff = (utc_timestamp - su_timestamp).seconds / 3600
-            return utc_timestamp - relativedelta(hours=diff)
-        else:
+        diff = -(utc_timestamp - su_timestamp).seconds / 3600
+        if su_timestamp > utc_timestamp:
             diff = (su_timestamp - utc_timestamp).seconds / 3600
-            return utc_timestamp + relativedelta(hours=diff)
+        return utc_timestamp + relativedelta(hours=diff)
