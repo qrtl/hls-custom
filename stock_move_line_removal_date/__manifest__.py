@@ -7,7 +7,7 @@
     "website": "https://www.quartile.co",
     "category": "Stock",
     "license": "LGPL-3",
-    "depends": ["product_expiry", "stock"],
+    "depends": ["product_expiry"],
     "data": ["views/stock_move_line_views.xml"],
     "installable": True,
 }
