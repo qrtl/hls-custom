@@ -1,7 +1,7 @@
 # Copyright 2020 Quartile Limited
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
-    "name": "Stock Production Lot Name Adj",
+    "name": "Stock Production Lot Removal Date Adj",
     "version": "12.0.1.0.0",
     "author": "Quartile Limited",
     "website": "https://www.quartile.co",
