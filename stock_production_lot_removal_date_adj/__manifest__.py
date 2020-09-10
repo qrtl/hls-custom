@@ -8,5 +8,6 @@
     "category": "Stock",
     "license": "LGPL-3",
     "depends": ["product_expiry"],
+    "data": ["views/stock_production_lot_views.xml"],
     "installable": True,
 }
