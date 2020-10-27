@@ -7,4 +7,4 @@ from odoo import fields, models
 class AccountInvoiceLine(models.Model):
     _inherit = "account.invoice.line"
 
-    customer_order_number = fields.Char("Customer Order Number")
+    client_order_ref = fields.Char("Customer Order Ref")

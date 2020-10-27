@@ -7,10 +7,10 @@ from odoo import api, fields, models
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
-    customer_order_number = fields.Char("Customer Order Number")
+    client_order_ref = fields.Char("Customer Order Ref")
 
     @api.multi
     def _prepare_invoice_line(self, qty):
         res = super()._prepare_invoice_line(qty)
-        res["customer_order_number"] = self.customer_order_number
+        res["client_order_ref"] = self.client_order_ref
         return res
