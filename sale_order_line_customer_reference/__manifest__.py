@@ -8,6 +8,6 @@
     "website": "https://www.quartile.co",
     "summary": "",
     "license": "LGPL-3",
-    "depends": ["sale", "account"],
+    "depends": ["sale"],
     "data": ["views/sale_order_views.xml", "views/account_invoice_views.xml"],
 }
