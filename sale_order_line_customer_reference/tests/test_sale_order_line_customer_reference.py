@@ -5,7 +5,7 @@ from odoo.tests import SavepointCase, tagged
 
 
 @tagged("post_install", "-at_install")
-class TestSaleOrderCustomerOrderNumber(SavepointCase):
+class TestSaleOrderLineCustomerReference(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -26,7 +26,7 @@ class TestSaleOrderCustomerOrderNumber(SavepointCase):
         )
 
     def test_01_prepare_invoice_line(self):
-        self.order_line.write({"customer_order_number": "Test1111"})
+        self.order_line.write({"client_order_ref": "Test1111"})
         self.sale_order.action_confirm()
         invoice = self.env["account.invoice"].browse(
             self.sale_order.action_invoice_create()
@@ -35,5 +35,5 @@ class TestSaleOrderCustomerOrderNumber(SavepointCase):
             lambda i: i.product_id == self.test_product
         )
         self.assertEquals(
-            invoice_line.customer_order_number, self.order_line.customer_order_number
+            invoice_line.client_order_ref, self.order_line.client_order_ref
         )
