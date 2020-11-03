@@ -10,4 +10,9 @@ class ResPartner(models.Model):
     delivery_time = fields.Char("Delivery Time", size=9)
 
     def _get_shipping_address(self):
-        return "%s%s%s%s" % (self.state_id and self.state_id.name or "", self.city or "", self.street or "" , self.street2 or "")
+        return "{}{}{}{}".format(
+            self.state_id and self.state_id.name or "",
+            self.city or "",
+            self.street or "",
+            self.street2 or "",
+        )

@@ -7,4 +7,4 @@ from odoo import fields, models
 class DeliveryCarrier(models.Model):
     _inherit = "delivery.carrier"
 
-    shipping_ref_code = fields.Char('Shipping Ref Code', size=2)
+    shipping_ref_code = fields.Char("Shipping Ref Code", size=2)
