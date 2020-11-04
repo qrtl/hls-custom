@@ -19,7 +19,7 @@ msgstr ""
 #: code:addons/stock_outgoing_shipment_report/report/stock_outgoing_shipment_report.py:91
 #, python-format
 msgid "%s should be at most %s digit(s)."
-msgstr ""
+msgstr "%sには%s桁までを入れてください。"
 
 #. module: stock_outgoing_shipment_report
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__partner_address
@@ -142,7 +142,7 @@ msgstr "備考"
 #: code:addons/stock_outgoing_shipment_report/report/stock_outgoing_shipment_report.py:101
 #, python-format
 msgid "Only numbers are allowed for %s field."
-msgstr ""
+msgstr "%sには数値のみで入力してください。"
 
 #. module: stock_outgoing_shipment_report
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__partner_phone

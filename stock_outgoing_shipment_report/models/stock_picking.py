@@ -23,7 +23,7 @@ class StockPicking(models.Model):
                 if order and order.carrier_id and len(order.carrier_id.name) > 20
                 else order and order.carrier_id and order.carrier_id.name or False,
                 "product_code": product.default_code[:7]
-                if product and len(product.default_code) > 7
+                if product and product.default_code and len(product.default_code) > 7
                 else product and product.default_code,
                 "product_name": product.name[:32]
                 if product and len(product.name) > 32

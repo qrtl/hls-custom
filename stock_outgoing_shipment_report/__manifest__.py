@@ -10,6 +10,7 @@
     "license": "LGPL-3",
     "installable": True,
     "depends": [
+        "delivery",
         "sale_order_line_customer_reference",
         "stock_picking_delivery_due_date",
         "stock_secondary_unit",

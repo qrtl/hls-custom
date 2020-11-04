@@ -102,10 +102,10 @@ class StockOutgoingShipmentReport(models.TransientModel):
             for field, prop in FIELDS_PROPERTIES.items():
                 if prop[0] == "Float":
                     try:
-                        int(rec.shipping_charge)
+                        int(rec[field])
                     except Exception:
                         try:
-                            float(rec.shipping_charge)
+                            float(rec[field])
                         except Exception:
                             raise ValidationError(
                                 msg % _(rec.fields_get(field)[field].get("string"))
