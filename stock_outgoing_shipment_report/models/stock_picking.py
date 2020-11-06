@@ -41,9 +41,9 @@ class StockPicking(models.Model):
                         "partner_zip": partner.zip[:8]
                         if partner.zip and len(partner.zip) > 8
                         else partner.zip,
-                        "partner_name": partner. display_name[:32]
-                        if len(partner. display_name) > 32
-                        else partner. display_name,
+                        "partner_name": partner.display_name[:32]
+                        if len(partner.display_name) > 32
+                        else partner.display_name,
                         "partner_address": partner_address[:80]
                         if len(partner_address) > 80
                         else partner_address,

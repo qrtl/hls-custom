@@ -62,9 +62,13 @@ class StockOutgoingShipmentReport(models.TransientModel):
         date_format = "%Y/%m/%d"
         for line in self:
             if line.move_id.date_delivered:
-                line.dispatch_date = fields.Datetime.context_timestamp(self, line.move_id.date_expected).strftime(date_format)
+                line.dispatch_date = fields.Datetime.context_timestamp(
+                    self, line.move_id.date_expected
+                ).strftime(date_format)
             if line.move_id.date_expected:
-                line.delivery_date = fields.Datetime.context_timestamp(self, line.move_id.picking_id.delivery_due_date).strftime(date_format)
+                line.delivery_date = fields.Datetime.context_timestamp(
+                    self, line.move_id.picking_id.delivery_due_date
+                ).strftime(date_format)
             if line.expiry_date_edit:
                 line.expiry_date = line.expiry_date_edit.strftime(date_format)
 
