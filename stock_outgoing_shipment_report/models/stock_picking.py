@@ -18,7 +18,7 @@ class StockPicking(models.Model):
             partner_address = partner._get_shipping_address()
             vals = {
                 "move_id": move.id,
-                "shipping_ref_code": order.carrier_id.shipping_ref_code,
+                "shipping_mode": order.carrier_id.shipping_mode,
                 "carrier_name": order.carrier_id.name[:20]
                 if order and order.carrier_id and len(order.carrier_id.name) > 20
                 else order and order.carrier_id and order.carrier_id.name or False,
@@ -41,9 +41,9 @@ class StockPicking(models.Model):
                         "partner_zip": partner.zip[:8]
                         if partner.zip and len(partner.zip) > 8
                         else partner.zip,
-                        "partner_name": partner.name[:32]
-                        if len(partner.name) > 32
-                        else partner.name,
+                        "partner_name": partner. display_name[:32]
+                        if len(partner. display_name) > 32
+                        else partner. display_name,
                         "partner_address": partner_address[:80]
                         if len(partner_address) > 80
                         else partner_address,

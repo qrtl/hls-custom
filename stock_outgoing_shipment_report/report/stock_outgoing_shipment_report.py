@@ -5,7 +5,7 @@ from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 FIELDS_PROPERTIES = {
-    "shipping_ref_code": ["Char", 2],
+    "shipping_mode": ["Char", 2],
     "carrier_name": ["Char", 20],
     "partner_ref": ["Char", 10],
     "partner_name": ["Char", 32],
@@ -28,13 +28,13 @@ class StockOutgoingShipmentReport(models.TransientModel):
     _name = "stock.outgoing.shipment.report"
 
     move_id = fields.Many2one("stock.move", string="Stock Move", readonly=True,)
-    delivery_date = fields.Char(
+    dispatch_date = fields.Char(
         string="Delivery Date", compute="_compute_date_fields", store=True
     )
-    expected_date = fields.Char(
+    delivery_date = fields.Char(
         string="Expected Date", compute="_compute_date_fields", store=True
     )
-    shipping_ref_code = fields.Char("Shipping Ref Code")
+    shipping_mode = fields.Char("Shipping Mode")
     carrier_name = fields.Char("Carrier")
     partner_name = fields.Char("Customer")
     partner_ref = fields.Char("Customer Code")
@@ -59,17 +59,17 @@ class StockOutgoingShipmentReport(models.TransientModel):
     @api.multi
     @api.depends("move_id.date_delivered", "move_id.date_expected", "expiry_date_edit")
     def _compute_date_fields(self):
+        date_format = "%Y/%m/%d"
         for line in self:
-            date_format = "%Y/%m/%d"
             if line.move_id.date_delivered:
-                line.delivery_date = line.move_id.date_delivered.strftime(date_format)
+                line.dispatch_date = fields.Datetime.context_timestamp(self, line.move_id.date_expected).strftime(date_format)
             if line.move_id.date_expected:
-                line.expected_date = line.move_id.date_expected.strftime(date_format)
+                line.delivery_date = fields.Datetime.context_timestamp(self, line.move_id.picking_id.delivery_due_date).strftime(date_format)
             if line.expiry_date_edit:
                 line.expiry_date = line.expiry_date_edit.strftime(date_format)
 
     @api.constrains(
-        "shipping_ref_code",
+        "shipping_mode",
         "carrier_name",
         "partner_ref",
         "partner_name",
@@ -87,8 +87,8 @@ class StockOutgoingShipmentReport(models.TransientModel):
         "memo",
     )
     def _validate_field_length(self):
+        msg = _("%s should be at most %s digit(s).")
         for rec in self:
-            msg = _("%s should be at most %s digit(s).")
             for field, prop in FIELDS_PROPERTIES.items():
                 if rec[field] and len(rec[field]) > prop[1]:
                     raise ValidationError(
@@ -97,8 +97,8 @@ class StockOutgoingShipmentReport(models.TransientModel):
 
     @api.constrains("case_qty", "separate_qty", "lot_num", "lot_branch_num")
     def _validate_number_fields(self):
+        msg = _("Only numbers are allowed for %s field.")
         for rec in self:
-            msg = _("Only numbers are allowed for %s field.")
             for field, prop in FIELDS_PROPERTIES.items():
                 if prop[0] == "Float":
                     try:

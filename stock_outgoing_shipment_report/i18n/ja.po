@@ -72,7 +72,7 @@ msgid "Customer Reference"
 msgstr "発注番号"
 
 #. module: stock_outgoing_shipment_report
-#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__delivery_date
+#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__dispatch_date
 msgid "Delivery Date"
 msgstr "出庫日"
 
@@ -98,7 +98,7 @@ msgid "Display Name"
 msgstr "表示名"
 
 #. module: stock_outgoing_shipment_report
-#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__expected_date
+#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__delivery_date
 msgid "Expected Date"
 msgstr "納品日"
 
@@ -175,9 +175,9 @@ msgid "Separate Quantity"
 msgstr "出庫数量（バラ）"
 
 #. module: stock_outgoing_shipment_report
-#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_delivery_carrier__shipping_ref_code
-#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__shipping_ref_code
-msgid "Shipping Ref Code"
+#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_delivery_carrier__shipping_mode
+#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__shipping_mode
+msgid "Shipping Mode"
 msgstr "事由"
 
 #. module: stock_outgoing_shipment_report

@@ -20,7 +20,7 @@ class TestAccountPaymentImportSbt(SavepointCase):
                 "delivery_time": "test",
             }
         )
-        cls.env.ref("delivery.free_delivery_carrier").write({"shipping_ref_code": "10"})
+        cls.env.ref("delivery.free_delivery_carrier").write({"shipping_mode": "10"})
         cls.product = cls.env["product.product"].create(
             {"name": "Product A", "default_code": "Test Code"}
         )
@@ -62,7 +62,7 @@ class TestAccountPaymentImportSbt(SavepointCase):
         self.assertEqual(len(report_lines), 2)
         test_line = report_lines[0]
 
-        self.assertEqual(test_line.shipping_ref_code, "10")
+        self.assertEqual(test_line.shipping_mode, "10")
         self.assertEqual(
             test_line.carrier_name,
             self.env.ref("delivery.free_delivery_carrier").name[:20],
