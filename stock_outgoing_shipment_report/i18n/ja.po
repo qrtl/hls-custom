@@ -73,7 +73,7 @@ msgstr "発注番号"
 
 #. module: stock_outgoing_shipment_report
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__dispatch_date
-msgid "Delivery Date"
+msgid "Dispatch Date"
 msgstr "出庫日"
 
 #. module: stock_outgoing_shipment_report
@@ -99,7 +99,7 @@ msgstr "表示名"
 
 #. module: stock_outgoing_shipment_report
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__delivery_date
-msgid "Expected Date"
+msgid "Delivery Date"
 msgstr "納品日"
 
 #. module: stock_outgoing_shipment_report

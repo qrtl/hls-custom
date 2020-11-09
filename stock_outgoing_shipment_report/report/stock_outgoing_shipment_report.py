@@ -29,10 +29,10 @@ class StockOutgoingShipmentReport(models.TransientModel):
 
     move_id = fields.Many2one("stock.move", string="Stock Move", readonly=True,)
     dispatch_date = fields.Char(
-        string="Delivery Date", compute="_compute_date_fields", store=True
+        string="Dispatch Date", compute="_compute_date_fields", store=True
     )
     delivery_date = fields.Char(
-        string="Expected Date", compute="_compute_date_fields", store=True
+        string="Delivery Date", compute="_compute_date_fields", store=True
     )
     shipping_mode = fields.Char("Shipping Mode")
     carrier_name = fields.Char("Carrier")
