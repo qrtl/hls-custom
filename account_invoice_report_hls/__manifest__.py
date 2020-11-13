@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Account Invoice Report",
-    "version": "12.0.1.1.2",
+    "version": "12.0.1.1.3",
     "category": "Reporting",
     "license": "AGPL-3",
     "author": "Quartile Limited",
@@ -13,6 +13,7 @@
         "account_partner_company_bank",
         "account_invoice_secondary_unit_price",
         "stock_picking_delivery_due_date",
+        "sale_order_line_customer_reference",
     ],
     "data": [
         "views/res_company_views.xml",
