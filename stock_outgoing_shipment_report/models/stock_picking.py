@@ -28,7 +28,7 @@ class StockPicking(models.Model):
                 "product_name": product.name[:32]
                 if product and len(product.name) > 32
                 else product and product.name,
-                "case_qty": move.secondary_uom_qty,
+                "case_qty": int(move.secondary_uom_qty) or False,
                 "client_order_ref": move.sale_line_id
                 and move.sale_line_id.client_order_ref,
             }

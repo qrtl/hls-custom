@@ -43,7 +43,7 @@ class StockOutgoingShipmentReport(models.TransientModel):
     partner_phone = fields.Char("Phone")
     product_code = fields.Char("Product Code")
     product_name = fields.Char("Product Name")
-    case_qty = fields.Float("Case Quantity")
+    case_qty = fields.Char("Case Quantity")
     separate_qty = fields.Char("Separate Quantity")
     expiry_date_edit = fields.Date("Expiry Date (Edit)")
     expiry_date = fields.Char(
@@ -61,11 +61,11 @@ class StockOutgoingShipmentReport(models.TransientModel):
     def _compute_date_fields(self):
         date_format = "%Y/%m/%d"
         for line in self:
-            if line.move_id.date_delivered:
+            if line.move_id.date_expected:
                 line.dispatch_date = fields.Datetime.context_timestamp(
                     self, line.move_id.date_expected
                 ).strftime(date_format)
-            if line.move_id.date_expected:
+            if line.move_id.picking_id.delivery_due_date:
                 line.delivery_date = fields.Datetime.context_timestamp(
                     self, line.move_id.picking_id.delivery_due_date
                 ).strftime(date_format)
