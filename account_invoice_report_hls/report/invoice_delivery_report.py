@@ -144,7 +144,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
 
     def _get_secondary_qty(self, quantity, product_uom, secondary_uom):
         factor = secondary_uom.factor * product_uom.factor
-        dp = str(secondary_uom.uom_id.rounding)[::-1].find('.')
+        dp = str(secondary_uom.uom_id.rounding)[::-1].find(".")
         qty = float_repr(quantity / (factor or 1.0), dp)
         return qty
 
