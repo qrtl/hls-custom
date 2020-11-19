@@ -16,6 +16,7 @@ exclude: |
   account_financial_report/|
   account_lock_date_update/|
   account_tax_balance/|
+  auditlog/|
   base_country_state_translatable/|
   base_technical_features/|
   bi_sql_editor/|
