@@ -1,8 +1,8 @@
-# Copyright 2019 Quartile Limited
+# Copyright 2019-2020 Quartile Limited
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Account Invoice Report",
-    "version": "12.0.1.1.3",
+    "version": "12.0.1.2.0",
     "category": "Reporting",
     "license": "AGPL-3",
     "author": "Quartile Limited",
