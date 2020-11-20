@@ -14,6 +14,7 @@
         "account_invoice_secondary_unit_price",
         "stock_picking_delivery_due_date",
         "sale_order_line_customer_reference",
+        "uom_dp",
     ],
     "data": [
         "views/res_company_views.xml",
