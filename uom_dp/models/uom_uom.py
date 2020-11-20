@@ -12,4 +12,4 @@ class UoM(models.Model):
     @api.multi
     def _compute_uom_dp(self):
         for uom in self:
-            uom.uom_dp = str(uom.rounding)[::-1].find(".")
+            uom.uom_dp = str(uom.rounding)[::-1].find(".") if uom.rounding < 1 else 0
