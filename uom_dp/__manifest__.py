@@ -6,9 +6,7 @@
     "category": "base",
     "license": "LGPL-3",
     "author": "Quartile Limited",
-    "depends": [
-        "uom",
-    ],
+    "depends": ["uom"],
     "data": [],
     "installable": True,
 }
