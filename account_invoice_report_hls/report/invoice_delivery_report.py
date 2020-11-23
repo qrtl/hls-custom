@@ -4,7 +4,7 @@
 from odoo import _, api, fields, models
 from odoo.addons import decimal_precision as dp
 from odoo.exceptions import UserError
-from odoo.tools.float_utils import float_compare, float_round
+from odoo.tools.float_utils import float_compare, float_repr
 
 
 class InvoiceDeliveryReport(models.TransientModel):
@@ -144,9 +144,8 @@ class InvoiceDeliveryReportLine(models.TransientModel):
 
     def _get_secondary_qty(self, quantity, product_uom, secondary_uom):
         factor = secondary_uom.factor * product_uom.factor
-        return float_round(
-            quantity / (factor or 1.0), precision_rounding=secondary_uom.uom_id.rounding
-        )
+        qty = float_repr(quantity / (factor or 1.0), secondary_uom.uom_id.uom_dp)
+        return qty
 
     @api.multi
     def _compute_qty_desc(self):
