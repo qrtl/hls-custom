@@ -14,6 +14,7 @@
         "sale_order_line_customer_reference",
         "sale_order_delivery_date",
         "stock_secondary_unit",
+        "uom_dp",
     ],
     "data": [
         "data/stock_outgoing_shipment_report_data.xml",
