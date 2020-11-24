@@ -16,7 +16,6 @@ class StockPicking(models.Model):
             partner = move.picking_partner_id
             product = move.product_id
             partner_address = partner._get_shipping_address()
-            print(move._get_secondary_uom_qty())
             vals = {
                 "move_id": move.id,
                 "shipping_mode": order.carrier_id.shipping_mode,
