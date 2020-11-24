@@ -2,17 +2,15 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from odoo import api, models
-from odoo.tools.float_utils import float_repr
 
 
 class StockMove(models.Model):
     _inherit = "stock.move"
 
-    def _get_secondary_uom_qty(self)
+    def _get_secondary_uom_qty(self):
         self.ensure_one()
-        if self.sale_line_id:
-        secondary_uom = self.sale_line_id and self.sale_line_id.sale_secondary_uom_id or self.product_id.sale_secondary_uom_id
+        secondary_uom = self.sale_line_id and self.sale_line_id.secondary_uom_id or self.product_id.sale_secondary_uom_id
         if not secondary_uom:
             return
-        factor = secondary_uom.factor * self.uom_id.factor
-        return float_repr(self.quantity_done / (factor or 1.0), secondary_uom.uom_id.uom_dp)
+        factor = secondary_uom.factor * self.product_uom.factor
+        return int(self.quantity_done / (factor or 1.0))
