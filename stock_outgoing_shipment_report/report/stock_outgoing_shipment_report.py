@@ -57,7 +57,11 @@ class StockOutgoingShipmentReport(models.TransientModel):
     memo = fields.Char("Memo")
 
     @api.multi
-    @api.depends("move_id.date_expected", "move_id.picking_id.delivery_due_date", "expiry_date_edit")
+    @api.depends(
+        "move_id.date_expected",
+        "move_id.picking_id.delivery_due_date",
+        "expiry_date_edit",
+    )
     def _compute_date_fields(self):
         date_format = "%Y/%m/%d"
         for line in self:
