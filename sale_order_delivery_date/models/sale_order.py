@@ -7,9 +7,7 @@ from odoo import fields, models
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    delivery_expected_date = fields.Date(
-        "Expected Delivery Date"
-    )
+    delivery_expected_date = fields.Date("Expected Delivery Date")
 
     def _get_due_date(self):
         self.ensure_one()

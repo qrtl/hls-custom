@@ -1,12 +1,13 @@
 # Copyright 2020 Quartile Limited
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
+import datetime
 from datetime import timedelta
+
 from odoo import fields
 from odoo.tests import common
-from pytz import timezone, UTC
+from pytz import UTC, timezone
 
-import datetime
 
 class SaleOrderDeliveryDate(common.TransactionCase):
     def setUp(self):
@@ -39,7 +40,9 @@ class SaleOrderDeliveryDate(common.TransactionCase):
         sale_order.action_confirm()
         confirm_date = fields.Datetime.now() + timedelta(days=5)
         today_datetime = fields.Datetime.from_string(datetime.date.today())
-        scheduled_date = fields.Datetime.to_string(timezone(self.env.user.tz).localize(today_datetime).astimezone(UTC))
+        scheduled_date = fields.Datetime.to_string(
+            timezone(self.env.user.tz).localize(today_datetime).astimezone(UTC)
+        )
         sale_order.write({"confirmation_date": confirm_date})
         picking = sale_order.picking_ids[0]
         self.assertEqual(
@@ -77,7 +80,9 @@ class SaleOrderDeliveryDate(common.TransactionCase):
         sale_order.action_confirm()
         expected_date = sale_order.confirmation_date + timedelta(days=product_delay)
         today_datetime = fields.Datetime.from_string(datetime.date.today())
-        scheduled_date = fields.Datetime.to_string(timezone(self.env.user.tz).localize(today_datetime).astimezone(UTC))
+        scheduled_date = fields.Datetime.to_string(
+            timezone(self.env.user.tz).localize(today_datetime).astimezone(UTC)
+        )
         picking = sale_order.picking_ids[0]
         self.assertEqual(
             picking.delivery_due_date, expected_date, msg="Wrong Deliery Due Date!"
