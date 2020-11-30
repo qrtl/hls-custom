@@ -9,10 +9,10 @@ class SaleOrder(models.Model):
 
     dispatch_expected_date = fields.Date(
         "Expected Dispatch Date",
-        states={'draft': [('readonly', False)], 'sent': [('readonly', False)]},
+        states={"draft": [("readonly", False)], "sent": [("readonly", False)]},
         copy=False,
         readonly=True,
-        help="The input date will be passed over to the delivery as Scheduled Date."
+        help="The input date will be passed over to the delivery as Scheduled Date.",
     )
 
     def _get_due_date(self):

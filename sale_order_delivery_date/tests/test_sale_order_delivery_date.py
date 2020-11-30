@@ -3,8 +3,8 @@
 
 import datetime
 from datetime import timedelta
-from dateutil.relativedelta import relativedelta
 
+from dateutil.relativedelta import relativedelta
 from odoo import fields
 from odoo.tests import common
 from pytz import UTC, timezone
@@ -40,7 +40,9 @@ class SaleOrderDeliveryDate(common.TransactionCase):
         )
         sale_order.action_confirm()
         confirm_date = fields.Datetime.now() + timedelta(days=5)
-        today_datetime = fields.Datetime.from_string(datetime.date.today()) + relativedelta(hours=12)
+        today_datetime = fields.Datetime.from_string(
+            datetime.date.today()
+        ) + relativedelta(hours=12)
         scheduled_date = fields.Datetime.to_string(
             timezone(self.env.user.tz).localize(today_datetime).astimezone(UTC)
         )
@@ -80,7 +82,9 @@ class SaleOrderDeliveryDate(common.TransactionCase):
         )
         sale_order.action_confirm()
         expected_date = sale_order.confirmation_date + timedelta(days=product_delay)
-        today_datetime = fields.Datetime.from_string(datetime.date.today()) + relativedelta(hours=12)
+        today_datetime = fields.Datetime.from_string(
+            datetime.date.today()
+        ) + relativedelta(hours=12)
         scheduled_date = fields.Datetime.to_string(
             timezone(self.env.user.tz).localize(today_datetime).astimezone(UTC)
         )
