@@ -3,6 +3,7 @@
 
 import datetime
 from datetime import timedelta
+from dateutil.relativedelta import relativedelta
 
 from odoo import fields
 from odoo.tests import common
@@ -22,7 +23,7 @@ class SaleOrderDeliveryDate(common.TransactionCase):
             {
                 "partner_id": self.partner.id,
                 "commitment_date": fields.Datetime.now() + timedelta(days=3),
-                "delivery_expected_date": datetime.date.today(),
+                "dispatch_expected_date": datetime.date.today(),
                 "order_line": [
                     (
                         0,
@@ -39,7 +40,7 @@ class SaleOrderDeliveryDate(common.TransactionCase):
         )
         sale_order.action_confirm()
         confirm_date = fields.Datetime.now() + timedelta(days=5)
-        today_datetime = fields.Datetime.from_string(datetime.date.today())
+        today_datetime = fields.Datetime.from_string(datetime.date.today()) + relativedelta(hours=12)
         scheduled_date = fields.Datetime.to_string(
             timezone(self.env.user.tz).localize(today_datetime).astimezone(UTC)
         )
@@ -62,7 +63,7 @@ class SaleOrderDeliveryDate(common.TransactionCase):
             {
                 "partner_id": self.partner.id,
                 "commitment_date": False,  # no commitment date
-                "delivery_expected_date": datetime.date.today(),
+                "dispatch_expected_date": datetime.date.today(),
                 "order_line": [
                     (
                         0,
@@ -79,7 +80,7 @@ class SaleOrderDeliveryDate(common.TransactionCase):
         )
         sale_order.action_confirm()
         expected_date = sale_order.confirmation_date + timedelta(days=product_delay)
-        today_datetime = fields.Datetime.from_string(datetime.date.today())
+        today_datetime = fields.Datetime.from_string(datetime.date.today()) + relativedelta(hours=12)
         scheduled_date = fields.Datetime.to_string(
             timezone(self.env.user.tz).localize(today_datetime).astimezone(UTC)
         )

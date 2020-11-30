@@ -26,7 +26,7 @@ msgid "Delivery Due Date"
 msgstr "納期"
 
 #. module: sale_order_delivery_date
-#: model:ir.model.fields,field_description:sale_order_delivery_date.field_sale_order__delivery_expected_date
+#: model:ir.model.fields,field_description:sale_order_delivery_date.field_sale_order__dispatch_expected_date
 msgid "Expected Delivery Date"
 msgstr "出荷予定日"
 
