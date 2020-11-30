@@ -12,7 +12,7 @@
         "report_py3o",
         "account_partner_company_bank",
         "account_invoice_secondary_unit_price",
-        "stock_picking_delivery_due_date",
+        "sale_order_delivery_date",
         "sale_order_line_customer_reference",
         "uom_dp",
     ],
