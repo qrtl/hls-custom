@@ -12,7 +12,7 @@
     "depends": [
         "delivery",
         "sale_order_line_customer_reference",
-        "stock_picking_delivery_due_date",
+        "sale_order_delivery_date",
         "stock_secondary_unit",
     ],
     "data": [
