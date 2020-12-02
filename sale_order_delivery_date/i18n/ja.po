@@ -53,7 +53,7 @@ msgstr "取引先が商品を受け取るべき日。"
 #. module: sale_order_delivery_date
 #: model:ir.model.fields,help:sale_order_delivery_date.field_sale_order__dispatch_expected_date
 msgid "The input date will be passed over to the delivery as Scheduled Date."
-msgstr "入力した日付が配送の納期提案に使用。"
+msgstr "入力した日付は配送の予定日時となります。"
 
 #. module: sale_order_delivery_date
 #: model:ir.model,name:sale_order_delivery_date.model_stock_picking
@@ -63,5 +63,5 @@ msgstr "運送"
 #. module: sale_order_delivery_date
 #: model:ir.model.fields,help:sale_order_delivery_date.field_stock_picking__date_delivered
 msgid "Used to indicate the date on which the delivery was actually received by customer. Manually adjust the date for completed deliveries as necessary. This date is used to find target deliveries in invoice print."
-msgstr "実際に納入された日を示します。必要に応じて、完了済の配送してください。この日付は請求書印刷で出力対象の配送を特定するのに使われます。"
+msgstr "実際に納入された日付を示します。必要に応じて、完了済の配送にて日付を更新してください。この日付は請求書印刷での出力対象の配送の特定に使われます。"
 
