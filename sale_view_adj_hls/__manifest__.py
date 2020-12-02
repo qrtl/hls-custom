@@ -3,7 +3,7 @@
 {
     "name": "Sale View Adj HLS",
     "summary": "",
-    "version": "12.0.1.1.1",
+    "version": "12.0.1.1.2",
     "category": "Sales",
     "website": "https://www.quartile.co/",
     "author": "Quartile Limited",

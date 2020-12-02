@@ -11,7 +11,7 @@
         "stock_picking_batch",
         "delivery",
         "report_py3o",
-        "stock_picking_delivery_due_date",
+        "sale_order_delivery_date",
     ],
     "data": [
         "report/stock_picking_report.xml",
