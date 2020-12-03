@@ -38,9 +38,14 @@ class StockPicking(models.Model):
             )
             if secondary_uom:
                 factor = secondary_uom.factor * move.product_uom.factor
-                vals.update({
-                    "case_qty": int((move.quantity_done or move.reserved_availability) / (factor or 1.0))
-                })
+                vals.update(
+                    {
+                        "case_qty": int(
+                            (move.quantity_done or move.reserved_availability)
+                            / (factor or 1.0)
+                        )
+                    }
+                )
             if partner:
                 vals.update(
                     {
