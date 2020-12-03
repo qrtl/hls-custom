@@ -28,10 +28,19 @@ class StockPicking(models.Model):
                 "product_name": product.name[:32]
                 if product and len(product.name) > 32
                 else product and product.name,
-                "case_qty": move._get_secondary_uom_qty() or 0.0,
                 "client_order_ref": move.sale_line_id
                 and move.sale_line_id.client_order_ref,
             }
+            secondary_uom = (
+                move.sale_line_id
+                and move.sale_line_id.secondary_uom_id
+                or move.product_id.sale_secondary_uom_id
+            )
+            if secondary_uom:
+                factor = secondary_uom.factor * move.product_uom.factor
+                vals.update({
+                    "case_qty": int((move.quantity_done or move.reserved_availability) / (factor or 1.0))
+                })
             if partner:
                 vals.update(
                     {

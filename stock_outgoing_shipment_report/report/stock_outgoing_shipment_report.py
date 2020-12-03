@@ -43,8 +43,8 @@ class StockOutgoingShipmentReport(models.TransientModel):
     partner_phone = fields.Char("Phone")
     product_code = fields.Char("Product Code")
     product_name = fields.Char("Product Name")
-    case_qty = fields.Char("Case Quantity")
-    separate_qty = fields.Char("Separate Quantity")
+    case_qty = fields.Integer("Case Quantity")
+    separate_qty = fields.Integer("Separate Quantity")
     expiry_date_edit = fields.Date("Expiry Date (Edit)")
     expiry_date = fields.Char(
         string="Expiry Date", compute="_compute_date_fields", store=True
@@ -98,7 +98,7 @@ class StockOutgoingShipmentReport(models.TransientModel):
         msg = _("%s should be at most %s digit(s).")
         for rec in self:
             for field, prop in FIELDS_PROPERTIES.items():
-                if rec[field] and len(rec[field]) > prop[1]:
+                if rec[field] and len(str(rec[field])) > prop[1]:
                     raise ValidationError(
                         msg % (_(rec.fields_get(field)[field].get("string")), prop[1])
                     )
