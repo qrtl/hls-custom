@@ -31,11 +31,7 @@ class StockPicking(models.Model):
                 "client_order_ref": move.sale_line_id
                 and move.sale_line_id.client_order_ref,
             }
-            secondary_uom = (
-                move.sale_line_id
-                and move.sale_line_id.secondary_uom_id
-                or move.product_id.sale_secondary_uom_id
-            )
+            secondary_uom = move.product_id.stock_secondary_uom_id
             if secondary_uom:
                 factor = secondary_uom.factor * move.product_uom.factor
                 vals.update(
