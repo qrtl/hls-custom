@@ -8,6 +8,6 @@
     "category": "Sale",
     "license": "LGPL-3",
     "depends": ["sale_stock"],
-    "data": ["views/sale_order_views.xml"],
+    "data": ["views/sale_order_views.xml", "views/stock_picking_views.xml"],
     "installable": True,
 }
