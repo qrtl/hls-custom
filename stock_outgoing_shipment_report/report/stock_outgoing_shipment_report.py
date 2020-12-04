@@ -43,8 +43,8 @@ class StockOutgoingShipmentReport(models.TransientModel):
     partner_phone = fields.Char("Phone")
     product_code = fields.Char("Product Code")
     product_name = fields.Char("Product Name")
-    case_qty = fields.Float("Case Quantity")
-    separate_qty = fields.Char("Separate Quantity")
+    case_qty = fields.Integer("Case Quantity")
+    separate_qty = fields.Integer("Separate Quantity")
     expiry_date_edit = fields.Date("Expiry Date (Edit)")
     expiry_date = fields.Char(
         string="Expiry Date", compute="_compute_date_fields", store=True
@@ -57,15 +57,19 @@ class StockOutgoingShipmentReport(models.TransientModel):
     memo = fields.Char("Memo")
 
     @api.multi
-    @api.depends("move_id.date_delivered", "move_id.date_expected", "expiry_date_edit")
+    @api.depends(
+        "move_id.date_expected",
+        "move_id.picking_id.delivery_due_date",
+        "expiry_date_edit",
+    )
     def _compute_date_fields(self):
         date_format = "%Y/%m/%d"
         for line in self:
-            if line.move_id.date_delivered:
+            if line.move_id.date_expected:
                 line.dispatch_date = fields.Datetime.context_timestamp(
                     self, line.move_id.date_expected
                 ).strftime(date_format)
-            if line.move_id.date_expected:
+            if line.move_id.picking_id.delivery_due_date:
                 line.delivery_date = fields.Datetime.context_timestamp(
                     self, line.move_id.picking_id.delivery_due_date
                 ).strftime(date_format)
@@ -94,7 +98,7 @@ class StockOutgoingShipmentReport(models.TransientModel):
         msg = _("%s should be at most %s digit(s).")
         for rec in self:
             for field, prop in FIELDS_PROPERTIES.items():
-                if rec[field] and len(rec[field]) > prop[1]:
+                if rec[field] and len(str(rec[field])) > prop[1]:
                     raise ValidationError(
                         msg % (_(rec.fields_get(field)[field].get("string")), prop[1])
                     )
