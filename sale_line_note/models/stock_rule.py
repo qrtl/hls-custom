@@ -5,9 +5,9 @@ from odoo import models
 
 
 class StockRule(models.Model):
-    _inherit = 'stock.rule'
+    _inherit = "stock.rule"
 
     def _get_custom_move_fields(self):
         fields = super(StockRule, self)._get_custom_move_fields()
-        fields += ['note']
+        fields += ["note"]
         return fields
