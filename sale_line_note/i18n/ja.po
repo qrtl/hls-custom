@@ -18,7 +18,7 @@ msgstr ""
 #. module: sale_line_note
 #: model:ir.model.fields,field_description:sale_line_note.field_sale_order_line__delivery_note
 msgid "Delivery Note"
-msgstr "配送備考"
+msgstr "配送ノート"
 
 #. module: sale_line_note
 #: model:ir.model,name:sale_line_note.model_sale_order_line
