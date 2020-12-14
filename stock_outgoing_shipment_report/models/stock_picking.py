@@ -30,7 +30,9 @@ class StockPicking(models.Model):
                 else product and product.name,
                 "client_order_ref": move.sale_line_id
                 and move.sale_line_id.client_order_ref,
-                "memo": move.note[:9] if move.note and len(move.note) > 9 else move.note,
+                "memo": move.note[:9]
+                if move.note and len(move.note) > 9
+                else move.note,
             }
             secondary_uom = move.product_id.stock_secondary_uom_id
             if secondary_uom:

@@ -50,9 +50,7 @@ class TestAccountPaymentImportSbt(SavepointCase):
         )
         cls.sale_order.action_confirm()
         cls.pickings = cls.sale_order.picking_ids
-        cls.pickings.mapped('move_lines').update({
-            'note': 'Test Note'
-        })
+        cls.pickings.mapped("move_lines").update({"note": "Test Note"})
 
     def test_01_get_shipping_address(self):
         self.assertEqual(
