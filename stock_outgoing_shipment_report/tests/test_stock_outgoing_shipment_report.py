@@ -50,6 +50,7 @@ class TestAccountPaymentImportSbt(SavepointCase):
         )
         cls.sale_order.action_confirm()
         cls.pickings = cls.sale_order.picking_ids
+        cls.pickings.mapped("move_lines").update({"note": "Test Note"})
 
     def test_01_get_shipping_address(self):
         self.assertEqual(
@@ -70,3 +71,4 @@ class TestAccountPaymentImportSbt(SavepointCase):
         self.assertEqual(test_line.product_code, self.product.default_code[:7])
         self.assertEqual(test_line.product_name, self.product.name)
         self.assertEqual(test_line.client_order_ref, "ref0001")
+        self.assertEqual(test_line.memo, "Test Note")
