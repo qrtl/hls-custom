@@ -48,6 +48,7 @@ exclude: |
   web_favicon/|
   web_m2x_options/|
   web_responsive/|
+  web_sheet_full_width/|
   web_widget_color/|
   web_widget_x2many_2d_matrix/
 default_language_version:
