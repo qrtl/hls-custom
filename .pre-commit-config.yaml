@@ -19,6 +19,7 @@ exclude: |
   auditlog/|
   base_country_state_translatable/|
   base_technical_features/|
+  base_tier_validation/|
   bi_sql_editor/|
   date_range/|
   l10n_jp_address_layout/|
@@ -33,9 +34,11 @@ exclude: |
   mrp_warehouse_calendar/|
   partner_statement/|
   product_secondary_unit/|
+  purchase_tier_validation/|
   report_py3o/|
   report_xlsx/|
   sale_order_secondary_unit/|
+  sale_tier_validation/|
   sql_request_abstract/|
   stock_account_quantity_history_location/|
   stock_demand_estimate/|
