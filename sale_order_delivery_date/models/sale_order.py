@@ -12,6 +12,7 @@ class SaleOrder(models.Model):
         states={"draft": [("readonly", False)], "sent": [("readonly", False)]},
         copy=False,
         readonly=True,
+        default=fields.Date.context_today,
         help="The input date will be passed over to the delivery as Scheduled Date.",
     )
 
