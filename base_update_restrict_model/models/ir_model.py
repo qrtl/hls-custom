@@ -5,8 +5,6 @@ from odoo import fields, models
 
 
 class IrModel(models.Model):
-    _inherit = 'ir.model'
+    _inherit = "ir.model"
 
-    update_restrict = fields.Boolean(
-        'Update Restrict Model'
-    )
+    update_restrict = fields.Boolean("Update Restrict Model")

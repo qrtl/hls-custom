@@ -7,7 +7,7 @@ from odoo.tools.translate import _
 
 
 class IrModelAccess(models.Model):
-    _inherit = 'ir.model.access'
+    _inherit = "ir.model.access"
 
     @api.model
     @tools.ormcache_context(
@@ -17,9 +17,15 @@ class IrModelAccess(models.Model):
         res = super(IrModelAccess, self).check(model, mode, raise_exception)
         if self._uid == 1:
             return True
-        self._cr.execute("SELECT update_restrict FROM ir_model WHERE model = %s", (model,))
+        self._cr.execute(
+            "SELECT update_restrict FROM ir_model WHERE model = %s", (model,)
+        )
         query_res = self._cr.dictfetchall()[0]
-        if query_res['update_restrict'] and mode != "read" and not self.env.user.restrict_update_permit:
+        if (
+            query_res["update_restrict"]
+            and mode != "read"
+            and not self.env.user.restrict_update_permit
+        ):
             if raise_exception:
                 raise AccessError(
                     _("You are only allowed to read this record. (%s - %s)")
