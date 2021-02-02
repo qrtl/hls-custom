@@ -26,6 +26,7 @@ class TestBaseUpdateRestrictModel(SavepointCase):
             {
                 "name": "Permit user",
                 "login": "permit@example.com",
+                "email": "permit@example.com",
                 "restrict_update_permit": True,
             }
         )
