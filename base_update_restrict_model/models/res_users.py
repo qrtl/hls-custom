@@ -12,9 +12,6 @@ class ResUsers(models.Model):
     )
 
     @api.multi
-    def set_restrict_update_permit(self):
-        self.write({"restrict_update_permit": True})
-
-    @api.multi
-    def unset_restrict_update_permit(self):
-        self.write({"restrict_update_permit": False})
+    def toggle_restrict_update_permit(self):
+        for record in self:
+            record.restrict_update_permit = not record.restrict_update_permit

@@ -6,26 +6,11 @@
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form" />
         <field name="arch" type="xml">
-            <field name="company_id" position="after">
-                <field name="restrict_update_permit" invisible="1" />
-            </field>
             <div class="oe_button_box" name="button_box" position="inside">
-                <button
-                    name="set_restrict_update_permit"
-                    type="object"
-                    class="oe_stat_button"
-                    icon="fa-eye"
-                    string="Grant Update Permit"
-                    attrs="{'invisible': [('restrict_update_permit', '=', True)]}"
-                />
-                <button
-                    name="unset_restrict_update_permit"
-                    type="object"
-                    class="oe_stat_button"
-                    icon="fa-eye-slash"
-                    string="Remove Update Permit"
-                    attrs="{'invisible': [('restrict_update_permit', '!=', True)]}"
-                />
+                <button name="toggle_restrict_update_permit" type="object" class="oe_stat_button" icon="fa-eye">
+                    <field name="restrict_update_permit" widget="boolean_button"
+                           options='{"terminology": {"string_true": "Update Permit", "string_false": "Unpermitted"}}'/>
+                </button>
             </div>
         </field>
     </record>
