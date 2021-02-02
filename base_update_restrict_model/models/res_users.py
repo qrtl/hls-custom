@@ -8,7 +8,7 @@ class ResUsers(models.Model):
     _inherit = "res.users"
 
     restrict_update_permit = fields.Boolean(
-        "Update Permit", help="Set True Means This User can update restricted model."
+        "Update Permit", help="Set to true and the user can update restricted model."
     )
 
     @api.multi
