@@ -18,13 +18,13 @@ class IrModelAccess(models.Model):
         if self._uid == 1:
             return True
         self._cr.execute(
-            "SELECT update_restrict FROM ir_model WHERE model = %s", (model,)
+            "SELECT restrict_update FROM ir_model WHERE model = %s", (model,)
         )
         query_res = self._cr.dictfetchall()[0]
         if (
-            query_res["update_restrict"]
+            query_res["restrict_update"]
             and mode != "read"
-            and not self.env.user.restrict_update_permit
+            and not self.env.user.unrestrict_model_update
         ):
             if raise_exception:
                 raise AccessError(

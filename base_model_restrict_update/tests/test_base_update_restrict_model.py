@@ -19,7 +19,7 @@ class TestBaseUpdateRestrictModel(SavepointCase):
             {
                 "name": "Resticted user",
                 "login": "resticted@example.com",
-                "restrict_update_permit": False,
+                "unrestrict_model_update": False,
             }
         )
         cls.permit_test_user = cls.env["res.users"].create(
@@ -27,7 +27,7 @@ class TestBaseUpdateRestrictModel(SavepointCase):
                 "name": "Permit user",
                 "login": "permit@example.com",
                 "email": "permit@example.com",
-                "restrict_update_permit": True,
+                "unrestrict_model_update": True,
             }
         )
 

@@ -7,8 +7,8 @@
         <field name="inherit_id" ref="base.view_users_form" />
         <field name="arch" type="xml">
             <div class="oe_button_box" name="button_box" position="inside">
-                <button name="toggle_restrict_update_permit" type="object" class="oe_stat_button" icon="fa-eye">
-                    <field name="restrict_update_permit" widget="boolean_button"
+                <button name="toggle_unrestrict_model_update" type="object" class="oe_stat_button" icon="fa-eye">
+                    <field name="unrestrict_model_update" widget="boolean_button"
                            options='{"terminology": {"string_true": "Update Permit", "string_false": "Unpermitted"}}'/>
                 </button>
             </div>

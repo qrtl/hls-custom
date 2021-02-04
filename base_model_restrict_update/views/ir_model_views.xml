@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="base.view_model_form"/>
         <field name="arch" type="xml">
             <field name="transient" position="after">
-                <field name="update_restrict" />
+                <field name="restrict_update" />
             </field>
         </field>
     </record>
