@@ -11,46 +11,7 @@ exclude: |
   # You don't usually want a bot to modify your legal texts
   (LICENSE.*|COPYING.*)|
   # Exclude .travis.yml
-  ^\.travis\.yml$|
-  # For v12.0 and before, exclude all oca modules
-  account_financial_report/|
-  account_lock_date_update/|
-  account_tax_balance/|
-  auditlog/|
-  base_country_state_translatable/|
-  base_technical_features/|
-  bi_sql_editor/|
-  date_range/|
-  l10n_jp_address_layout/|
-  l10n_jp_country_state/|
-  l10n_jp_partner_title_qweb/|
-  mail_outbound_static/|
-  mis_builder/|
-  mis_builder_budget/|
-  mis_builder_demo/|
-  mrp_multi_level/|
-  mrp_multi_level_estimate/|
-  mrp_warehouse_calendar/|
-  partner_statement/|
-  product_secondary_unit/|
-  report_py3o/|
-  report_xlsx/|
-  sale_order_secondary_unit/|
-  sql_request_abstract/|
-  stock_account_quantity_history_location/|
-  stock_demand_estimate/|
-  stock_no_negative/|
-  stock_picking_report_valued/|
-  stock_quantity_history_location/|
-  stock_secondary_unit/|
-  stock_warehouse_calendar/|
-  web_environment_ribbon/|
-  web_favicon/|
-  web_m2x_options/|
-  web_responsive/|
-  web_sheet_full_width/|
-  web_widget_color/|
-  web_widget_x2many_2d_matrix/
+  ^\.travis\.yml$
 default_language_version:
   python: python3
   node: "14.13.0"
