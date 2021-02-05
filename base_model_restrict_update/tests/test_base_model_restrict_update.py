@@ -6,14 +6,14 @@ from odoo.tests import SavepointCase, tagged
 
 
 @tagged("post_install", "-at_install")
-class TestBaseUpdateRestrictModel(SavepointCase):
+class TestBaseModelRestrictUpdate(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.partner_model = cls.env["ir.model"].search([("model", "=", "res.partner")])[
             0
         ]
-        cls.partner_model.update_restrict = True
+        cls.partner_model.restrict_update = True
         cls.test_partner = cls.env["res.partner"].create({"name": "Test Partner"})
         cls.restrict_test_user = cls.env["res.users"].create(
             {
