@@ -25,3 +25,12 @@ msgstr "60日経過"
 msgid "90 Days Elapsed"
 msgstr "90日経過"
 
+#. module: stock_view_adj_hls
+#: model_terms:ir.ui.view,arch_db:stock_view_adj_hls.quant_search_view
+msgid "180 Days Elapsed"
+msgstr "180日経過"
+
+#. module: stock_view_adj_hls
+#: model_terms:ir.ui.view,arch_db:stock_view_adj_hls.quant_search_view
+msgid "360 Days Elapsed"
+msgstr "360日経過"

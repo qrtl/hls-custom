@@ -20,6 +20,8 @@
                 <separator/>
                 <filter name="60_days_elapsed" string="60 Days Elapsed" domain="[('in_date', '&lt;', (context_today()+relativedelta(days=-60)).strftime('%Y-%m-%d'))]"/>
                 <filter name="90_days_elapsed" string="90 Days Elapsed" domain="[('in_date', '&lt;', (context_today()+relativedelta(days=-90)).strftime('%Y-%m-%d'))]"/>
+                <filter name="180_days_elapsed" string="180 Days Elapsed" domain="[('in_date', '&lt;', (context_today()+relativedelta(days=-180)).strftime('%Y-%m-%d'))]"/>
+                <filter name="360_days_elapsed" string="360 Days Elapsed" domain="[('in_date', '&lt;', (context_today()+relativedelta(days=-360)).strftime('%Y-%m-%d'))]"/>
             </xpath>
         </field>
     </record>
