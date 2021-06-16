@@ -26,3 +26,9 @@ msgstr "連絡先"
 msgid "Customer Code"
 msgstr "得意先コード"
 
+#. module: partner_attribute_hls
+#: model:ir.model.fields,help:partner_attribute_hls.field_res_partner__customer_code
+#: model:ir.model.fields,help:partner_attribute_hls.field_res_users__customer_code
+msgid "Intended to be passed to the external accounting system."
+msgstr "外部の会計システムへの連携用"
+
