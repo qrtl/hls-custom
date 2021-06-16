@@ -5,7 +5,7 @@
     "category": "Contact",
     "website": "https://www.quartile.co/",
     "author": "Quartile Limited",
-    "license": "Other proprietary",
+    "license": "LGPL-3",
     "installable": True,
     "depends": ["base"],
     "data": ["views/res_partner_views.xml"],
