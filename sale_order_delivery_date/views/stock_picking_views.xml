@@ -7,15 +7,15 @@
         <field name="inherit_id" ref="stock.view_picking_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='scheduled_date']" position="after">
-                <field name="delivery_due_date" attrs="{'invisible':[('picking_type_code','!=','outgoing')]}"/>
-                <field
-                    name="date_delivered"
-                    attrs="{
-                        'required':[('picking_type_code','=','outgoing'),('state','=','done')],
-                        'invisible':[('picking_type_code','!=','outgoing')]
-                        }"
-                    readonly="0"
-                />
+                <field name="is_customer_outgoing" invisible="1" />
+                <group attrs="{'invisible':[('is_customer_outgoing','=',False)]}">
+                    <field name="delivery_due_date" />
+                    <field
+                        name="date_delivered"
+                        attrs="{'required':[('picking_type_code','=','outgoing'),('state','=','done')]}"
+                        readonly="0"
+                    />
+                </group>
             </xpath>
         </field>
     </record>
