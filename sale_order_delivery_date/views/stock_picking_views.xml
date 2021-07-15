@@ -8,14 +8,16 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='scheduled_date']" position="after">
                 <field name="is_customer_outgoing" invisible="1" />
-                <group attrs="{'invisible':[('is_customer_outgoing','=',False)]}">
-                    <field name="delivery_due_date" />
-                    <field
-                        name="date_delivered"
-                        attrs="{'required':[('picking_type_code','=','outgoing'),('state','=','done')]}"
-                        readonly="0"
+                <field name="delivery_due_date"
+                    attrs="{'invisible':[('is_customer_outgoing','=',False)]}"
                     />
-                </group>
+                <field name="date_delivered"
+                    attrs="{
+                        'required':[('picking_type_code','=','outgoing'),('state','=','done')],
+                        'invisible':[('is_customer_outgoing','=',False)]
+                    }"
+                    readonly="0"
+                />
             </xpath>
         </field>
     </record>
