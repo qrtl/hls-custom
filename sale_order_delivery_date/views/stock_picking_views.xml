@@ -13,7 +13,7 @@
                     />
                 <field name="date_delivered"
                     attrs="{
-                        'required':[('picking_type_code','=','outgoing'),('state','=','done')],
+                        'required':[('is_customer_outgoing','=',True),('state','=','done')],
                         'invisible':[('is_customer_outgoing','=',False)]
                     }"
                     readonly="0"
