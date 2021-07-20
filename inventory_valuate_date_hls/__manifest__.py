@@ -9,6 +9,12 @@
     "author": "Quartile Limited",
     "license": "AGPL-3",
     "installable": True,
-    "depends": ["date_range"],
-    "data": ["views/date_range_views.xml"],
+    "depends": [
+        "stock",
+        "date_range"
+        ],
+    "data": [
+        "views/date_range_views.xml",
+        'wizards/stock_quantity_history.xml',
+        ],
 }
