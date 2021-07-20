@@ -16,6 +16,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: date_range_view_adj_hls
-#: model:ir.model.fields,field_description:date_range_view_adj_hls.field_date_range__inventory_valuate_date
+#: model:ir.model.fields,field_description:inventory_valuate_date_hls.field_date_range__inventory_valuate_date
 msgid "Inventory Valuate Date"
 msgstr "在庫評価日"
