@@ -7,6 +7,4 @@ from odoo import fields, models
 class DateRange(models.Model):
     _inherit = "date.range"
 
-    inventory_valuate_date = fields.Date(
-        string="Inventory Valuate Date",
-    )
+    inventory_valuate_date = fields.Date(string="Inventory Valuate Date",)
