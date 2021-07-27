@@ -31,9 +31,11 @@ class StockPicking(models.Model):
                 "shipping_mode": order.carrier_id.shipping_mode,
                 "carrier_id": order.carrier_id.id if order else False,
                 "carrier_name": order.carrier_id.name[:20]
-                if order and order.carrier_id else False,
+                if order and order.carrier_id
+                else False,
                 "product_code": product.default_code[:7]
-                if product and product.default_code else False,
+                if product and product.default_code
+                else False,
                 "product_name": product.name[:32],
                 "client_order_ref": move.sale_line_id
                 and move.sale_line_id.client_order_ref,
