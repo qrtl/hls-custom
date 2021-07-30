@@ -8,4 +8,5 @@ class ResCompany(models.Model):
     _inherit = "res.company"
 
     company_chop = fields.Binary("Company Chop Image", attachment=True,)
+    rep_signature = fields.Binary("Representative Signature", attachment=True,)
     fax = fields.Char("Fax")
