@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="view_stock_outgoing_shipment_report_search" model="ir.ui.view">
+        <field name="name">stock.outgoing.shipment.report.search</field>
+        <field name="model">stock.outgoing.shipment.report</field>
+        <field name="arch" type="xml">
+            <search string="Outgoing Moves">
+                <field name="carrier_id" />
+                <group expand="0" string="Group By">
+                    <filter name="group_by_carrier" string="Carrier" context="{'group_by':'carrier_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
     <record id="view_stock_outgoing_shipment_report_tree" model="ir.ui.view">
         <field name="name">stock.outgoing.shipment.report.tree</field>
         <field name="model">stock.outgoing.shipment.report</field>
@@ -38,7 +50,7 @@
     <menuitem
         action="action_stock_outgoing_shipment_report"
         id="stock_outgoing_shipment_report_menu"
-        parent="stock.menu_warehouse_report"
-        sequence="170"
+        parent="stock.menu_stock_warehouse_mgmt"
+        sequence="3"
     />
 </odoo>

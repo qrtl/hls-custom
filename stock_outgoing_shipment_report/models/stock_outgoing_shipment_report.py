@@ -23,7 +23,7 @@ FIELDS_PROPERTIES = {
 }
 
 
-class StockOutgoingShipmentReport(models.TransientModel):
+class StockOutgoingShipmentReport(models.Model):
     _name = "stock.outgoing.shipment.report"
 
     move_id = fields.Many2one("stock.move", string="Stock Move", readonly=True,)
@@ -34,6 +34,7 @@ class StockOutgoingShipmentReport(models.TransientModel):
         string="Delivery Date", compute="_compute_date_fields", store=True
     )
     shipping_mode = fields.Char("Shipping Mode")
+    carrier_id = fields.Many2one("delivery.carrier")
     carrier_name = fields.Char("Carrier")
     partner_name = fields.Char("Customer")
     partner_ref = fields.Char("Customer Code")
