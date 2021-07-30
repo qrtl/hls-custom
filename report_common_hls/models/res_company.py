@@ -9,4 +9,5 @@ class ResCompany(models.Model):
 
     company_chop = fields.Binary("Company Chop Image", attachment=True,)
     rep_signature = fields.Binary("Representative Signature", attachment=True,)
+    ceo = fields.Char("Representative Director")
     fax = fields.Char("Fax")
