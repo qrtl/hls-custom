@@ -1,5 +1,5 @@
 ============================
-Stock Move Line Removal Date
+Stock Move Line View Adj
 ============================
 
 .. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -14,14 +14,14 @@ Stock Move Line Removal Date
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-qrtl%2Fhls--custom-lightgray.png?logo=github
-    :target: https://github.com/qrtl/hls-custom/tree/12.0/stock_move_line_removal_date
+    :target: https://github.com/qrtl/hls-custom/tree/12.0/stock_move_line_lot_name_readonly
     :alt: qrtl/hls-custom
 
 |badge1| |badge2| |badge3| 
 
 This module does the following:
 
-* Allows user to input the Removal Date in Detailed Operations (stock move line) modal in receipts, which updates the corresponding field in generated lot/serial.
+* Forbids to edit the lot_name field in Detailed Operations (stock move line) modal in receipts, which updates the corresponding field in generated lot/serial.
 
 **Table of contents**
 
