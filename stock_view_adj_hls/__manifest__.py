@@ -10,5 +10,8 @@
     "license": "AGPL-3",
     "installable": True,
     "depends": ["product_expiry"],
-    "data": ["views/stock_quant_views.xml"],
+    "data": [
+        "views/stock_quant_views.xml"
+        "wizards/stock_move_line_lot_id_views.xml"
+        ],
 }
