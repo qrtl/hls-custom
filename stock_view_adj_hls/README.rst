@@ -13,12 +13,20 @@ Stock View Adj HLS
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-qrtl%2Fhls--custom-lightgray.png?logo=github
-    :target: https://github.com/qrtl/hls-custom/tree/12.0/stock_view_adj_hls
-    :alt: qrtl/hls-custom
+.. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhls--custom-lightgray.png?logo=github
+    :target: https://github.com/OCA/hls-custom/tree/1820-make-serial-number-uneditable/stock_view_adj_hls
+    :alt: OCA/hls-custom
+.. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
+    :target: https://translation.odoo-community.org/projects/hls-custom-1820-make-serial-number-uneditable/hls-custom-1820-make-serial-number-uneditable-stock_view_adj_hls
+    :alt: Translate me on Weblate
 
-|badge1| |badge2| |badge3| 
+|badge1| |badge2| |badge3| |badge4| 
 
+This module makes adjustments to some of the stock related views.
+Some points to note:
+* `lot_name` in stock move line operation tree is made invisible in view of using
+the OCA module stock_picking_auto_create_lot - the users will not be manually
+keying in the lot number during the receipt operation.
 
 **Table of contents**
 
@@ -28,10 +36,10 @@ Stock View Adj HLS
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/qrtl/hls-custom/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/hls-custom/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/qrtl/hls-custom/issues/new?body=module:%20stock_view_adj_hls%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/hls-custom/issues/new?body=module:%20stock_view_adj_hls%0Aversion:%201820-make-serial-number-uneditable%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -46,6 +54,16 @@ Authors
 Maintainers
 ~~~~~~~~~~~
 
-This module is part of the `qrtl/hls-custom <https://github.com/qrtl/hls-custom/tree/12.0/stock_view_adj_hls>`_ project on GitHub.
+This module is maintained by the OCA.
 
-You are welcome to contribute.
+.. image:: https://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: https://odoo-community.org
+
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
+
+This module is part of the `OCA/hls-custom <https://github.com/OCA/hls-custom/tree/1820-make-serial-number-uneditable/stock_view_adj_hls>`_ project on GitHub.
+
+You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
