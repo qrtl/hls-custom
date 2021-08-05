@@ -10,7 +10,7 @@ Stock View Adj HLS
 .. |badge1| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge2| image:: https://img.shields.io/badge/github-OCA%2Fhls--custom-lightgray.png?logo=github
+.. |badge2| image:: https://img.shields.io/badge/github-qrtl%2Fhls--custom-lightgray.png?logo=github
     :target: https://github.com/qrtl/hls-custom/tree/12.0/stock_view_adj_hls
     :alt: qrtl/hls-custom
 
