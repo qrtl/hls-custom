@@ -6,8 +6,13 @@
         <field name="arch" type="xml">
             <search string="Outgoing Moves">
                 <field name="carrier_id" />
+                <field name="create_date" />
                 <group expand="0" string="Group By">
                     <filter name="group_by_carrier" string="Carrier" context="{'group_by':'carrier_id'}"/>
+                </group>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_create_date" string="Create date" context="{'group_by':'create_date'}"/>
+                    <filter name="search_by_create_date" string="Create date" context="{'search':'create_date'}"/>
                 </group>
             </search>
         </field>
