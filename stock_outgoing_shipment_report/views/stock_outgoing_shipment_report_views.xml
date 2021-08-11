@@ -6,13 +6,11 @@
         <field name="arch" type="xml">
             <search string="Outgoing Moves">
                 <field name="carrier_id" />
-                <field name="create_date" />
                 <group expand="0" string="Group By">
                     <filter name="group_by_carrier" string="Carrier" context="{'group_by':'carrier_id'}"/>
                 </group>
-                <group expand="0" string="Group By">
-                    <filter name="group_by_create_date" string="Create date" context="{'group_by':'create_date'}"/>
-                    <filter name="search_by_create_date" string="Create date" context="{'search':'create_date'}"/>
+                <group expand="0" string="Serch By">
+                    <filter name="createdtoday" string="Created Today" domain="[('create_date','&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))), ('create_date','&lt;=', datetime.datetime.combine(context_today(), datetime.time(23,59,59)))]"/>
                 </group>
             </search>
         </field>
@@ -51,6 +49,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree</field>
+        <field name="context">{'search_default_createdtoday': 1}</field>
     </record>
     <menuitem
         action="action_stock_outgoing_shipment_report"
