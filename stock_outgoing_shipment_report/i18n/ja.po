@@ -224,3 +224,17 @@ msgstr "郵便番号"
 msgid "stock.outgoing.shipment.report"
 msgstr ""
 
+#. module: stock_outgoing_shipment_report
+#: model_terms:ir.ui.view,arch_db:stock_outgoing_shipment_report.view_stock_outgoing_shipment_report_search
+msgid "Created Today"
+msgstr "本日作成"
+
+#. module: stock_outgoing_shipment_report
+#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__date_created
+msgid "Created Date (Date Only)"
+msgstr "作成日(日付のみ)"
+
+#. module: stock_outgoing_shipment_report
+#: model_terms:ir.ui.view,arch_db:stock_outgoing_shipment_report.view_stock_outgoing_shipment_report_search
+msgid "Created Date"
+msgstr "作成日"
