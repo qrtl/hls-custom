@@ -56,7 +56,7 @@ class StockOutgoingShipmentReport(models.Model):
     client_order_ref = fields.Char("Customer Reference")
     memo = fields.Char("Memo")
     date_created = fields.Date(
-        "Created Date(Date Only)", default=fields.Date.context_today, store=True,
+        "Created Date (Date Only)", default=fields.Date.context_today, store=True,
     )
 
     @api.multi
