@@ -20,6 +20,7 @@ FIELDS_PROPERTIES = {
     "customer_delivery_note": ["Char", 9],
     "client_order_ref": ["Char", 30],
     "memo": ["Char", 9],
+    "date_created": ["Date", 20],
 }
 
 
@@ -55,6 +56,9 @@ class StockOutgoingShipmentReport(models.Model):
     customer_delivery_note = fields.Char("Customer Delivery Note")
     client_order_ref = fields.Char("Customer Reference")
     memo = fields.Char("Memo")
+    date_created = fields.Date(
+        "Created Date", default=fields.Date.context_today, store=True
+    )
 
     @api.multi
     @api.depends(
@@ -92,6 +96,7 @@ class StockOutgoingShipmentReport(models.Model):
         "customer_delivery_note",
         "client_order_ref",
         "memo",
+        "date_created",
     )
     def _validate_field_length(self):
         msg = _("%s should be at most %s digit(s).")
