@@ -55,6 +55,9 @@ class StockOutgoingShipmentReport(models.Model):
     customer_delivery_note = fields.Char("Customer Delivery Note")
     client_order_ref = fields.Char("Customer Reference")
     memo = fields.Char("Memo")
+    date_created = fields.Date(
+        "Created Date (Date Only)", default=fields.Date.context_today, store=True,
+    )
 
     @api.multi
     @api.depends(
