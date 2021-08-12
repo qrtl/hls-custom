@@ -227,4 +227,4 @@ msgstr ""
 #. module: stock_outgoing_shipment_report
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__date_created
 msgid "Created Date"
-msgstr "作成日"
+msgstr "作成日(日付指定)"
