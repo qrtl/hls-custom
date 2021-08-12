@@ -236,5 +236,5 @@ msgstr "作成日(日付のみ)"
 
 #. module: stock_outgoing_shipment_report
 #: model_terms:ir.ui.view,arch_db:stock_outgoing_shipment_report.view_stock_outgoing_shipment_report_search
-msgid "Created Date (Date Only)"
-msgstr "作成日(日付のみ)"
+msgid "Created Date"
+msgstr "作成日"
