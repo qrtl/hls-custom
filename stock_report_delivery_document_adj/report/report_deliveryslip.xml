@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="report_delivery_document" inherit_id="stock.report_delivery_document" >
+        <xpath expr="//t[@t-value='o.with_context(lang=o.partner_id.lang)']" position="replace">
+            <t t-if="partner" name="partner_header" style="color: red;">
+                <t t-set="partner" t-value="o.partner_id or (o.move_lines and o.move_lines[0].partner_id) or False" />
+                <t t-set="address">
+                    <div t-esc="partner"
+                    t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True}'/>
+                </t>
+            </t>
+        </xpath>
+    </template>
+</odoo>
