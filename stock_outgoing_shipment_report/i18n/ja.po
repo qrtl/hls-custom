@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 09:27+0000\n"
-"PO-Revision-Date: 2020-11-03 09:27+0000\n"
+"POT-Creation-Date: 2021-07-27 08:53+0000\n"
+"PO-Revision-Date: 2021-07-27 08:53+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: stock_outgoing_shipment_report
-#: code:addons/stock_outgoing_shipment_report/report/stock_outgoing_shipment_report.py:91
+#: code:addons/stock_outgoing_shipment_report/models/stock_outgoing_shipment_report.py:97
 #, python-format
 msgid "%s should be at most %s digit(s)."
 msgstr "%sには%s桁までを入れてください。"
@@ -27,7 +27,9 @@ msgid "Address"
 msgstr "住所"
 
 #. module: stock_outgoing_shipment_report
+#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__carrier_id
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__carrier_name
+#: model_terms:ir.ui.view,arch_db:stock_outgoing_shipment_report.view_stock_outgoing_shipment_report_search
 msgid "Carrier"
 msgstr "配送会社"
 
@@ -72,8 +74,8 @@ msgid "Customer Reference"
 msgstr "発注番号"
 
 #. module: stock_outgoing_shipment_report
-#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__dispatch_date
-msgid "Dispatch Date"
+#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__delivery_date
+msgid "Delivery Date"
 msgstr "出庫日"
 
 #. module: stock_outgoing_shipment_report
@@ -93,14 +95,14 @@ msgid "Delivery Time"
 msgstr "納品指定事項"
 
 #. module: stock_outgoing_shipment_report
+#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__dispatch_date
+msgid "Dispatch Date"
+msgstr "出庫日"
+
+#. module: stock_outgoing_shipment_report
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__display_name
 msgid "Display Name"
 msgstr "表示名"
-
-#. module: stock_outgoing_shipment_report
-#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__delivery_date
-msgid "Delivery Date"
-msgstr "納品日"
 
 #. module: stock_outgoing_shipment_report
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__expiry_date
@@ -117,6 +119,16 @@ msgstr "賞味期限 (編集)"
 #: model:ir.actions.server,name:stock_outgoing_shipment_report.action_generate_stock_outgoing_shipment_report
 msgid "Generate Delivery Data"
 msgstr "出庫指示データ出力"
+
+#. module: stock_outgoing_shipment_report
+#: model_terms:ir.ui.view,arch_db:stock_outgoing_shipment_report.view_stock_outgoing_shipment_report_search
+msgid "Group By"
+msgstr "グループ化"
+
+#. module: stock_outgoing_shipment_report
+#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__id
+msgid "ID"
+msgstr ""
 
 #. module: stock_outgoing_shipment_report
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report____last_update
@@ -139,10 +151,15 @@ msgid "Memo"
 msgstr "備考"
 
 #. module: stock_outgoing_shipment_report
-#: code:addons/stock_outgoing_shipment_report/report/stock_outgoing_shipment_report.py:101
+#: code:addons/stock_outgoing_shipment_report/models/stock_outgoing_shipment_report.py:107
 #, python-format
 msgid "Only numbers are allowed for %s field."
 msgstr "%sには数値のみで入力してください。"
+
+#. module: stock_outgoing_shipment_report
+#: model_terms:ir.ui.view,arch_db:stock_outgoing_shipment_report.view_stock_outgoing_shipment_report_search
+msgid "Outgoing Moves"
+msgstr "出荷明細"
 
 #. module: stock_outgoing_shipment_report
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__partner_phone
@@ -158,16 +175,6 @@ msgstr "商品コード"
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__product_name
 msgid "Product Name"
 msgstr "品名"
-
-#. module: stock_outgoing_shipment_report
-#: model:ir.model,name:stock_outgoing_shipment_report.model_product_template
-msgid "Product Template"
-msgstr "プロダクトテンプレート"
-
-#. module: stock_outgoing_shipment_report
-#: model:ir.model,name:stock_outgoing_shipment_report.model_sale_order
-msgid "Sale Order"
-msgstr "販売オーダ"
 
 #. module: stock_outgoing_shipment_report
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__separate_qty
@@ -213,17 +220,21 @@ msgid "Zip"
 msgstr "郵便番号"
 
 #. module: stock_outgoing_shipment_report
-#: model:ir.model,name:stock_outgoing_shipment_report.model_delivery_carrier_account
-msgid "delivery.carrier.account"
-msgstr ""
-
-#. module: stock_outgoing_shipment_report
-#: model:ir.model,name:stock_outgoing_shipment_report.model_delivery_carrier_service
-msgid "delivery.carrier.service"
-msgstr ""
-
-#. module: stock_outgoing_shipment_report
 #: model:ir.model,name:stock_outgoing_shipment_report.model_stock_outgoing_shipment_report
 msgid "stock.outgoing.shipment.report"
 msgstr ""
 
+#. module: stock_outgoing_shipment_report
+#: model_terms:ir.ui.view,arch_db:stock_outgoing_shipment_report.view_stock_outgoing_shipment_report_search
+msgid "Created Today"
+msgstr "本日作成"
+
+#. module: stock_outgoing_shipment_report
+#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__date_created
+msgid "Created Date (Date Only)"
+msgstr "作成日(日付のみ)"
+
+#. module: stock_outgoing_shipment_report
+#: model_terms:ir.ui.view,arch_db:stock_outgoing_shipment_report.view_stock_outgoing_shipment_report_search
+msgid "Created Date"
+msgstr "作成日"

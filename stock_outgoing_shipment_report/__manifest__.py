@@ -1,9 +1,9 @@
-# Copyright 2020 Quartile Limited
+# Copyright 2020-2021 Quartile Limited
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
     "name": "Stock Outgoing Shipment Report",
     "summary": "",
-    "version": "12.0.1.0.2",
+    "version": "12.0.1.1.1",
     "category": "Stock",
     "website": "https://www.quartile.co/",
     "author": "Quartile Limited",
@@ -16,6 +16,7 @@
         "stock_secondary_unit",
     ],
     "data": [
+        "security/ir.model.access.csv",
         "data/stock_outgoing_shipment_report_data.xml",
         "views/delivery_carrier_views.xml",
         "views/res_partner_views.xml",
