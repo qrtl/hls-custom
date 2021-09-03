@@ -13,7 +13,7 @@ class ResPartner(models.Model):
     _sql_constraints = [
         (
             "customer_code_uniq",
-            "unique (customer_code)",
+            "UNIQUE(customer_code)",
             "The customer_code must be unique! Please type other code.",
         )
     ]
