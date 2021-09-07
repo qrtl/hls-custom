@@ -34,5 +34,5 @@ msgstr "外部の会計システムへの連携用"
 
 #. module: partner_attribute_hls
 #: sql_constraint:res.partner:0
-msgid "The customer_code must be unique! Please type other code."
+msgid "Customer Code must be unique.  Please enter another code."
 msgstr "得意先コードが重複しています。別のコードを入力してください。"
