@@ -7,4 +7,3 @@ class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
     remarks = fields.Char("Remarks", help="to be printed on the delivery note")
-    shipment_to = fields.Char("Shipment to", help="to to be printed on the delivery note")

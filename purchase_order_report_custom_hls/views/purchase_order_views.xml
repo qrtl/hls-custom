@@ -9,7 +9,6 @@
                 expr="//page[@name='purchase_delivery_invoice']//field[@name='payment_term_id']" position="before"
             >
                 <field name="remarks" />
-                <field name="shipment_to" />
             </xpath>
         </field>
     </record>
