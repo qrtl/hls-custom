@@ -14,6 +14,6 @@ class ResPartner(models.Model):
         (
             "customer_code_uniq",
             "UNIQUE(customer_code)",
-            "The customer_code must be unique! Please type other code.",
+            "Customer Code must be unique.  Please enter another code.",
         )
     ]
