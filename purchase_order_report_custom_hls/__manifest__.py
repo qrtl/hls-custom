@@ -1,4 +1,3 @@
-  
 # Copyright 2021 Quartile Limited
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
@@ -10,8 +9,5 @@
     "license": "LGPL-3",
     "installable": True,
     "depends": ["purchase"],
-    "data": [
-        "views/purchase_order_views.xml",
-        "views/res_partner.xml",
-    ],
+    "data": ["views/purchase_order_views.xml", "views/res_partner_views.xml"],
 }

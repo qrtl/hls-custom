@@ -9,10 +9,11 @@ class Partner(models.Model):
 
     customer_incoterm_place = fields.Char(
         "Default Sales Incoterm Place",
-        help="The default incoterm place for new sales orders for this partner."
+        help="The default incoterm place for new sales orders for this partner.",
     )
 
     sale_incoterm_id = fields.Many2one(
-        string='Default Sales Incoterm',
-        comodel_name='account.incoterms',
-        help="The default incoterm for new sales orders for this customer.")
+        string="Default Sales Incoterm",
+        comodel_name="account.incoterms",
+        help="The default incoterm for new sales orders for this customer.",
+    )
