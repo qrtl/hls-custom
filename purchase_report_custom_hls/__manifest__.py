@@ -10,7 +10,6 @@
     "installable": True,
     "depends": ["purchase", "report_common_hls"],
     "data": [
-        "views/purchase_order_views.xml",
         "views/res_company_views.xml",
         "report/purchase_order_report_templates.xml",
     ],
