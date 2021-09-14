@@ -8,9 +8,10 @@
     "website": "https://www.quartile.co",
     "license": "LGPL-3",
     "installable": True,
-    "depends": ["purchase", "report_common_hls"],
+    "depends": ["purchase"],
     "data": [
         "views/res_company_views.xml",
+        "views/res_partner_views.xml",
         "report/purchase_order_report_templates.xml",
     ],
 }
