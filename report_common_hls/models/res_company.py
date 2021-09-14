@@ -9,3 +9,6 @@ class ResCompany(models.Model):
 
     company_chop = fields.Binary("Company Chop Image", attachment=True,)
     fax = fields.Char("Fax")
+    purchase_address = fields.Char(
+        "Purchase Address", help="Address for print purchase report."
+    )
