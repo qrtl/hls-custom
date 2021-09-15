@@ -18,7 +18,7 @@ msgstr ""
 #. module: purchase_report_custom_hls
 #: model_terms:ir.ui.view,arch_db:purchase_report_custom_hls.report_purchaseorder_document_inherit_purchase_order
 msgid "<strong>Company Representative:</strong>"
-msgstr ""
+msgstr "<strong>代表者:</strong>"
 
 #. module: purchase_report_custom_hls
 #: model:ir.model,name:purchase_report_custom_hls.model_res_company
