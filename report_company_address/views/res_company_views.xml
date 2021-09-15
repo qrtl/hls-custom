@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_company_form" model="ir.ui.view">
+        <field name="name">view.company.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page
+                    string="Report Company Name &amp; Address"
+                    name="report_company_name_address"
+                    groups="base.group_system"
+                >
+                    <group>
+                        <field name="company_name_address" type="xml" />
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>
