@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* purchase_report_custom_hls
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-15 03:29+0000\n"
+"PO-Revision-Date: 2021-09-15 03:29+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_report_custom_hls
+#: model_terms:ir.ui.view,arch_db:purchase_report_custom_hls.report_purchaseorder_document_inherit_purchase_order
+msgid "<strong>Company Representative:</strong>"
+msgstr ""
+
+#. module: purchase_report_custom_hls
+#: model:ir.model,name:purchase_report_custom_hls.model_res_company
+msgid "Companies"
+msgstr "会社"
+
+#. module: purchase_report_custom_hls
+#: model:ir.model.fields,field_description:purchase_report_custom_hls.field_res_company__company_representative
+msgid "Company Representative"
+msgstr "代表者"
+
+#. module: purchase_report_custom_hls
+#: model_terms:ir.ui.view,arch_db:purchase_report_custom_hls.view_company_form
+msgid "Purchase"
+msgstr "購買"
+
+#. module: purchase_report_custom_hls
+#: model:ir.model.fields,field_description:purchase_report_custom_hls.field_res_company__rep_signature
+msgid "Representative Signature"
+msgstr "代表者署名"
+
+#. module: purchase_report_custom_hls
+#: model_terms:ir.ui.view,arch_db:purchase_report_custom_hls.report_purchaseorder_document_inherit_purchase_order
+msgid "Signature"
+msgstr "署名"
+

@@ -11,9 +11,32 @@
                 <span t-field="o.payment_term_id.name"/>
             </div>
         </xpath>
-        <xpath expr="//div[@t-field='o.partner_id']" position="replace">
-            <div t-field="o.partner_id"
-            t-options='{"widget": "contact", "fields": ["purchase_address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+
+        <xpath expr="//div[@class='page']" position="before">
+            <div t-if="o.company_id.company_representative">
+                <tr>
+                    <td width="65%" />
+                        <div style="text-align: center;">
+                            <strong>Company Representative:</strong>
+                            <span t-field="o.company_id.company_representative" />
+                        </div>
+                    <td width="35%">
+                        <div style="text-align: center; padding-top: 15px">
+                            <img
+                                t-if="o.company_id.rep_signature"
+                                t-att-src="image_data_uri(o.company_id.rep_signature)"
+                                style="max-height: 40px;"
+                                alt="Signature"
+                            />
+                        </div>
+                        <hr
+                            width="1000%"
+                            style="border: none; border-bottom: 2px solid black;"
+                        />
+                    </td>
+                </tr>
+
+            </div>
         </xpath>
     </template>
 </odoo>
