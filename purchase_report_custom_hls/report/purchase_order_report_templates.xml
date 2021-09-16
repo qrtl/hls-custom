@@ -14,20 +14,21 @@
         <xpath expr="//div[@class='page']" position="after">
             <div t-if="o.company_id.rep_title">
                 <tr>
-                    <hr
-                        width="100%"
-                        style="border: none; border-bottom: 2px solid black;"
-                    />
-                    <td width="100%">
-                        <div style="text-align: right; padding-top: 15px padding-right: 10px">
-                            <img
-                                t-if="o.company_id.rep_signature"
-                                t-att-src="image_data_uri(o.company_id.rep_signature)"
-                                style="max-height: 40px;"
-                                alt="Signature"
-                            />
-                            <div style="text-align: right; padding-right: 15px">
-                                <span t-field="o.company_id.rep_title" />
+                    <td>
+                        <div style="position: absolute; width: 150px; right: 15px; padding-top: 15px;">
+                            <div style="text-align: center;">
+                                <img
+                                    t-if="o.company_id.rep_signature"
+                                    t-att-src="image_data_uri(o.company_id.rep_signature)"
+                                    style="max-height: 40px;"
+                                    alt="Signature"
+                                />
+                                <div style="text-align: center;">
+                                    <span t-field="o.company_id.rep_title" />
+                                </div>
+                                <hr
+                                    style="border: none; border-bottom: 2px solid black; text-align: right;"
+                                />
                             </div>
                         </div>
                     </td>

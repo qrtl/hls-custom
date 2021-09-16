@@ -60,10 +60,10 @@ msgstr "代表者署名"
 #. module: report_common_hls
 #: model:ir.model.fields,help:report_common_hls.field_res_company__rep_title
 msgid "The input value is may show as the title of the representative in some of the printed documents."
-msgstr ""
+msgstr "入力された情報は、印刷ドキュメントに代表者タイトルとして表示されます。"
 
 #. module: report_common_hls
 #: model:ir.model.fields,field_description:report_common_hls.field_res_company__rep_title
 msgid "Title of the Representative"
-msgstr "代表名"
+msgstr "代表名タイトル"
 
