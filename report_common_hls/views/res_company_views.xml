@@ -13,6 +13,12 @@
                 <page string="Reporting" name="reporting" groups="base.group_system">
                     <group string="Common" name="common">
                         <field name="company_chop" widget='image' class="oe_avatar"/>
+                        <field name="rep_title" />
+                        <field
+                            name="rep_signature"
+                            widget='image'
+                            class="oe_avatar"
+                        />
                     </group>
                 </page>
             </notebook>

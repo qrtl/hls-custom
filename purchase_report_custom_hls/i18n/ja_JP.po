@@ -1,0 +1,22 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* purchase_report_custom_hls
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-16 01:08+0000\n"
+"PO-Revision-Date: 2021-09-16 01:08+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_report_custom_hls
+#: model_terms:ir.ui.view,arch_db:purchase_report_custom_hls.report_purchaseorder_document_inherit_purchase_order
+msgid "Signature"
+msgstr "署名"
+

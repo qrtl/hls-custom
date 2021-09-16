@@ -1,0 +1,69 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* report_common_hls
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-16 01:09+0000\n"
+"PO-Revision-Date: 2021-09-16 01:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: report_common_hls
+#: model_terms:ir.ui.view,arch_db:report_common_hls.view_company_form
+msgid "Common"
+msgstr ""
+
+#. module: report_common_hls
+#: model:ir.model,name:report_common_hls.model_res_company
+msgid "Companies"
+msgstr "会社"
+
+#. module: report_common_hls
+#: model:ir.model.fields,field_description:report_common_hls.field_res_company__company_chop
+msgid "Company Chop Image"
+msgstr "会社印"
+
+#. module: report_common_hls
+#: model:ir.model,name:report_common_hls.model_res_partner
+msgid "Contact"
+msgstr "連絡先"
+
+#. module: report_common_hls
+#: model:ir.model.fields,field_description:report_common_hls.field_res_company__fax
+#: model:ir.model.fields,field_description:report_common_hls.field_res_partner__fax
+#: model:ir.model.fields,field_description:report_common_hls.field_res_users__fax
+msgid "Fax"
+msgstr "FAX"
+
+#. module: report_common_hls
+#: model_terms:ir.ui.view,arch_db:report_common_hls.view_company_form
+msgid "Purchase"
+msgstr "購買"
+
+#. module: report_common_hls
+#: model_terms:ir.ui.view,arch_db:report_common_hls.view_company_form
+msgid "Reporting"
+msgstr "レポーティング"
+
+#. module: report_common_hls
+#: model:ir.model.fields,field_description:report_common_hls.field_res_company__rep_signature
+msgid "Representative Signature"
+msgstr "代表者署名"
+
+#. module: report_common_hls
+#: model:ir.model.fields,help:report_common_hls.field_res_company__rep_title
+msgid "The input value is may show as the title of the representative in some of the printed documents."
+msgstr "入力された情報は、印刷ドキュメントに代表者タイトルとして表示されます。"
+
+#. module: report_common_hls
+#: model:ir.model.fields,field_description:report_common_hls.field_res_company__rep_title
+msgid "Title of the Representative"
+msgstr "代表名タイトル"
+
