@@ -6,36 +6,32 @@
     >
         <xpath expr="//div[@t-if='o.date_order']" position="before">
             <div t-if="o.payment_term_id">
-                <strong>Payment Term:</strong>
+                <strong>Payment Terms:</strong>
                 <br />
-                <span t-field="o.payment_term_id.name"/>
+                <span t-field="o.payment_term_id"/>
             </div>
         </xpath>
-
-        <xpath expr="//div[@class='page']" position="before">
-            <div t-if="o.company_id.company_representative">
+        <xpath expr="//div[@class='page']" position="after">
+            <div t-if="o.company_id.rep_title">
                 <tr>
-                    <td width="65%" />
-                        <div style="text-align: center;">
-                            <strong>Company Representative:</strong>
-                            <span t-field="o.company_id.company_representative" />
-                        </div>
-                    <td width="35%">
-                        <div style="text-align: center; padding-top: 15px">
+                    <hr
+                        width="100%"
+                        style="border: none; border-bottom: 2px solid black;"
+                    />
+                    <td width="100%">
+                        <div style="text-align: right; padding-top: 15px padding-right: 10px">
                             <img
                                 t-if="o.company_id.rep_signature"
                                 t-att-src="image_data_uri(o.company_id.rep_signature)"
                                 style="max-height: 40px;"
                                 alt="Signature"
                             />
+                            <div style="text-align: right; padding-right: 15px">
+                                <span t-field="o.company_id.rep_title" />
+                            </div>
                         </div>
-                        <hr
-                            width="1000%"
-                            style="border: none; border-bottom: 2px solid black;"
-                        />
                     </td>
                 </tr>
-
             </div>
         </xpath>
     </template>
