@@ -14,7 +14,7 @@ FIELDS_PROPERTIES = {
     "product_name": ["Char", 32],
     "case_qty": ["Float", 5],
     "separate_qty": ["Float", 5],
-    "lot_num": ["Float", 6],
+    "lot_num": ["Float", 10],
     "lot_branch_num": ["Float", 2],
     "delivery_division": ["Char", 1],
     "customer_delivery_note": ["Char", 9],
