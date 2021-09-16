@@ -21,8 +21,9 @@ Purchase Order Report Custom
 
 This module does the following:
 
-- Add some fields in res_company view.
-- The input value will show in the printed purchase order, together with the company information.
+- Shows the payment terms and the signature image of the representative on the purchase order.
+
+The module depends on the report_common_hls module.
 
 **Table of contents**
 
