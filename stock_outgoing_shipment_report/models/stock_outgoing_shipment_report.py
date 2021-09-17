@@ -14,7 +14,7 @@ FIELDS_PROPERTIES = {
     "product_name": ["Char", 32],
     "case_qty": ["Float", 5],
     "separate_qty": ["Float", 5],
-    "lot_num": ["Float", 10],
+    "lot_num": ["Char", 10],
     "lot_branch_num": ["Float", 2],
     "delivery_division": ["Char", 1],
     "customer_delivery_note": ["Char", 9],
@@ -105,7 +105,7 @@ class StockOutgoingShipmentReport(models.Model):
                         msg % (_(rec.fields_get(field)[field].get("string")), prop[1])
                     )
 
-    @api.constrains("case_qty", "separate_qty", "lot_num", "lot_branch_num")
+    @api.constrains("case_qty", "separate_qty", "lot_branch_num")
     def _validate_number_fields(self):
         msg = _("Only numbers are allowed for %s field.")
         for rec in self:
@@ -120,3 +120,15 @@ class StockOutgoingShipmentReport(models.Model):
                             raise ValidationError(
                                 msg % _(rec.fields_get(field)[field].get("string"))
                             )
+
+    @api.constrains("lot_num")
+    def _check_lot_num(self):
+        for line in self:
+            if not line.lot_num:
+                return
+            try:
+                self.lot_num.encode("ascii")
+            except UnicodeEncodeError:
+                raise ValidationError(
+                    _("Please key in the supplier lot in ASCII characters.")
+                )
