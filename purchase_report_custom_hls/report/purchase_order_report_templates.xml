@@ -21,12 +21,12 @@
                             style="max-height: 40px;"
                             alt="Signature"
                         />
-                        <div style="text-align: center;">
-                            <span t-field="o.company_id.rep_title" />
-                        </div>
                         <hr
                             style="border: none; border-bottom: 2px solid black; text-align: right;"
                         />
+                        <div style="text-align: center;">
+                            <span t-field="o.company_id.rep_title" />
+                        </div>
                     </div>
                 </div>
             </div>
