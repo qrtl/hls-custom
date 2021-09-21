@@ -123,11 +123,11 @@ class StockOutgoingShipmentReport(models.Model):
 
     @api.constrains("lot_num")
     def _check_lot_num(self):
-        for line in self:
-            if not line.lot_num:
+        for rec in self:
+            if not rec.lot_num:
                 return
             try:
-                self.lot_num.encode("ascii")
+                rec.lot_num.encode("ascii")
             except UnicodeEncodeError:
                 raise ValidationError(
                     _("Please key in the supplier lot in ASCII characters.")
