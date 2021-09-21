@@ -24,7 +24,7 @@ msgstr "%sには%s桁までを入れてください。"
 #. module: stock_outgoing_shipment_report
 #: code:addons/stock_outgoing_shipment_report/models/stock_outgoing_shipment_report.py:133
 #, python-format
-msgid "Please key in the supplier lot in ASCII characters."
+msgid "Please key in the warehouse lot in ASCII characters."
 msgstr "倉庫会社ロット№は半角英数字またはハイフンで入力してください。"
 
 #. module: stock_outgoing_shipment_report
