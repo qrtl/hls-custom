@@ -130,5 +130,5 @@ class StockOutgoingShipmentReport(models.Model):
                 rec.lot_num.encode("ascii")
             except UnicodeEncodeError:
                 raise ValidationError(
-                    _("Please key in the supplier lot in ASCII characters.")
+                    _("Please key in the warehouse lot in ASCII characters.")
                 )
