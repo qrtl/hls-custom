@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_quantity_history" model="ir.ui.view">
+        <field name="name">date.range.tree</field>
+        <field name="model">stock</field>
+        <field name="inherit_id" ref="stock_account.view_stock_quantity_history"/>
+
+        <record id="view_stock_quantity_history" model="ir.ui.view">
+            <field name="name">Valuation Report</field>
+            <field name="model">stock.quantity.history</field>
+            <field name="arch" type="xml">
+                <form string="Choose your date">
+                    <group>
+                        <group>
+                            <field name="compute_at_date" widget="radio"/>
+                            <field name="date" attrs="{'invisible': [('compute_at_date', '=', 0)]}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="open_table" string="Retrieve the inventory valuation" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+</odoo>

@@ -10,5 +10,5 @@
     "license": "AGPL-3",
     "installable": True,
     "depends": ["stock", "date_range"],
-    "data": ["views/date_range_views.xml", "wizards/stock_quantity_history.xml"],
+    "data": ["views/date_range_views.xml", "views/stock_account_views.xml"],
 }
