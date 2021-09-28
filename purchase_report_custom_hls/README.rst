@@ -22,6 +22,7 @@ Purchase Order Report Custom
 This module does the following:
 
 - Shows the payment terms and the signature image of the representative on the purchase order.
+- Hides shipping address from the printed purchase order.
 
 The module depends on the report_common_hls module.
 
@@ -29,6 +30,15 @@ The module depends on the report_common_hls module.
 
 .. contents::
    :local:
+
+Configuration
+=============
+
+The module by default hides the shipping address presentation on the printed purchase
+order.
+
+In case the shipping address should show on the document, select the 'Show Purchase
+Shipping Address' field in the purchase configuration.
 
 Bug Tracker
 ===========
