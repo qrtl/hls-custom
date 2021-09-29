@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_account_quantity_history_location" model="ir.ui.view">
+        <field name="name">Valuation Report</field>
+        <field name="model">stock.quantity.history</field>
+        <field name="inherit_id" ref="stock_account.view_stock_quantity_history"/>
+        <field name="arch" type="xml">
+            <field name="date" position="after">
+                <p>テストタグ</p>
+            </field>
+        </field>
+    </record>
+</odoo>
