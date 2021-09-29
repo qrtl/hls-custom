@@ -1,8 +1,7 @@
 # Copyright 2019 Quartile Limited
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    "name": "Inventory Valuate Date HLS",
-    "summary": "",
+    "name": "Stock Quantity History Date",
     "version": "12.0.1.0.0",
     "category": "Stock",
     "website": "https://www.quartile.co/",
@@ -10,5 +9,5 @@
     "license": "AGPL-3",
     "installable": True,
     "depends": ["stock", "date_range"],
-    "data": ["views/date_range_views.xml", "views/stock_account_views.xml"],
+    "data": ["views/date_range_views.xml", "wizards/stock_quantity_view.xml"],
 }
