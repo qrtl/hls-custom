@@ -8,11 +8,11 @@ class StockQuantityHistory(models.TransientModel):
     _inherit = "stock.quantity.history"
 
     date_range_id = fields.Many2one("date.range", string="Date Range")
-    valuate_date = fields.Date(
+    valuate_date = fields.Datetime(
         string="Inventory Valuate Date", compute="_compute_valuate_date"
     )
 
-    @api.onchange
+    @api.onchange("date_range_id")
     def _compute_valuate_date(self):
         for stock in self:
             if stock.date_range_id.inventory_valuate_date:
