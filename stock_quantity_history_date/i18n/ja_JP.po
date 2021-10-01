@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-29 07:02+0000\n"
-"PO-Revision-Date: 2021-09-29 07:02+0000\n"
+"POT-Creation-Date: 2021-10-01 04:10+0000\n"
+"PO-Revision-Date: 2021-10-01 04:10+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -28,13 +28,17 @@ msgid "Date Ranges"
 msgstr "日付範囲"
 
 #. module: stock_quantity_history_date
-#: model:ir.model.fields,field_description:stock_quantity_history_date.field_date_range__inventory_valuate_date
-#: model:ir.model.fields,field_description:stock_quantity_history_date.field_stock_quantity_history__valuate_date
+#: model:ir.model.fields,field_description:stock_quantity_history_date.field_date_range__valuation_date
 msgid "Inventory Valuate Date"
 msgstr "在庫評価日"
 
 #. module: stock_quantity_history_date
+#: model:ir.model.fields,help:stock_quantity_history_date.field_date_range__valuation_date
+msgid "Set the date that is intended to be used for showing the inventory at date."
+msgstr "時点在庫出力で使用すべき日時を設定してください。"
+
+#. module: stock_quantity_history_date
 #: model:ir.model,name:stock_quantity_history_date.model_stock_quantity_history
 msgid "Stock Quantity History"
-msgstr "在庫記録日"
+msgstr "在庫数量履歴"
 

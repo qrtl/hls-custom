@@ -1,5 +1,5 @@
 # Copyright 2021 Quartile Limited
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
 
@@ -8,12 +8,9 @@ class StockQuantityHistory(models.TransientModel):
     _inherit = "stock.quantity.history"
 
     date_range_id = fields.Many2one("date.range", string="Date Range")
-    valuate_date = fields.Datetime(
-        string="Inventory Valuate Date", compute="_compute_valuate_date"
-    )
 
     @api.onchange("date_range_id")
-    def _compute_valuate_date(self):
-        for stock in self:
-            if stock.date_range_id.inventory_valuate_date:
-                stock.valuate_date = stock.date_range_id.inventory_valuate_date
+    def _onchange_date_range_id(self):
+        for rec in self:
+            if rec.date_range_id:
+                rec.date = rec.date_range_id.valuation_date
