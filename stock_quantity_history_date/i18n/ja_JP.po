@@ -29,8 +29,8 @@ msgstr "日付範囲"
 
 #. module: stock_quantity_history_date
 #: model:ir.model.fields,field_description:stock_quantity_history_date.field_date_range__valuation_date
-msgid "Inventory Valuate Date"
-msgstr "在庫評価日"
+msgid "Valuate Date"
+msgstr "評価日"
 
 #. module: stock_quantity_history_date
 #: model:ir.model.fields,help:stock_quantity_history_date.field_date_range__valuation_date
