@@ -1,0 +1,44 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* stock_quantity_history_date
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-01 04:10+0000\n"
+"PO-Revision-Date: 2021-10-01 04:10+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_quantity_history_date
+#: model:ir.model,name:stock_quantity_history_date.model_date_range
+#: model:ir.model.fields,field_description:stock_quantity_history_date.field_stock_quantity_history__date_range_id
+msgid "Date Range"
+msgstr "日付範囲"
+
+#. module: stock_quantity_history_date
+#: model:ir.actions.act_window,name:stock_quantity_history_date.date_range_action
+#: model:ir.ui.menu,name:stock_quantity_history_date.menu_valuation
+msgid "Date Ranges"
+msgstr "日付範囲"
+
+#. module: stock_quantity_history_date
+#: model:ir.model.fields,field_description:stock_quantity_history_date.field_date_range__valuation_date
+msgid "Valuate Date"
+msgstr "評価日"
+
+#. module: stock_quantity_history_date
+#: model:ir.model.fields,help:stock_quantity_history_date.field_date_range__valuation_date
+msgid "Set the date that is intended to be used for showing the inventory at date."
+msgstr "時点在庫出力で使用すべき日時を設定してください。"
+
+#. module: stock_quantity_history_date
+#: model:ir.model,name:stock_quantity_history_date.model_stock_quantity_history
+msgid "Stock Quantity History"
+msgstr "在庫数量履歴"
+
