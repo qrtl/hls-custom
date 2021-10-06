@@ -21,5 +21,4 @@
     </record>
 
     <menuitem id="menu_valuation" name="Date Ranges" parent="stock.menu_warehouse_report" sequence="100" action="date_range_action"/>
-
 </odoo>
