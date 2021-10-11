@@ -11,3 +11,11 @@ class ResConfigSettings(models.TransientModel):
         "Show Purchase Shipping Address",
         implied_group="purchase_report_custom_hls.group_show_purchase_shipping_address",
     )
+    group_show_purchase_date_planned = fields.Boolean(
+        "Show Request Date in Purchase Report",
+        implied_group="purchase_report_custom_hls.group_show_purchase_date_planned",
+    )
+    group_show_purchase_tax_id = fields.Boolean(
+        "Show Tax in Purchase Report",
+        implied_group="purchase_report_custom_hls.group_show_purchase_tax_id",
+    )

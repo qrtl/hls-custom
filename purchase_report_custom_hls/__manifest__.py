@@ -12,6 +12,7 @@
     "data": [
         "security/purchase_security.xml",
         "report/purchase_order_report_templates.xml",
+        "views/purchase_order_view.xml",
         "views/res_config_settings_views.xml",
     ],
 }
