@@ -8,18 +8,17 @@
             <attribute name="groups">purchase_report_custom_hls.group_show_purchase_shipping_address</attribute>
         </xpath>
         <xpath expr="//div[@t-if='o.date_order']" position="before">
-            <br/>
-            <div t-if="o.payment_term_id">
+            <div t-if="o.payment_term_id" class="col-3">
                 <strong>Payment Terms:</strong>
                 <br />
                 <span t-field="o.payment_term_id"/>
             </div>
-            <div t-if="o.estimated_time_departure">
+            <div t-if="o.estimated_time_departure" class="col-3">
                 <strong>ETD:</strong>
                 <br />
                 <span t-field="o.estimated_time_departure"/>
             </div>
-            <div t-if="o.estimated_time_departure">
+            <div t-if="o.estimated_time_departure" class="col-3">
                 <strong>ETA:</strong>
                 <br />
                 <span t-field="o.estimated_time_arrival"/>
