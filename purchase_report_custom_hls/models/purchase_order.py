@@ -6,9 +6,7 @@ class PurchaseOrder(models.Model):
 
     estimated_time_arrival = fields.Char("Estimated Time of Arrival(ETA)")
     estimated_time_departure = fields.Char("Estimated Time of Departure(ETD)")
-    quantity_total = fields.Float(
-        "Total Quantity", compute="_compute_quantity_total"
-    )
+    quantity_total = fields.Float("Total Quantity", compute="_compute_quantity_total")
 
     @api.onchange("order_line")
     def _compute_quantity_total(self):
