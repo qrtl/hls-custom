@@ -8,6 +8,7 @@
             <xpath expr="//field[@name='incoterm_id']" position="after">
                 <field name="estimated_time_arrival" />
                 <field name="estimated_time_departure" />
+                <field name="quantity_total"/>
             </xpath>
         </field>
     </record>
