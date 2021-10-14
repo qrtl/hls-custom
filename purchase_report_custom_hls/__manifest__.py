@@ -8,7 +8,7 @@
     "website": "https://www.quartile.co",
     "license": "LGPL-3",
     "installable": True,
-    "depends": ["purchase_stock", "report_common_hls", "product_secondary_unit"],
+    "depends": ["purchase_stock", "report_common_hls", "purchase_order_secondary_unit"],
     "data": [
         "security/purchase_security.xml",
         "report/purchase_order_report_templates.xml",

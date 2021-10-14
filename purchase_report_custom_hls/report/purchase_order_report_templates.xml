@@ -7,6 +7,10 @@
         <xpath expr="//t[@t-set='information_block']" position="attributes">
             <attribute name="groups">purchase_report_custom_hls.group_show_purchase_shipping_address</attribute>
         </xpath>
+
+        <xpath expr="//p[@t-field='o.date_order']" position="attributes">
+            <attribute name="t-options">{"widget": "date"}</attribute>
+        </xpath>
         <xpath expr="//div[@id='informations']" position="after">
             <div id="second_informations" class="row mt32 mb32">
                 <div t-if="o.estimated_time_departure" class="col-3">
@@ -25,6 +29,28 @@
                     <span t-field="o.payment_term_id"/>
                 </div>
             </div>
+        </xpath>
+        <xpath expr="//span[@t-field='line.product_uom.name']" position="after">
+            <br/>
+            <span t-field="line.secondary_uom_qty"/>
+            <span t-field="line.secondary_uom_id" groups="uom.group_uom"/>
+        </xpath>
+        <xpath expr="//span[@t-field='o.amount_tax']"  position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr/th[2]" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//div[@class='col-4']/table[@class='table table-sm']/tr[2]" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//span[@t-field='o.amount_tax']/../.."  position="after">
+            <tr>
+                <td>Quantity Total</td>
+                <td class="text-right">
+                    <span t-field="o.quantity_total"/>
+                </td>
+            </tr>
         </xpath>
         <xpath expr="//div[@class='page']" position="after">
             <div t-if="o.company_id.rep_title">
