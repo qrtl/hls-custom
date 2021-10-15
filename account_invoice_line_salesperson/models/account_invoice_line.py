@@ -8,7 +8,11 @@ class AccountInvoiceLine(models.Model):
     _inherit = "account.invoice.line"
 
     user_id = fields.Many2one(
-        "res.users","Sales Person", index=True, readonly=True, compute="_compute_user_id"
+        "res.users",
+        "Sales Person",
+        index=True,
+        readonly=True,
+        compute="_compute_user_id",
     )
 
     @api.model
@@ -16,7 +20,7 @@ class AccountInvoiceLine(models.Model):
         if not self.origin:
             self.user_id = self.create_uid
             return
-        else: 
+        else:
             for line in self:
                 if line.sale_line_ids:
                     first_sale_order = line.sale_line_ids[1]
