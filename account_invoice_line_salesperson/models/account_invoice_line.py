@@ -21,8 +21,11 @@ class AccountInvoiceLine(models.Model):
             self.user_id = self.create_uid
             return
         else:
-            for line in self:
-                if line.sale_line_ids:
-                    first_sale_order = line.sale_line_ids[1]
-                    so_user_id = first_sale_order.user_id
-                    line.user_id = so_user_id
+            i = 0
+            while i < 1:
+                for line in self:
+                    if line.sale_line_ids:
+                        for sol in line.sale_line_ids:
+                            so_user_id = sol.order_id.user_id
+                            line.user_id = so_user_id
+                            i += 1
