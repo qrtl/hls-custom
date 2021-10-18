@@ -8,24 +8,16 @@ class AccountInvoiceLine(models.Model):
     _inherit = "account.invoice.line"
 
     user_id = fields.Many2one(
-        "res.users",
-        "Sales Person",
-        index=True,
-        readonly=True,
-        compute="_compute_user_id",
+        "res.users", "Sales Person", readonly=True, compute="_compute_user_id",
     )
 
-    @api.model
+    @api.multi
     def _compute_user_id(self):
-        if not self.origin:
-            self.user_id = self.create_uid
-            return
-        else:
-            i = 0
-            while i < 1:
-                for line in self:
-                    if line.sale_line_ids:
-                        for sol in line.sale_line_ids:
-                            so_user_id = sol.order_id.user_id
-                            line.user_id = so_user_id
-                            i += 1
+        for line in self:
+            first_so = line.sale_line_ids.mapped("order_id")[0]
+            if not first_so:
+                line.user_id = line.create_uid
+            else:
+                so_user_id = first_so.user_id
+                line.user_id = so_user_id
+                return
