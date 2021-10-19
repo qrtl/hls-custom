@@ -13,11 +13,11 @@ class AccountInvoiceLine(models.Model):
 
     @api.multi
     def _compute_user_id(self):
+        user_list = []
         for line in self:
-            first_so = line.sale_line_ids.mapped("order_id")[0]
-            if not first_so:
-                line.user_id = line.create_uid
-            else:
-                so_user_id = first_so.user_id
-                line.user_id = so_user_id
-                return
+            if line.sale_line_ids:
+                user_list.append(
+                    sl.user_id for sl in line.sale_line_ids.mapped("order_id")
+                )
+        if user_list:
+            line.user_id = user_list[0]
