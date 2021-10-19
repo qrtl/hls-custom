@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-28 08:11+0000\n"
-"PO-Revision-Date: 2021-09-28 08:11+0000\n"
+"POT-Creation-Date: 2021-10-19 03:47+0000\n"
+"PO-Revision-Date: 2021-10-19 03:47+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,6 +19,26 @@ msgstr ""
 #: model:ir.model,name:purchase_report_custom_hls.model_res_config_settings
 msgid "Config Settings"
 msgstr "コンフィグ設定"
+
+#. module: purchase_report_custom_hls
+#: model:ir.model.fields,field_description:purchase_report_custom_hls.field_purchase_order__eta_date
+msgid "Estimated Time of Arrival(ETA)"
+msgstr "到着予定時刻"
+
+#. module: purchase_report_custom_hls
+#: model:ir.model.fields,field_description:purchase_report_custom_hls.field_purchase_order__etd_date
+msgid "Estimated Time of Departure(ETD)"
+msgstr "出発予定時刻"
+
+#. module: purchase_report_custom_hls
+#: model:ir.model,name:purchase_report_custom_hls.model_purchase_order
+msgid "Purchase Order"
+msgstr "購買オーダ"
+
+#. module: purchase_report_custom_hls
+#: model_terms:ir.ui.view,arch_db:purchase_report_custom_hls.report_purchaseorder_document_add_field
+msgid "Quantity Total"
+msgstr "総合計数量"
 
 #. module: purchase_report_custom_hls
 #: model:ir.model.fields,field_description:purchase_report_custom_hls.field_res_config_settings__group_show_purchase_shipping_address
@@ -34,4 +54,14 @@ msgstr "購買オーダに出荷先アドレスを表示"
 #: model_terms:ir.ui.view,arch_db:purchase_report_custom_hls.res_config_settings_view_form_purchase
 msgid "Show the shipping address on the printed purchase order"
 msgstr "購買オーダ印刷で出荷先アドレスを表示する"
+
+#. module: purchase_report_custom_hls
+#: model_terms:ir.ui.view,arch_db:purchase_report_custom_hls.report_purchaseorder_document_add_field
+msgid "Signature"
+msgstr "署名"
+
+#. module: purchase_report_custom_hls
+#: model:ir.model.fields,field_description:purchase_report_custom_hls.field_purchase_order__quantity_total
+msgid "Total Quantity"
+msgstr "合計数量"
 
