@@ -13,15 +13,15 @@
         </xpath>
         <xpath expr="//div[@id='informations']" position="after">
             <div id="second_informations" class="row mt32 mb32">
-                <div t-if="o.estimated_time_departure" class="col-3">
+                <div t-if="o.etd_date" class="col-3">
                     <strong>ETD:</strong>
                     <br />
-                    <span t-field="o.estimated_time_departure"/>
+                    <span t-field="o.etd_date"/>
                 </div>
-                <div t-if="o.estimated_time_departure" class="col-3">
+                <div t-if="o.eta_date" class="col-3">
                     <strong>ETA:</strong>
                     <br />
-                    <span t-field="o.estimated_time_arrival"/>
+                    <span t-field="o.eta_date"/>
                 </div>
                 <div t-if="o.payment_term_id" class="col-3">
                     <strong>Payment Terms:</strong>

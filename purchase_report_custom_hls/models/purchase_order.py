@@ -4,8 +4,8 @@ from odoo import api, fields, models
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    estimated_time_arrival = fields.Char("Estimated Time of Arrival(ETA)")
-    estimated_time_departure = fields.Char("Estimated Time of Departure(ETD)")
+    eta_date = fields.Char("Estimated Time of Arrival(ETA)")
+    etd_date = fields.Char("Estimated Time of Departure(ETD)")
     quantity_total = fields.Float("Total Quantity", compute="_compute_quantity_total")
 
     @api.onchange("order_line")
