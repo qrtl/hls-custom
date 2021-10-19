@@ -22,12 +22,12 @@ msgstr "コンフィグ設定"
 
 #. module: purchase_report_custom_hls
 #: model:ir.model.fields,field_description:purchase_report_custom_hls.field_purchase_order__eta_date
-msgid "Estimated Time of Arrival(ETA)"
+msgid "ETA"
 msgstr "到着予定時刻"
 
 #. module: purchase_report_custom_hls
 #: model:ir.model.fields,field_description:purchase_report_custom_hls.field_purchase_order__etd_date
-msgid "Estimated Time of Departure(ETD)"
+msgid "ETD"
 msgstr "出発予定時刻"
 
 #. module: purchase_report_custom_hls

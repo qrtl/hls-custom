@@ -4,13 +4,11 @@ from odoo import api, fields, models
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    eta_date = fields.Char("Estimated Time of Arrival(ETA)")
-    etd_date = fields.Char("Estimated Time of Departure(ETD)")
+    eta_date = fields.Char("ETA")
+    etd_date = fields.Char("ETD")
     quantity_total = fields.Float("Total Quantity", compute="_compute_quantity_total")
 
-    @api.onchange("order_line")
+    @api.depends("order_line")
     def _compute_quantity_total(self):
-        qty_total = 0
-        for pol in self.order_line:
-            qty_total += pol.product_qty
-        self.quantity_total = qty_total
+        for order in self:
+            order.quantity_total = sum([x.product_qty for x in order.order_line])
