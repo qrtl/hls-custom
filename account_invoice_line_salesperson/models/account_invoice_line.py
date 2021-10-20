@@ -15,9 +15,15 @@ class AccountInvoiceLine(models.Model):
     def _compute_user_id(self):
         user_list = []
         for line in self:
-            if line.sale_line_ids:
-                user_list.append(
-                    sl.user_id for sl in line.sale_line_ids.mapped("order_id")
+            for sl in line.sale_line_ids:
+                orders = self.env["sale.order"].search(
+                    [("name", "=", sl.order_id.name)]
                 )
-        if user_list:
-            line.user_id = user_list[0]
+                if orders:
+                    for order in orders:
+                        user = self.env["res.users"].search(
+                            [("name", "=", order.user_id.name)]
+                        )
+                        user_list.append(user)
+            if user_list:
+                line.user_id = user_list[0]
