@@ -35,15 +35,24 @@
             <span t-field="line.secondary_uom_qty"/>
             <span t-field="line.secondary_uom_id" groups="uom.group_uom"/>
         </xpath>
-        <xpath expr="//span[@t-field='o.amount_tax']"  position="attributes">
-            <attribute name="invisible">1</attribute>
-        </xpath>
+
         <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr/th[2]" position="attributes">
-            <attribute name="invisible">1</attribute>
+            <attribute name="t-if">o.display_tax</attribute>
+        </xpath>
+        <xpath expr="//table[@class='table table-sm o_main_table']/tbody/tr/td[2]" position="attributes">
+            <attribute name="t-if">o.display_tax</attribute>
         </xpath>
         <xpath expr="//div[@class='col-4']/table[@class='table table-sm']/tr[2]" position="attributes">
-            <attribute name="invisible">1</attribute>
+            <attribute name="t-if">o.display_tax</attribute>
         </xpath>
+
+        <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr/th[3]" position="attributes">
+            <attribute name="t-if">o.display_date_req</attribute>
+        </xpath>
+        <xpath expr="//table[@class='table table-sm o_main_table']/tbody/tr/td[3]" position="attributes">
+            <attribute name="t-if">o.display_date_req</attribute>
+        </xpath>
+
         <xpath expr="//span[@t-field='o.amount_tax']/../.."  position="after">
             <tr>
                 <td>Quantity Total</td>

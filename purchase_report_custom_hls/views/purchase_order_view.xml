@@ -8,7 +8,8 @@
             <xpath expr="//field[@name='incoterm_id']" position="after">
                 <field name="eta_date" />
                 <field name="etd_date" />
-                <field name="quantity_total"/>
+                <field name="display_tax"/>
+                <field name="display_date_req"/>
             </xpath>
         </field>
     </record>
