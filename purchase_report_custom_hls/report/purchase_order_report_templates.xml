@@ -38,20 +38,20 @@
             </t>
         </xpath>
 
-        <xpath expr="//table[hasclass('table','table-sm','o_main_table')]/thead/tr/th[2]" position="attributes">
+        <xpath expr="//table[hasclass('o_main_table')]/thead/tr/th[2]" position="attributes">
             <attribute name="t-if">o.display_tax</attribute>
         </xpath>
-        <xpath expr="//table[hasclass('table','table-sm','o_main_table')]/tbody/tr/td[2]" position="attributes">
+        <xpath expr="//table[hasclass('o_main_table')]/tbody/tr/td[2]" position="attributes">
             <attribute name="t-if">o.display_tax</attribute>
         </xpath>
-        <xpath expr="//div[hasclass('col-4')]/table[hasclass('table','table-sm')]/tr[2]" position="attributes">
+        <xpath expr="//table[hasclass('table-sm')]/tr[2]" position="attributes">
             <attribute name="t-if">o.display_tax</attribute>
         </xpath>
 
-        <xpath expr="//table[hasclass('table','table-sm','o_main_table')]/thead/tr/th[3]" position="attributes">
+        <xpath expr="//table[hasclass('o_main_table')]/thead/tr/th[3]" position="attributes">
             <attribute name="t-if">o.display_date_req</attribute>
         </xpath>
-        <xpath expr="//table[hasclass('table','table-sm','o_main_table')]/tbody/tr/td[3]" position="attributes">
+        <xpath expr="//table[hasclass('o_main_table')]/tbody/tr/td[3]" position="attributes">
             <attribute name="t-if">o.display_date_req</attribute>
         </xpath>
 
