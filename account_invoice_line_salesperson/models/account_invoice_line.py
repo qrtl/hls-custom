@@ -22,8 +22,10 @@ class AccountInvoiceLine(models.Model):
                 if orders:
                     for order in orders:
                         user = self.env["res.users"].search(
-                            [("name", "=", order.user_id.name)]
+                            [("id", "=", order.user_id)]
                         )
                         user_list.append(user)
             if user_list:
                 line.user_id = user_list[0]
+            else:
+                line.user_id = line.create_uid
