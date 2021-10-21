@@ -23,12 +23,22 @@ msgstr "コンフィグ設定"
 #. module: purchase_report_custom_hls
 #: model:ir.model.fields,field_description:purchase_report_custom_hls.field_purchase_order__eta_date
 msgid "ETA"
-msgstr "到着予定時刻"
+msgstr ""
+
+#. module: purchase_report_custom_hls
+#: model:ir.model.fields,help:purchase_report_custom_hls.field_purchase_order__eta_date
+msgid "Fill in your expected arrival date request(e.g. ASAP)."
+msgstr "到着日のリクエストを記入してください(例：ASAP)。"
 
 #. module: purchase_report_custom_hls
 #: model:ir.model.fields,field_description:purchase_report_custom_hls.field_purchase_order__etd_date
 msgid "ETD"
-msgstr "出発予定時刻"
+msgstr ""
+
+#. module: purchase_report_custom_hls
+#: model:ir.model.fields,help:purchase_report_custom_hls.field_purchase_order__etd_date
+msgid "Fill in your expected departure date request(e.g. ASAP)."
+msgstr "出発日のリクエストを記入してください(例：ASAP)。"
 
 #. module: purchase_report_custom_hls
 #: model:ir.model,name:purchase_report_custom_hls.model_purchase_order
@@ -38,7 +48,7 @@ msgstr "購買オーダ"
 #. module: purchase_report_custom_hls
 #: model_terms:ir.ui.view,arch_db:purchase_report_custom_hls.report_purchaseorder_document_add_field
 msgid "Quantity Total"
-msgstr "総合計数量"
+msgstr "合計数量"
 
 #. module: purchase_report_custom_hls
 #: model:ir.model.fields,field_description:purchase_report_custom_hls.field_res_config_settings__group_show_purchase_shipping_address
@@ -83,5 +93,5 @@ msgstr "チェックすると、予定日が購買オーダに印字されます
 #. module: purchase_report_custom_hls
 #: model:ir.model.fields,help:purchase_report_custom_hls.field_purchase_order__display_tax
 msgid "If checked, display tax in purchase order report."
-msgstr "チェックすると、税が購買オーダに印字されます。"
+msgstr "選択すると注文書に税が印字されます。"
 

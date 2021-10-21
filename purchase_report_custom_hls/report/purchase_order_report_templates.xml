@@ -32,24 +32,26 @@
         </xpath>
         <xpath expr="//span[@t-field='line.product_uom.name']" position="after">
             <br/>
-            <span t-field="line.secondary_uom_qty"/>
-            <span t-field="line.secondary_uom_id" groups="uom.group_uom"/>
+            <t t-if="line.secondary_uom_qty">
+                <span t-field="line.secondary_uom_qty"/>
+                <span t-field="line.secondary_uom_id" />
+            </t>
         </xpath>
 
-        <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr/th[2]" position="attributes">
+        <xpath expr="//table[hasclass('table','table-sm','o_main_table')]/thead/tr/th[2]" position="attributes">
             <attribute name="t-if">o.display_tax</attribute>
         </xpath>
-        <xpath expr="//table[@class='table table-sm o_main_table']/tbody/tr/td[2]" position="attributes">
+        <xpath expr="//table[hasclass('table','table-sm','o_main_table')]/tbody/tr/td[2]" position="attributes">
             <attribute name="t-if">o.display_tax</attribute>
         </xpath>
-        <xpath expr="//div[@class='col-4']/table[@class='table table-sm']/tr[2]" position="attributes">
+        <xpath expr="//div[hasclass('col-4')]/table[hasclass('table','table-sm')]/tr[2]" position="attributes">
             <attribute name="t-if">o.display_tax</attribute>
         </xpath>
 
-        <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr/th[3]" position="attributes">
+        <xpath expr="//table[hasclass('table','table-sm','o_main_table')]/thead/tr/th[3]" position="attributes">
             <attribute name="t-if">o.display_date_req</attribute>
         </xpath>
-        <xpath expr="//table[@class='table table-sm o_main_table']/tbody/tr/td[3]" position="attributes">
+        <xpath expr="//table[hasclass('table','table-sm','o_main_table')]/tbody/tr/td[3]" position="attributes">
             <attribute name="t-if">o.display_date_req</attribute>
         </xpath>
 
@@ -62,7 +64,7 @@
                 </td>
             </tr>
         </xpath>
-        <xpath expr="//div[@class='page']" position="after">
+        <xpath expr="//div[hasclass('page')]" position="after">
             <div t-if="o.company_id.rep_title">
                 <div style="position: absolute; width: 150px; right: 15px; padding-top: 15px; page-break-inside: avoid;">
                     <div style="text-align: center;">

@@ -1,11 +1,17 @@
+# Copyright 2021 Quartile Limited
+
 from odoo import api, fields, models
 
 
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    eta_date = fields.Char("ETA")
-    etd_date = fields.Char("ETD")
+    eta_date = fields.Char(
+        "ETA", help="Fill in your expected arrival date request(e.g. ASAP).",
+    )
+    etd_date = fields.Char(
+        "ETD", help="Fill in your expected departure date request(e.g. ASAP)."
+    )
     quantity_total = fields.Float("Total Quantity", compute="_compute_quantity_total")
     display_tax = fields.Boolean(
         "Display Tax",
