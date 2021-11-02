@@ -64,9 +64,9 @@
                 </td>
             </tr>
             <tr>
-            <td t-if="o.secondary_qty_total">Secondary Quantity Total</td>
+                <td t-if="o.secondary_qty_total">Secondary Quantity Total</td>
                 <td class="text-right">
-                    <span t-att-value="o.secondary_qty_total" />
+                    <span t-field="o.secondary_qty_total"/>
                 </td>
             </tr>
         </xpath>

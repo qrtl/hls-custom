@@ -46,5 +46,4 @@ class PurchaseOrder(models.Model):
                 qty_dict = str(secondary_qty) + uom
                 if qty_dict not in secondary_qty_total:
                     secondary_qty_total.append(qty_dict)
-            if secondary_qty_total:
-                order.secondary_qty_total = secondary_qty_total
+                order.secondary_qty_total = "\n".join(qty_dict for qty_dict in secondary_qty_total if secondary_qty_total)
