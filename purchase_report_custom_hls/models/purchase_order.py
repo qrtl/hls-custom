@@ -14,7 +14,7 @@ class PurchaseOrder(models.Model):
         "ETD", help="Fill in your expected departure date request(e.g. ASAP)."
     )
     quantity_total = fields.Float("Total Quantity", compute="_compute_quantity_total")
-    secondary_qty_total = fields.Float(
+    secondary_qty_total = fields.Char(
         "Total Secondary Quantity", compute="_compute_secondary_qty_total"
     )
     display_tax = fields.Boolean(
@@ -37,9 +37,13 @@ class PurchaseOrder(models.Model):
     def _compute_secondary_qty_total(self):
         for order in self:
             uom_list = order.order_line.mapped("secondary_uom_id.name")
+            secondary_qty_total = []
             for uom in uom_list:
-                order.secondary_qty_total = sum(
-                    order.order_line.filtered(
-                        lambda l: l.secondary_uom_id.uom_id == uom
-                    ).mapped("secondary_uom_qty")
-                )
+                sum_line = order.order_line.filtered(
+                    lambda l: l.secondary_uom_id.name == uom
+                ).mapped("secondary_uom_qty")
+                secondary_qty_total = sum(sum_line)
+                qty_dict = {str(secondary_qty_total) + uom}
+                secondary_qty_total = ",".join(qty_dict)
+            if secondary_qty_total:
+                order.secondary_qty_total = secondary_qty_total

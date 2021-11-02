@@ -63,6 +63,12 @@
                     <span t-field="o.order_line[0].product_uom"/>
                 </td>
             </tr>
+            <tr>
+            <td>Secondary Quantity Total</td>
+                <td class="text-right">
+                    <span t-field="o.secondary_qty_total"/>
+                </td>
+            </tr>
         </xpath>
         <xpath expr="//div[hasclass('page')]" position="after">
             <div t-if="o.company_id.rep_title">
