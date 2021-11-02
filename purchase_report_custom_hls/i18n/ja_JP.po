@@ -51,6 +51,11 @@ msgid "Quantity Total"
 msgstr "合計数量"
 
 #. module: purchase_report_custom_hls
+#: model_terms:ir.ui.view,arch_db:purchase_report_custom_hls.report_purchaseorder_document_add_field
+msgid "Secondary Quantity Total"
+msgstr "副単位合計"
+
+#. module: purchase_report_custom_hls
 #: model:ir.model.fields,field_description:purchase_report_custom_hls.field_res_config_settings__group_show_purchase_shipping_address
 msgid "Show Purchase Shipping Address"
 msgstr "購買出荷先アドレス表示"
@@ -94,4 +99,9 @@ msgstr "選択すると注文書に予定日が印字されます。"
 #: model:ir.model.fields,help:purchase_report_custom_hls.field_purchase_order__display_tax
 msgid "If checked, display tax in purchase order report."
 msgstr "選択すると注文書に税が印字されます。"
+
+#. module: purchase_report_custom_hls
+#: model:ir.model.fields,field_description:purchase_report_custom_hls.field_purchase_order__secondary_qty_total
+msgid "Total Secondary Quantity"
+msgstr "副単位合計"
 
