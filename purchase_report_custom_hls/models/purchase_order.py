@@ -42,8 +42,8 @@ class PurchaseOrder(models.Model):
                 sum_line = order.order_line.filtered(
                     lambda l: l.secondary_uom_id.name == uom
                 ).mapped("secondary_uom_qty")
-                secondary_qty_total = sum(sum_line)
-                qty_dict = {str(secondary_qty_total) + uom}
-                secondary_qty_total = ",".join(qty_dict)
+                secondary_qty = sum(sum_line)
+                qty_dict = {str(secondary_qty) + uom}
+                secondary_qty_total.append(qty_dict)
             if secondary_qty_total:
                 order.secondary_qty_total = secondary_qty_total
