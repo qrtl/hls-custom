@@ -43,7 +43,8 @@ class PurchaseOrder(models.Model):
                     lambda l: l.secondary_uom_id.name == uom
                 ).mapped("secondary_uom_qty")
                 secondary_qty = sum(sum_line)
-                qty_dict = {str(secondary_qty) + uom}
-                secondary_qty_total.append(qty_dict)
+                qty_dict = str(secondary_qty) + uom
+                if qty_dict not in secondary_qty_total:
+                    secondary_qty_total.append(qty_dict)
             if secondary_qty_total:
                 order.secondary_qty_total = secondary_qty_total
