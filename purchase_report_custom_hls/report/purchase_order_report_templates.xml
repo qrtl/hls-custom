@@ -56,11 +56,10 @@
         </xpath>
 
         <xpath expr="//span[@t-field='o.amount_tax']/../.."  position="after">
-            <tr>
+            <tr t-if="o.quantity_total">
                 <td>Quantity Total</td>
                 <td class="text-right">
                     <span t-field="o.quantity_total"/>
-                    <span t-field="o.order_line[0].product_uom"/>
                 </td>
             </tr>
             <tr t-if="o.secondary_qty_total">
