@@ -14,7 +14,7 @@ class PurchaseOrder(models.Model):
         "ETD", help="Fill in your expected departure date request(e.g. ASAP)."
     )
     quantity_total = fields.Float("Total Quantity", compute="_compute_quantity_total")
-    secondary_qty_total = fields.Char(
+    secondary_qty_total = fields.Text(
         "Total Secondary Quantity", compute="_compute_secondary_qty_total"
     )
     display_tax = fields.Boolean(

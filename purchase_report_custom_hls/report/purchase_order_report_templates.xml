@@ -63,8 +63,8 @@
                     <span t-field="o.order_line[0].product_uom"/>
                 </td>
             </tr>
-            <tr>
-                <td t-if="o.secondary_qty_total">Secondary Quantity Total</td>
+            <tr t-if="o.secondary_qty_total">
+                <td>Secondary Quantity Total</td>
                 <td class="text-right">
                     <span t-field="o.secondary_qty_total"/>
                 </td>
