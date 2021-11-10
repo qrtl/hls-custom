@@ -13,7 +13,10 @@ class PurchaseOrder(models.Model):
     etd_date = fields.Char(
         "ETD", help="Fill in your expected departure date request(e.g. ASAP)."
     )
-    quantity_total = fields.Float("Total Quantity", compute="_compute_quantity_total")
+    quantity_total = fields.Text(compute="_compute_qty_total")
+    secondary_qty_total = fields.Text(
+        "Secondary Quantity Total", compute="_compute_qty_total"
+    )
     display_tax = fields.Boolean(
         "Display Tax",
         default=False,
@@ -25,7 +28,25 @@ class PurchaseOrder(models.Model):
         help="If checked, display requested date in purchase order report.",
     )
 
-    @api.depends("order_line")
-    def _compute_quantity_total(self):
+    @api.model
+    def _get_qty_total(self, qty_dict):
+        if not qty_dict:
+            return False
+        # e.g. '400.0 kg'
+        return "\n".join(str(v) + " " + k for k, v in qty_dict.items())
+
+    def _compute_qty_total(self):
         for order in self:
-            order.quantity_total = sum([x.product_qty for x in order.order_line])
+            qty_dict = {}
+            sec_qty_dict = {}
+            for line in self.order_line:
+                uom = line.product_uom
+                if uom:
+                    qty_dict.setdefault(uom.name, 0.0)
+                    qty_dict[uom.name] += line.product_qty
+                sec_uom = line.secondary_uom_id
+                if sec_uom:
+                    sec_qty_dict.setdefault(sec_uom.name, 0.0)
+                    sec_qty_dict[sec_uom.name] += line.secondary_uom_qty
+            order.quantity_total = self._get_qty_total(qty_dict)
+            order.secondary_qty_total = self._get_qty_total(sec_qty_dict)
