@@ -1,4 +1,4 @@
-# Copyright 2019 Quartile Limited
+# Copyright 2021 Quartile Limited
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
@@ -22,7 +22,7 @@ class AccountInvoiceLine(models.Model):
                 if orders:
                     for order in orders:
                         user = self.env["res.users"].search(
-                            [("id", "=", order.user_id)]
+                            [("id", "=", order.user_id.id)]
                         )
                         user_list.append(user)
             if user_list:
