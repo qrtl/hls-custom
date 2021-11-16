@@ -13,19 +13,11 @@ class AccountInvoiceLine(models.Model):
 
     @api.multi
     def _compute_user_id(self):
-        user_list = []
         for line in self:
-            for sl in line.sale_line_ids:
-                orders = self.env["sale.order"].search(
-                    [("name", "=", sl.order_id.name)]
-                )
-                if orders:
-                    for order in orders:
-                        user = self.env["res.users"].search(
-                            [("id", "=", order.user_id.id)]
-                        )
-                        user_list.append(user)
-            if user_list:
-                line.user_id = user_list[0]
-            else:
-                line.user_id = line.create_uid
+            order = self.env["sale.order"].search([("name", "=", self.sale_order_name)])
+            if order:
+                user = self.env["res.users"].search([("id", "=", order.user_id.id)])
+        if user:
+            line.user_id = user
+        else:
+            line.user_id = line.create_uid
