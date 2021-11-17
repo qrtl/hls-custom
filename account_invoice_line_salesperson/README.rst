@@ -19,9 +19,9 @@ Salesperson in Account Invoice Line
 
 |badge1| |badge2| |badge3| 
 
-This module adds Sales Person in account invoice line.
-If account_invoice not has origin sale_order, create user will be Sales Person.
-If account_invoice has origin sale_order, user of first sale_order will be Sales Person/
+This module adds salesperson in account invoice line.
+* The salesperson value is taken from the linked sales order line if any.  Otherwise, the value is taken from user_id of the invoice.
+The salesperson field is expected to be used in the invoice analysis report which is prepared with SQL View.
 
 **Table of contents**
 
