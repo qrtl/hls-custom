@@ -8,7 +8,11 @@ class AccountInvoiceLine(models.Model):
     _inherit = "account.invoice.line"
 
     salesman_id = fields.Many2one(
-        "res.users", "Sales Person", compute="_compute_salesman_id", store=True
+        "res.users",
+        "Sales Person",
+        readonly=True,
+        compute="_compute_salesman_id",
+        store=True,
     )
 
     @api.depends("sale_line_ids")

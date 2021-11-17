@@ -8,6 +8,5 @@
     "category": "Accounting",
     "license": "AGPL-3",
     "depends": ["sale"],
-    "data": ["views/account_invoice_views.xml"],
     "installable": True,
 }
