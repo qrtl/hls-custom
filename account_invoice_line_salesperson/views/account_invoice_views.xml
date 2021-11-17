@@ -9,7 +9,7 @@
                 expr="//field[@name='invoice_line_ids']//tree//field[@name='name']"
                 position="after"
             >
-                <field name="user_id"/>
+                <field name="salesman_id"/>
             </xpath>
         </field>
     </record>
