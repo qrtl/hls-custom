@@ -71,12 +71,12 @@
         </xpath>
         <xpath expr="//div[hasclass('page')]" position="after">
             <div t-if="o.company_id.rep_title">
-                <div style="position: absolute; width: 150px; right: 15px; padding-top: 15px; page-break-inside: avoid;">
+                <div style="position: absolute; width: 250px; right: 15px; padding-top: 15px; page-break-inside: avoid;">
                     <div style="text-align: center;">
                         <img
                             t-if="o.company_id.rep_signature"
                             t-att-src="image_data_uri(o.company_id.rep_signature)"
-                            style="max-height: 40px;"
+                            style="max-height: 100px;"
                             alt="Signature"
                         />
                         <hr
