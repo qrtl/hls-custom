@@ -1,4 +1,4 @@
-# Copyright 2020 Quartile Limited
+# Copyright 2020-2022 Quartile Limited
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
     "name": "Stock Production Lot Name Adj",
@@ -8,5 +8,6 @@
     "category": "Stock",
     "license": "LGPL-3",
     "depends": ["product_expiry"],
+    "post_init_hook": "post_init_hook",
     "installable": True,
 }
