@@ -82,7 +82,7 @@ msgstr "発注番号"
 #. module: stock_outgoing_shipment_report
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__delivery_date
 msgid "Delivery Date"
-msgstr "出庫日"
+msgstr "納品日"
 
 #. module: stock_outgoing_shipment_report
 #: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__delivery_division
