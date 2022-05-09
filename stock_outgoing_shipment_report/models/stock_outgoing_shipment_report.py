@@ -14,7 +14,7 @@ FIELDS_PROPERTIES = {
     "product_name": ["Char", 32],
     "case_qty": ["Float", 5],
     "separate_qty": ["Float", 5],
-    "lot_num": ["Char", 10],
+    #"lot_num": ["Char", 10],
     "lot_branch_num": ["Float", 2],
     "delivery_division": ["Char", 1],
     "customer_delivery_note": ["Char", 9],
@@ -54,6 +54,7 @@ class StockOutgoingShipmentReport(models.Model):
     delivery_division = fields.Char("Delivery Division")
     customer_delivery_note = fields.Char("Customer Delivery Note")
     client_order_ref = fields.Char("Customer Reference")
+    reference = fields.Char("Reference")
     memo = fields.Char("Memo")
     date_created = fields.Date(
         "Created Date (Date Only)", default=fields.Date.context_today, store=True,
@@ -89,7 +90,6 @@ class StockOutgoingShipmentReport(models.Model):
         "product_name",
         "case_qty",
         "separate_qty",
-        "lot_num",
         "lot_branch_num",
         "delivery_division",
         "customer_delivery_note",

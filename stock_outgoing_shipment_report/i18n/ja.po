@@ -157,6 +157,11 @@ msgid "Memo"
 msgstr "備考"
 
 #. module: stock_outgoing_shipment_report
+#: model:ir.model.fields,field_description:stock_outgoing_shipment_report.field_stock_outgoing_shipment_report__reference
+msgid "Reference"
+msgstr "入庫名義"
+
+#. module: stock_outgoing_shipment_report
 #: code:addons/stock_outgoing_shipment_report/models/stock_outgoing_shipment_report.py:107
 #, python-format
 msgid "Only numbers are allowed for %s field."
