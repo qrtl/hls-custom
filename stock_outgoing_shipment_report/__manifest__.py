@@ -3,7 +3,7 @@
 {
     "name": "Stock Outgoing Shipment Report",
     "summary": "",
-    "version": "12.0.1.1.3",
+    "version": "12.0.1.2.0",
     "category": "Stock",
     "website": "https://www.quartile.co/",
     "author": "Quartile Limited",
