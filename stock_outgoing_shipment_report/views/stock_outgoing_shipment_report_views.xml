@@ -38,6 +38,7 @@
                 <field name="lot_branch_num" />
                 <field name="delivery_division" />
                 <field name="customer_delivery_note" />
+                <field name="reference" />
                 <field name="memo" />
             </tree>
         </field>
