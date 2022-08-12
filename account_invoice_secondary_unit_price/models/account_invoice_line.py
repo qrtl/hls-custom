@@ -1,8 +1,9 @@
 # Copyright 2019 Quartile Limited
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 from odoo.addons import decimal_precision as dp
+from odoo.exceptions import ValidationError
 
 
 class AccountInvoiceLine(models.Model):
@@ -37,3 +38,9 @@ class AccountInvoiceLine(models.Model):
         """
         super(AccountInvoiceLine, self)._onchange_uom_id()
         self.onchange_secondary_price()
+
+    @api.constrains("secondary_uom_id","secondary_uom_price")
+    def _check_secondary_uom_id(self):
+        for line in self:
+            if (line.secondary_uom_price > 0) and (line.secondary_uom_id.id == False):
+                raise ValidationError(_("Please enter Secondary uom."))
