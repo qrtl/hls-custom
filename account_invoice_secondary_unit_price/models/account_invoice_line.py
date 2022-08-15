@@ -42,5 +42,7 @@ class AccountInvoiceLine(models.Model):
     @api.constrains("secondary_uom_id", "secondary_uom_price")
     def _check_secondary_uom_id(self):
         for line in self:
-            if (line.secondary_uom_price > 0) and (line.secondary_uom_id.id is False):
-                raise ValidationError(_("Please enter Secondary uom."))
+            if not line.secondary_uom_id and line.secondary_uom_price != 0.0:
+                raise ValidationError(
+                    _("Please enter secondary UoM or remove the secondary UoM price.")
+                )
