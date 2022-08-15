@@ -18,7 +18,7 @@ msgstr ""
 #. module: account_invoice_secondary_unit_price
 #: model:ir.model,name:account_invoice_secondary_unit_price.model_account_invoice_line
 msgid "Invoice Line"
-msgstr "請求書行"
+msgstr "請求書明細"
 
 #. module: account_invoice_secondary_unit_price
 #: code:addons/account_invoice_secondary_unit_price/models/account_invoice_line.py:46
