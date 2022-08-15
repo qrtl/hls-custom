@@ -44,5 +44,5 @@ class SaleOrderLine(models.Model):
         for line in self:
             if not line.secondary_uom_id and line.secondary_uom_price != 0.0:
                 raise ValidationError(
-                    _("Please enter secondary UoM or remove the secondary.")
+                    _("Please enter secondary UoM or remove the secondary UoM price.")
                 )

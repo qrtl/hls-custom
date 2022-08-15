@@ -18,7 +18,7 @@ msgstr ""
 #. module: sale_order_secondary_unit_price
 #: code:addons/sale_order_secondary_unit_price/models/sale_order_line.py:47
 #, python-format
-msgid "Please enter secondary UoM or remove the secondary."
+msgid "Please enter secondary UoM or remove the secondary UoM price."
 msgstr "副単位単価を入力してください。または、単価(副単位)を削除してください"
 
 #. module: sale_order_secondary_unit_price
