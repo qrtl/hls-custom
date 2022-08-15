@@ -25,5 +25,3 @@ class SaleOrderLine(models.Model):
             qty / (factor or 1.0),
             precision_rounding=self.secondary_uom_id.uom_id.rounding,
         )
-
-

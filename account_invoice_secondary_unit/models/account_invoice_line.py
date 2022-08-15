@@ -5,7 +5,6 @@
 from odoo import api, fields, models
 from odoo.addons import decimal_precision as dp
 from odoo.tools.float_utils import float_compare, float_round
-from odoo.exceptions import ValidationError
 
 
 class AccountInvoiceLine(models.Model):
@@ -87,9 +86,3 @@ class AccountInvoiceLine(models.Model):
             self.secondary_uom_qty = 1.0
             self.onchange_secondary_uom()
         return res
-
-    @api.constrains("secondary_uom_id","secondary_uom_qty")
-    def _check_secondary_uom_id(self):
-        for line in self:
-            if line.secondary_uom_qty and line.secondary_uom_id == False:
-                raise ValidationError(_("Sec UOM must need."))
