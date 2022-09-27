@@ -12,12 +12,6 @@
                             string="Print PDF"
                             class="oe_highlight"/>
                         or
-                    <button name="print_invoice_delivery_report"
-                            type="object"
-                            string="Print ODT"
-                            class="oe_highlight"
-                            context="{'format': 'odt'}"/>
-                        or
                     <button special="cancel" string="Cancel"/>
                 </footer>
             </form>

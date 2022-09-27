@@ -1,0 +1,145 @@
+<odoo>
+  <template id="invoice_delivery">
+    <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+              <div class ="article page" style="font-size:16px !important;padding-top:0px;margin-top:0px">
+                <div class="col-12">
+                  <div class="col-6 float-left">
+                    <div>
+                      <t t-if="o.invoice_id.partner_id.zip">
+                        <span t-field="o.invoice_id.partner_id.zip"/><br/>
+                      </t>
+                      <t t-if="o.invoice_id.partner_id.state_id">
+                        <span t-field="o.invoice_id.partner_id.state_id.name"/>
+                      </t>
+                      <t t-if="o.invoice_id.partner_id.city">
+                        <span t-field="o.invoice_id.partner_id.city"/>
+                      </t>
+                      <t t-if="o.invoice_id.partner_id.street">
+                        <span t-field="o.invoice_id.partner_id.street"/>
+                      </t>
+                      <t t-if="o.invoice_id.partner_id.street2">
+                        <span t-field="o.invoice_id.partner_id.street2"/>
+                      </t>
+                      <br/>
+                      <br/>
+                      <span t-field="o.invoice_id.partner_id"/>
+                    </div>
+                    <div style="padding-top:50px;">
+                      <span>平素は格別のご高配に賜り厚くお礼申し上げます。下記の通り、ご請求申し上げます。</span>
+                    </div>
+                  </div>
+                  <div class="col-6 float-right">
+                    <div style="background-color: #e0e0eb;text-align:center;padding-bottom:5px;padding-top:10px;">
+                      <h4>御取引明細書兼請求書 <span t-field="o.invoice_id.doc_title"/></h4>
+                    </div>
+                    <div style="padding-top:30px;">
+                      <strong><span t-field="o.invoice_id.company_id"/></strong><br/>
+                        <t t-if="o.invoice_id.company_id.zip">
+                          <span t-field="o.invoice_id.company_id.zip"/><br/>
+                        </t>
+                        <t t-if="o.invoice_id.company_id.state_id">
+                          <span t-field="o.invoice_id.company_id.state_id.name"/>
+                        </t>
+                        <t t-if="o.invoice_id.company_id.city">
+                          <span t-field="o.invoice_id.company_id.city"/>
+                        </t>
+                        <t t-if="o.invoice_id.company_id.street">
+                          <span t-field="o.invoice_id.company_id.street"/>
+                        </t>
+                        <t t-if="o.invoice_id.company_id.street2">
+                          <span t-field="o.invoice_id.company_id.street2"/>
+                        </t>
+                        <t t-if="o.invoice_id.company_id.phone">
+                          <br/><span>Tel: </span><span t-field="o.invoice_id.company_id.phone"/> 
+                        </t>
+                        <t t-if="o.invoice_id.company_id.fax">
+                          <span> Fax: </span><span t-field="o.invoice_id.company_id.fax"/> 
+                        </t>
+                        
+                    </div>
+                    <br/>
+                    <br/>
+                    <table style="border:1px solid black;width:100%">
+                      <tr style="height:40px;">
+                        <td style="padding-left:3px;vertical-align: middle;border:1px solid black;width:30%;background-color:#e0e0eb;">請求書番号 </td>
+                        <td style="padding-left:3px;vertical-align: middle;border:1px solid black"><span t-field="o.invoice_id"/></td>
+                      </tr>
+                      <tr style="height:40px;">
+                        <td style="padding-left:3px;vertical-align: middle;border:1px solid black;width:30%;background-color:#e0e0eb;">請求日 </td>
+                        <td style="padding-left:3px;vertical-align: middle;border:1px solid black"><span t-field="o.invoice_id.date_invoice"/></td>
+                      </tr>
+                      <tr style="height:40px;">
+                        <td style="padding-left:3px;vertical-align: middle;border:1px solid black;width:30%;background-color:#e0e0eb;">お支払期限 </td>
+                        <td style="padding-left:3px;vertical-align: middle;border:1px solid black"><span t-field="o.invoice_id.date_due"/></td>
+                      </tr>
+                      <tr style="height:40px;">
+                        <td style="padding-left:3px;vertical-align: middle;border:1px solid black;width:30%;background-color:#e0e0eb;">お振込先 </td>
+                        <td style="padding-left:3px;vertical-align: middle;border:1px solid black"></td>
+                      </tr>
+                    </table>
+                  </div>
+                <div class="col-12 float-left">
+                  <div class="col-6 float-left">
+                    <table style="width:100%">
+                      <tr style="height:50px;border-bottom:1px solid black;">
+                        <td style="padding-left:3px;vertical-align: middle;width:30%;"><strong>合計金額:  </strong></td>
+                        <td style="padding-left:70px;vertical-align: middle;"><strong><span t-field="o.invoice_id.amount_total"/>  (消費税含む)</strong></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="col-12 float-left" style="padding-top:30px;">
+                  <table style="width:100%;font-size:12px;">
+                    <thead>
+                      <tr>
+                        <td style="padding-top:5px;padding-bottom:5px;text-align:center;border:1px solid black;"><strong>納品日</strong></td>
+                        <td style="padding-top:5px;padding-bottom:5px;text-align:center;border:1px solid black;"><strong>商品名</strong></td>
+                        <td style="padding-top:5px;padding-bottom:5px;text-align:center;border:1px solid black;"><strong>納入先</strong></td>
+                        <td style="padding-top:5px;padding-bottom:5px;text-align:center;border:1px solid black;"><strong>数量</strong></td>
+                        <td style="padding-top:5px;padding-bottom:5px;text-align:center;border:1px solid black;"><strong>単価</strong></td>
+                        <td style="padding-top:5px;padding-bottom:5px;text-align:center;border:1px solid black;"><strong>税抜金額</strong></td>
+                        <td style="padding-top:5px;padding-bottom:5px;text-align:center;border:1px solid black;"><strong>税額</strong></td>
+                        <td style="padding-top:5px;padding-bottom:5px;text-align:center;border:1px solid black;"><strong>税率</strong></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <t t-foreach="o.line_ids" t-as="l">
+                        <tr>
+                          <td style="padding-top:5px;padding-bottom:5px;text-align:center;border:1px solid black;"><span t-field="l.date_delivered"/></td>
+                          <td style="padding-top:5px;padding-bottom:5px;text-align:left;border:1px solid black;"><span t-field="l.invoice_line_id.name"/></td>
+                          <td style="padding-top:5px;padding-bottom:5px;text-align:left;border:1px solid black;"><t t-if="l.sale_line_id.order_partner_id"><span t-field="l.sale_line_id.order_partner_id"/></t></td>
+                          <td style="padding-top:5px;padding-bottom:5px;text-align:center;border:1px solid black;"><span t-field="l.qty_desc"/></td>
+                          <td style="padding-top:5px;padding-bottom:5px;text-align:right;border:1px solid black;"><span t-field="l.price_unit_desc"/></td>
+                          <td style="padding-top:5px;padding-bottom:5px;text-align:right;border:1px solid black;"><span t-field="l.price_subtotal"/></td>
+                          <td style="padding-top:5px;padding-bottom:5px;text-align:right;border:1px solid black;"><span t-field="l.price_tax"/></td>
+                          <td style="padding-top:5px;padding-bottom:5px;text-align:right;border:1px solid black;"><span t-field="l.tax_desc"/></td>
+                        </tr>
+                      </t>
+                      <tr style="background-color:#e0e0eb;height:25px;">
+                        <td colspan="5" style="border:1px solid black;text-align:right"><strong>計</strong></td>
+                        <td style="border:1px solid black;text-align:right"><span t-field="o.invoice_id.amount_untaxed"/></td>
+                        <td style="border:1px solid black;text-align:right"><span t-field="o.invoice_id.amount_tax"/></td>
+                        <td style="border:1px solid black;text-align:right"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-12 float-left" style="padding-top:30px;">
+                  <table style="width:100%">
+                    <tr>
+                      <td style="border:1px solid black;padding-top:5px;padding-bottom:5px;">備考：</td>
+                    </tr>
+                  </table>  
+                </div>
+                </div>
+              </div>
+              <div class="footer">
+                <div class="text-center" style="border-top: 1px solid black;">
+                  <span class="page"/>/<span class="topage"/>
+                </div>
+              </div>     
+            </t>
+        </t>
+  </template>
+</odoo>

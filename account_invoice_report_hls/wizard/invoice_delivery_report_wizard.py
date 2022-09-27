@@ -12,8 +12,6 @@ class InvoiceDeliveryReportWizard(models.TransientModel):
         # here we only handle one invoice record
         invoice = self.env["account.invoice"].browse(context.get("active_ids"))[0]
         report_ref = "account_invoice_report_hls.invoice_delivery_report"
-        if context.get("format") == "odt":
-            report_ref = "account_invoice_report_hls." "invoice_delivery_report_odt"
         report_id = self.env["invoice.delivery.report"]._create_invoice_delivery_report(
             invoice
         )
