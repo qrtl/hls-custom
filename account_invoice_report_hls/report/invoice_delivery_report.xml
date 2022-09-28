@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
+    <record id="invoice_report_paperformat" model="report.paperformat">
+        <field name="name">Invoice Report with Delivery Details Format</field>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">15</field>
+        <field name="margin_bottom">28</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
     <record id="invoice_delivery_report" model="ir.actions.report">
         <field name="name">Invoice Report with Delivery Details</field>
         <field name="type">ir.actions.report</field>
         <field name="model">invoice.delivery.report</field>
-        <field name="report_name">invoice.delivery.report</field>
-        <field name="report_type">py3o</field>
-        <field name="py3o_filetype">pdf</field>
-        <field name="module">account_invoice_report_hls</field>
-        <field name="py3o_template_fallback">report/invoice_delivery.odt</field>
+        <field name="report_name">account_invoice_report_hls.invoice_delivery</field>
+        <field name="report_file">account_invoice_report_hls.invoice_delivery</field>
+        <field name="report_type">qweb-pdf</field>
         <field name="print_report_name">(object._get_report_base_filename())</field>
+        <field name="paperformat_id" ref="account_invoice_report_hls.invoice_report_paperformat"/>
     </record>
-
-    <record id="invoice_delivery_report_odt" model="ir.actions.report">
-        <field name="name">Invoice Report with Delivery Details (ODT)</field>
-        <field name="type">ir.actions.report</field>
-        <field name="model">invoice.delivery.report</field>
-        <field name="report_name">invoice.delivery.report.odt</field>
-        <field name="report_type">py3o</field>
-        <field name="py3o_filetype">odt</field>
-        <field name="module">account_invoice_report_hls</field>
-        <field name="py3o_template_fallback">report/invoice_delivery.odt</field>
-        <field name="print_report_name">(object._get_report_base_filename())</field>
-    </record>
-
 </odoo>
