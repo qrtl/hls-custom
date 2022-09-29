@@ -6,6 +6,7 @@
     "category": "base",
     "license": "LGPL-3",
     "author": "Quartile Limited",
+    "website": "https://www.quartile.co",
     "depends": ["uom"],
     "data": [],
     "installable": True,

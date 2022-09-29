@@ -6,6 +6,7 @@
     "category": "Reporting",
     "license": "AGPL-3",
     "author": "Quartile Limited",
+    "website": "https://www.quartile.co",
     "depends": ["base"],
     "data": ["views/res_company_views.xml", "views/res_partner_views.xml"],
     "installable": True,
