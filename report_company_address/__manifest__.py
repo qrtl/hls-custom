@@ -6,6 +6,7 @@
     "category": "Reporting",
     "license": "LGPL-3",
     "author": "Quartile Limited",
+    "website": "https://www.quartile.co",
     "depends": ["web"],
     "data": ["views/res_company_views.xml", "views/report_templates.xml"],
     "installable": True,

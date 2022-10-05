@@ -25,7 +25,11 @@ FIELDS_PROPERTIES = {
 class StockOutgoingShipmentReport(models.Model):
     _name = "stock.outgoing.shipment.report"
 
-    move_id = fields.Many2one("stock.move", string="Stock Move", readonly=True,)
+    move_id = fields.Many2one(
+        "stock.move",
+        string="Stock Move",
+        readonly=True,
+    )
     dispatch_date = fields.Char(
         string="Dispatch Date", compute="_compute_date_fields", store=True
     )
@@ -56,7 +60,9 @@ class StockOutgoingShipmentReport(models.Model):
     reference = fields.Char("Reference")
     memo = fields.Char("Memo")
     date_created = fields.Date(
-        "Created Date (Date Only)", default=fields.Date.context_today, store=True,
+        "Created Date (Date Only)",
+        default=fields.Date.context_today,
+        store=True,
     )
 
     @api.multi

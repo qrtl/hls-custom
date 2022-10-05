@@ -8,7 +8,8 @@ class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
     eta_date = fields.Char(
-        "ETA", help="Fill in your expected arrival date request(e.g. ASAP).",
+        "ETA",
+        help="Fill in your expected arrival date request(e.g. ASAP).",
     )
     etd_date = fields.Char(
         "ETD", help="Fill in your expected departure date request(e.g. ASAP)."

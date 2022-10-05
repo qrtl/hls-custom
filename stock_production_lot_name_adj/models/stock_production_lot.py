@@ -9,13 +9,19 @@ class StockProductionLot(models.Model):
     _inherit = "stock.production.lot"
 
     removal_date_str1 = fields.Char(
-        compute="_compute_removal_date_string", store=True, copy=False,
+        compute="_compute_removal_date_string",
+        store=True,
+        copy=False,
     )
     removal_date_str2 = fields.Char(
-        compute="_compute_removal_date_string", store=True, copy=False,
+        compute="_compute_removal_date_string",
+        store=True,
+        copy=False,
     )
     removal_date_str3 = fields.Char(
-        compute="_compute_removal_date_string", store=True, copy=False,
+        compute="_compute_removal_date_string",
+        store=True,
+        copy=False,
     )
 
     @api.depends("removal_date")
