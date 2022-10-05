@@ -9,8 +9,8 @@ class StockPicking(models.Model):
 
     @api.multi
     def _add_delivery_cost_to_so(self):
-        """ Override standard method so that sales order line is not created when
-            carrier_price is zero.
+        """Override standard method so that sales order line is not created when
+        carrier_price is zero.
         """
         self.ensure_one()
         sale_order = self.sale_id

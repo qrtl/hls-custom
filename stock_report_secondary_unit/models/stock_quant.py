@@ -16,7 +16,8 @@ class StockQuant(models.Model):
         store=True,
     )
     secondary_uom_id = fields.Many2one(
-        related="product_id.stock_secondary_uom_id", string="Secondary UoM",
+        related="product_id.stock_secondary_uom_id",
+        string="Secondary UoM",
     )
 
     @api.multi

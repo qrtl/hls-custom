@@ -6,6 +6,7 @@
     "category": "Reporting",
     "license": "AGPL-3",
     "author": "Quartile Limited",
+    "website": "https://www.quartile.co",
     "depends": [
         "sale_stock",
         "report_common_hls",

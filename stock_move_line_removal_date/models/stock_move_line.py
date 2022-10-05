@@ -31,7 +31,12 @@ class StockMoveLine(models.Model):
         # It is also not optimal in terms of the performance to run this for
         # every move line (should the diff be kept in the user record of the
         # superuser? - in which case adjustments for DST is not possible).
-        dt = datetime(year=date.year, month=date.month, day=date.day, hour=hour,)
+        dt = datetime(
+            year=date.year,
+            month=date.month,
+            day=date.day,
+            hour=hour,
+        )
         utc_timestamp = pytz.utc.localize(dt, is_dst=False)
         su_tz = self.env["res.users"].browse(SUPERUSER_ID).tz or "UTC"
         su_timestamp = pytz.timezone(su_tz).localize(dt).astimezone(pytz.utc)

@@ -7,12 +7,18 @@ from odoo import _, api, fields, models
 class StockPicking(models.Model):
     _inherit = "stock.picking"
 
-    report_address = fields.Char(compute="_compute_report_address",)
+    report_address = fields.Char(
+        compute="_compute_report_address",
+    )
     # adding field show the date in user's timezone
-    delivery_due_report_date = fields.Date(compute="_compute_report_delivery_due_date",)
+    delivery_due_report_date = fields.Date(
+        compute="_compute_report_delivery_due_date",
+    )
     scheduled_date = fields.Datetime(string="Scheduled DateTime")
     scheduled_date_custom = fields.Date(
-        string="Scheduled Date", compute="_compute_scheduled_date_custom", store=True,
+        string="Scheduled Date",
+        compute="_compute_scheduled_date_custom",
+        store=True,
     )
 
     @api.multi
