@@ -47,7 +47,7 @@ class TestWebsiteSaleComment(common.TransactionCase):
 
     def test_compute_price_rule(self):
         """
-            This function will check the commitment date is passed correctly or not.
+        This function will check the commitment date is passed correctly or not.
         """
         self.sale_order.write(
             {
@@ -86,8 +86,8 @@ class TestWebsiteSaleComment(common.TransactionCase):
 
     def test_onchange_commitment_date(self):
         """
-            This function will check the price unit based
-             on price list and commitment date.
+        This function will check the price unit based
+         on price list and commitment date.
         """
         self.so_line = self.SaleOrderLine.create(
             {

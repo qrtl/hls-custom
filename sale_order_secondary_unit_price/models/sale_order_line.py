@@ -31,10 +31,10 @@ class SaleOrderLine(models.Model):
 
     @api.onchange("product_uom", "product_uom_qty")
     def product_uom_change(self):
-        """ extending the standard method to always respect the pricing
-            based on the secondary unit price if it is set.
-            i.e. standard method recomputes unit price irrespective of
-            secondary unit price, so we need to override it.
+        """extending the standard method to always respect the pricing
+        based on the secondary unit price if it is set.
+        i.e. standard method recomputes unit price irrespective of
+        secondary unit price, so we need to override it.
         """
         super(SaleOrderLine, self).product_uom_change()
         self.onchange_secondary_price()

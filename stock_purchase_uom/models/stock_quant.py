@@ -14,7 +14,9 @@ class StockQuant(models.Model):
         related="product_id.uom_po_id",
     )
     product_uom_po_qty = fields.Float(
-        "Quantity in Purchase UoM", compute="_compute_product_uom_po_qty", store=True,
+        "Quantity in Purchase UoM",
+        compute="_compute_product_uom_po_qty",
+        store=True,
     )
 
     @api.multi

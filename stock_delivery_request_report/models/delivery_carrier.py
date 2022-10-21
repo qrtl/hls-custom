@@ -8,5 +8,6 @@ class DeliveryCarrier(models.Model):
     _inherit = "delivery.carrier"
 
     default_instruction = fields.Text(
-        "Default Instructions", help="Default instructions to show in batch picking.",
+        "Default Instructions",
+        help="Default instructions to show in batch picking.",
     )

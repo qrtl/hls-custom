@@ -27,5 +27,6 @@ class TestSaleLineNote(SavepointCase):
         sale_order.action_confirm()
         move = order_line.move_ids and order_line.move_ids[0]
         self.assertEqual(
-            move.note, "Test Note",
+            move.note,
+            "Test Note",
         )

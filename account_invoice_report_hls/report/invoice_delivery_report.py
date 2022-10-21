@@ -196,8 +196,8 @@ class InvoiceDeliveryReportLine(models.TransientModel):
 
     @api.multi
     def _compute_amounts(self):
-        """ the logic here should be consistent with _compute_price() method
-            of account.invoice.line
+        """the logic here should be consistent with _compute_price() method
+        of account.invoice.line
         """
         for rl in self:
             ail = rl.invoice_line_id
