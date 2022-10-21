@@ -10,7 +10,10 @@ class StockPickingReport(models.TransientModel):
     _name = "stock.picking.report"
 
     batch_id = fields.Many2one("stock.picking.batch")
-    line_ids = fields.One2many("stock.picking.report.line", inverse_name="report_id",)
+    line_ids = fields.One2many(
+        "stock.picking.report.line",
+        inverse_name="report_id",
+    )
     company_id = fields.Many2one("res.company")
 
     @api.multi
@@ -37,12 +40,22 @@ class StockPickingReport(models.TransientModel):
 class StockPickingReportLine(models.TransientModel):
     _name = "stock.picking.report.line"
 
-    report_id = fields.Many2one("stock.picking.report",)
-    move_id = fields.Many2one("stock.move",)
-    report_qty = fields.Float(digits=dp.get_precision("Product Unit of Measure"),)
+    report_id = fields.Many2one(
+        "stock.picking.report",
+    )
+    move_id = fields.Many2one(
+        "stock.move",
+    )
+    report_qty = fields.Float(
+        digits=dp.get_precision("Product Unit of Measure"),
+    )
     report_uom = fields.Char()
-    picking_id = fields.Many2one(related="move_id.picking_id",)
-    partner_id = fields.Many2one(related="picking_id.partner_id",)
+    picking_id = fields.Many2one(
+        related="move_id.picking_id",
+    )
+    partner_id = fields.Many2one(
+        related="picking_id.partner_id",
+    )
 
     def _create_delivery_request_lines(self, report, picking_ids):
         for picking in picking_ids:

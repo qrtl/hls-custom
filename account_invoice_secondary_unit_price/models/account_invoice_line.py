@@ -31,10 +31,10 @@ class AccountInvoiceLine(models.Model):
 
     @api.onchange("uom_id")
     def _onchange_uom_id(self):
-        """ extending the standard method to always respect the pricing
-            based on the secondary unit price if it is set.
-            i.e. standard method recomputes unit price irrespective of
-            secondary unit price, so we need to override it.
+        """extending the standard method to always respect the pricing
+        based on the secondary unit price if it is set.
+        i.e. standard method recomputes unit price irrespective of
+        secondary unit price, so we need to override it.
         """
         super(AccountInvoiceLine, self)._onchange_uom_id()
         self.onchange_secondary_price()

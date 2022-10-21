@@ -5,9 +5,9 @@ from odoo import models
 
 
 class ProductProduct(models.Model):
-    """ Override the method that compute a multiline description of this
-        product, in the context of sales, to display/output product
-        description (sale.order.line.name) without reference code.
+    """Override the method that compute a multiline description of this
+    product, in the context of sales, to display/output product
+    description (sale.order.line.name) without reference code.
     """
 
     _inherit = "product.product"

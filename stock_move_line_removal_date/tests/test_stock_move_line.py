@@ -32,7 +32,7 @@ class TestStockMove(common.TransactionCase):
         )
 
     def test_action_done(self):
-        """ This test perform to evaluate the action_done method
+        """This test perform to evaluate the action_done method
         which converts removal date to a datetime according to
         superuser's timezone."""
 

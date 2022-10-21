@@ -5,7 +5,7 @@
     "summary": "",
     "version": "12.0.1.0.2",
     "category": "Purchase",
-    "website": "https://www.quartile.co/",
+    "website": "https://www.quartile.co",
     "author": "Quartile Limited",
     "license": "LGPL-3",
     "installable": True,
