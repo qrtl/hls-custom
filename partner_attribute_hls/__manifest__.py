@@ -4,7 +4,7 @@
     "name": "Partner Attribute HLS",
     "version": "12.0.1.0.1",
     "category": "Contact",
-    "website": "https://www.quartile.co/",
+    "website": "https://www.quartile.co",
     "author": "Quartile Limited",
     "license": "LGPL-3",
     "installable": True,
