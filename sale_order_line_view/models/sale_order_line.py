@@ -8,7 +8,10 @@ class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
     date_order = fields.Datetime(
-        related="order_id.date_order", string="Order Date", readonly=True, store=True,
+        related="order_id.date_order",
+        string="Order Date",
+        readonly=True,
+        store=True,
     )
     commitment_date = fields.Datetime(
         related="order_id.commitment_date",
@@ -17,7 +20,10 @@ class SaleOrderLine(models.Model):
         store=True,
     )
     state = fields.Selection(
-        related="order_id.state", string="Status", readonly=True, store=True,
+        related="order_id.state",
+        string="Status",
+        readonly=True,
+        store=True,
     )
     partner_shipping_id = fields.Many2one(
         related="order_id.partner_shipping_id",

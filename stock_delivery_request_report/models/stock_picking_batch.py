@@ -9,9 +9,13 @@ class StockPickingBatch(models.Model):
 
     carrier_id = fields.Many2one("delivery.carrier")
     ship_date = fields.Date(
-        "Shipping Date", default=fields.Date.context_today, copy=False,
+        "Shipping Date",
+        default=fields.Date.context_today,
+        copy=False,
     )
-    user_id = fields.Many2one(default=lambda self: self.env.user,)
+    user_id = fields.Many2one(
+        default=lambda self: self.env.user,
+    )
     instruction = fields.Text()
 
     @api.onchange("carrier_id")

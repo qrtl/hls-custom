@@ -4,7 +4,7 @@
     "name": "Sale Line Note",
     "version": "12.0.1.0.0",
     "category": "Sales",
-    "website": "https://www.quartile.co/",
+    "website": "https://www.quartile.co",
     "author": "Quartile Limited",
     "license": "LGPL-3",
     "depends": ["sale_stock"],

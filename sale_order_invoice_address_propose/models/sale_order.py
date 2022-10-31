@@ -8,7 +8,9 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     commercial_partner_id = fields.Many2one(
-        related="partner_id.commercial_partner_id", store=True, readonly=True,
+        related="partner_id.commercial_partner_id",
+        store=True,
+        readonly=True,
     )
 
     @api.onchange("partner_shipping_id")

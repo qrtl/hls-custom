@@ -8,7 +8,8 @@ class StockMove(models.Model):
     _inherit = "stock.move"
 
     sale_order_partner_id = fields.Many2one(
-        related="sale_line_id.order_id.partner_id", string="Sales Order Customer",
+        related="sale_line_id.order_id.partner_id",
+        string="Sales Order Customer",
     )
     invoice_partner_id = fields.Many2one(
         "res.partner",
