@@ -5,9 +5,9 @@
     "summary": "",
     "version": "12.0.1.2.0",
     "category": "Stock",
-    "website": "https://www.quartile.co/",
+    "website": "https://www.quartile.co",
     "author": "Quartile Limited",
-    "license": "LGPL-3",
+    "license": "AGPL-3",
     "installable": True,
     "depends": [
         "delivery",
