@@ -18,3 +18,13 @@ class InvoiceDeliveryReportWizard(models.TransientModel):
             invoice
         )
         return self.env.ref(report_ref).report_action([report_id])
+
+    # The following methods are for use with qweb report
+    def print_invoice_delivery_qweb_report(self):
+        context = dict(self.env.context)
+        invoice = self.env["account.invoice"].browse(context.get("active_ids"))[0]
+        report_ref = "account_invoice_report_hls.invoice_delivery_qweb_report"
+        report_id = self.env["invoice.delivery.report"]._create_invoice_delivery_report(
+            invoice
+        )
+        return self.env.ref(report_ref).report_action([report_id])

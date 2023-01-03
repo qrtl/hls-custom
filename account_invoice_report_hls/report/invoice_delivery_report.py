@@ -44,6 +44,8 @@ class InvoiceDeliveryReportLine(models.TransientModel):
         digits=dp.get_precision("Product Unit of Measure"),
     )
     qty_desc = fields.Text(compute="_compute_qty_desc")
+    qty_desc_alt = fields.Text(compute="_compute_qty_desc_alt")
+    snd_desc = fields.Text(compute="_compute_snd_desc")
     price_unit_desc = fields.Char(compute="_compute_price_unit_desc")
     price_subtotal = fields.Monetary(compute="_compute_amounts")
     price_total = fields.Monetary(compute="_compute_amounts")
@@ -180,6 +182,48 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                     + ")"
                 )
             rl.qty_desc = qty_desc
+
+    # qty_desc_alt is for use with qweb report.
+    @api.multi
+    def _compute_qty_desc_alt(self):
+        for rl in self:
+            ail = rl.invoice_line_id
+            qty_desc_alt = ""
+            if ail.secondary_uom_price:
+                sale_secondary_qty = rl._get_secondary_qty(
+                    rl.quantity, rl.product_uom, rl.secondary_uom_id
+                )
+                qty_desc_alt = (
+                    str(sale_secondary_qty) + " " + rl.secondary_uom_id.name
+                    if rl.secondary_uom_id
+                    else str(sale_secondary_qty)
+                )
+            else:
+                qty_desc_alt = (
+                    str(rl.quantity) + " " + rl.product_uom.name
+                    if rl.product_uom
+                    else str(rl.quantity)
+                )
+            rl.qty_desc_alt = qty_desc_alt
+
+    @api.multi
+    def _compute_snd_desc(self):
+        for rl in self:
+            ail = rl.invoice_line_id
+            snd_desc = ""
+            if ail.product_id and ail.product_id.stock_secondary_uom_id:
+                stock_secondary_uom = ail.product_id.stock_secondary_uom_id
+                stock_secondary_qty = rl._get_secondary_qty(
+                    rl.quantity, rl.product_uom, stock_secondary_uom
+                )
+                snd_desc = (
+                    "("
+                    + str(stock_secondary_qty)
+                    + " "
+                    + stock_secondary_uom.name
+                    + ")"
+                )
+            rl.snd_desc = snd_desc
 
     @api.multi
     def _compute_price_unit_desc(self):

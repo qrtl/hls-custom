@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-23 09:43+0000\n"
-"PO-Revision-Date: 2019-10-23 09:43+0000\n"
+"POT-Creation-Date: 2023-01-05 10:04+0000\n"
+"PO-Revision-Date: 2023-01-05 10:04+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: account_invoice_report_hls
-#: code:addons/account_invoice_report_hls/report/invoice_delivery_report.py:125
+#: code:addons/account_invoice_report_hls/report/invoice_delivery_report.py:105
 #, python-format
 msgid "\n"
 "%s (%s)\n"
@@ -30,9 +30,64 @@ msgstr "\n"
 ""
 
 #. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "&amp;nbsp;<span>on</span>"
+msgstr ""
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "<span>TEL: </span>"
+msgstr ""
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "<span>VAT: </span>"
+msgstr "<span>適格事業者番号: </span>"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "<strong>Description:</strong>"
+msgstr "<strong>説明:</strong>"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "<strong>Due Date:</strong>"
+msgstr "<strong>お支払期限:</strong>"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "<strong>Invoice Date:</strong>"
+msgstr "<strong>請求日:</strong>"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "<strong>Payee:</strong>"
+msgstr "<strong>お振込先:</strong>"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "<strong>Reference:</strong>"
+msgstr "<strong>請求書番号:</strong>"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>小計</strong>"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "<strong>Total</strong>"
+msgstr "<strong>合計</strong>"
+
+#. module: account_invoice_report_hls
 #: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.view_company_form
 msgid "Accounting"
 msgstr "会計"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "Amount"
+msgstr "金額"
 
 #. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_res_company__bank_info
@@ -43,6 +98,11 @@ msgstr "銀行情報"
 #: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.invoice_delivery_report_wizard
 msgid "Cancel"
 msgstr "取消"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "Cancelled Invoice"
+msgstr "キャンセル済請求書"
 
 #. module: account_invoice_report_hls
 #: model:ir.model,name:account_invoice_report_hls.model_res_company
@@ -64,6 +124,11 @@ msgid "Created on"
 msgstr "作成日"
 
 #. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "Credit Note"
+msgstr "クレジットノート"
+
+#. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__currency_id
 msgid "Currency"
 msgstr "通貨"
@@ -72,6 +137,11 @@ msgstr "通貨"
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__date_delivered
 msgid "Date Delivered"
 msgstr "配送日"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "Date Delivery"
+msgstr "納品日"
 
 #. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_account_invoice__date_from
@@ -89,7 +159,7 @@ msgid "Date To"
 msgstr "終了日"
 
 #. module: account_invoice_report_hls
-#: code:addons/account_invoice_report_hls/models/account_invoice.py:62
+#: code:addons/account_invoice_report_hls/models/account_invoice.py:55
 #, python-format
 msgid "Date To must not be earlier than Date From."
 msgstr "終了日は開始日以降にしてください。"
@@ -107,6 +177,11 @@ msgid "Doc Title"
 msgstr "件名"
 
 #. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "Draft Invoice"
+msgstr "ドラフト請求書"
+
+#. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report__id
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__id
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_wizard__id
@@ -121,14 +196,9 @@ msgstr "選択された場合、配送詳細を請求書印刷に含みます。
 #. module: account_invoice_report_hls
 #: model:ir.model,name:account_invoice_report_hls.model_account_invoice
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report__invoice_id
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
 msgid "Invoice"
 msgstr "請求書"
-
-#. module: account_invoice_report_hls
-#: code:addons/account_invoice_report_hls/report/invoice_delivery_report.py:22
-#, python-format
-msgid "Invoice (%s)"
-msgstr "請求書 (%s)"
 
 #. module: account_invoice_report_hls
 #: model:ir.model,name:account_invoice_report_hls.model_account_invoice_line
@@ -145,6 +215,11 @@ msgstr "配送詳細付請求書印刷"
 #: model:ir.actions.report,name:account_invoice_report_hls.invoice_delivery_report_odt
 msgid "Invoice Report with Delivery Details (ODT)"
 msgstr "配送詳細付請求書印刷(ODT)"
+
+#. module: account_invoice_report_hls
+#: model:ir.actions.report,name:account_invoice_report_hls.invoice_delivery_qweb_report
+msgid "Invoice Report with Delivery Details Qweb"
+msgstr "配送詳細付請求書印刷(Qweb)"
 
 #. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report____last_update
@@ -183,6 +258,11 @@ msgid "Move"
 msgstr "移動"
 
 #. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.external_layout_invoice_hls
+msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr "ページ: <span class=\"page\"/> / <span class=\"topage\"/>"
+
+#. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__price_subtotal
 msgid "Price Subtotal"
 msgstr "価格小計"
@@ -218,6 +298,16 @@ msgid "Print PDF"
 msgstr "印刷(PDF)"
 
 #. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.invoice_delivery_report_wizard
+msgid "Print PDF (Qweb)"
+msgstr "印刷(Qweb)"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "Product Name"
+msgstr "プロダクト名"
+
+#. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__product_uom
 msgid "Product Uom"
 msgstr "プロダクト単位"
@@ -228,9 +318,15 @@ msgid "Qty Desc"
 msgstr ""
 
 #. module: account_invoice_report_hls
-#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__quantity
-msgid "Quantity"
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__qty_desc_alt
+msgid "Qty Desc Alt"
 msgstr ""
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__quantity
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "Quantity"
+msgstr "数量"
 
 #. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__report_id
@@ -263,9 +359,19 @@ msgid "Secondary Uom"
 msgstr "副単位"
 
 #. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "Shiping"
+msgstr "納入先"
+
+#. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_account_invoice_line__shipping_address_name
 msgid "Shipping Address Name"
 msgstr "配送先名"
+
+#. module: account_invoice_report_hls
+#: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__snd_desc
+msgid "Snd Desc"
+msgstr ""
 
 #. module: account_invoice_report_hls
 #: model:ir.model,name:account_invoice_report_hls.model_stock_move
@@ -273,12 +379,17 @@ msgid "Stock Move"
 msgstr "在庫移動"
 
 #. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "Tax"
+msgstr "税"
+
+#. module: account_invoice_report_hls
 #: model:ir.model.fields,field_description:account_invoice_report_hls.field_invoice_delivery_report_line__tax_desc
 msgid "Tax Desc"
 msgstr ""
 
 #. module: account_invoice_report_hls
-#: code:addons/account_invoice_report_hls/report/invoice_delivery_report.py:133
+#: code:addons/account_invoice_report_hls/report/invoice_delivery_report.py:116
 #, python-format
 msgid "The quantity in the invoice and delivered quantity are inconsistent for the following product(s):\n"
 "%s"
@@ -294,6 +405,26 @@ msgstr "請求日を変更すると、新たに値が提案されます。"
 #: model:ir.model,name:account_invoice_report_hls.model_stock_picking
 msgid "Transfer"
 msgstr "運送"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "Unit Price"
+msgstr "単価"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "Vendor Bill"
+msgstr "仕入先請求書"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "Vendor Credit Note"
+msgstr "仕入先クレジットノート"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "[Client No:"
+msgstr "[顧客発注番号:"
 
 #. module: account_invoice_report_hls
 #: model:ir.model,name:account_invoice_report_hls.model_invoice_delivery_report
@@ -314,4 +445,14 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.invoice_delivery_report_wizard
 msgid "or"
 msgstr "または"
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "下記の通りご請求申し上げます。"
+msgstr ""
+
+#. module: account_invoice_report_hls
+#: model_terms:ir.ui.view,arch_db:account_invoice_report_hls.report_invoice_document
+msgid "平素は格別のご高配に賜り厚く御礼申し上げます。"
+msgstr ""
 
