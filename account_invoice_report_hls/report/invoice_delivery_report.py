@@ -1,5 +1,5 @@
-# Copyright 2019 Quartile Limited
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# Copyright 2019-2023 Quartile Limited
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
 from odoo.addons import decimal_precision as dp
@@ -13,12 +13,18 @@ class InvoiceDeliveryReport(models.TransientModel):
     invoice_id = fields.Many2one("account.invoice")
     line_ids = fields.One2many("invoice.delivery.report.line", inverse_name="report_id")
 
-    def _create_invoice_delivery_report(self, invoice):
-        report = self.create({"invoice_id": invoice.id})
-        self.env["invoice.delivery.report.line"]._create_invoice_delivery_report_lines(
-            report, invoice.invoice_line_ids, invoice.date_from, invoice.date_to
-        )
-        return report.id
+    @api.model
+    def _create_invoice_delivery_report(self, invoices):
+        invoice_reports = self.browse()
+        for invoice in invoices:
+            report = self.create({"invoice_id": invoice.id})
+            self.env[
+                "invoice.delivery.report.line"
+            ]._create_invoice_delivery_report_lines(
+                report, invoice.invoice_line_ids, invoice.date_from, invoice.date_to
+            )
+            invoice_reports += report
+        return invoice_reports
 
     @api.multi
     def _get_report_base_filename(self):

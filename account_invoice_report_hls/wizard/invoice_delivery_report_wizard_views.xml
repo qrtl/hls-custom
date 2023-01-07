@@ -18,11 +18,6 @@
                             class="oe_highlight"
                             context="{'format': 'odt'}"/>
                         or
-                    <button name="print_invoice_delivery_qweb_report"
-                            type="object"
-                            string="Print PDF (Qweb)"
-                            class="oe_highlight"/>
-                        or
                     <button special="cancel" string="Cancel"/>
                 </footer>
             </form>

@@ -30,7 +30,7 @@
             <t t-set="o" t-value="o.with_context(lang=lang)" />
             <div class="page">
                 <h2 class="text-center">
-                    <span t-if="o.invoice_id.type == 'out_invoice' and o.invoice_id.state in ('open', 'in_payment', 'paid')">Invoice</span>
+                    <span t-if="o.invoice_id.type == 'out_invoice' and o.invoice_id.state in ('open', 'in_payment', 'paid')">Invoice with Transaction Details</span>
                     <span t-if="o.invoice_id.type == 'out_invoice' and o.invoice_id.state == 'draft'">Draft Invoice</span>
                     <span t-if="o.invoice_id.type == 'out_invoice' and o.invoice_id.state == 'cancel'">Cancelled Invoice</span>
                     <span t-if="o.invoice_id.type == 'out_refund'">Credit Note</span>
@@ -73,10 +73,11 @@
                         </div>
                         <div class="mt32">
                             <strong>Payee:</strong>
-                            <div t-if="o.invoice_id.partner_id.company_bank_id" id="bank" class="col-7">
-                                <div t-field="o.invoice_id.partner_id.company_bank_id.bank_id.name"/>
-                                <div t-field="o.invoice_id.partner_id.company_bank_id.acc_number"/>
-                                <div t-field="o.invoice_id.partner_id.company_bank_id.acc_holder_name"/>
+                            <t t-set="company_bank" t-value="o.invoice_id.partner_id.company_bank_id" />
+                            <div t-if="company_bank" id="bank" class="col-7">
+                                <div t-field="company_bank.bank_id.name"/>
+                                <div t-field="company_bank.acc_number"/>
+                                <div t-field="company_bank.acc_holder_name"/>
                             </div>
                         </div>
                     </div>

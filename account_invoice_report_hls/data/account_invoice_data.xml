@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="model_account_invoice_print_invoice_with_delivery" model="ir.actions.server">
+        <field name="name">Print Invoice with Delivery Details</field>
+        <field name="model_id" ref="account.model_account_invoice"/>
+        <field name="binding_model_id" ref="account.model_account_invoice"/>
+        <field name="state">code</field>
+        <field name="code">action = records.action_print_invoice_delivery_qweb_report()</field>
+    </record>
+</odoo>
