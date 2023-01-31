@@ -29,26 +29,29 @@
         <t t-call="account_invoice_report_hls.external_layout_invoice_hls">
             <t t-set="o" t-value="o.with_context(lang=lang)" />
             <div class="page">
-                <h2 class="text-center">
-                    <span t-if="o.invoice_id.type == 'out_invoice' and o.invoice_id.state in ('open', 'in_payment', 'paid')">Invoice with Transaction Details</span>
-                    <span t-if="o.invoice_id.type == 'out_invoice' and o.invoice_id.state == 'draft'">Draft Invoice</span>
-                    <span t-if="o.invoice_id.type == 'out_invoice' and o.invoice_id.state == 'cancel'">Cancelled Invoice</span>
-                    <span t-if="o.invoice_id.type == 'out_refund'">Credit Note</span>
-                    <span t-if="o.invoice_id.type == 'in_refund'">Vendor Credit Note</span>
-                    <span t-if="o.invoice_id.type == 'in_invoice'">Vendor Bill</span>
-                    <span t-field="o.invoice_id.doc_title" />
-                </h2>
-                <div class="row" style="padding-top: 20px;">
+                <div class="row">
+                    <div class="col-6">
+                    </div>
+                    <div class="col-6">
+                        <h3 class="text-left">
+                            <span t-if="o.invoice_id.type == 'out_invoice' and o.invoice_id.state in ('open', 'in_payment', 'paid')">Invoice with Transaction Details</span>
+                            <span t-if="o.invoice_id.type == 'out_invoice' and o.invoice_id.state == 'draft'">Draft Invoice</span>
+                            <span t-if="o.invoice_id.type == 'out_invoice' and o.invoice_id.state == 'cancel'">Cancelled Invoice</span>
+                            <span t-if="o.invoice_id.type == 'out_refund'">Credit Note</span>
+                            <span t-if="o.invoice_id.type == 'in_refund'">Vendor Credit Note</span>
+                            <span t-if="o.invoice_id.type == 'in_invoice'">Vendor Bill</span>
+                            <span t-field="o.invoice_id.doc_title" />
+                        </h3>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 40px;">
                     <div class="col-6">
                         <div>
                             <address t-field="o.invoice_id.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
                         </div>
                         <div style="padding-top: 60px;">
                             <div>
-                                <p>
-                                    <div>平素は格別のご高配に賜り厚く御礼申し上げます。</div>
-                                    <div>下記の通りご請求申し上げます。</div>
-                                </p>
+                                <span t-field="company.invoice_delivery_report_comment" />
                             </div>
                         </div>
                     </div>
@@ -82,22 +85,32 @@
                         </div>
                     </div>
                 </div>
-                <div id="informations" class="row mt32 mb32">
-                    <div class="col-auto mw-100 mb-2" t-if="o.invoice_id.name" name="description">
-                        <strong>Description:</strong>
-                        <p class="m-0" t-field="o.invoice_id.name"/>
+                <div class="row" style="padding-top: 40px;">
+                    <div class="col-6">
+                        <h3>
+                            <tr class="border-black o_total">
+                                <td><strong>Total</strong></td>
+                                <td class="text-right">
+                                    <span t-field="o.invoice_id.amount_total"/>
+                                </td>
+                            </tr>
+                        </h3>
                     </div>
-                    <div class="col-auto mw-100 mb-2" t-if="o.invoice_id.date_invoice" name="invoice_date">
-                        <strong>Invoice Date:</strong>
-                        <p class="m-0" t-field="o.invoice_id.date_invoice"/>
-                    </div>
-                    <div class="col-auto mw-100 mb-2" t-if="o.invoice_id.date_due and o.invoice_id.type == 'out_invoice' and o.invoice_id.state in ('open', 'in_payment', 'paid')" name="due_date">
-                        <strong>Due Date:</strong>
-                        <p class="m-0" t-field="o.invoice_id.date_due"/>
-                    </div>
-                    <div name="reference" class="col-auto mw-100 mb-2" t-if="o.invoice_id.reference">
-                        <strong>Reference:</strong>
-                        <p class="m-0" t-field="o.invoice_id.reference"/>
+                    <div class="col-6">
+                        <div id="informations" class="row mt32 mb32">
+                            <div class="col-auto mw-100 mb-2" t-if="o.invoice_id.date_invoice" name="invoice_date">
+                                <strong>Invoice Date:</strong>
+                                <p class="m-0" t-field="o.invoice_id.date_invoice"/>
+                            </div>
+                            <div class="col-auto mw-100 mb-2" t-if="o.invoice_id.date_due and o.invoice_id.type == 'out_invoice' and o.invoice_id.state in ('open', 'in_payment', 'paid')" name="due_date">
+                                <strong>Due Date:</strong>
+                                <p class="m-0" t-field="o.invoice_id.date_due"/>
+                            </div>
+                            <div name="reference" class="col-auto mw-100 mb-2" t-if="o.invoice_id.reference">
+                                <strong>Reference:</strong>
+                                <p class="m-0" t-field="o.invoice_id.reference"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row" style="margin-top: 10px; margin-bottom: 10px;">
@@ -140,7 +153,7 @@
                                             t-options='{"widget": "monetary", "display_currency": l.currency_id}'
                                         />
                                     </td>
-                                    <td><span t-field="l.tax_desc" /></td>
+                                    <td class="text-right"><span t-field="l.tax_desc" /></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -150,7 +163,7 @@
 
                 <div class="clearfix">
                     <div id="total" class="row">
-                        <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                        <div t-attf-class="#{'col-5' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
                             <table class="table table-sm" style="page-break-inside: avoid;">
                                 <tr class="border-black o_subtotal" style="">
                                     <td><strong>Subtotal</strong></td>
@@ -179,7 +192,7 @@
                                         </t>
                                     </tr>
                                 </t>
-                                <tr class="border-black o_total">
+                               <tr class="border-black o_total">
                                     <td><strong>Total</strong></td>
                                     <td class="text-right">
                                         <span t-field="o.invoice_id.amount_total"/>

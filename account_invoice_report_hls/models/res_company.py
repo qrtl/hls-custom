@@ -8,3 +8,4 @@ class ResCompany(models.Model):
     _inherit = "res.company"
 
     bank_info = fields.Text("Bank Information")
+    invoice_delivery_report_comment = fields.Text()
