@@ -53,3 +53,11 @@ class AccountInvoice(models.Model):
         for inv in self:
             if inv.date_from and inv.date_to and inv.date_from > inv.date_to:
                 raise ValidationError(_("Date To must not be earlier than Date From."))
+
+    @api.multi
+    def action_print_invoice_delivery_qweb_report(self):
+        report_ref = "account_invoice_report_hls.invoice_delivery_qweb_report"
+        reports = self.env["invoice.delivery.report"]._create_invoice_delivery_report(
+            self
+        )
+        return self.env.ref(report_ref).report_action([reports.ids])

@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Quartile Limited
+# Copyright 2019-2023 Quartile Limited
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Account Invoice Report",
@@ -18,10 +18,13 @@
         "uom_dp",
     ],
     "data": [
+        "data/account_invoice_data.xml",
+        "data/report_paperformat_data.xml",
+        "report/invoice_delivery_report.xml",
+        "report/report_invoice_delivery_templates.xml",
         "views/res_company_views.xml",
         "views/account_invoice_views.xml",
         "wizard/invoice_delivery_report_wizard_views.xml",
-        "report/invoice_delivery_report.xml",
     ],
     "installable": True,
 }
