@@ -18,9 +18,3 @@ class SaleOrder(models.Model):
                 self.warehouse_id = partner.warehouse_id
             self.carrier_id = partner.property_delivery_carrier_id.filtered("active")
         return res
-
-    @api.onchange("partner_id")
-    def onchange_partner_id_carrier_id(self):
-        # if self.partner_id:
-        #     self.carrier_id = self.partner_id.property_delivery_carrier_id.filtered('active') # noqa
-        return
