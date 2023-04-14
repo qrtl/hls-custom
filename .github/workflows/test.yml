@@ -37,6 +37,7 @@ jobs:
         include:
           - container: ghcr.io/oca/oca-ci/py3.6-ocb12.0:latest
             name: test with OCB
+            makepot: "false"
     services:
       postgres:
         image: postgres:9.6
