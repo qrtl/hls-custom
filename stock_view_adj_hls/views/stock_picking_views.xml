@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_internal_search" model="ir.ui.view">
+        <field name="name">stock.picking.internal.search</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='draft']" position="before">
+                <filter name="done_past_3" string="Done wihin past 3 days"
+                    domain="[
+                        ('date_done','&gt;=', datetime.datetime.combine((context_today()-relativedelta(days=3)), datetime.time(0,0,0)))
+                    ]"
+                />
+                <filter name="done_past_7" string="Done wihin past 7 days"
+                    domain="[
+                        ('date_done','&gt;=', datetime.datetime.combine((context_today()-relativedelta(days=7)), datetime.time(0,0,0)))
+                    ]"
+                />
+                <filter name="done_past_14" string="Done wihin past 14 days"
+                    domain="[
+                        ('date_done','&gt;=', datetime.datetime.combine((context_today()-relativedelta(days=14)), datetime.time(0,0,0)))
+                    ]"
+                />
+                <filter name="done_past_30" string="Done wihin past 30 days"
+                    domain="[
+                        ('date_done','&gt;=', datetime.datetime.combine((context_today()-relativedelta(days=30)), datetime.time(0,0,0)))
+                    ]"
+                />
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
