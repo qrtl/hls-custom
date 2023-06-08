@@ -16,9 +16,9 @@
                         ('date_done','&gt;=', datetime.datetime.combine((context_today()-relativedelta(days=7)), datetime.time(0,0,0)))
                     ]"
                 />
-                <filter name="done_past_10" string="Done wihin past 10 days"
+                <filter name="done_past_14" string="Done wihin past 14 days"
                     domain="[
-                        ('date_done','&gt;=', datetime.datetime.combine((context_today()-relativedelta(days=10)), datetime.time(0,0,0)))
+                        ('date_done','&gt;=', datetime.datetime.combine((context_today()-relativedelta(days=14)), datetime.time(0,0,0)))
                     ]"
                 />
                 <filter name="done_past_30" string="Done wihin past 30 days"

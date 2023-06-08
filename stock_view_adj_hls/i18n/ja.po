@@ -37,8 +37,8 @@ msgstr "360日経過"
 
 #. module: stock_view_adj_hls
 #: model_terms:ir.ui.view,arch_db:stock_view_adj_hls.view_picking_internal_search
-msgid "Done wihin past 10 days"
-msgstr "過去10日以内に完了"
+msgid "Done wihin past 14 days"
+msgstr "過去14日以内に完了"
 
 #. module: stock_view_adj_hls
 #: model_terms:ir.ui.view,arch_db:stock_view_adj_hls.view_picking_internal_search
