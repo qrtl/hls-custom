@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_picking_form_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="group_id" position="after">
+                <field name="force_bl_date" attrs="{'invisible': ['|', ('picking_type_code', '!=', 'incoming'), ('is_locked', '=', True)]}"/>
+                <field name="bl_date" attrs="{'invisible': [('picking_type_code', '!=', 'incoming')],'readonly': [('state', '=', 'done'), ('force_bl_date', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+</odoo>
