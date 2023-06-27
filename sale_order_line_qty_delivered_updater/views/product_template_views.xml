@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_template_only_form_view_qty_delivered_updater_inherit" model="ir.ui.view">
+        <field name="name">product.template.product.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_code']" position="before">
+                <field name="is_amount_adj_product"
+                    attrs="{'invisible':[('type','!=','service')]}"
+                    />
+            </xpath>
+        </field>
+    </record>
+</odoo>
