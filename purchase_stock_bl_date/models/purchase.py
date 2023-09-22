@@ -7,7 +7,7 @@ from odoo import api, fields, models
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    bl_date = fields.Date()
+    bl_date = fields.Date(string="BL Date")
 
     @api.multi
     def _create_picking(self):
