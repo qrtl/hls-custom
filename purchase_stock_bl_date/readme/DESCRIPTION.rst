@@ -10,7 +10,7 @@ Background:
 
 Depending on the incoterms of the purchase transaction in international trades, the
 ownership transfer of the purchased products takes place before they arrive at the
-demestic warehouse (i.e. when products are loaded in cargo in the origin country), while
+domestic warehouse (i.e. when products are loaded in cargo in the origin country), while
 the receipt operation in Odoo, for practical reasons, have to be done when the products
 are received at the warehouse.  This results in an inaccurate valuation of the inventory,
 which should be avoided.
