@@ -18,8 +18,8 @@ msgstr ""
 #. module: purchase_stock_bl_date
 #: model:ir.model.fields,field_description:purchase_stock_bl_date.field_purchase_order__bl_date
 #: model:ir.model.fields,field_description:purchase_stock_bl_date.field_stock_picking__bl_date
-msgid "BL Date"
-msgstr "BL日付"
+msgid "B/L Date"
+msgstr "B/L日付"
 
 #. module: purchase_stock_bl_date
 #: model:ir.model,name:purchase_stock_bl_date.model_res_currency

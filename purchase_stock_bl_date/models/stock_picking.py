@@ -7,7 +7,7 @@ from odoo import fields, models
 class StockPicking(models.Model):
     _inherit = "stock.picking"
 
-    bl_date = fields.Date(string="BL Date")
+    bl_date = fields.Date(string="B/L Date")
     force_bl_date = fields.Boolean(string="Force BL Date")
 
     def action_toggle_is_locked(self):
