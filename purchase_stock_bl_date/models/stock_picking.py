@@ -10,8 +10,8 @@ class StockPicking(models.Model):
     bl_date = fields.Date(string="B/L Date")
     force_bl_date = fields.Boolean(string="Force B/L Date")
 
-    def action_toggle_is_locked(self):
-        if not self.is_locked and self.state == "done" and self.force_bl_date:
+    def update_valuation(self):
+        if self.state == "done" and self.force_bl_date:
             for move in self.move_ids_without_package:
                 move.write(
                     {
@@ -23,4 +23,4 @@ class StockPicking(models.Model):
                 else:
                     move._run_valuation()
                 move.update_amount_journal_entry()
-        return super().action_toggle_is_locked()
+        self.action_toggle_is_locked()

@@ -31,7 +31,7 @@ Background:
 
 Depending on the incoterms of the purchase transaction in international trades, the
 ownership transfer of the purchased products takes place before they arrive at the
-demestic warehouse (i.e. when products are loaded in cargo in the origin country), while
+domestic warehouse (i.e. when products are loaded in cargo in the origin country), while
 the receipt operation in Odoo, for practical reasons, have to be done when the products
 are received at the warehouse.  This results in an inaccurate valuation of the inventory,
 which should be avoided.
@@ -45,13 +45,13 @@ Usage
 =====
 
 * Set B/L Date in the purchase order as appropriate. When the purchase order is confirmed and
-  the receipt picking is generated, the set date is passed over to the corresponding field of the picking.  
+  the receipt picking is generated, the set date is passed over to the corresponding field of the picking.
 * Adjust B/L Date of the receipt picking as necessary before validating the receipt.
 
 In case you forget to assign or need to change the B/L Date after the receipts have been
 validated, follow these steps:
 
-* Open the Receipts form and click on the "Unlock" button.  
+* Open the Receipts form and click on the "Unlock" button.
 * Enable the 'Force B/L Date' option and add or update the B/L Date.
 * After updating, click on the "Lock" button to update the inventory valuation and
   the corresponding Stock Journal Entry.

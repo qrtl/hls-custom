@@ -16,15 +16,19 @@ class StockMove(models.Model):
         return super()._get_price_unit()
 
     def update_amount_journal_entry(self):
-        move = self.env["account.move"].search(
+        bl_date = self.picking_id.bl_date
+        if not bl_date:
+            return
+        # There can be multiple account moves in case a correction entry
+        # has been generated.
+        account_moves = self.env["account.move"].search(
             [
                 ("stock_move_id", "=", self.id),
                 ("state", "=", "posted"),
                 ("company_id", "=", self.env.user.company_id.id),
             ]
         )
-        bl_date = self.picking_id.bl_date
-        if bl_date:
-            move.with_context(
+        for account_move in account_moves:
+            account_move.with_context(
                 bl_date=bl_date, skip_check_update=True, check_move_validity=False
             )._onchange_date()
