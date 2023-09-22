@@ -28,8 +28,8 @@ msgstr "通貨"
 
 #. module: purchase_stock_bl_date
 #: model:ir.model.fields,field_description:purchase_stock_bl_date.field_stock_picking__force_bl_date
-msgid "Force BL Date"
-msgstr "BL日付を強制する"
+msgid "Force B/L Date"
+msgstr "B/L日付を強制する"
 
 #. module: purchase_stock_bl_date
 #: model:ir.model,name:purchase_stock_bl_date.model_account_move_line

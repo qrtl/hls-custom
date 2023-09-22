@@ -8,7 +8,7 @@ class StockPicking(models.Model):
     _inherit = "stock.picking"
 
     bl_date = fields.Date(string="B/L Date")
-    force_bl_date = fields.Boolean(string="Force BL Date")
+    force_bl_date = fields.Boolean(string="Force B/L Date")
 
     def action_toggle_is_locked(self):
         if not self.is_locked and self.state == "done" and self.force_bl_date:
