@@ -18,7 +18,7 @@
                     string="Update Valuation"
                     type="object"
                     class="oe_highlight"
-                    attrs="{'invisible': ['|', ('picking_type_code', '!=', 'incoming'), ('is_locked', '=', True)]}"
+                    attrs="{'invisible': ['|','|', ('picking_type_code', '!=', 'incoming'), ('is_locked', '=', True), ('force_bl_date', '=', False)]}"
                 />
             </field>
         </field>
