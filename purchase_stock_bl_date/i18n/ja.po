@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 06:07+0000\n"
-"PO-Revision-Date: 2023-09-22 06:07+0000\n"
+"POT-Creation-Date: 2023-09-24 15:19+0000\n"
+"PO-Revision-Date: 2023-09-24 15:19+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "通貨"
 #. module: purchase_stock_bl_date
 #: model:ir.model.fields,field_description:purchase_stock_bl_date.field_stock_picking__force_bl_date
 msgid "Force B/L Date"
-msgstr "B/L日付を強制する"
+msgstr "BL日付を強制変更"
 
 #. module: purchase_stock_bl_date
 #: model:ir.model,name:purchase_stock_bl_date.model_account_move_line
@@ -50,3 +50,8 @@ msgstr "在庫移動"
 #: model:ir.model,name:purchase_stock_bl_date.model_stock_picking
 msgid "Transfer"
 msgstr "運送"
+
+#. module: purchase_stock_bl_date
+#: model_terms:ir.ui.view,arch_db:purchase_stock_bl_date.view_picking_form_inherit
+msgid "Update Valuation"
+msgstr "在庫評価更新"
