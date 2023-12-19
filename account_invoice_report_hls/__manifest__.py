@@ -10,11 +10,11 @@
     "depends": [
         "sale_stock",
         "report_common_hls",
-        "report_py3o",
         "account_partner_company_bank",
         "account_invoice_secondary_unit_price",
         "sale_order_delivery_date",
         "sale_order_line_customer_reference",
+        "stock_secondary_unit",
         "uom_dp",
     ],
     "data": [
@@ -24,7 +24,6 @@
         "report/report_invoice_delivery_templates.xml",
         "views/res_company_views.xml",
         "views/account_invoice_views.xml",
-        "wizard/invoice_delivery_report_wizard_views.xml",
     ],
     "installable": True,
 }

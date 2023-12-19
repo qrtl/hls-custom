@@ -1,29 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="invoice_delivery_report" model="ir.actions.report">
-        <field name="name">Invoice Report with Delivery Details (PDF)</field>
-        <field name="type">ir.actions.report</field>
-        <field name="model">invoice.delivery.report</field>
-        <field name="report_name">invoice.delivery.report</field>
-        <field name="report_type">py3o</field>
-        <field name="py3o_filetype">pdf</field>
-        <field name="module">account_invoice_report_hls</field>
-        <field name="py3o_template_fallback">report/invoice_delivery.odt</field>
-        <field name="print_report_name">(object._get_report_base_filename())</field>
-    </record>
-
-    <record id="invoice_delivery_report_odt" model="ir.actions.report">
-        <field name="name">Invoice Report with Delivery Details (ODT)</field>
-        <field name="type">ir.actions.report</field>
-        <field name="model">invoice.delivery.report</field>
-        <field name="report_name">invoice.delivery.report.odt</field>
-        <field name="report_type">py3o</field>
-        <field name="py3o_filetype">odt</field>
-        <field name="module">account_invoice_report_hls</field>
-        <field name="py3o_template_fallback">report/invoice_delivery.odt</field>
-        <field name="print_report_name">(object._get_report_base_filename())</field>
-    </record>
-
     <record id="invoice_delivery_qweb_report" model="ir.actions.report">
         <field name="name">Invoice Report with Delivery Details</field>
         <field name="type">ir.actions.report</field>
