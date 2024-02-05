@@ -132,7 +132,14 @@
                             </thead>
                             <tbody class="invoice_tbody">
                                 <tr t-foreach="o.line_ids" t-as="l">
-                                    <td><span t-field="l.date_delivered" t-options='{"format": "yyyy-MM-dd"}'/></td>
+                                    <td>
+                                        <t t-if="l.date_delivered">
+                                            <span t-field="l.date_delivered" t-options='{"format": "yyyy-MM-dd"}'/>
+                                        </t>
+                                        <t t-elif="l.sale_line_id and l.sale_line_id.order_id.commitment_date">
+                                            <span t-field="l.sale_line_id.order_id.commitment_date" t-options='{"format": "yyyy-MM-dd"}'/>
+                                        </t>
+                                    </td>
                                     <td>
                                         <div t-if="l.invoice_line_id.client_order_ref" >
                                             [Client No:<span t-field="l.invoice_line_id.client_order_ref"/>]

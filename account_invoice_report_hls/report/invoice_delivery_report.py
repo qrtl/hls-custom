@@ -134,7 +134,9 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                     "report_id": report.id,
                     "invoice_line_id": il.id,
                     "move_id": False,
-                    "sale_line_id": False,
+                    "sale_line_id": il.sale_line_ids[0].id
+                    if il.sale_line_ids
+                    else False,
                     "secondary_uom_id": il.secondary_uom_id.id
                     if il.secondary_uom_id
                     else False,
