@@ -131,7 +131,7 @@
                                 </tr>
                             </thead>
                             <tbody class="invoice_tbody">
-                                <tr t-foreach="o.line_ids" t-as="l">
+                                <tr t-foreach="o._get_sorted_line_ids()" t-as="l">
                                     <td>
                                         <t t-if="l.date_delivered">
                                             <span t-field="l.date_delivered" t-options='{"format": "yyyy-MM-dd"}'/>

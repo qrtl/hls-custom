@@ -1,6 +1,8 @@
 # Copyright 2019-2023 Quartile Limited
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from datetime import date
+
 from odoo import _, api, fields, models
 from odoo.addons import decimal_precision as dp
 from odoo.exceptions import UserError
@@ -30,6 +32,18 @@ class InvoiceDeliveryReport(models.TransientModel):
     def _get_report_base_filename(self):
         self.ensure_one()
         return self.invoice_id._get_report_base_filename()
+
+    def _get_sorted_line_ids(self):
+        return self.line_ids.sorted(
+            key=lambda r: (
+                r.date_delivered
+                or (
+                    r.sale_line_id.order_id.commitment_date
+                    and r.sale_line_id.order_id.commitment_date.date()
+                )
+                or date.max
+            )
+        )
 
 
 class InvoiceDeliveryReportLine(models.TransientModel):
