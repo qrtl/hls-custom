@@ -1,7 +1,6 @@
 # Copyright 2019-2023 Quartile Limited
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-
 from odoo import _, api, fields, models
 from odoo.addons import decimal_precision as dp
 from odoo.exceptions import UserError
@@ -32,12 +31,10 @@ class InvoiceDeliveryReport(models.TransientModel):
         self.ensure_one()
         return self.invoice_id._get_report_base_filename()
 
-    def _get_sorted_lines(self):
-        return self.line_ids.sorted(key=lambda r: (r.date_delivered))
-
 
 class InvoiceDeliveryReportLine(models.TransientModel):
     _name = "invoice.delivery.report.line"
+    _order = "date_delivered"
 
     report_id = fields.Many2one("invoice.delivery.report")
     move_id = fields.Many2one("stock.move")
