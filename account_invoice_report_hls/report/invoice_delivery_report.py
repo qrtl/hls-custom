@@ -34,6 +34,7 @@ class InvoiceDeliveryReport(models.TransientModel):
 
 class InvoiceDeliveryReportLine(models.TransientModel):
     _name = "invoice.delivery.report.line"
+    _order = "date_delivered"
 
     report_id = fields.Many2one("invoice.delivery.report")
     move_id = fields.Many2one("stock.move")
@@ -134,12 +135,19 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                     "report_id": report.id,
                     "invoice_line_id": il.id,
                     "move_id": False,
-                    "sale_line_id": False,
+                    "sale_line_id": il.sale_line_ids[0].id
+                    if il.sale_line_ids
+                    else False,
                     "secondary_uom_id": il.secondary_uom_id.id
                     if il.secondary_uom_id
                     else False,
                     "quantity": il.quantity,
                     "product_uom": il.uom_id.id,
+                    "date_delivered": il.sale_line_ids[
+                        0
+                    ].order_id.commitment_date.date()
+                    if il.sale_line_ids
+                    else False,
                 }
             )
 
