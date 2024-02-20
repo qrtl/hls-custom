@@ -15,7 +15,3 @@ class SaleOrder(models.Model):
         default=fields.Date.context_today,
         help="The input date will be passed over to the delivery as Scheduled Date.",
     )
-
-    def _get_due_date(self):
-        self.ensure_one()
-        return self.commitment_date or self.expected_date
