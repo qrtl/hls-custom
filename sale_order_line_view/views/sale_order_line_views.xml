@@ -38,8 +38,8 @@
                 <filter string="Checked" name="checked" domain="[('line_checked','=',True)]"/>
                 <filter string="Unchecked" name="unchecked" domain="[('line_checked','=',False)]"/>
                 <separator/>
-                <filter name="month" string="This Month" domain="['&amp;',('commitment_date','&gt;=',(context_today()+relativedelta(day=1)).strftime('%Y-%m-%d')),('commitment_date','&lt;=',(context_today()+relativedelta(months=1,day=1,days=-1)).strftime('%Y-%m-%d'))]"/>
-                <filter name="prev_month" string="Last Month" domain="[('commitment_date','&gt;=',(context_today()-relativedelta(months=1)).strftime('%Y-%m-01')),('commitment_date','&lt;',context_today().strftime('%Y-%m-01'))]"/>
+                <filter name="month" string="This Month" domain="[('commitment_date','&gt;=', datetime.datetime.combine(context_today().replace(day=1), datetime.time(0, 0, 0))), ('commitment_date','&lt;', datetime.datetime.combine((context_today() + relativedelta(months=1)).replace(day=1), datetime.time(0, 0, 0)))]"/>
+                <filter name="prev_month" string="Last Month" domain="[('commitment_date', '&gt;=', datetime.datetime.combine((context_today() - relativedelta(months=1)).replace(day=1), datetime.time(0, 0, 0))), ('commitment_date', '&lt;', datetime.datetime.combine(context_today().replace(day=1), datetime.time(0, 0, 0)))]"/>
                 <separator/>
             </xpath>
             <xpath expr="//field[@name='order_partner_id']" position="after">
