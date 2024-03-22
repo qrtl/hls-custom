@@ -18,8 +18,10 @@ class StockPicking(models.Model):
 
     @api.multi
     def write(self, vals):
-        res = super(StockPicking, self).write(vals)
-        if vals.get("partner_id"):
-            for rec in self:
-                rec.is_delivery_slip_required = rec.partner_id.is_delivery_slip_required
-        return res
+        partner_id = vals.get("partner_id")
+        if partner_id:
+            partner = self.env["res.partner"].browse(partner_id)
+            vals.update(
+                {"is_delivery_slip_required": partner.is_delivery_slip_required}
+            )
+        return super(StockPicking, self).write(vals)
