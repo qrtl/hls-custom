@@ -49,7 +49,7 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='pricelist_id']" position="after">
-                <field name="is_price_matched" force_save="1"/>
+                <field name="is_price_matched" />
             </xpath>
             <xpath expr="//field[@name='order_line']//tree//field[@name='price_unit']" position="after">
                 <field name="price_unit_pricelist" />
