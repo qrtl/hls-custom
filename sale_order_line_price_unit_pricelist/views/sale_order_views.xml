@@ -7,8 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='filter_order_date']" position="after">
                 <separator/>
-                <filter string="Price Matched" name="price_matched" domain="[('is_price_matched','=',True)]"/>
-                <filter string="Price Unmatched" name="price_unmatched" domain="[('is_price_matched','=',False)]"/>
+                <filter string="Has Price Discrepancy" name="has_price_discrepancy" domain="[('has_price_discrepancy','=',True)]"/>
             </xpath>
         </field>
     </record>
@@ -19,7 +18,7 @@
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='order_date']" position="after">
                 <separator/>
-                <filter string="Pricelist Changed" name="pricelist_changed" domain="[('is_price_matched','=',True)]"/>
+                <filter string="Has Price Discrepancy" name="has_price_discrepancy" domain="[('has_price_discrepancy','=',True)]"/>
             </xpath>
         </field>
     </record>
@@ -29,7 +28,7 @@
         <field name="inherit_id" ref="sale.view_order_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='state']" position="before">
-                <field name="is_price_matched"/>
+                <field name="has_price_discrepancy"/>
             </xpath>
         </field>
     </record>
@@ -39,7 +38,7 @@
         <field name="inherit_id" ref="sale.view_quotation_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='state']" position="before">
-                <field name="is_price_matched"/>
+                <field name="has_price_discrepancy"/>
             </xpath>
         </field>
     </record>
@@ -49,7 +48,7 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='pricelist_id']" position="after">
-                <field name="is_price_matched" />
+                <field name="has_price_discrepancy" />
             </xpath>
             <xpath expr="//field[@name='order_line']//tree//field[@name='price_unit']" position="after">
                 <field name="price_unit_pricelist" />

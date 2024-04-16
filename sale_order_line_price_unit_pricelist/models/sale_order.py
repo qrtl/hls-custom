@@ -7,14 +7,18 @@ from odoo import api, fields, models
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    is_price_matched = fields.Boolean(compute="_compute_is_price_matched", store=True)
+    has_price_discrepancy = fields.Boolean(
+        compute="_compute_has_price_discrepancy", store=True
+    )
 
     @api.depends(
         "order_line", "order_line.price_unit", "order_line.price_unit_pricelist"
     )
-    def _compute_is_price_matched(self):
+    def _compute_has_price_discrepancy(self):
         for order in self:
-            order.is_price_matched = all(
-                line.price_unit == line.price_unit_pricelist
-                for line in order.order_line
-            )
+            for line in order.order_line:
+                if line.product_id.type == "service":
+                    continue
+                if line.price_unit != line.price_unit_pricelist:
+                    order.has_price_discrepancy = True
+                    break
