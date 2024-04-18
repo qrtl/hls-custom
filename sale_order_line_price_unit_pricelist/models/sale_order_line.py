@@ -21,6 +21,7 @@ class SaleOrderLine(models.Model):
         "product_uom_qty",
         "order_id.partner_id",
         "order_id.date_order",
+        "order_id.commitment_date",
         "order_id.pricelist_id",
         "order_id.pricelist_id.item_ids",
     )
@@ -40,7 +41,7 @@ class SaleOrderLine(models.Model):
                 lang=order.partner_id.lang,
                 partner=order.partner_id,
                 quantity=rec.product_uom_qty,
-                date=order.date_order,
+                date=order.commitment_date or order.date_order,
                 pricelist=order.pricelist_id.id,
                 uom=rec.product_uom.id,
             )
