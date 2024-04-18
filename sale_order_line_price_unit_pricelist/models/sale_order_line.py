@@ -22,7 +22,7 @@ class SaleOrderLine(models.Model):
         "order_id.partner_id",
         "order_id.date_order",
         "order_id.pricelist_id",
-        "product_id.item_ids",
+        "order_id.pricelist_id.item_ids",
     )
     def _compute_price_unit_pricelist(self):
         lines = self.filtered(lambda x: x.state != "cancel" and x.qty_invoiced == 0.0)
