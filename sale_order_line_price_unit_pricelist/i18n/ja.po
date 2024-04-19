@@ -1,0 +1,38 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_order_line_price_unit_pricelist
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-17 04:53+0000\n"
+"PO-Revision-Date: 2024-04-17 04:53+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_order_line_price_unit_pricelist
+#: model:ir.model.fields,field_description:sale_order_line_price_unit_pricelist.field_sale_order__has_price_discrepancy
+#: model_terms:ir.ui.view,arch_db:sale_order_line_price_unit_pricelist.view_order_search_inherit
+#: model_terms:ir.ui.view,arch_db:sale_order_line_price_unit_pricelist.view_quotation_search_inherit
+msgid "Has Price Discrepancy"
+msgstr "価格差有"
+
+#. module: sale_order_line_price_unit_pricelist
+#: model:ir.model,name:sale_order_line_price_unit_pricelist.model_sale_order
+msgid "Sale Order"
+msgstr "販売オーダ"
+
+#. module: sale_order_line_price_unit_pricelist
+#: model:ir.model,name:sale_order_line_price_unit_pricelist.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "販売オーダ明細"
+
+#. module: sale_order_line_price_unit_pricelist
+#: model:ir.model.fields,field_description:sale_order_line_price_unit_pricelist.field_sale_order_line__price_unit_pricelist
+msgid "Unit Price PriceList"
+msgstr "価格リスト単価"
