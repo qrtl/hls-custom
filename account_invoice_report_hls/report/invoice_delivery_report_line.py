@@ -10,20 +10,21 @@ from odoo.tools.float_utils import float_compare, float_repr
 class AccountInvoice(models.Model):
     _inherit = "account.invoice"
 
-    report_line_ids = fields.One2many("invoice.delivery.report.line", inverse_name="report_id")
+    report_line_ids = fields.One2many(
+        "invoice.delivery.report.line", inverse_name="report_id"
+    )
 
     @api.model
     def _create_invoice_delivery_report(self):
-        invoice_reports = self.browse()
         for invoice in self:
-            report = invoice
+            # if we use unlink() here,
+            # action_invoice_sent method behavior will be broken
+            invoice.write({"report_line_ids": [(5, 0, 0)]})
             self.env[
                 "invoice.delivery.report.line"
             ]._create_invoice_delivery_report_lines(
-                report, invoice.invoice_line_ids, invoice.date_from, invoice.date_to
+                invoice, invoice.invoice_line_ids, invoice.date_from, invoice.date_to
             )
-            invoice_reports += report
-        return invoice_reports
 
 
 class InvoiceDeliveryReportLine(models.TransientModel):
