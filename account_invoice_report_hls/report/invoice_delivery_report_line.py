@@ -7,17 +7,16 @@ from odoo.exceptions import UserError
 from odoo.tools.float_utils import float_compare, float_repr
 
 
-class InvoiceDeliveryReport(models.TransientModel):
-    _name = "invoice.delivery.report"
+class AccountInvoice(models.Model):
+    _inherit = "account.invoice"
 
-    invoice_id = fields.Many2one("account.invoice")
-    line_ids = fields.One2many("invoice.delivery.report.line", inverse_name="report_id")
+    report_line_ids = fields.One2many("invoice.delivery.report.line", inverse_name="report_id")
 
     @api.model
-    def _create_invoice_delivery_report(self, invoices):
+    def _create_invoice_delivery_report(self):
         invoice_reports = self.browse()
-        for invoice in invoices:
-            report = self.create({"invoice_id": invoice.id})
+        for invoice in self:
+            report = invoice
             self.env[
                 "invoice.delivery.report.line"
             ]._create_invoice_delivery_report_lines(
@@ -26,17 +25,12 @@ class InvoiceDeliveryReport(models.TransientModel):
             invoice_reports += report
         return invoice_reports
 
-    @api.multi
-    def _get_report_base_filename(self):
-        self.ensure_one()
-        return self.invoice_id._get_report_base_filename()
-
 
 class InvoiceDeliveryReportLine(models.TransientModel):
     _name = "invoice.delivery.report.line"
     _order = "date_delivered"
 
-    report_id = fields.Many2one("invoice.delivery.report")
+    report_id = fields.Many2one("account.invoice")
     move_id = fields.Many2one("stock.move")
     sale_line_id = fields.Many2one("sale.order.line")
     invoice_line_id = fields.Many2one("account.invoice.line")
