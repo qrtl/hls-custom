@@ -11,10 +11,10 @@ class AccountInvoice(models.Model):
     _inherit = "account.invoice"
 
     report_line_ids = fields.One2many(
-        "invoice.delivery.report.line", inverse_name="report_id"
+        "invoice.delivery.report.line", inverse_name="invoice_id"
     )
 
-    @api.model
+    @api.multi
     def _create_invoice_delivery_report(self):
         for invoice in self:
             # if we use unlink() here,
@@ -31,7 +31,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
     _name = "invoice.delivery.report.line"
     _order = "date_delivered"
 
-    report_id = fields.Many2one("account.invoice")
+    invoice_id = fields.Many2one("account.invoice")
     move_id = fields.Many2one("stock.move")
     sale_line_id = fields.Many2one("sale.order.line")
     invoice_line_id = fields.Many2one("account.invoice.line")
@@ -56,7 +56,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
     date_delivered = fields.Date()
 
     def _create_invoice_delivery_report_lines(
-        self, report, invoice_line_ids, date_from, date_to
+        self, invoice, invoice_line_ids, date_from, date_to
     ):
         precision = self.env["decimal.precision"].precision_get(
             "Product Unit of Measure"
@@ -87,7 +87,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                     )
                     self.create(
                         {
-                            "report_id": report.id,
+                            "invoice_id": invoice.id,
                             "invoice_line_id": il.id,
                             "move_id": move.id,
                             "sale_line_id": sl.id,
@@ -127,7 +127,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
         ).sorted(key=lambda x: x.sale_order_name or ""):
             self.create(
                 {
-                    "report_id": report.id,
+                    "invoice_id": invoice.id,
                     "invoice_line_id": il.id,
                     "move_id": False,
                     "sale_line_id": il.sale_line_ids[0].id
