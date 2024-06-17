@@ -7,36 +7,31 @@ from odoo.exceptions import UserError
 from odoo.tools.float_utils import float_compare, float_repr
 
 
-class InvoiceDeliveryReport(models.TransientModel):
-    _name = "invoice.delivery.report"
+class AccountInvoice(models.Model):
+    _inherit = "account.invoice"
 
-    invoice_id = fields.Many2one("account.invoice")
-    line_ids = fields.One2many("invoice.delivery.report.line", inverse_name="report_id")
+    report_line_ids = fields.One2many(
+        "invoice.delivery.report.line", inverse_name="invoice_id"
+    )
 
-    @api.model
-    def _create_invoice_delivery_report(self, invoices):
-        invoice_reports = self.browse()
-        for invoice in invoices:
-            report = self.create({"invoice_id": invoice.id})
+    @api.multi
+    def _create_invoice_delivery_report(self):
+        for invoice in self:
+            # if we use unlink() here,
+            # action_invoice_sent method behavior will be broken
+            invoice.write({"report_line_ids": [(5, 0, 0)]})
             self.env[
                 "invoice.delivery.report.line"
             ]._create_invoice_delivery_report_lines(
-                report, invoice.invoice_line_ids, invoice.date_from, invoice.date_to
+                invoice, invoice.invoice_line_ids, invoice.date_from, invoice.date_to
             )
-            invoice_reports += report
-        return invoice_reports
-
-    @api.multi
-    def _get_report_base_filename(self):
-        self.ensure_one()
-        return self.invoice_id._get_report_base_filename()
 
 
 class InvoiceDeliveryReportLine(models.TransientModel):
     _name = "invoice.delivery.report.line"
     _order = "date_delivered"
 
-    report_id = fields.Many2one("invoice.delivery.report")
+    invoice_id = fields.Many2one("account.invoice")
     move_id = fields.Many2one("stock.move")
     sale_line_id = fields.Many2one("sale.order.line")
     invoice_line_id = fields.Many2one("account.invoice.line")
@@ -61,7 +56,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
     date_delivered = fields.Date()
 
     def _create_invoice_delivery_report_lines(
-        self, report, invoice_line_ids, date_from, date_to
+        self, invoice, invoice_line_ids, date_from, date_to
     ):
         precision = self.env["decimal.precision"].precision_get(
             "Product Unit of Measure"
@@ -92,7 +87,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
                     )
                     self.create(
                         {
-                            "report_id": report.id,
+                            "invoice_id": invoice.id,
                             "invoice_line_id": il.id,
                             "move_id": move.id,
                             "sale_line_id": sl.id,
@@ -132,7 +127,7 @@ class InvoiceDeliveryReportLine(models.TransientModel):
         ).sorted(key=lambda x: x.sale_order_name or ""):
             self.create(
                 {
-                    "report_id": report.id,
+                    "invoice_id": invoice.id,
                     "invoice_line_id": il.id,
                     "move_id": False,
                     "sale_line_id": il.sale_line_ids[0].id

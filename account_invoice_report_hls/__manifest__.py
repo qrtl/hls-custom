@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Account Invoice Report",
-    "version": "12.0.1.2.0",
+    "version": "12.0.1.3.0",
     "category": "Reporting",
     "license": "AGPL-3",
     "author": "Quartile Limited",
@@ -18,7 +18,6 @@
         "uom_dp",
     ],
     "data": [
-        "data/account_invoice_data.xml",
         "data/report_paperformat_data.xml",
         "report/invoice_delivery_report.xml",
         "report/report_invoice_delivery_templates.xml",
