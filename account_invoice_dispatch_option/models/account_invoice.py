@@ -22,3 +22,11 @@ class AccountInvoice(models.Model):
         self.use_company_invoice = self.partner_id.use_company_invoice
         self.invoice_send_method = self.partner_id.invoice_send_method
         return super()._onchange_partner_id()
+
+    def _get_onchange_create(self):
+        onchanges = super()._get_onchange_create()
+        if "_onchange_partner_id" in onchanges:
+            onchanges["_onchange_partner_id"].extend(
+                ["use_company_invoice", "invoice_send_method"]
+            )
+        return onchanges
