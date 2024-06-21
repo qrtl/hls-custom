@@ -17,23 +17,8 @@ class AccountInvoice(models.Model):
         ],
     )
 
-    @api.model
-    def create(self, vals):
-        res = super(AccountInvoice, self).create(vals)
-        if res.partner_id:
-            res.use_company_invoice = res.partner_id.use_company_invoice
-            res.invoice_send_method = res.partner_id.invoice_send_method
-        return res
-
-    @api.multi
-    def write(self, vals):
-        partner_id = vals.get("partner_id")
-        if partner_id:
-            partner = self.env["res.partner"].browse(partner_id)
-            vals.update(
-                {
-                    "use_company_invoice": partner.use_company_invoice,
-                    "invoice_send_method": partner.invoice_send_method,
-                }
-            )
-        return super(AccountInvoice, self).write(vals)
+    @api.onchange("partner_id", "company_id")
+    def _onchange_partner_id(self):
+        self.use_company_invoice = self.partner_id.use_company_invoice
+        self.invoice_send_method = self.partner_id.invoice_send_method
+        return super()._onchange_partner_id()

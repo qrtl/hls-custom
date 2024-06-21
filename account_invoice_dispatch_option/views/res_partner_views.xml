@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="account.view_partner_property_form"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='accounting']" position="inside">
-                <group >
+                <group>
                     <group>
                         <field name="use_company_invoice"/>
                         <field name="invoice_send_method"/>
