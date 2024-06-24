@@ -13,6 +13,14 @@
                     </group>
                 </group>
             </xpath>
+            <xpath expr="//page[@name='accounting_disabled']/div" position="after">
+                <group>
+                    <group>
+                        <field name="use_company_invoice"/>
+                        <field name="invoice_send_method"/>
+                    </group>
+                </group>
+            </xpath>
         </field>
     </record>
 </odoo>
