@@ -7,12 +7,10 @@ from odoo.http import request
 
 class CustomerPortal(CustomerPortal):
     def _show_report(self, model, report_type, report_ref, download=False):
+        if not (model._name == "account.invoice" and model.type == "out_invoice"):
+            return super()._show_report(model, report_type, report_ref, download)
         invoice_report = request.env.user.company_id.customer_invoice_portal_report
-        if (
-            model._name == "account.invoice"
-            and invoice_report
-            and model.type == "out_invoice"
-        ):
+        if invoice_report:
             external_id = invoice_report.get_external_id()
             report_ref = external_id.get(invoice_report.id)
         return super()._show_report(model, report_type, report_ref, download)
