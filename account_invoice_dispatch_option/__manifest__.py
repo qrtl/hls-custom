@@ -7,7 +7,7 @@
     "website": "https://www.quartile.co",
     "category": "Invoice",
     "license": "AGPL-3",
-    "depends": ["sale_stock"],
+    "depends": ["account"],
     "data": [
         "views/res_partner_views.xml",
         "views/account_invoice_views.xml",
