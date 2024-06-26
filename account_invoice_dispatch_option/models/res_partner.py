@@ -15,5 +15,4 @@ class ResPartner(models.Model):
             ("do_not_send", "Do Not Send"),
             ("others", "Others"),
         ],
-        default="email",
     )
