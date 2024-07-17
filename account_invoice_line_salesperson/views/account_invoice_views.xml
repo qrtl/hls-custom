@@ -6,8 +6,7 @@
         <field name="inherit_id" ref="account.invoice_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='invoice_line_ids']//tree//field[@name='name']" position="after">
-                <field name="invoice_type" invisible="1" />
-                <field name="user_id" attrs="{'invisible': [('invoice_type', 'not in', ['out_invoice', 'out_refund'])]}"/>
+                <field name="user_id"/>
             </xpath>
         </field>
     </record>
