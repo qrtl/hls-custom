@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_delivery_document" inherit_id="stock.report_delivery_document">
+        <xpath expr="//div[@class='page']" position="before">
+            <div class="row">
+                <div class="col-12 text-center my-4">
+                    <h2>Delivery Slip</h2>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr='//table[@t-if="o.move_line_ids and o.state==&apos;done&apos;"]/thead/tr/th' position="after">
+            <th>
+                <strong>Client Order Ref</strong>
+            </th>
+        </xpath>
+        <xpath expr="//span[@t-field='move_line.product_id']/.." position="after">
+            <td>
+                <span t-field="move_line.sale_line.client_order_ref"/>
+            </td>
+        </xpath>
+        <xpath expr="//span[@t-field='move_line.sale_price_unit']" position="replace">
+            <span t-if="move_line.sale_line.secondary_uom_price"
+                    t-field="move_line.sale_line.secondary_uom_price"/>
+            <span t-else=""
+                    t-field="move_line.sale_price_unit"/>
+        </xpath>
+    </template>
+</odoo>
