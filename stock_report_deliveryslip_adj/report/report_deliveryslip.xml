@@ -8,7 +8,30 @@
                 </div>
             </div>
         </xpath>
-        <xpath expr='//table[@t-if="o.move_line_ids and o.state==&apos;done&apos;"]/thead/tr/th' position="after">
+        <xpath
+            expr='//table[@t-if="o.move_line_ids and o.state==&apos;done&apos;"]/thead/tr/th'
+            position="after"
+        >
+            <th>
+                <strong>Quantity</strong>
+            </th>
+        </xpath>
+        <xpath expr="//span[@t-field='move_line.product_id']/.." position="after">
+            <td>
+                <t t-if="move_line.secondary_uom_qty">
+                    <span t-field="move_line.secondary_uom_qty" />
+                    <span t-field="move_line.secondary_uom_id.name" />
+                </t>
+                <t t-else="">
+                    <span t-field="move_line.qty_done" />
+                    <span t-field="move_line.product_uom_id" />
+                </t>
+            </td>
+        </xpath>
+        <xpath
+            expr='//table[@t-if="o.move_line_ids and o.state==&apos;done&apos;"]/thead/tr/th'
+            position="after"
+        >
             <th>
                 <strong>Client Order Ref</strong>
             </th>
@@ -18,11 +41,21 @@
                 <span t-field="move_line.sale_line.client_order_ref"/>
             </td>
         </xpath>
-        <xpath expr="//span[@t-field='move_line.sale_price_unit']" position="replace">
-            <span t-if="move_line.sale_line.secondary_uom_price"
-                    t-field="move_line.sale_line.secondary_uom_price"/>
-            <span t-else=""
-                    t-field="move_line.sale_price_unit"/>
+        <xpath expr="//span[@t-field='move_line.sale_price_unit']" position="attributes">
+            <attribute name="t-if">not move_line.sale_line.secondary_uom_price</attribute>
+        </xpath>
+        <xpath expr="//span[@t-field='move_line.sale_price_unit']" position="after">
+            <t t-if="move_line.sale_line.secondary_uom_price">
+                <span t-field="move_line.sale_line.secondary_uom_price" />
+                <span>/</span>
+                <span t-field="move_line.sale_line.secondary_uom_id.name" />
+            </t>
+        </xpath>
+        <xpath expr="//th[@class='text-center']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+        <xpath expr="//td[@class='text-center']" position="attributes">
+            <attribute name="style">display:none;</attribute>
         </xpath>
     </template>
 </odoo>

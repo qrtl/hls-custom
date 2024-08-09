@@ -11,6 +11,7 @@
         "sale_stock",
         "sale_order_line_customer_reference",
         "stock_picking_report_valued",
+        "stock_secondary_unit",
     ],
     "data": [
         "report/report_deliveryslip.xml",
