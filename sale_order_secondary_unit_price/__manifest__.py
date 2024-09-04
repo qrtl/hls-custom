@@ -10,6 +10,10 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["sale", "product_secondary_unit"],
+    "depends": [
+        "sale",
+        "product_secondary_unit",
+        "sale_order_pricelist_commitment_date",
+    ],
     "data": ["views/sale_order_views.xml"],
 }
