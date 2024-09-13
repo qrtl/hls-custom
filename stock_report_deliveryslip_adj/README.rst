@@ -19,7 +19,7 @@ Stock Report Delivery Slip Adjustments
 
 |badge1| |badge2| |badge3| 
 
-This module adds an invoice report in desired layout.
+This module adjusts the layout of the delivery Slip.
 
 **Table of contents**
 

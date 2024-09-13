@@ -1,1 +1,1 @@
-This module adds an invoice report in desired layout.
+This module adjusts the layout of the delivery Slip.
