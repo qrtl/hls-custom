@@ -14,16 +14,18 @@
                 </div>
             </div>
         </xpath>
-
-        <xpath
-            expr='//table[@t-if="o.move_line_ids and o.state==&apos;done&apos;"]/thead/tr/th'
-            position="after"
-        >
+        <xpath expr="//span[@t-field='o.date_done']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+        <xpath expr="//span[@t-field='o.date_done']" position="after">
+            <span t-field="o.date_delivered"/>
+        </xpath>
+        <xpath expr='//th[@name="lot_serial"]' position="after">
             <th>
                 <strong>Quantity</strong>
             </th>
         </xpath>
-        <xpath expr="//span[@t-field='move_line.product_id']/.." position="after">
+        <xpath expr="//span[@t-field='move_line.lot_id.name']/.." position="after">
             <td>
                 <t t-if="move_line.secondary_uom_qty">
                     <span t-field="move_line.secondary_uom_qty" />
@@ -35,15 +37,12 @@
                 </t>
             </td>
         </xpath>
-        <xpath
-            expr='//table[@t-if="o.move_line_ids and o.state==&apos;done&apos;"]/thead/tr/th'
-            position="after"
-        >
+        <xpath expr='//th[@name="lot_serial"]' position="before">
             <th>
                 <strong>Client Order Ref</strong>
             </th>
         </xpath>
-        <xpath expr="//span[@t-field='move_line.product_id']/.." position="after">
+        <xpath expr="//span[@t-field='move_line.lot_name']/.." position="before">
             <td>
                 <span t-field="move_line.sale_line.client_order_ref"/>
             </td>
@@ -58,6 +57,7 @@
                 <span t-field="move_line.sale_line.secondary_uom_id.name" />
             </t>
         </xpath>
+        <!-- Hide the 'Quantity' part of the standard template. -->
         <xpath expr="//th[@class='text-center']" position="attributes">
             <attribute name="style">display:none;</attribute>
         </xpath>

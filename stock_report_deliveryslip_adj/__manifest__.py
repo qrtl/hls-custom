@@ -12,12 +12,11 @@
         "sale_order_line_customer_reference",
         "stock_picking_report_valued",
         "stock_secondary_unit",
-        "report_company_address",
+        "sale_order_delivery_date",
     ],
     "data": [
+        "data/report_deliveryslip_data.xml",
         "report/report_deliveryslip.xml",
-        "report/report_template.xml",
-        "views/ir_actions_report_views.xml",
     ],
     "installable": True,
 }
