@@ -18,7 +18,7 @@
         <div class="article o_report_layout_standard"  t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
             <div class="row" name="address_layout">
                 <div class="col-7" name="partner_address">
-                    <div t-set="partner" t-value="o.env['ir.actions.report']._get_partner_id(o)"/>
+                    <div t-set="partner" t-value="o.env['ir.actions.report']._get_partner_id(xmlid, o)"/>
                     <div t-esc="partner" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
                 </div>
                 <div class="col-5" name="company_address">
@@ -59,7 +59,7 @@
                 </t>
             </t>
         </xpath>
-        <xpath expr="//t[@t-if='company.external_report_layout_id']" position="replace">                
+        <xpath expr="//t[@t-if='company.external_report_layout_id']" position="replace">
         </xpath>
     </template> -->
 </odoo>
