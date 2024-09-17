@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* stock_report_deliveryslip_adj
+#	* l10n_jp_report_format
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-09 10:51+0000\n"
-"PO-Revision-Date: 2024-08-09 10:51+0000\n"
+"POT-Creation-Date: 2024-09-17 08:04+0000\n"
+"PO-Revision-Date: 2024-09-17 08:04+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,18 +15,37 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: stock_report_deliveryslip_adj
-#: model_terms:ir.ui.view,arch_db:stock_report_deliveryslip_adj.report_delivery_document
-msgid "<strong>Client Order Ref</strong>"
-msgstr "<strong>発注書番号</strong>"
+#. module: l10n_jp_report_format
+#: model:ir.model.fields,field_description:l10n_jp_report_format.field_ir_actions_report__commercial_partner
+msgid "Commercial Partner"
+msgstr "親会社"
 
-#. module: stock_report_deliveryslip_adj
-#: model_terms:ir.ui.view,arch_db:stock_report_deliveryslip_adj.report_delivery_document
-msgid "<strong>Quantity</strong>"
-msgstr "<strong>数量</strong>"
+#. module: l10n_jp_report_format
+#: model_terms:ir.ui.view,arch_db:l10n_jp_report_format.external_layout_jp
+msgid "Email:"
+msgstr "Eメール:"
 
-#. module: stock_report_deliveryslip_adj
-#: model_terms:ir.ui.view,arch_db:stock_report_deliveryslip_adj.report_delivery_document
-msgid "Delivery Slip"
-msgstr "納品書"
+#. module: l10n_jp_report_format
+#: model_terms:ir.ui.view,arch_db:l10n_jp_report_format.external_layout_jp
+msgid "Logo"
+msgstr "ロゴ"
 
+#. module: l10n_jp_report_format
+#: model_terms:ir.ui.view,arch_db:l10n_jp_report_format.external_layout_jp
+msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr "ページ: <span class=\"page\"/> / <span class=\"topage\"/>"
+
+#. module: l10n_jp_report_format
+#: model_terms:ir.ui.view,arch_db:l10n_jp_report_format.external_layout_jp
+msgid "Phone:"
+msgstr "電話:"
+
+#. module: l10n_jp_report_format
+#: model:ir.model,name:l10n_jp_report_format.model_ir_actions_report
+msgid "Report Action"
+msgstr "レポートアクション"
+
+#. module: l10n_jp_report_format
+#: model_terms:ir.ui.view,arch_db:l10n_jp_report_format.external_layout_jp
+msgid "Web:"
+msgstr "ウェブ:"
