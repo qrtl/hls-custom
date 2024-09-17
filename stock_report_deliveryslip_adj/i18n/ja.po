@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-09 10:51+0000\n"
-"PO-Revision-Date: 2024-08-09 10:51+0000\n"
+"POT-Creation-Date: 2024-09-17 05:40+0000\n"
+"PO-Revision-Date: 2024-09-17 05:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: stock_report_deliveryslip_adj
+#: model_terms:ir.ui.view,arch_db:stock_report_deliveryslip_adj.report_delivery_document
+msgid "<span>Delivery Location:</span>"
+msgstr "<span>納品場所:</span>"
 
 #. module: stock_report_deliveryslip_adj
 #: model_terms:ir.ui.view,arch_db:stock_report_deliveryslip_adj.report_delivery_document
@@ -29,4 +34,9 @@ msgstr "<strong>数量</strong>"
 #: model_terms:ir.ui.view,arch_db:stock_report_deliveryslip_adj.report_delivery_document
 msgid "Delivery Slip"
 msgstr "納品書"
+
+#. module: stock_report_deliveryslip_adj
+#: model:ir.model,name:stock_report_deliveryslip_adj.model_ir_actions_report
+msgid "Report Action"
+msgstr "レポートアクション"
 

@@ -19,12 +19,29 @@ Japan Report Format
 
 |badge1| |badge2| |badge3| 
 
-This module adjusts the layout of the delivery Slip.
+This module allows you to configure a report layout commonly used in Japan.
+By applying this format, you can set up a layout where the customer's name
+is displayed on the left side and your company’s name
+is displayed on the right side.
+
+Additionally, you can choose to display only
+the parent company’s name for the customer.
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Configuration
+=============
+
+When you want to use the Japanese layout,
+go to Settings > General Settings and select external_layout_jp as the template.
+Then, choose 'Japan Report Format' from Change Document Layout.
+
+Additionally, if you want to display only the parent company on the report,
+open the report record from Technical > Reports
+and enable the 'Commercial Partner' option."
 
 Bug Tracker
 ===========
