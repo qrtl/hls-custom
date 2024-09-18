@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="external_layout_jp">
+    <template id="external_layout_alt">
         <div class="header" t-att-style="report_header_style">
             <div class="row">
                 <div class="col-3 mb3">

@@ -1,7 +1,7 @@
 # Copyright 2024 Quartile
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    "name": "Japan Report Format",
+    "name": "Report Alternative Layout",
     "version": "12.0.1.0.0",
     "category": "Reporting",
     "license": "AGPL-3",

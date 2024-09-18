@@ -7,12 +7,15 @@ from odoo import fields, models
 class Report(models.Model):
     _inherit = "ir.actions.report"
 
-    commercial_partner = fields.Boolean()
+    show_commercial_partner = fields.Boolean(
+        help="If selected, "
+        "the commercial partner of the document partner will show "
+        "in the report output (instead of the document partner)."
+    )
 
     def _get_partner_id(self, xmlid, doc):
         doc.ensure_one()
         report = self._get_report_from_name(xmlid)
-        if report.commercial_partner:
+        if report.show_commercial_partner:
             return doc.partner_id.commercial_partner_id
-        else:
-            return doc.partner_id
+        return doc.partner_id
