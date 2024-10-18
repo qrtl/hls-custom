@@ -19,13 +19,13 @@ Report Alternative Layout
 
 |badge1| |badge2| |badge3| 
 
-This module allows you to configure a alternative report layout.
-By applying this format, you can set up a layout where
-the customer's name is displayed on the left side and
-your company’s name is displayed on the right side.
+This module allows for the configuration of alternative report layouts.
+The alternative layout features a design where
+the customer's name is displayed on the left side,
+and the company's name is on the right side.
 
-Additionally, you can choose to display only
-the parent company’s name for the customer.
+Additionally, an option has been added to display only the parent partner's name
+on the report if the partner has a parent company.
 
 **Table of contents**
 
