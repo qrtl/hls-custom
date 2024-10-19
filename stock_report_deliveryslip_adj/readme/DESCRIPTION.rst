@@ -1,1 +1,1 @@
-This module adjusts the layout of the delivery Slip.
+This module adjusts the layout of the delivery slip report.

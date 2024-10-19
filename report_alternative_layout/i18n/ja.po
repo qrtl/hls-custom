@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-18 10:09+0000\n"
-"PO-Revision-Date: 2024-09-18 10:09+0000\n"
+"POT-Creation-Date: 2024-10-19 07:39+0000\n"
+"PO-Revision-Date: 2024-10-19 07:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,29 +16,19 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: report_alternative_layout
-#: model_terms:ir.ui.view,arch_db:report_alternative_layout.external_layout_alt
-msgid "Email:"
-msgstr "Eメール:"
+#: model:ir.model.fields,field_description:report_alternative_layout.field_ir_actions_report__apply_alternative_layout
+msgid "Apply Alternative Layout"
+msgstr "代替レイアウトを適用"
+
+#. module: report_alternative_layout
+#: model:ir.model.fields,help:report_alternative_layout.field_ir_actions_report__apply_alternative_layout
+msgid "If selected, the alternative layout will be applied in the printed report."
+msgstr "選択すると、印刷帳票に代替レイアウトが適用されます。"
 
 #. module: report_alternative_layout
 #: model:ir.model.fields,help:report_alternative_layout.field_ir_actions_report__show_commercial_partner
 msgid "If selected, the commercial partner of the document partner will show in the report output (instead of the document partner)."
-msgstr "選択すると、親会社がレポートで出力されます。（ドキュメントの連絡先の代わりに）"
-
-#. module: report_alternative_layout
-#: model_terms:ir.ui.view,arch_db:report_alternative_layout.external_layout_alt
-msgid "Logo"
-msgstr "ロゴ"
-
-#. module: report_alternative_layout
-#: model_terms:ir.ui.view,arch_db:report_alternative_layout.external_layout_alt
-msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
-msgstr "ページ: <span class=\"page\"/> / <span class=\"topage\"/>"
-
-#. module: report_alternative_layout
-#: model_terms:ir.ui.view,arch_db:report_alternative_layout.external_layout_alt
-msgid "Phone:"
-msgstr "電話:"
+msgstr "選択すると、ドキュメントの取引先の代わりに商業取引先(親)がレポートで出力されます。"
 
 #. module: report_alternative_layout
 #: model:ir.model,name:report_alternative_layout.model_ir_actions_report
@@ -48,9 +38,5 @@ msgstr "レポートアクション"
 #. module: report_alternative_layout
 #: model:ir.model.fields,field_description:report_alternative_layout.field_ir_actions_report__show_commercial_partner
 msgid "Show Commercial Partner"
-msgstr "親会社を表示"
+msgstr "商業取引先(親)を表示"
 
-#. module: report_alternative_layout
-#: model_terms:ir.ui.view,arch_db:report_alternative_layout.external_layout_alt
-msgid "Web:"
-msgstr "ウェブ:"

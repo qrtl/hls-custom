@@ -19,7 +19,7 @@ Stock Report Delivery Slip Adjustments
 
 |badge1| |badge2| |badge3| 
 
-This module adjusts the layout of the delivery Slip.
+This module adjusts the layout of the delivery slip report.
 
 **Table of contents**
 

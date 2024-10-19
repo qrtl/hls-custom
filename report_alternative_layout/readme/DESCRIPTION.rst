@@ -1,7 +1,9 @@
-This module allows for the configuration of alternative report layouts.
-The alternative layout features a design where
-the customer's name is displayed on the left side,
-and the company's name is on the right side.
+This module introduces an alternative layout for QWeb reports with the following
+adjustments to existing external layouts:
 
-Additionally, an option has been added to display only the parent partner's name
-on the report if the partner has a parent company.
+- Displays the partner's address on the left side first, followed by the company's
+  address on the right side.
+- Uses the commercial partner's address in place of the partner's address.
+
+Currently, these adjustments are only supported for the standard external layout
+(`external_layout_standard`).
