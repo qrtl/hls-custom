@@ -5,3 +5,4 @@ update the following fields as necessary.
   printed report.
 - Show Commercial Partner: If selected, the commercial partner of the document partner
   will show in the report output (instead of the document partner).
+- Set the Paper Format field to 'A4 - no company address in header'.
