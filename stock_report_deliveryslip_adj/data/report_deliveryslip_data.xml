@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hide the "Carrier", "Shipping Weight", and "Tracking Number" columns from the delivery slip report. -->
+<odoo>
+    <record id="delivery.report_delivery_document2" model="ir.ui.view">
+        <field name="active" eval="False" />
+    </record>
+</odoo>

@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* stock_report_deliveryslip_adj
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-18 08:53+0000\n"
+"PO-Revision-Date: 2024-10-18 08:53+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_report_deliveryslip_adj
+#: model_terms:ir.ui.view,arch_db:stock_report_deliveryslip_adj.report_delivery_document
+msgid "<span>Delivery Location:</span>"
+msgstr "<span>納品場所:</span>"
+
+#. module: stock_report_deliveryslip_adj
+#: model_terms:ir.ui.view,arch_db:stock_report_deliveryslip_adj.report_delivery_document
+msgid "<strong>Client Order Ref</strong>"
+msgstr "<strong>発注書番号</strong>"
+
+#. module: stock_report_deliveryslip_adj
+#: model_terms:ir.ui.view,arch_db:stock_report_deliveryslip_adj.report_delivery_document
+msgid "<strong>Description</strong>"
+msgstr "<strong>説明</strong>"
+
+#. module: stock_report_deliveryslip_adj
+#: model_terms:ir.ui.view,arch_db:stock_report_deliveryslip_adj.report_delivery_document
+msgid "<strong>Quantity</strong>"
+msgstr "<strong>数量</strong>"
+
+#. module: stock_report_deliveryslip_adj
+#: model_terms:ir.ui.view,arch_db:stock_report_deliveryslip_adj.report_delivery_document
+msgid "Delivery Slip"
+msgstr "納品書"
+
+#. module: stock_report_deliveryslip_adj
+#: model:ir.model,name:stock_report_deliveryslip_adj.model_ir_actions_report
+msgid "Report Action"
+msgstr "レポートアクション"
+

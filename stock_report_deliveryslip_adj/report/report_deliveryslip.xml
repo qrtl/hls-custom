@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_delivery_document" inherit_id="stock.report_delivery_document">
+        <xpath expr="//div[@class='page']" position="before">
+            <div class="row">
+                <div class="col-12 mt-4">
+                    <span>Delivery Location:</span>
+                    <span t-field="o.partner_id.name" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center mt-2 my-4">
+                    <h2>Delivery Slip</h2>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//span[@t-field='o.date_done']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+        <xpath expr="//span[@t-field='o.date_done']" position="after">
+            <span t-field="o.date_delivered"/>
+        </xpath>
+        <xpath expr='//th[@name="lot_serial"]' position="after">
+            <th>
+                <strong>Quantity</strong>
+            </th>
+        </xpath>
+        <xpath expr="//span[@t-field='move_line.lot_id.name']/.." position="after">
+            <td>
+                <t t-if="move_line.secondary_uom_qty">
+                    <span t-field="move_line.secondary_uom_qty" />
+                    <span t-field="move_line.secondary_uom_id.name" />
+                </t>
+                <t t-else="">
+                    <span t-field="move_line.qty_done" />
+                    <span t-field="move_line.product_uom_id" />
+                </t>
+            </td>
+        </xpath>
+        <xpath expr='//th[@name="lot_serial"]' position="before">
+            <th>
+                <strong>Description</strong>
+            </th>
+            <th>
+                <strong>Client Order Ref</strong>
+            </th>
+        </xpath>
+        <xpath expr="//span[@t-field='move_line.lot_name']/.." position="before">
+            <td>
+                <span t-field="move_line.sale_line.name"/>
+            </td>
+            <td>
+                <span t-field="move_line.sale_line.client_order_ref"/>
+            </td>
+        </xpath>
+        <xpath expr="//span[@t-field='move_line.sale_price_unit']" position="attributes">
+            <attribute name="t-if">not move_line.sale_line.secondary_uom_price</attribute>
+        </xpath>
+        <xpath expr="//span[@t-field='move_line.sale_price_unit']" position="after">
+            <t t-if="move_line.sale_line.secondary_uom_price">
+                <span t-field="move_line.sale_line.secondary_uom_price" />
+                <span>/</span>
+                <span t-field="move_line.sale_line.secondary_uom_id.name" />
+            </t>
+        </xpath>
+        <!-- Hide the 'Quantity' part of the standard template. -->
+        <xpath expr="//th[@class='text-center']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+        <xpath expr="//td[@class='text-center']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+    </template>
+</odoo>
