@@ -28,3 +28,5 @@ class SaleOrder(models.Model):
                     line.tax_id,
                     line.company_id,
                 )
+                factor = line.secondary_uom_id.factor * line.product_uom.factor
+                line.secondary_uom_price = line.price_unit * factor
