@@ -15,10 +15,10 @@ class SaleOrder(models.Model):
                     lang=self.partner_id.lang,
                     partner=self.partner_id,
                     quantity=line.product_uom_qty,
-                    date=self.date_order,
+                    date=self.commitment_date,
                     pricelist=self.pricelist_id.id,
                     uom=line.product_uom.id,
-                    commitment_date=self.commitment_date,
+                    fiscal_position=self.env.context.get("fiscal_position"),
                 )
                 line.price_unit = self.env[
                     "account.tax"
