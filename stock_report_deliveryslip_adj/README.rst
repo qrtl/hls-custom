@@ -20,6 +20,7 @@ Stock Report Delivery Slip Adjustments
 |badge1| |badge2| |badge3| 
 
 This module adjusts the layout of the delivery slip report.
+It should only be printed after stock.move's "Done" quantity has been updated.
 
 **Table of contents**
 
