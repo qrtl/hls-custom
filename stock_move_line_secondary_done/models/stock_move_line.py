@@ -57,13 +57,7 @@ class StockMoveLine(models.Model):
 
     def _action_done(self):
         res = super()._action_done()
-        move_lines = self.filtered(
-            lambda l: l.secondary_uom_id
-            and float_is_zero(
-                l.secondary_uom_qty_done,
-                precision_rounding=l.secondary_uom_id.uom_id.rounding,
-            )
-        )
+        move_lines = self.filtered(lambda l: l.secondary_uom_id)
         for line in move_lines:
             line._onchange_qty_done()
         return res
