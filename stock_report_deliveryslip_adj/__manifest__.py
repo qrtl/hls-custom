@@ -12,7 +12,7 @@
         "sale_order_delivery_date",
         "sale_order_line_customer_reference",
         "stock_picking_report_valued",
-        "stock_secondary_unit",
+        "stock_move_line_secondary_done",
     ],
     "data": [
         "data/report_deliveryslip_data.xml",
