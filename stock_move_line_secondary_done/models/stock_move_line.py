@@ -5,6 +5,7 @@
 from odoo import api, fields, models
 from odoo.addons import decimal_precision as dp
 from odoo.tools.float_utils import float_compare, float_round
+from odoo.tools import float_is_zero
 
 
 class StockMoveLine(models.Model):
@@ -52,3 +53,16 @@ class StockMoveLine(models.Model):
             != 0
         ):
             self.secondary_uom_qty_done = qty
+
+    def _action_done(self):
+        res = super()._action_done()
+        move_lines = self.filtered(
+            lambda l: l.secondary_uom_id
+            and float_is_zero(
+                l.secondary_uom_qty_done,
+                precision_rounding=l.secondary_uom_id.uom_id.rounding,
+            )
+        )
+        for line in move_lines:
+            line._onchange_qty_done()
+        return res
