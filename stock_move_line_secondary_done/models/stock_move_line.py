@@ -52,3 +52,10 @@ class StockMoveLine(models.Model):
             != 0
         ):
             self.secondary_uom_qty_done = qty
+
+    def _action_done(self):
+        res = super()._action_done()
+        move_lines = self.filtered(lambda l: l.secondary_uom_id)
+        for line in move_lines:
+            line._onchange_qty_done()
+        return res
