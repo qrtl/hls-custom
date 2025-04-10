@@ -18,9 +18,8 @@ class SaleOrderLine(models.Model):
         if not self.secondary_uom_id:
             self.secondary_uom_price = 0
             return
-        if self.secondary_uom_price is not None:
-            factor = self.secondary_uom_id.factor * self.product_uom.factor
-            self.price_unit = self.secondary_uom_price / factor
+        factor = self.secondary_uom_id.factor * self.product_uom.factor
+        self.price_unit = self.secondary_uom_price / factor
 
     @api.onchange("price_unit", "secondary_uom_id")
     def onchange_price_unit(self):
