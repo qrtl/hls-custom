@@ -2,8 +2,9 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from dateutil.relativedelta import relativedelta
-from odoo import api, fields, models
 from pytz import UTC, timezone
+
+from odoo import api, fields, models
 
 
 class SaleOrderLine(models.Model):
@@ -11,7 +12,7 @@ class SaleOrderLine(models.Model):
 
     @api.multi
     def _prepare_procurement_values(self, group_id=False):
-        values = super(SaleOrderLine, self)._prepare_procurement_values(group_id)
+        values = super()._prepare_procurement_values(group_id)
         tz = self.env.user.tz
         if self.order_id.dispatch_expected_date:
             expect_datetime = fields.Datetime.from_string(

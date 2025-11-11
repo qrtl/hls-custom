@@ -5,14 +5,15 @@ import datetime
 from datetime import timedelta
 
 from dateutil.relativedelta import relativedelta
+from pytz import UTC, timezone
+
 from odoo import fields
 from odoo.tests import common
-from pytz import UTC, timezone
 
 
 class SaleOrderDeliveryDate(common.TransactionCase):
     def setUp(self):
-        super(SaleOrderDeliveryDate, self).setUp()
+        super().setUp()
         self.product = self.env["product.product"].create(
             {"name": "Product A", "type": "product", "sale_delay": 5, "uom_id": 1}
         )

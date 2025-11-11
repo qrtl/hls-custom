@@ -12,7 +12,7 @@ class StockMove(models.Model):
     )
 
     def _get_new_picking_values(self):
-        vals = super(StockMove, self)._get_new_picking_values()
+        vals = super()._get_new_picking_values()
         if self.sale_line_id:
             order = self.sale_line_id.order_id
             vals["delivery_due_date"] = order._get_due_date()
