@@ -1,16 +1,15 @@
-# Copyright 2020 Quartile Limited
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# Copyright 2020 Quartile (https://www.quartile.co)
+# License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
 from dateutil.relativedelta import relativedelta
 from pytz import UTC, timezone
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
-    @api.multi
     def _prepare_procurement_values(self, group_id=False):
         values = super()._prepare_procurement_values(group_id)
         tz = self.env.user.tz

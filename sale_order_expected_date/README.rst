@@ -17,14 +17,13 @@ Sale Order Delivery Date
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-qrtl%2Fhls--custom-lightgray.png?logo=github
-    :target: https://github.com/qrtl/hls-custom/tree/18.0/sale_order_delivery_date
+    :target: https://github.com/qrtl/hls-custom/tree/18.0/sale_order_expected_date
     :alt: qrtl/hls-custom
 
 |badge1| |badge2| |badge3|
 
 This module does the following:
 
--  Adds Delivery Due Date field to stock picking.
 -  Adds Expected Delivery Date to sale order.
 -  Adjusts Scheduled Date proposal logic, propose Expected Delivery Date
    as Scheduled Date.
@@ -40,7 +39,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/qrtl/hls-custom/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/qrtl/hls-custom/issues/new?body=module:%20sale_order_delivery_date%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/qrtl/hls-custom/issues/new?body=module:%20sale_order_expected_date%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -50,11 +49,11 @@ Credits
 Authors
 -------
 
-* Quartile Limited
+* Quartile
 
 Maintainers
 -----------
 
-This module is part of the `qrtl/hls-custom <https://github.com/qrtl/hls-custom/tree/18.0/sale_order_delivery_date>`_ project on GitHub.
+This module is part of the `qrtl/hls-custom <https://github.com/qrtl/hls-custom/tree/18.0/sale_order_expected_date>`_ project on GitHub.
 
 You are welcome to contribute.
