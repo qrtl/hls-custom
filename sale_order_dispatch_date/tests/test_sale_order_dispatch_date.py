@@ -1,5 +1,5 @@
 # Copyright 2020 Quartile (https://www.quartile.co)
-# License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from datetime import date
 
@@ -7,7 +7,7 @@ from odoo import Command, fields
 from odoo.tests import common
 
 
-class SaleOrderExpectedDate(common.TransactionCase):
+class SaleOrderDispatchDate(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
