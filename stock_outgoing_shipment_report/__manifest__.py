@@ -1,19 +1,19 @@
-# Copyright 2020-2021 Quartile Limited
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# Copyright 2020-2021 Quartile (https://www.quartile.co)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Stock Outgoing Shipment Report",
-    "summary": "",
-    "version": "12.0.1.2.0",
+    "version": "18.0.1.0.0",
     "category": "Stock",
     "website": "https://www.quartile.co",
-    "author": "Quartile Limited",
+    "author": "Quartile",
     "license": "AGPL-3",
     "installable": True,
     "depends": [
         "delivery",
-        "sale_order_line_customer_reference",
-        "sale_order_delivery_date",
+        "sale_order_line_client_order_ref",
+        "sale_order_line_note",
         "stock_secondary_unit",
+        "sale_order_dispatch_date",
     ],
     "data": [
         "security/ir.model.access.csv",

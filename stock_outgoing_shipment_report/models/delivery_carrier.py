@@ -1,5 +1,5 @@
-# Copyright 2020 Quartile Limited
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# Copyright 2020 Quartile (https://www.quartile.co)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import fields, models
 
@@ -7,4 +7,4 @@ from odoo import fields, models
 class DeliveryCarrier(models.Model):
     _inherit = "delivery.carrier"
 
-    shipping_mode = fields.Char("Shipping Mode", size=2)
+    shipping_mode = fields.Char(size=2)
