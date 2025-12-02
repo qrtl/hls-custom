@@ -1,5 +1,5 @@
 ===============================
-Account Invoice Dispatch Option
+Account Billing Dispatch Option
 ===============================
 
 .. 
@@ -17,16 +17,16 @@ Account Invoice Dispatch Option
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-qrtl%2Fhls--custom-lightgray.png?logo=github
-    :target: https://github.com/qrtl/hls-custom/tree/18.0/account_invoice_dispatch_option
+    :target: https://github.com/qrtl/hls-custom/tree/18.0/account_billing_dispatch_option
     :alt: qrtl/hls-custom
 
 |badge1| |badge2| |badge3|
 
 This module adds the fields use_company_invoice and invoice_send_method
-to both res.partner and account.invoice models and includes these fields
-in the filters and group by options of account.invoice. The values from
-res.partner are propagated to account.invoice, helping to determine
-whether an invoice needs to be sent to customers or not.
+to both res.partner and account.billing models and includes these fields
+in the filters and group by options of account.billing. The values from
+res.partner are propagated to account.billing, helping to determine
+whether a billing needs to be sent to customers or not.
 
 **Table of contents**
 
@@ -39,7 +39,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/qrtl/hls-custom/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/qrtl/hls-custom/issues/new?body=module:%20account_invoice_dispatch_option%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/qrtl/hls-custom/issues/new?body=module:%20account_billing_dispatch_option%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -49,11 +49,11 @@ Credits
 Authors
 -------
 
-* Quartile Limited
+* Quartile
 
 Maintainers
 -----------
 
-This module is part of the `qrtl/hls-custom <https://github.com/qrtl/hls-custom/tree/18.0/account_invoice_dispatch_option>`_ project on GitHub.
+This module is part of the `qrtl/hls-custom <https://github.com/qrtl/hls-custom/tree/18.0/account_billing_dispatch_option>`_ project on GitHub.
 
 You are welcome to contribute.
