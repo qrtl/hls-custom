@@ -12,6 +12,7 @@
                     name="use_company_invoice"
                     domain="[('use_company_invoice', '=', True)]"
                 />
+                <separator />
                 <filter
                     string="Invoice Send Method - Post"
                     name="invoice_send_method_post"
@@ -70,7 +71,7 @@
         <field name="model">account.billing</field>
         <field name="inherit_id" ref="account_billing.view_account_billing_tree" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after">
+            <xpath expr="//field[@name='threshold_date']" position="after">
                 <field name="use_company_invoice" optional="show" />
                 <field name="invoice_send_method" optional="show" />
             </xpath>
