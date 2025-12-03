@@ -12,5 +12,5 @@ class SaleOrderLine(models.Model):
     @api.multi
     def _prepare_procurement_values(self, group_id=False):
         values = super(SaleOrderLine, self)._prepare_procurement_values(group_id)
-        values.update({"note": self.delivery_note})
+        values.update({"note": self.note})
         return values
