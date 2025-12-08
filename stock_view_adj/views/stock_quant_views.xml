@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_stock_quant_tree_inventory_editable" model="ir.ui.view">
+        <field name="name">stock.quant.tree.inherit</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree_inventory_editable" />
+        <field name="arch" type="xml">
+            <field name="lot_id" position="after">
+                <field name="removal_date" optional="show" />
+            </field>
+        </field>
+    </record>
+
+    <record id="quant_search_view" model="ir.ui.view">
+        <field name="name">stock.quant.search</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.quant_search_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='reserved']" position="after">
+                <separator />
+                <filter
+                    name="60_days_elapsed"
+                    string="60 Days Elapsed"
+                    domain="[('in_date', '&lt;', (context_today()+relativedelta(days=-60)).strftime('%Y-%m-%d'))]"
+                />
+                <filter
+                    name="90_days_elapsed"
+                    string="90 Days Elapsed"
+                    domain="[('in_date', '&lt;', (context_today()+relativedelta(days=-90)).strftime('%Y-%m-%d'))]"
+                />
+                <filter
+                    name="180_days_elapsed"
+                    string="180 Days Elapsed"
+                    domain="[('in_date', '&lt;', (context_today()+relativedelta(days=-180)).strftime('%Y-%m-%d'))]"
+                />
+                <filter
+                    name="360_days_elapsed"
+                    string="360 Days Elapsed"
+                    domain="[('in_date', '&lt;', (context_today()+relativedelta(days=-360)).strftime('%Y-%m-%d'))]"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

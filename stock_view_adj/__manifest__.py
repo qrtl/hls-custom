@@ -1,12 +1,11 @@
-# Copyright 2019 Quartile Limited
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# Copyright 2019 Quartile (https://www.quartile.co)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
-    "name": "Stock View Adj HLS",
-    "summary": "",
-    "version": "12.0.1.0.2",
+    "name": "Stock View Adj",
+    "version": "18.0.1.0.0",
     "category": "Stock",
     "website": "https://www.quartile.co",
-    "author": "Quartile Limited",
+    "author": "Quartile",
     "license": "AGPL-3",
     "installable": True,
     "depends": ["product_expiry"],
