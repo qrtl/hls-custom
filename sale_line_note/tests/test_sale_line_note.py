@@ -13,13 +13,13 @@ class TestSaleLineNote(SavepointCase):
         )
         cls.partner = cls.env.ref("base.res_partner_3")
 
-    def test_01_delivery_note(self):
+    def test_01_note(self):
         sale_order = self.env["sale.order"].create({"partner_id": self.partner.id})
         order_line = self.env["sale.order.line"].create(
             {
                 "name": self.product.name,
                 "product_id": self.product.id,
-                "delivery_note": "Test Note",
+                "note": "Test Note",
                 "product_uom_qty": 5,
                 "order_id": sale_order.id,
             }
