@@ -14,8 +14,8 @@ class SaleOrder(models.Model):
         if partner:
             if partner.user_id:
                 self.user_id = partner.user_id
-            if partner.warehouse_id:
-                self.warehouse_id = partner.warehouse_id
+            if partner.sale_warehouse_id:
+                self.warehouse_id = partner.sale_warehouse_id
             self.carrier_id = partner.property_delivery_carrier_id.filtered("active")
         return res
 
