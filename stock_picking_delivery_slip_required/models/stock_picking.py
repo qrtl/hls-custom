@@ -11,7 +11,7 @@ class StockPicking(models.Model):
 
     @api.model
     def create(self, vals):
-        res = super(StockPicking, self).create(vals)
+        res = super().create(vals)
         if res.partner_id:
             res.is_delivery_slip_required = res.partner_id.is_delivery_slip_required
         return res
@@ -24,4 +24,4 @@ class StockPicking(models.Model):
             vals.update(
                 {"is_delivery_slip_required": partner.is_delivery_slip_required}
             )
-        return super(StockPicking, self).write(vals)
+        return super().write(vals)
