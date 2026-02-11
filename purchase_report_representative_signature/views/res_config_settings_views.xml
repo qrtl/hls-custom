@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field
+            name="inherit_id"
+            ref="purchase.res_config_settings_view_form_purchase"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='purchase_setting_container']" position="after">
+                <block title="Reports" name="purchase_report_setting_container">
+                    <setting
+                        id="purchase_rep_title"
+                        company_dependent="1"
+                        string="Purchase Representative Title"
+                        help="Title of the representative to display in purchase reports."
+                    >
+                        <field
+                            name="purchase_rep_title"
+                            placeholder="e.g., Managing Director"
+                        />
+                    </setting>
+                    <setting
+                        id="purchase_rep_signature"
+                        company_dependent="1"
+                        string="Purchase Representative Signature"
+                        help="Signature image of the representative to display in purchase reports."
+                    >
+                        <div class="content-group">
+                            <div class="mt16">
+                                <field
+                                    name="purchase_rep_signature"
+                                    widget="image"
+                                    options="{'size': [180, 180]}"
+                                />
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

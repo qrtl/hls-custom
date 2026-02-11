@@ -22,7 +22,8 @@ Purchase Report Representative Signature
 
 |badge1| |badge2| |badge3|
 
-This module adds representative signing information to purchase reports.
+This module adds representative signing information to the purchase
+order report.
 
 **Table of contents**
 

@@ -11,6 +11,7 @@
     "depends": ["purchase"],
     "data": [
         "report/purchase_order_templates.xml",
+        "views/res_config_settings_views.xml",
     ],
     "installable": True,
 }

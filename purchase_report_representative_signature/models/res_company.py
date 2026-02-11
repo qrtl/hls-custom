@@ -7,5 +7,5 @@ from odoo import fields, models
 class ResCompany(models.Model):
     _inherit = "res.company"
 
-    rep_title = fields.Char(translate=True)
-    rep_signature = fields.Binary(attachment=True)
+    purchase_rep_title = fields.Text(translate=True)
+    purchase_rep_signature = fields.Binary(attachment=True)
