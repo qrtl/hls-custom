@@ -11,3 +11,5 @@ class PurchaseOrderQtyTotal(models.Model):
     order_id = fields.Many2one("purchase.order")
     qty = fields.Float(digits="Product Unit of Measure")
     uom_id = fields.Many2one("uom.uom")
+    parent_id = fields.Many2one("purchase.order.qty.total")
+    secondary_ids = fields.One2many("purchase.order.qty.total", "parent_id")
