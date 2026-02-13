@@ -6,7 +6,7 @@
     >
         <xpath expr="//table[hasclass('o_main_table')]" position="inside">
             <t t-set="qty_totals" t-value="o.get_qty_totals()" />
-            <tfoot t-if="qty_totals">
+            <tfoot t-if="qty_totals" style="display: table-row-group;">
                 <tr class="border-top">
                     <td
                         t-att-colspan="1 if o.company_id.hide_secondary_uom_column(o) else 2"

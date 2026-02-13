@@ -22,9 +22,9 @@ class PurchaseOrder(models.Model):
             uom_data.setdefault(uom, {"qty": 0.0, "secondary": {}})
             uom_data[uom]["qty"] += line.product_qty
             if line.secondary_uom_id:
-                sec_unit = line.secondary_uom_id
-                uom_data[uom]["secondary"].setdefault(sec_unit, 0.0)
-                uom_data[uom]["secondary"][sec_unit] += line.secondary_uom_qty
+                sec_uom = line.secondary_uom_id.uom_id
+                uom_data[uom]["secondary"].setdefault(sec_uom, 0.0)
+                uom_data[uom]["secondary"][sec_uom] += line.secondary_uom_qty
         records = QtyTotal
         for uom, data in uom_data.items():
             records |= QtyTotal.new(
@@ -33,8 +33,8 @@ class PurchaseOrder(models.Model):
                     "qty": data["qty"],
                     "uom_id": uom.id,
                     "secondary_ids": [
-                        Command.create({"qty": qty, "uom_id": sec_unit.uom_id.id})
-                        for sec_unit, qty in data["secondary"].items()
+                        Command.create({"qty": qty, "uom_id": sec_uom.id})
+                        for sec_uom, qty in data["secondary"].items()
                     ],
                 }
             )
