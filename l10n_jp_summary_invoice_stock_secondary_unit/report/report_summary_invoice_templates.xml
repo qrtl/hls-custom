@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="bill_line_section_layout"
+        inherit_id="l10n_jp_summary_invoice.bill_line_section_layout"
+    >
+        <xpath expr="//td[@name='td_quantity']" position="inside">
+            <t t-if="line.stock_secondary_uom_id">
+                <br />
+                <span class="text-muted">
+                    (<span t-field="line.signed_stock_secondary_uom_qty" />
+                    <span
+                    t-field="line.stock_secondary_uom_id.name"
+                    groups="uom.group_uom"
+                />)
+                </span>
+            </t>
+        </xpath>
+    </template>
+</odoo>
