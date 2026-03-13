@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_account_invoice_filter" model="ir.ui.view">
+        <field name="name">account.move.filter</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='draft']" position="before">
+                <filter
+                    name="filter_delivery_slip_required"
+                    string="Delivery Slip Required"
+                    domain="[('is_delivery_slip_required','=', True)]"
+                />
+                <filter
+                    name="filter_delivery_slip_not_required"
+                    string="Delivery Slip Not Required"
+                    domain="[('is_delivery_slip_required','=', False)]"
+                />
+                <separator />
+            </xpath>
+        </field>
+    </record>
+</odoo>
