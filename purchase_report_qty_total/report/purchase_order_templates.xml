@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="report_purchaseorder_document"
+        inherit_id="purchase.report_purchaseorder_document"
+    >
+        <xpath expr="//table[hasclass('o_main_table')]" position="inside">
+            <t t-set="qty_totals" t-value="o.get_qty_totals()" />
+            <tfoot t-if="qty_totals" style="display: table-row-group;">
+                <tr class="border-top">
+                    <td
+                        t-att-colspan="1 if o.company_id.hide_secondary_uom_column(o) else 2"
+                        class="text-end"
+                    >
+                        <strong>Total Qty</strong>
+                    </td>
+                    <td class="text-end">
+                        <t t-foreach="qty_totals" t-as="total">
+                            <span t-field="total.qty" />
+                            <span t-field="total.uom_id" />
+                            <t t-foreach="total.secondary_ids" t-as="sec">
+                                <br />
+                                <span class="text-muted">
+                                    (<span t-field="sec.qty" />
+                                    <span t-field="sec.uom_id" />)
+                                </span>
+                            </t>
+                            <br t-if="not total_last" />
+                        </t>
+                    </td>
+                    <td colspan="4" />
+                </tr>
+            </tfoot>
+        </xpath>
+    </template>
+</odoo>
