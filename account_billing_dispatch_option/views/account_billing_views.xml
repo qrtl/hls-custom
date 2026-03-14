@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_billing_search" model="ir.ui.view">
+        <field name="name">account.billing.filter.inherit</field>
+        <field name="model">account.billing</field>
+        <field name="inherit_id" ref="account_billing.view_billing_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='state_billed']" position="after">
+                <separator />
+                <filter
+                    string="Use Company Invoice"
+                    name="use_company_invoice"
+                    domain="[('use_company_invoice', '=', True)]"
+                />
+                <separator />
+                <filter
+                    string="Invoice Send Method - Post"
+                    name="invoice_send_method_post"
+                    domain="[('invoice_send_method', '=', 'post')]"
+                />
+                <filter
+                    string="Invoice Send Method - Email"
+                    name="invoice_send_method_email"
+                    domain="[('invoice_send_method', '=', 'email')]"
+                />
+                <filter
+                    string="Invoice Send Method - Do Not Send"
+                    name="invoice_send_method_do_not_send"
+                    domain="[('invoice_send_method', '=', 'do_not_send')]"
+                />
+                <filter
+                    string="Invoice Send Method - Others"
+                    name="invoice_send_method_others"
+                    domain="[('invoice_send_method', '=', 'others')]"
+                />
+            </xpath>
+            <xpath expr="//filter[@name='group_by_state']" position="after">
+                <separator />
+                <filter
+                    string="Use Company Invoice"
+                    name="group_by_use_company_invoice"
+                    context="{'group_by':'use_company_invoice'}"
+                />
+                <filter
+                    string="Invoice Send Method"
+                    name="group_by_invoice_send_method"
+                    context="{'group_by':'invoice_send_method'}"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_account_billing_form" model="ir.ui.view">
+        <field name="name">account.billing.form.inherit</field>
+        <field name="model">account.billing</field>
+        <field name="inherit_id" ref="account_billing.view_account_billing_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_paid_all']" position="after">
+                <field
+                    name="use_company_invoice"
+                    invisible="bill_type !='out_invoice'"
+                />
+                <field
+                    name="invoice_send_method"
+                    invisible="bill_type !='out_invoice'"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_account_billing_tree" model="ir.ui.view">
+        <field name="name">account.billing.tree.inherit</field>
+        <field name="model">account.billing</field>
+        <field name="inherit_id" ref="account_billing.view_account_billing_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='threshold_date']" position="after">
+                <field name="use_company_invoice" optional="show" />
+                <field name="invoice_send_method" optional="show" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
