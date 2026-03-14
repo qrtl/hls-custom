@@ -1,0 +1,16 @@
+# Copyright 2020 Quartile Limited
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+from odoo import fields, models
+
+
+class SaleOrder(models.Model):
+    _inherit = "sale.order"
+
+    dispatch_expected_date = fields.Date(
+        "Expected Dispatch Date",
+        copy=False,
+        readonly=True,
+        default=fields.Date.context_today,
+        help="The input date will be passed over to the delivery as Scheduled Date.",
+    )
