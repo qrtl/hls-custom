@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stock_outgoing_shipment_report_user,access.stock.outgoing.shipment.report.user,model_stock_outgoing_shipment_report,base.group_user,1,0,0,0
+access_stock_outgoing_shipment_report_stock_user,access.stock.outgoing.shipment.report.stock.user,model_stock_outgoing_shipment_report,stock.group_stock_user,1,1,1,1
