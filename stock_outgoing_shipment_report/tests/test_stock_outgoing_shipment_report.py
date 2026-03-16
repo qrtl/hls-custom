@@ -62,7 +62,8 @@ class TestAccountPaymentImportSbt(TransactionCase):
         vals = self.partner._get_shipment_report_vals()
         self.assertEqual(vals["partner_ref"], "CUST001")
         self.assertEqual(vals["partner_zip"], "123-4567")
-        self.assertEqual(vals["partner_address"], "AomoriCityStreetStreet2")
+        state_name = self.env.ref("base.state_jp_jp-02").name
+        self.assertEqual(vals["partner_address"], f"{state_name}CityStreetStreet2")
         # Truncated to 12 characters
         self.assertEqual(vals["partner_phone"], "03-1234-5678")
         self.assertEqual(vals["customer_delivery_note"], "test")
