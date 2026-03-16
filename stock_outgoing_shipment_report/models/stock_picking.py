@@ -36,6 +36,6 @@ class StockPicking(models.Model):
                 vals.update(partner_vals)
             move_rec = report_obj.search([("move_id", "=", move.id)])
             move_rec.write(vals) if move_rec else report_obj.create(vals)
-        return self.env.ref(
+        return self.env["ir.actions.act_window"]._for_xml_id(
             "stock_outgoing_shipment_report.action_stock_outgoing_shipment_report"
-        ).read()[0]
+        )
