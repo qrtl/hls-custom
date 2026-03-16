@@ -27,7 +27,10 @@ class StockPicking(models.Model):
                 "client_order_ref": sale_line.client_order_ref,
                 "memo": sale_line.note[:9] if sale_line.note else False,
             }
-            secondary_uom = move.product_id.stock_secondary_uom_id
+            secondary_uom = (
+                product.stock_secondary_uom_id
+                or move.product_tmpl_id.stock_secondary_uom_id
+            )
             if secondary_uom:
                 factor = secondary_uom.factor * move.product_uom.factor
                 vals.update({"case_qty": int(move.quantity / (factor or 1.0))})
