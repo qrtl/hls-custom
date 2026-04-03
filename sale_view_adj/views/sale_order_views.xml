@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_order_view_search_inherit_sale_commitment_date" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit.sale.commitment.date</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_sale" />
+        <field name="arch" type="xml">
+            <filter name="order_date" position="after">
+                <filter
+                    string="Delivery Date"
+                    name="commitment_date"
+                    date="commitment_date"
+                />
+            </filter>
+        </field>
+    </record>
+    <record
+        id="sale_order_view_search_inherit_quotation_commitment_date"
+        model="ir.ui.view"
+    >
+        <field name="name">sale.order.search.inherit.quotation.commitment.date</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation" />
+        <field name="arch" type="xml">
+            <filter name="filter_create_date" position="after">
+                <filter
+                    string="Delivery Date"
+                    name="quotation_commitment_date"
+                    date="commitment_date"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>

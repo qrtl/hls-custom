@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_order_line_tree_inherit_commitment_date" model="ir.ui.view">
+        <field name="name">sale.order.line.tree.inherit.commitment.date</field>
+        <field name="model">sale.order.line</field>
+        <field name="inherit_id" ref="sale.view_order_line_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_id']" position="after">
+                <field
+                    name="commitment_date"
+                    string="Delivery Date"
+                    widget="datetime"
+                    optional="hide"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_order_line_view_search_inherit_commitment_date" model="ir.ui.view">
+        <field name="name">sale.order.line.search.inherit.commitment.date</field>
+        <field name="model">sale.order.line</field>
+        <field name="inherit_id" ref="sale.view_sales_order_line_filter" />
+        <field name="arch" type="xml">
+            <filter name="my_sales_order_lines" position="after">
+                <separator />
+                <filter
+                    string="Delivery Date"
+                    name="line_commitment_date"
+                    date="commitment_date"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>
