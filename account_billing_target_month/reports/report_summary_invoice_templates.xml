@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="report_summary_invoice_document"
+        inherit_id="l10n_jp_summary_invoice.report_summary_invoice_document"
+    >
+        <xpath expr="//h2/span[1]" position="before">
+            <t t-if="o.target_month"><t t-esc="o.target_month" />Target Month </t>
+        </xpath>
+    </template>
+</odoo>
