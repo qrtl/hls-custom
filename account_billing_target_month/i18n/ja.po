@@ -84,4 +84,4 @@ msgstr "9月"
 #: model:ir.model.fields,field_description:account_billing_target_month.field_account_billing__target_month
 #: model_terms:ir.ui.view,arch_db:account_billing_target_month.report_summary_invoice_document
 msgid "Target Month"
-msgstr "対象月"
+msgstr "月分"

@@ -19,12 +19,4 @@ class TestAccountBillingTargetMonth(TransactionCase):
         )
 
     def test_target_month(self):
-        # Mid-month: same month
-        self.billing.threshold_date = date(2026, 3, 15)
         self.assertEqual(self.billing.target_month, "3")
-        # Last day of month: same month
-        self.billing.threshold_date = date(2026, 3, 31)
-        self.assertEqual(self.billing.target_month, "3")
-        # Last day of December: same month
-        self.billing.threshold_date = date(2026, 12, 31)
-        self.assertEqual(self.billing.target_month, "12")

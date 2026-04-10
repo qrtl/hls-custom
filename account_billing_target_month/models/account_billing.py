@@ -30,7 +30,4 @@ class AccountBilling(models.Model):
     @api.depends("threshold_date")
     def _compute_target_month(self):
         for rec in self:
-            if not rec.threshold_date:
-                rec.target_month = False
-                continue
             rec.target_month = str(rec.threshold_date.month)
