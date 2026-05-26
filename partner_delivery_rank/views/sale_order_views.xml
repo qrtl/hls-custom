@@ -5,7 +5,7 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='partner_shipping_id']" position="after">
+            <xpath expr="//page[@name='other_information']//group[@name='sale_shipping']" position="inside">
                 <field name="delivery_rank" />
             </xpath>
         </field>
