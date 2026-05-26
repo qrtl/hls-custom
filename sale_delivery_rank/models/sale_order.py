@@ -9,6 +9,4 @@ class SaleOrder(models.Model):
 
     delivery_rank = fields.Selection(
         related="partner_shipping_id.delivery_rank",
-        store=True,
-        readonly=True,
     )

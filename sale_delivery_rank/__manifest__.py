@@ -10,7 +10,7 @@
     "author": "Quartile",
     "license": "LGPL-3",
     "installable": True,
-    "depends": ["account", "sale"],
+    "depends": ["sale"],
     "data": [
         "views/account_move_views.xml",
         "views/res_partner_views.xml",
