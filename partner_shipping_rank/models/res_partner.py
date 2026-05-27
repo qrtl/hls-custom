@@ -7,7 +7,7 @@ from odoo import fields, models
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    delivery_rank = fields.Selection(
+    shipping_rank = fields.Selection(
         [("a", "A"), ("b", "B"), ("c", "C")],
-        help="Rank assigned to a delivery destination. ",
+        help="Rank assigned to a shipping destination.",
     )

@@ -1,9 +1,8 @@
 # Copyright 2026 Quartile (https://www.quartile.co)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 {
-    "name": "Sale Delivery Rank",
-    "summary": "Assign a rank to partners as delivery destinations and "
-    "propagate it to sales orders and invoices for aggregation by rank.",
+    "name": "Partner Shipping Rank",
+    "summary": "Assign a rank to partners as shipping destinations.",
     "version": "18.0.1.0.0",
     "category": "Sales",
     "website": "https://www.quartile.co",

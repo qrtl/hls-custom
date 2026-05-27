@@ -7,6 +7,6 @@ from odoo import fields, models
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    delivery_rank = fields.Selection(
-        related="partner_shipping_id.delivery_rank",
+    shipping_rank = fields.Selection(
+        related="partner_shipping_id.shipping_rank",
     )

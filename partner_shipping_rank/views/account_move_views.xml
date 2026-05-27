@@ -9,7 +9,17 @@
                 expr="//page[@name='other_info']//group[@name='sale_info_group']"
                 position="inside"
             >
-                <field name="delivery_rank" />
+                <field name="shipping_rank" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_invoice_tree" model="ir.ui.view">
+        <field name="name">account.invoice.list</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_user_id']" position="after">
+                <field name="shipping_rank" optional="hide" />
             </xpath>
         </field>
     </record>

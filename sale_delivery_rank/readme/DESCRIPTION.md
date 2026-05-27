@@ -1,1 +1,0 @@
-This module adds a delivery rank (A/B/C) field to partners. 

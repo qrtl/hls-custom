@@ -7,6 +7,6 @@ from odoo import fields, models
 class AccountMove(models.Model):
     _inherit = "account.move"
 
-    delivery_rank = fields.Selection(
-        related="partner_shipping_id.delivery_rank",
+    shipping_rank = fields.Selection(
+        related="partner_shipping_id.shipping_rank",
     )
