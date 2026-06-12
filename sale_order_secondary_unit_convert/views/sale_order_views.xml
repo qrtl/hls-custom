@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Quartile (https://www.quartile.co)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form.secondary.unit.input</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_order_secondary_unit.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='order_line']/list//field[@name='secondary_uom_qty']"
+                position="before"
+            >
+                <field name="product_template_id" column_invisible="1" />
+                <field
+                    name="input_secondary_qty"
+                    groups="uom.group_uom"
+                    optional="hide"
+                />
+                <field
+                    name="input_secondary_uom_id"
+                    domain="[('product_tmpl_id', '=', product_template_id)]"
+                    options="{'no_create': True}"
+                    readonly="product_uom_readonly"
+                    groups="uom.group_uom"
+                    optional="hide"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
