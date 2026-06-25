@@ -22,9 +22,9 @@ Sale Order Secondary Unit Convert
 
 |badge1| |badge2| |badge3|
 
-This module lets users enter sale order line quantities in a convenient
-input secondary unit while the line keeps being displayed in another
-secondary unit.
+This module lets users enter sale order line quantities in an internal
+secondary unit while the line keeps being displayed in another secondary
+unit.
 
 **Table of contents**
 

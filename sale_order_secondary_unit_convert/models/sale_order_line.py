@@ -8,22 +8,21 @@ from odoo.tools.float_utils import float_round
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
-    input_secondary_uom_id = fields.Many2one(
+    internal_secondary_uom_id = fields.Many2one(
         comodel_name="product.secondary.unit",
-        string="Input Unit",
+        string="Internal Secondary Unit",
     )
-    input_secondary_qty = fields.Float(
-        string="Input Qty",
+    internal_secondary_qty = fields.Float(
         digits="Product Unit of Measure",
-        compute="_compute_input_secondary_qty",
-        inverse="_inverse_input_secondary_qty",
+        compute="_compute_internal_secondary_qty",
+        inverse="_inverse_internal_secondary_qty",
         store=True,
         readonly=False,
     )
 
-    def _convert_qty_to_input_secondary_uom(self):
+    def _convert_qty_to_internal_secondary_uom(self):
         self.ensure_one()
-        uom = self.input_secondary_uom_id
+        uom = self.internal_secondary_uom_id
         qty = self.product_uom_qty
         uom_line = self.product_uom
         uom_product = self.product_id.uom_id
@@ -35,23 +34,23 @@ class SaleOrderLine(models.Model):
         )
 
     @api.depends(
-        "product_id", "product_uom_qty", "product_uom", "input_secondary_uom_id"
+        "product_id", "product_uom_qty", "product_uom", "internal_secondary_uom_id"
     )
-    def _compute_input_secondary_qty(self):
+    def _compute_internal_secondary_qty(self):
         for line in self:
-            uom = line.input_secondary_uom_id
+            uom = line.internal_secondary_uom_id
             if not uom or uom.dependency_type == "independent":
-                line.input_secondary_qty = 0.0
+                line.internal_secondary_qty = 0.0
                 continue
-            line.input_secondary_qty = line._convert_qty_to_input_secondary_uom()
+            line.internal_secondary_qty = line._convert_qty_to_internal_secondary_uom()
 
-    def _inverse_input_secondary_qty(self):
+    def _inverse_internal_secondary_qty(self):
         for line in self:
-            uom = line.input_secondary_uom_id
+            uom = line.internal_secondary_uom_id
             if not uom or uom.dependency_type == "independent" or not line.product_id:
                 continue
-            base_qty = line.input_secondary_qty * (uom.factor or 1.0)
+            base_qty = line.internal_secondary_qty * (uom.factor or 1.0)
             line.product_uom_qty = line.product_id.uom_id._compute_quantity(
                 base_qty, line.product_uom
             )
-            line.env.remove_to_compute(line._fields["input_secondary_qty"], line)
+            line.env.remove_to_compute(line._fields["internal_secondary_qty"], line)

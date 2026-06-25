@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Sale Order Secondary Unit Convert",
-    "summary": "Enter sale order line quantities in a secondary input unit"
+    "summary": "Enter sale order line quantities in an internal secondary unit"
     " while displaying another secondary unit.",
     "version": "18.0.1.0.0",
     "author": "Quartile",
