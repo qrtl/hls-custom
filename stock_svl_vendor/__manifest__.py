@@ -1,0 +1,15 @@
+# Copyright 2026 Quartile (https://www.quartile.co)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+{
+    "name": "Stock Valuation Layer Vendor",
+    "summary": "Store the vendor on stock valuation layers created from purchases.",
+    "version": "18.0.1.0.0",
+    "author": "Quartile",
+    "website": "https://www.quartile.co",
+    "category": "Inventory",
+    "license": "AGPL-3",
+    "depends": ["purchase_stock"],
+    "pre_init_hook": "pre_init_hook",
+    "maintainers": ["nobuQuartile"],
+    "installable": True,
+}
