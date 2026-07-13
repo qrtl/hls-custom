@@ -9,6 +9,7 @@
     "category": "Inventory",
     "license": "AGPL-3",
     "depends": ["purchase_stock"],
+    "data": ["views/stock_valuation_layer_views.xml"],
     "pre_init_hook": "pre_init_hook",
     "maintainers": ["nobuQuartile"],
     "installable": True,
