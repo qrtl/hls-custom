@@ -7,4 +7,4 @@ from odoo import fields, models
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    final_customer = fields.Char()
+    end_customer = fields.Char()

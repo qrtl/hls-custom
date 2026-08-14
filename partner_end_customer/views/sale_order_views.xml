@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="sale.sale_order_tree" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="final_customer" optional="hide" />
+                <field name="end_customer" optional="hide" />
             </xpath>
         </field>
     </record>
@@ -16,7 +16,7 @@
         <field name="inherit_id" ref="sale.view_sales_order_filter" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="final_customer" />
+                <field name="end_customer" />
             </xpath>
         </field>
     </record>

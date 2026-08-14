@@ -7,7 +7,7 @@ from odoo import fields, models
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    final_customer = fields.Char(
-        related="partner_id.final_customer",
+    end_customer = fields.Char(
+        related="partner_id.end_customer",
         store=True,
     )
