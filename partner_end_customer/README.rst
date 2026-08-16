@@ -23,7 +23,7 @@ Partner End Customer
 |badge1| |badge2| |badge3|
 
 This module adds an end customer field to partners, shown and searchable
-on sale orders.
+on sale orders and customer invoices.
 
 **Table of contents**
 

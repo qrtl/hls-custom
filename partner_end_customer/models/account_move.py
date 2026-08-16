@@ -4,8 +4,8 @@
 from odoo import api, fields, models
 
 
-class SaleOrder(models.Model):
-    _inherit = "sale.order"
+class AccountMove(models.Model):
+    _inherit = "account.move"
 
     end_customer = fields.Char(
         compute="_compute_end_customer",
@@ -15,5 +15,5 @@ class SaleOrder(models.Model):
 
     @api.depends("partner_id")
     def _compute_end_customer(self):
-        for order in self:
-            order.end_customer = order.partner_id.end_customer
+        for move in self:
+            move.end_customer = move.partner_id.end_customer

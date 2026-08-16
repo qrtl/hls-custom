@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-14 02:25+0000\n"
-"PO-Revision-Date: 2026-08-14 02:25+0000\n"
+"POT-Creation-Date: 2026-08-16 12:39+0000\n"
+"PO-Revision-Date: 2026-08-16 12:39+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,11 +21,18 @@ msgid "Contact"
 msgstr "連絡先"
 
 #. module: partner_end_customer
+#: model:ir.model.fields,field_description:partner_end_customer.field_account_bank_statement_line__end_customer
+#: model:ir.model.fields,field_description:partner_end_customer.field_account_move__end_customer
 #: model:ir.model.fields,field_description:partner_end_customer.field_res_partner__end_customer
 #: model:ir.model.fields,field_description:partner_end_customer.field_res_users__end_customer
 #: model:ir.model.fields,field_description:partner_end_customer.field_sale_order__end_customer
 msgid "End Customer"
 msgstr "最終顧客"
+
+#. module: partner_end_customer
+#: model:ir.model,name:partner_end_customer.model_account_move
+msgid "Journal Entry"
+msgstr "仕訳"
 
 #. module: partner_end_customer
 #: model:ir.model,name:partner_end_customer.model_sale_order
