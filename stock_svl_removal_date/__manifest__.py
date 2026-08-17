@@ -1,0 +1,16 @@
+# Copyright 2026 Quartile (https://www.quartile.co)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+{
+    "name": "Stock Valuation Layer Removal Date",
+    "summary": "Store the removal date of the lots on stock valuation layers.",
+    "version": "18.0.1.0.0",
+    "author": "Quartile",
+    "website": "https://www.quartile.co",
+    "category": "Inventory",
+    "license": "AGPL-3",
+    "depends": ["product_expiry", "stock_account"],
+    "data": ["views/stock_valuation_layer_views.xml"],
+    "pre_init_hook": "pre_init_hook",
+    "maintainers": ["nobuQuartile"],
+    "installable": True,
+}
