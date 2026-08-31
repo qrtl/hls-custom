@@ -15,7 +15,7 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='client_order_ref']" position="after">
+            <xpath expr="//group[@name='sales_person']" position="inside">
                 <field name="end_customer" readonly="state in ['cancel', 'sale']" />
             </xpath>
         </field>
