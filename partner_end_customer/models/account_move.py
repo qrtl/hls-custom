@@ -13,7 +13,9 @@ class AccountMove(models.Model):
         readonly=False,
     )
 
-    @api.depends("partner_id")
+    @api.depends("move_type", "partner_id")
     def _compute_end_customer(self):
         for move in self:
-            move.end_customer = move.partner_id.end_customer
+            move.end_customer = (
+                move.partner_id.end_customer if move.is_sale_document() else False
+            )
