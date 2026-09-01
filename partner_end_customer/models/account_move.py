@@ -11,6 +11,7 @@ class AccountMove(models.Model):
         compute="_compute_end_customer",
         store=True,
         readonly=False,
+        tracking=True,
     )
 
     @api.depends("move_type", "partner_id")

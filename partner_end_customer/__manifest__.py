@@ -9,7 +9,7 @@
     "author": "Quartile",
     "license": "LGPL-3",
     "installable": True,
-    "depends": ["account", "sale"],
+    "depends": ["sale"],
     "pre_init_hook": "pre_init_hook",
     "data": [
         "views/account_move_views.xml",
