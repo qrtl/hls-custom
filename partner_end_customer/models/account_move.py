@@ -14,9 +14,11 @@ class AccountMove(models.Model):
         tracking=True,
     )
 
-    @api.depends("move_type", "partner_id")
+    @api.depends("move_type", "partner_shipping_id")
     def _compute_end_customer(self):
         for move in self:
             move.end_customer = (
-                move.partner_id.end_customer if move.is_sale_document() else False
+                move.partner_shipping_id.end_customer
+                if move.is_sale_document()
+                else False
             )

@@ -14,10 +14,10 @@ class SaleOrder(models.Model):
         tracking=True,
     )
 
-    @api.depends("partner_id")
+    @api.depends("partner_shipping_id")
     def _compute_end_customer(self):
         for order in self:
-            order.end_customer = order.partner_id.end_customer
+            order.end_customer = order.partner_shipping_id.end_customer
 
     def _prepare_invoice(self):
         values = super()._prepare_invoice()
