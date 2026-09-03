@@ -7,4 +7,7 @@ from odoo import fields, models
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    end_customer = fields.Char()
+    end_customer = fields.Char(
+        help="E.g. the customer beyond a trading company or wholesaler, such "
+        "as a restaurant or supermarket."
+    )
