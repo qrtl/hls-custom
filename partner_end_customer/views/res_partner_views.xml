@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='sale']" position="inside">
+                <field name="end_customer" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_partner_tree" model="ir.ui.view">
+        <field name="name">res.partner.list</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='complete_name']" position="after">
+                <field name="end_customer" optional="hide" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="name">res.partner.select</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="end_customer" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

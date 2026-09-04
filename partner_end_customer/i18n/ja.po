@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_end_customer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-03 08:39+0000\n"
+"PO-Revision-Date: 2026-09-03 08:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_end_customer
+#: model:ir.model,name:partner_end_customer.model_res_partner
+msgid "Contact"
+msgstr "連絡先"
+
+#. module: partner_end_customer
+#: model:ir.model.fields,help:partner_end_customer.field_res_partner__end_customer
+#: model:ir.model.fields,help:partner_end_customer.field_res_users__end_customer
+msgid ""
+"E.g. the customer beyond a trading company or wholesaler, such as a "
+"restaurant or supermarket."
+msgstr "例：商社・卸の先にいる顧客（外食・スーパーなど）。"
+
+#. module: partner_end_customer
+#: model:ir.model.fields,field_description:partner_end_customer.field_account_bank_statement_line__end_customer
+#: model:ir.model.fields,field_description:partner_end_customer.field_account_move__end_customer
+#: model:ir.model.fields,field_description:partner_end_customer.field_res_partner__end_customer
+#: model:ir.model.fields,field_description:partner_end_customer.field_res_users__end_customer
+#: model:ir.model.fields,field_description:partner_end_customer.field_sale_order__end_customer
+msgid "End Customer"
+msgstr "最終顧客"
+
+#. module: partner_end_customer
+#: model:ir.model,name:partner_end_customer.model_account_move
+msgid "Journal Entry"
+msgstr "仕訳"
+
+#. module: partner_end_customer
+#: model:ir.model,name:partner_end_customer.model_sale_order
+msgid "Sales Order"
+msgstr "販売オーダ"
