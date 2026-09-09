@@ -8,21 +8,21 @@ from odoo.tools.float_utils import float_round
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
-    internal_secondary_uom_id = fields.Many2one(
+    alt_secondary_uom_id = fields.Many2one(
         comodel_name="product.secondary.unit",
-        string="Internal Secondary Unit",
+        string="Alternative Secondary Unit",
     )
-    internal_secondary_qty = fields.Float(
+    alt_secondary_qty = fields.Float(
         digits="Product Unit of Measure",
-        compute="_compute_internal_secondary_qty",
-        inverse="_inverse_internal_secondary_qty",
+        compute="_compute_alt_secondary_qty",
+        inverse="_inverse_alt_secondary_qty",
         store=True,
         readonly=False,
     )
 
-    def _convert_qty_to_internal_secondary_uom(self):
+    def _convert_qty_to_alt_secondary_uom(self):
         self.ensure_one()
-        uom = self.internal_secondary_uom_id
+        uom = self.alt_secondary_uom_id
         qty = self.product_uom_qty
         uom_line = self.product_uom
         uom_product = self.product_id.uom_id
@@ -33,23 +33,21 @@ class SaleOrderLine(models.Model):
             precision_rounding=uom.uom_id.rounding,
         )
 
-    @api.depends(
-        "product_id", "product_uom_qty", "product_uom", "internal_secondary_uom_id"
-    )
-    def _compute_internal_secondary_qty(self):
+    @api.depends("product_id", "product_uom_qty", "product_uom", "alt_secondary_uom_id")
+    def _compute_alt_secondary_qty(self):
         for line in self:
-            uom = line.internal_secondary_uom_id
+            uom = line.alt_secondary_uom_id
             if not uom or uom.dependency_type == "independent":
-                line.internal_secondary_qty = 0.0
+                line.alt_secondary_qty = 0.0
                 continue
-            line.internal_secondary_qty = line._convert_qty_to_internal_secondary_uom()
+            line.alt_secondary_qty = line._convert_qty_to_alt_secondary_uom()
 
-    def _inverse_internal_secondary_qty(self):
+    def _inverse_alt_secondary_qty(self):
         for line in self:
-            uom = line.internal_secondary_uom_id
+            uom = line.alt_secondary_uom_id
             if not uom or uom.dependency_type == "independent" or not line.product_id:
                 continue
-            base_qty = line.internal_secondary_qty * (uom.factor or 1.0)
+            base_qty = line.alt_secondary_qty * (uom.factor or 1.0)
             line.product_uom_qty = line.product_id.uom_id._compute_quantity(
                 base_qty, line.product_uom
             )
