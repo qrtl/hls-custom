@@ -53,4 +53,3 @@ class SaleOrderLine(models.Model):
             line.product_uom_qty = line.product_id.uom_id._compute_quantity(
                 base_qty, line.product_uom
             )
-            line.env.remove_to_compute(line._fields["internal_secondary_qty"], line)

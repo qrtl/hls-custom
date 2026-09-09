@@ -11,7 +11,6 @@
                 expr="//field[@name='order_line']/list//field[@name='secondary_uom_qty']"
                 position="before"
             >
-                <field name="product_template_id" column_invisible="1" />
                 <field
                     name="internal_secondary_qty"
                     groups="uom.group_uom"
@@ -19,7 +18,9 @@
                 />
                 <field
                     name="internal_secondary_uom_id"
-                    domain="[('product_tmpl_id', '=', product_template_id)]"
+                    domain="product_id and ['|', ('product_id', '=', product_id),
+                                '&amp;', ('product_tmpl_id.product_variant_ids', 'in', [product_id]),
+                                         ('product_id', '=', False)] or [(0, '=', 1)]"
                     options="{'no_create': True}"
                     readonly="product_uom_readonly"
                     groups="uom.group_uom"
