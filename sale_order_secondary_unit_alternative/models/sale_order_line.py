@@ -53,14 +53,11 @@ class SaleOrderLine(models.Model):
             )
 
     @api.onchange("alt_secondary_qty")
-    def _onchange_alt_secondary_qty(self):
+    def _inverse_alt_secondary_qty(self):
         self._apply_alt_secondary_qty()
         # Keep the value entered by the user: writing product_uom_qty above marks
         # this field to be recomputed from it.
         self.env.remove_to_compute(self._fields["alt_secondary_qty"], self)
-
-    def _inverse_alt_secondary_qty(self):
-        self._apply_alt_secondary_qty()
         # On create(), secondary_uom_qty is precomputed (and thus protected) before
-        # this inverse updates product_uom_qty, so it would keep a stale value.
+        # this method updates product_uom_qty, so it would keep a stale value.
         self.env.add_to_compute(self._fields["secondary_uom_qty"], self)
