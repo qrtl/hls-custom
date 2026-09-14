@@ -42,7 +42,7 @@ class SaleOrderLine(models.Model):
                 continue
             line.alt_secondary_qty = line._convert_qty_to_alt_secondary_uom()
 
-    def _inverse_alt_secondary_qty(self):
+    def _apply_alt_secondary_qty(self):
         for line in self:
             uom = line.alt_secondary_uom_id
             if not uom or uom.dependency_type == "independent" or not line.product_id:
@@ -51,3 +51,16 @@ class SaleOrderLine(models.Model):
             line.product_uom_qty = line.product_id.uom_id._compute_quantity(
                 base_qty, line.product_uom
             )
+
+    @api.onchange("alt_secondary_qty")
+    def _onchange_alt_secondary_qty(self):
+        self._apply_alt_secondary_qty()
+        # Keep the value entered by the user: writing product_uom_qty above marks
+        # this field to be recomputed from it.
+        self.env.remove_to_compute(self._fields["alt_secondary_qty"], self)
+
+    def _inverse_alt_secondary_qty(self):
+        self._apply_alt_secondary_qty()
+        # On create(), secondary_uom_qty is precomputed (and thus protected) before
+        # this inverse updates product_uom_qty, so it would keep a stale value.
+        self.env.add_to_compute(self._fields["secondary_uom_qty"], self)
