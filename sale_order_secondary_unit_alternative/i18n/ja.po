@@ -1,0 +1,31 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_order_secondary_unit_alternative
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-25 06:31+0000\n"
+"PO-Revision-Date: 2026-09-25 06:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_order_secondary_unit_alternative
+#: model:ir.model.fields,field_description:sale_order_secondary_unit_alternative.field_sale_order_line__alt_secondary_qty
+msgid "Alt Secondary Qty"
+msgstr "代替副数量"
+
+#. module: sale_order_secondary_unit_alternative
+#: model:ir.model.fields,field_description:sale_order_secondary_unit_alternative.field_sale_order_line__alt_secondary_uom_id
+msgid "Alternative Secondary Unit"
+msgstr "代替副単位"
+
+#. module: sale_order_secondary_unit_alternative
+#: model:ir.model,name:sale_order_secondary_unit_alternative.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "販売オーダ明細"
